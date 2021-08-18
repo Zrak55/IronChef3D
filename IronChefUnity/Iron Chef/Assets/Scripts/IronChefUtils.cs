@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public static class IronChefUtils
 {
@@ -32,5 +33,11 @@ public static class IronChefUtils
             inputDirection = new Vector3((inputDirection.x * Mathf.Cos(Mathf.Deg2Rad * angle)) - (inputDirection.z * Mathf.Sin(Mathf.Deg2Rad * angle)), 0, (inputDirection.x * Mathf.Sin(Mathf.Deg2Rad * angle)) + (inputDirection.z * Mathf.Cos(Mathf.Deg2Rad * angle)));
         }
         return inputDirection;
+    }
+
+    public static bool MouseOnly()
+    {
+        return Gamepad.all.Count == 0;
+        
     }
 }

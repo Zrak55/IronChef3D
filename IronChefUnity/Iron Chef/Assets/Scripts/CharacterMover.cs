@@ -49,6 +49,7 @@ public class CharacterMover : MonoBehaviour
         inputDirection = getMovementInputVector();
 
         //Movement of character
+        //TODO: Acceleration vs instant velocity
         Vector3 camFacing = cam.transform.forward;
         camFacing.y = 0;
         camFacing = camFacing.normalized;
