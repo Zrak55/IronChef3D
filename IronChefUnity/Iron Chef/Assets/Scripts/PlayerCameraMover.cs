@@ -19,7 +19,8 @@ public class PlayerCameraMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //TODO: Enable on pause/unpause
+        MouseOff();
     }
 
     // Update is called once per frame
@@ -46,5 +47,22 @@ public class PlayerCameraMover : MonoBehaviour
         
 
         return controls.Gameplay.RotateCamera.ReadValue<float>();
+    }
+
+    public void MouseOff()
+    {
+        if(IronChefUtils.MouseOnly())
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+    public void MouseOn()
+    {
+        if (IronChefUtils.MouseOnly())
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
