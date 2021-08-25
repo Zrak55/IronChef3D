@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCostCooldownManager : MonoBehaviour
 {
     public float JumpCost = 30f;
+    public float RollCost = 30f;
+    public float SpringCostPerSecond = 10f;
 
 
     // Start is called before the first frame update

@@ -9,11 +9,18 @@ public class PlayerAttackController : MonoBehaviour
 
     public PlayerBasicAttackbox[] PlayerBasics;
     public int currentPlayerBasic = 0;
+
+    public GameObject[] PlayerBasicWeaponModels;
+
+    bool canBasicAttack = true;
     
     
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        currentPlayerBasic = 0;
+        animator.SetInteger("BasicAttackNum", 0);
+
     }
 
     // Start is called before the first frame update
@@ -25,12 +32,60 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckBasicWeaponSwap();
         CheckBasic();
     }
 
+
+
+    private void CheckBasicWeaponSwap()
+    {
+        if(!attacking && canBasicAttack)
+        {
+            bool swapped = false;
+            float input = InputControls.controls.Gameplay.SwapBasicWeapon.ReadValue<float>();
+            if (input > 0)
+            {
+                currentPlayerBasic++;
+                if (currentPlayerBasic == 3)
+                    currentPlayerBasic = 0;
+                swapped = true;
+            }
+            if (input < 0)
+            {
+                currentPlayerBasic--;
+                if (currentPlayerBasic == -1)
+                    currentPlayerBasic = 2;
+                swapped = true;
+            }
+
+            if (swapped)
+            {
+                animator.SetInteger("BasicAttackNum", currentPlayerBasic);
+                foreach(var w in PlayerBasicWeaponModels)
+                {
+                    w.SetActive(false);
+                }
+                PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
+                StartCoroutine(basicAttackDelay());
+
+            }
+        }
+        
+    }
+    private IEnumerator basicAttackDelay()
+    {
+        canBasicAttack = false;
+        yield return new WaitForSeconds(0.5f);
+        canBasicAttack = true;
+    }
+
+
+
+
     private void CheckBasic()
     {
-        if(!attacking)
+        if(!attacking && canBasicAttack)
         {
 
             if (InputControls.controls.Gameplay.BasicAttack.triggered)
@@ -44,6 +99,7 @@ public class PlayerAttackController : MonoBehaviour
         //TODO: Different anim for different auto
         attacking = true;
         animator.SetBool("BasicAttack", true);
+        animator.SetInteger("BasicAttackNum", currentPlayerBasic);
     }
 
     private void BasicHitOn()

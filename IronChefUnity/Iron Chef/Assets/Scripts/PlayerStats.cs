@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterMover))]
 public class PlayerStats : MonoBehaviour
 {
     public float MaximumHP = 100;
@@ -11,10 +12,13 @@ public class PlayerStats : MonoBehaviour
     public float CurrentStamina;
     public float StaminaRegenRate = 10;
 
+    CharacterMover mover;
+
     private void Awake()
     {
         CurrentHP = MaximumHP;
         CurrentStamina = MaximumStamina;
+        mover = GetComponent<CharacterMover>();
     }
     // Start is called before the first frame update
     void Start()
@@ -33,7 +37,11 @@ public class PlayerStats : MonoBehaviour
     {
         if(CurrentStamina < MaximumStamina)
         {
-            CurrentStamina = Mathf.Clamp(CurrentStamina + (StaminaRegenRate * Time.deltaTime), 0, MaximumStamina);
+            if(!mover.IsSprinting())
+            {
+                CurrentStamina = Mathf.Clamp(CurrentStamina + (StaminaRegenRate * Time.deltaTime), 0, MaximumStamina);
+
+            }
         }
     }
 

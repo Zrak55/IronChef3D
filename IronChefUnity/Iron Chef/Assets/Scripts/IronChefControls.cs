@@ -35,6 +35,30 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""80fb8638-2802-44ad-9a68-f306011e6748"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Roll"",
+                    ""type"": ""Button"",
+                    ""id"": ""b68cd4ca-2ec5-44df-a9d0-3d3fc308bfcf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Value"",
+                    ""id"": ""2fc9b839-8874-4e9a-94e9-85bb7538adae"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""BasicAttack"",
                     ""type"": ""Button"",
                     ""id"": ""d459cac4-92f9-46ad-a6f5-365cd2eedeea"",
@@ -43,10 +67,10 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""80fb8638-2802-44ad-9a68-f306011e6748"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""SwapBasicWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""746fba80-55a3-4e5b-b584-ffe76a27ae63"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -219,28 +243,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4de02d3c-9aa3-429d-b3bf-24a36cdadd64"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4a634618-2008-4c1b-ba2c-09b8b66c1bab"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""BasicAttack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""8a68d15d-a303-41b2-b5c0-d26ced50a302"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -260,6 +262,94 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8241d0d-ead1-41e1-9763-a0ca9544a510"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c8c8f20-98b7-41c6-a361-0d39ad603a57"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e44a5d30-1bed-488b-808c-a78774b244bc"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""408e93c2-7461-48f6-b493-45576f170fe6"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""28ec9e4b-8ceb-4cb2-8bcb-a26cb52052c3"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapBasicWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""186d0d1f-c08b-441e-9102-19b5e3881969"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapBasicWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4de02d3c-9aa3-429d-b3bf-24a36cdadd64"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasicAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4a634618-2008-4c1b-ba2c-09b8b66c1bab"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BasicAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -270,8 +360,11 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_RotateCamera = m_Gameplay.FindAction("RotateCamera", throwIfNotFound: true);
-        m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_Roll = m_Gameplay.FindAction("Roll", throwIfNotFound: true);
+        m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
+        m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
+        m_Gameplay_SwapBasicWeapon = m_Gameplay.FindAction("SwapBasicWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -323,16 +416,22 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_RotateCamera;
-    private readonly InputAction m_Gameplay_BasicAttack;
     private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_Roll;
+    private readonly InputAction m_Gameplay_Sprint;
+    private readonly InputAction m_Gameplay_BasicAttack;
+    private readonly InputAction m_Gameplay_SwapBasicWeapon;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
         public GameplayActions(@IronChefControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @RotateCamera => m_Wrapper.m_Gameplay_RotateCamera;
-        public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @Roll => m_Wrapper.m_Gameplay_Roll;
+        public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
+        public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
+        public InputAction @SwapBasicWeapon => m_Wrapper.m_Gameplay_SwapBasicWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -348,12 +447,21 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @RotateCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
                 @RotateCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
                 @RotateCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
-                @BasicAttack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
-                @BasicAttack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
-                @BasicAttack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
                 @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Roll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
+                @Roll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
+                @Roll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRoll;
+                @Sprint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSprint;
+                @BasicAttack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
+                @BasicAttack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
+                @BasicAttack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
+                @SwapBasicWeapon.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
+                @SwapBasicWeapon.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
+                @SwapBasicWeapon.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -364,12 +472,21 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @RotateCamera.started += instance.OnRotateCamera;
                 @RotateCamera.performed += instance.OnRotateCamera;
                 @RotateCamera.canceled += instance.OnRotateCamera;
-                @BasicAttack.started += instance.OnBasicAttack;
-                @BasicAttack.performed += instance.OnBasicAttack;
-                @BasicAttack.canceled += instance.OnBasicAttack;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Roll.started += instance.OnRoll;
+                @Roll.performed += instance.OnRoll;
+                @Roll.canceled += instance.OnRoll;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
+                @BasicAttack.started += instance.OnBasicAttack;
+                @BasicAttack.performed += instance.OnBasicAttack;
+                @BasicAttack.canceled += instance.OnBasicAttack;
+                @SwapBasicWeapon.started += instance.OnSwapBasicWeapon;
+                @SwapBasicWeapon.performed += instance.OnSwapBasicWeapon;
+                @SwapBasicWeapon.canceled += instance.OnSwapBasicWeapon;
             }
         }
     }
@@ -378,7 +495,10 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotateCamera(InputAction.CallbackContext context);
-        void OnBasicAttack(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRoll(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnBasicAttack(InputAction.CallbackContext context);
+        void OnSwapBasicWeapon(InputAction.CallbackContext context);
     }
 }

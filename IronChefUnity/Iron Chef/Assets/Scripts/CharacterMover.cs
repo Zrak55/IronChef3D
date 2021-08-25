@@ -9,9 +9,11 @@ using UnityEngine.InputSystem;
 public class CharacterMover : MonoBehaviour
 {
     [Tooltip("The base speed of the player")]
-    public float baseSpeed = 8;
-    public float acceleration = 24;
-    public float jumpSpeed = 9;
+    public float baseSpeed;
+    public float sprintSpeed;
+    public float acceleration;
+    public float jumpSpeed;
+    public float rollSpeed;
 
     [Tooltip("The player's current speed")]
     public float speed;
@@ -23,10 +25,11 @@ public class CharacterMover : MonoBehaviour
     private PlayerCostCooldownManager costmanager;
 
     private bool rolling;
-
+    private bool sprinting;
 
 
     protected Vector3 inputDirection;
+    protected Vector3 direction;
 
 
     public GameObject cam;
@@ -42,7 +45,7 @@ public class CharacterMover : MonoBehaviour
 
     private void Awake()
     {
-        
+
 
         controller = GetComponent<CharacterController>();
         stats = GetComponent<PlayerStats>();
@@ -50,13 +53,16 @@ public class CharacterMover : MonoBehaviour
 
         speed = baseSpeed;
 
+        rolling = false;
+
+
         currentMove = new Vector3(0, 0, 0);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -69,49 +75,130 @@ public class CharacterMover : MonoBehaviour
         camFacing.y = 0;
         camFacing = camFacing.normalized;
 
-        var direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
-        direction *= speed;
+        if(!rolling)
+        {
+            direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
+        }
+        direction = direction.normalized * speed;
         targetMoveSpeed = direction;
         targetMoveSpeed.y = -9.8f;
 
 
-        //Jump
-        if (InputControls.controls.Gameplay.Jump.triggered)
-        {
-            if(stats.TrySpendStamina(costmanager.JumpCost))
-            {
-                currentMove.y = jumpSpeed;
-
-            }
-        }
+        TryRoll();
+        TryJump();
+        TrySprint();
 
 
         currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
+
+
+
         controller.Move(currentMove * Time.deltaTime);
 
 
         //Rotation of model
-        if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             var oldRot = model.transform.rotation;
             model.transform.LookAt(transform.position + direction);
             targetRotation = model.transform.rotation;
             model.transform.rotation = oldRot;
-        }        
+        }
         model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, targetRotation, modelRotSpeed * Time.deltaTime);
 
-        
+
     }
 
     private Vector3 getMovementInputVector()
     {
-        Vector3 input = InputControls.controls.Gameplay.Move.ReadValue<Vector2>();
-        input = input.normalized;
-        input.z = input.y;
-        input.y = 0;
-        return input;
+        if(rolling)
+        {
+            return direction.normalized;
+        }
+        else
+        {
+            Vector3 input = InputControls.controls.Gameplay.Move.ReadValue<Vector2>();
+            input = input.normalized;
+            input.z = input.y;
+            input.y = 0;
+            return input;
+
+        }
     }
 
+    private void TryJump()
+    {
+        //Jump
+        if (InputControls.controls.Gameplay.Jump.triggered)
+        {
+            if (stats.TrySpendStamina(costmanager.JumpCost))
+            {
+                currentMove.y = jumpSpeed;
 
+            }
+        }
+    }
+    private void TryRoll()
+    {
+        //Roll
+        if (InputControls.controls.Gameplay.Roll.triggered)
+        {
+            if (!rolling && stats.TrySpendStamina(costmanager.RollCost))
+            {
+                direction = direction.normalized * rollSpeed;
+                currentMove.x = direction.x;
+                currentMove.z = direction.z;
+                rolling = true;
+            }
+        }
 
+        TryUndoRoll();
+    }
+    private void TryUndoRoll()
+    {
+        if (rolling)
+        {
+            Vector3 horizontalMove = currentMove;
+            horizontalMove.y = 0;
+            if (horizontalMove.magnitude <= speed * 1.1f)
+                rolling = false;
+        }
+    }
+
+    private void TrySprint()
+    {
+        float sprintVal = InputControls.controls.Gameplay.Sprint.ReadValue<float>();
+        if(sprintVal > 0 && !rolling)
+        {
+            if(stats.TrySpendStamina(costmanager.SpringCostPerSecond * Time.deltaTime))
+            {
+                sprinting = true;
+            }
+            else
+            {
+                sprinting = false;
+            }
+        }
+        else
+        {
+            sprinting = false;
+        }
+    }
+
+    public float GetBaseSpeed()
+    {
+        if(sprinting)
+        {
+            return sprintSpeed;
+        }
+        else
+        {
+            return baseSpeed;
+        }
+    }
+
+    public bool IsSprinting()
+    {
+        return sprinting;
+    }
 }
