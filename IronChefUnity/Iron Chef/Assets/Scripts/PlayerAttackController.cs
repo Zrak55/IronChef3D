@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
-    private IronChefControls controls;
     private bool attacking = false;
     private Animator animator;
 
@@ -15,8 +14,6 @@ public class PlayerAttackController : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        controls = new IronChefControls(); 
-        controls.Enable();
     }
 
     // Start is called before the first frame update
@@ -36,7 +33,7 @@ public class PlayerAttackController : MonoBehaviour
         if(!attacking)
         {
 
-            if (controls.Gameplay.BasicAttack.triggered)
+            if (InputControls.controls.Gameplay.BasicAttack.triggered)
             {
                 PerformBasic();
             }

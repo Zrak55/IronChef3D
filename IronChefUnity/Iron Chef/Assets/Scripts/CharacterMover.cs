@@ -4,20 +4,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(PlayerStats))]
+[RequireComponent(typeof(PlayerCostCooldownManager))]
 public class CharacterMover : MonoBehaviour
 {
     [Tooltip("The base speed of the player")]
     public float baseSpeed = 8;
-    public float acceleration = 16;
+    public float acceleration = 24;
+    public float jumpSpeed = 9;
 
     [Tooltip("The player's current speed")]
     public float speed;
 
     [Space]
-    [SerializeField]
-    private IronChefControls controls;
 
     private CharacterController controller;
+    private PlayerStats stats;
+    private PlayerCostCooldownManager costmanager;
+
+    private bool rolling;
+
+
 
     protected Vector3 inputDirection;
 
@@ -35,10 +42,11 @@ public class CharacterMover : MonoBehaviour
 
     private void Awake()
     {
-        controls = new IronChefControls();
-        controls.Enable();
+        
 
         controller = GetComponent<CharacterController>();
+        stats = GetComponent<PlayerStats>();
+        costmanager = GetComponent<PlayerCostCooldownManager>();
 
         speed = baseSpeed;
 
@@ -57,7 +65,6 @@ public class CharacterMover : MonoBehaviour
         inputDirection = getMovementInputVector();
 
         //Movement of character
-        //TODO: Acceleration vs instant velocity
         Vector3 camFacing = cam.transform.forward;
         camFacing.y = 0;
         camFacing = camFacing.normalized;
@@ -65,25 +72,40 @@ public class CharacterMover : MonoBehaviour
         var direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
         direction *= speed;
         targetMoveSpeed = direction;
-        currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
+        targetMoveSpeed.y = -9.8f;
 
-        controller.SimpleMove(currentMove);
+
+        //Jump
+        if (InputControls.controls.Gameplay.Jump.triggered)
+        {
+            if(stats.TrySpendStamina(costmanager.JumpCost))
+            {
+                currentMove.y = jumpSpeed;
+
+            }
+        }
+
+
+        currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
+        controller.Move(currentMove * Time.deltaTime);
+
 
         //Rotation of model
-        if(direction == Vector3.zero)
+        if(direction != Vector3.zero)
         {
             var oldRot = model.transform.rotation;
             model.transform.LookAt(transform.position + direction);
             targetRotation = model.transform.rotation;
             model.transform.rotation = oldRot;
         }        
-        model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, model.transform.rotation, modelRotSpeed * Time.deltaTime);
+        model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, targetRotation, modelRotSpeed * Time.deltaTime);
 
+        
     }
 
     private Vector3 getMovementInputVector()
     {
-        Vector3 input = controls.Gameplay.Move.ReadValue<Vector2>();
+        Vector3 input = InputControls.controls.Gameplay.Move.ReadValue<Vector2>();
         input = input.normalized;
         input.z = input.y;
         input.y = 0;
