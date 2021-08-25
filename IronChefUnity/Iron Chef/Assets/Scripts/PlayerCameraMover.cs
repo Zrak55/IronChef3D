@@ -7,13 +7,9 @@ public class PlayerCameraMover : MonoBehaviour
 {
     public GameObject CameraRotation;
 
-    [SerializeField]
-    private IronChefControls controls;
 
     private void Awake()
     {
-        controls = new IronChefControls();
-        controls.Enable();
     }
 
     // Start is called before the first frame update
@@ -46,7 +42,7 @@ public class PlayerCameraMover : MonoBehaviour
     {
         
 
-        return controls.Gameplay.RotateCamera.ReadValue<float>();
+        return InputControls.controls.Gameplay.RotateCamera.ReadValue<float>();
     }
 
     public void MouseOff()

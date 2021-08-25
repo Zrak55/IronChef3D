@@ -41,6 +41,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""80fb8638-2802-44ad-9a68-f306011e6748"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -230,6 +238,28 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a68d15d-a303-41b2-b5c0-d26ced50a302"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""877060c5-9b3d-4883-81b9-c7eb3fd2dffc"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -241,6 +271,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_RotateCamera = m_Gameplay.FindAction("RotateCamera", throwIfNotFound: true);
         m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -293,6 +324,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_RotateCamera;
     private readonly InputAction m_Gameplay_BasicAttack;
+    private readonly InputAction m_Gameplay_Jump;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -300,6 +332,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @RotateCamera => m_Wrapper.m_Gameplay_RotateCamera;
         public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,6 +351,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @BasicAttack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
                 @BasicAttack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
                 @BasicAttack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnBasicAttack;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -331,6 +367,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @BasicAttack.started += instance.OnBasicAttack;
                 @BasicAttack.performed += instance.OnBasicAttack;
                 @BasicAttack.canceled += instance.OnBasicAttack;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -340,5 +379,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnRotateCamera(InputAction.CallbackContext context);
         void OnBasicAttack(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
