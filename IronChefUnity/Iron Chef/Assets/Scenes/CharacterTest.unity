@@ -659,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 3
+  damaged: 0
   currentHP: 0
 --- !u!4 &1065425706
 Transform:
@@ -682,7 +683,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065425700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -704,12 +705,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065425700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df2e6158aa92c724a95ad814f9e40b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHitpoints: {fileID: 0}
   moveTowards: {fileID: 1590578296}
+  aggroDistance: 0
+  moveRange: 0
+  returnRange: 0
+  speed: 5
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0

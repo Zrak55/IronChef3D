@@ -34,6 +34,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         CheckBasicWeaponSwap();
         CheckBasic();
+        CheckFryingPan();
     }
 
 
@@ -116,5 +117,16 @@ public class PlayerAttackController : MonoBehaviour
     {
         attacking = false;
         animator.SetBool("BasicAttack", false);
+    }
+
+    private void CheckFryingPan()
+    {
+        if (InputControls.controls.Gameplay.FryingPan.triggered)
+        {
+            if(!attacking)
+            {
+
+            }
+        }
     }
 }

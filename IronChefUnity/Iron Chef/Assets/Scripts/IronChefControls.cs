@@ -73,6 +73,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""FryingPan"",
+                    ""type"": ""Button"",
+                    ""id"": ""7d0c6a7f-31e5-4666-b688-79a65a18f971"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -350,6 +358,28 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""BasicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4084d310-c794-445f-a2ec-181523469c58"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FryingPan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a695b87a-a38d-4d1e-a1ea-7729cd053ae8"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FryingPan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -365,6 +395,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
         m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
         m_Gameplay_SwapBasicWeapon = m_Gameplay.FindAction("SwapBasicWeapon", throwIfNotFound: true);
+        m_Gameplay_FryingPan = m_Gameplay.FindAction("FryingPan", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -421,6 +452,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Sprint;
     private readonly InputAction m_Gameplay_BasicAttack;
     private readonly InputAction m_Gameplay_SwapBasicWeapon;
+    private readonly InputAction m_Gameplay_FryingPan;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -432,6 +464,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
         public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
         public InputAction @SwapBasicWeapon => m_Wrapper.m_Gameplay_SwapBasicWeapon;
+        public InputAction @FryingPan => m_Wrapper.m_Gameplay_FryingPan;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,6 +495,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @SwapBasicWeapon.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
                 @SwapBasicWeapon.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
                 @SwapBasicWeapon.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSwapBasicWeapon;
+                @FryingPan.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
+                @FryingPan.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
+                @FryingPan.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -487,6 +523,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @SwapBasicWeapon.started += instance.OnSwapBasicWeapon;
                 @SwapBasicWeapon.performed += instance.OnSwapBasicWeapon;
                 @SwapBasicWeapon.canceled += instance.OnSwapBasicWeapon;
+                @FryingPan.started += instance.OnFryingPan;
+                @FryingPan.performed += instance.OnFryingPan;
+                @FryingPan.canceled += instance.OnFryingPan;
             }
         }
     }
@@ -500,5 +539,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnBasicAttack(InputAction.CallbackContext context);
         void OnSwapBasicWeapon(InputAction.CallbackContext context);
+        void OnFryingPan(InputAction.CallbackContext context);
     }
 }
