@@ -660,7 +660,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 3
   damaged: 0
-  currentHP: 0
 --- !u!4 &1065425706
 Transform:
   m_ObjectHideFlags: 0
@@ -710,12 +709,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2e6158aa92c724a95ad814f9e40b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHitpoints: {fileID: 0}
   moveTowards: {fileID: 1590578296}
   aggroDistance: 0
   moveRange: 0
   returnRange: 0
-  speed: 5
+  startSpeed: 5
+  isAggro: 0
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0

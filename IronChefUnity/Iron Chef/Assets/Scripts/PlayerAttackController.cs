@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+    [Header("Basic Attacks")]
     private bool attacking = false;
     private Animator animator;
 
@@ -13,8 +14,12 @@ public class PlayerAttackController : MonoBehaviour
     public GameObject[] PlayerBasicWeaponModels;
 
     bool canBasicAttack = true;
-    
-    
+
+    [Header("Frying Pan")]
+    public GameObject FryingPanPrefab;
+
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -125,6 +130,8 @@ public class PlayerAttackController : MonoBehaviour
         {
             if(!attacking)
             {
+                var fp = Instantiate(FryingPanPrefab, transform.position, transform.rotation);
+                //fp.GetComponent<PlayerProjectile>().FireProjectile()
 
             }
         }

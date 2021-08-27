@@ -25,9 +25,21 @@ public class PlayerProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(travelling)
+        Travel();
+    }
+
+
+    protected virtual void Travel()
+    {
+        if (travelling)
         {
+            var oldTransform = transform.position;
             transform.position = Vector3.MoveTowards(transform.position, transform.position + (direction * speed), speed * Time.deltaTime);
+            currentDistance += (transform.position - oldTransform).magnitude;
+            if (currentDistance > maxAllowedDistance)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -36,17 +48,18 @@ public class PlayerProjectile : MonoBehaviour
         DoCollisionThings(other);
     }
 
-    public virtual void DoCollisionThings(Collider other)
+    protected virtual void DoCollisionThings(Collider other)
     {
         var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
         if(enemyHealth != null)
         {
             enemyHealth.TakeDamage(damage);
             ApplyHitEffects();
+            Destroy(gameObject);
         }
     }
 
-    public virtual void FireProjectile(Vector3 target)
+    protected virtual void FireProjectile(Vector3 target)
     {
         start = transform.position;
         direction = (target - start).normalized;
@@ -54,7 +67,7 @@ public class PlayerProjectile : MonoBehaviour
         travelling = true;
     }
 
-    public virtual void ApplyHitEffects()
+    protected virtual void ApplyHitEffects()
     {
 
     }
