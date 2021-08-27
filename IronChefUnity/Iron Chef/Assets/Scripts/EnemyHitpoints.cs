@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyHitpoints : MonoBehaviour
 {
     public float MaxHP;
-    [SerializeField]
-    protected float currentHP;
+    [HideInInspector] public bool damaged = false;
+    [SerializeField] protected float currentHP;
 
     private void Awake()
     {
@@ -30,6 +30,7 @@ public class EnemyHitpoints : MonoBehaviour
         //TODO: Check powers/status effects for taking damage
         
         currentHP -= amount;
+        damaged = true;
         
         if(currentHP <= 0)
         {
