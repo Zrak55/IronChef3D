@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class EnemyHitpoints : MonoBehaviour
 {
-    public float MaxHP;
+    [Tooltip("Float representing the enemy's starting hitpoints.")]
+    [SerializeField] private float MaxHP;
     [HideInInspector] public bool damaged = false;
-    [SerializeField] protected float currentHP;
+    private float currentHP;
 
     private void Awake()
     {
         currentHP = MaxHP;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void TakeDamage(float amount)

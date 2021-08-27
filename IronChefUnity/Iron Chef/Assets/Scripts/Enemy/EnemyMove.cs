@@ -5,8 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    [Tooltip("Script for the enemy's health.")]
-    [SerializeField] private EnemyHitpoints enemyHitpoints;
     [Tooltip("Gameobject that the enemy will move towards.")]
     [SerializeField] private Transform moveTowards;
     [Tooltip("Distance the enemy begins to target moveTowards.")]
@@ -16,15 +14,18 @@ public class EnemyMove : MonoBehaviour
     [Tooltip("Distance the enemy will re-aggro at from the start point after beginning to return to start after de-aggro.")]
     [SerializeField] private int returnRange;
     [Tooltip("Speed the enemy moves at when going towards moveTowards.")]
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float startSpeed = 5f;
     private Vector3 startPosition;
     private Vector3 currentPosition;
     private NavMeshAgent agent;
+    private EnemyHitpoints enemyHitpoints;
+    [HideInInspector] public bool isAggro = false;
     private bool isReturning = false;
 
     private void OnEnable()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
+        enemyHitpoints = gameObject.GetComponent<EnemyHitpoints>();
         startPosition = gameObject.transform.position;
     }
 
@@ -44,7 +45,8 @@ public class EnemyMove : MonoBehaviour
         if ((playerDistance < aggroDistance && spawnDistance < moveRange && !isReturning) || enemyHitpoints.damaged == true)
         {
             agent.destination = moveTowards.position;
-            agent.speed = speed;
+            agent.speed = startSpeed;
+            //isAggro = true;
         }
         else
         {
@@ -52,7 +54,13 @@ public class EnemyMove : MonoBehaviour
             if (spawnDistance > moveRange)
                 isReturning = true;
             agent.destination = startPosition;
-            agent.speed = speed / 2;
+            agent.speed = startSpeed / 2;
+            isAggro = false;
         }
+    }
+
+    public void Pause(bool isStopped)
+    {
+        agent.isStopped = isStopped;
     }
 }
