@@ -32,7 +32,7 @@ public class CharacterMover : MonoBehaviour
     protected Vector3 direction;
 
 
-    public GameObject cam;
+    GameObject cam;
 
     public GameObject model;
     private float modelRotSpeed = 360f;
@@ -41,7 +41,9 @@ public class CharacterMover : MonoBehaviour
     Quaternion targetRotation;
     Vector3 currentMove;
     Vector3 targetMoveSpeed;
-
+    [Space]
+    public Transform CamFollowPoint;
+    public Transform CamLookPoint;
 
     private void Awake()
     {
@@ -57,6 +59,8 @@ public class CharacterMover : MonoBehaviour
 
 
         currentMove = new Vector3(0, 0, 0);
+
+        cam = FindObjectOfType<Camera>().gameObject;
     }
 
     // Start is called before the first frame update

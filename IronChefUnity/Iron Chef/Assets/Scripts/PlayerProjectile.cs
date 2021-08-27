@@ -59,7 +59,7 @@ public class PlayerProjectile : MonoBehaviour
         }
     }
 
-    protected virtual void FireProjectile(Vector3 target)
+    public virtual void FireProjectile(Vector3 target)
     {
         start = transform.position;
         direction = (target - start).normalized;

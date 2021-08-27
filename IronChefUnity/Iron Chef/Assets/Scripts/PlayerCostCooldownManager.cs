@@ -9,6 +9,12 @@ public class PlayerCostCooldownManager : MonoBehaviour
     public float SpringCostPerSecond = 10f;
 
 
+    public float FryingPanCooldown = 5f;
+    [HideInInspector]
+    public bool FryingPanOnCooldown = false;
+    float currentFryingPanCooldown = 0;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +24,20 @@ public class PlayerCostCooldownManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cooldownAll();
     }
 
+    void cooldownAll()
+    {
+        if(currentFryingPanCooldown > 0)
+        {
+            currentFryingPanCooldown -= Time.deltaTime;
+        }
+        FryingPanOnCooldown = currentFryingPanCooldown > 0;
+    }
+
+    public void SetFryingPanCooldown()
+    {
+        currentFryingPanCooldown = FryingPanCooldown;
+    }
 }

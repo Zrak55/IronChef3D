@@ -25,6 +25,7 @@ public static class Settings
         {
             _Sensitivity = value;
             PlayerPrefs.SetFloat("Sensitivity", _Sensitivity);
+            SaveAllPrefs();
         }
     }
 

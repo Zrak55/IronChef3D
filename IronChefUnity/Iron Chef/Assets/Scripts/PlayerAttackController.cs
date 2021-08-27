@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerCostCooldownManager))]
 public class PlayerAttackController : MonoBehaviour
 {
     [Header("Basic Attacks")]
@@ -20,11 +21,16 @@ public class PlayerAttackController : MonoBehaviour
 
 
 
+
+    PlayerCostCooldownManager CDandCost;
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         currentPlayerBasic = 0;
         animator.SetInteger("BasicAttackNum", 0);
+        CDandCost = GetComponent<PlayerCostCooldownManager>();
 
     }
 
@@ -128,11 +134,11 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (InputControls.controls.Gameplay.FryingPan.triggered)
         {
-            if(!attacking)
+            if(!attacking && CDandCost.FryingPanOnCooldown == false)
             {
                 var fp = Instantiate(FryingPanPrefab, transform.position, transform.rotation);
-                //fp.GetComponent<PlayerProjectile>().FireProjectile()
-
+                fp.GetComponent<PlayerProjectile>().FireProjectile(transform.position + transform.forward);
+                CDandCost.SetFryingPanCooldown();
             }
         }
     }
