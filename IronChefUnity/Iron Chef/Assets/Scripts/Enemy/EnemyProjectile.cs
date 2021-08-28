@@ -6,10 +6,10 @@ public class EnemyProjectile : MonoBehaviour
 {
     [Tooltip("Gameobject the enemy creates with its attacks.")]
     [SerializeField] private GameObject projectile;
+    [Tooltip("Vector3 indicating the location the projectile spawns relative to the enemy.")]
+    [SerializeField] private Vector3 spawn;
     //private Animator animator;
     private EnemyMove enemyMove;
-    private Vector3 currentPosition;
-    private bool coroutineRunning;
 
     private void OnEnable()
     {
@@ -20,20 +20,16 @@ public class EnemyProjectile : MonoBehaviour
 
     private void Update()
     {
-        if (enemyMove.isAggro == true && coroutineRunning == false)
-            StartCoroutine("Projectile");
-        else if (coroutineRunning == true)
+        //Later on, add logic here for when enemy attacks. Different enemies will attack at different times in different ways.
+        if (enemyMove.isAggro == true)
         {
-            StopCoroutine("Projectile");
-            coroutineRunning = false;
+            Invoke("projectileAttack", 2f);
+            this.enabled = false;
         }
     }
 
-    IEnumerator Projectile()
+    private void projectileAttack()
     {
-        currentPosition = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
-        Instantiate(projectile, currentPosition, gameObject.transform.rotation, gameObject.transform);
-        coroutineRunning = true;
-        yield return new WaitForSeconds(10f);
+        Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
     }
 }

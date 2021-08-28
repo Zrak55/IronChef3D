@@ -46,7 +46,7 @@ public class EnemyMove : MonoBehaviour
         {
             agent.destination = moveTowards.position;
             agent.speed = startSpeed;
-            //isAggro = true;
+            isAggro = true;
         }
         else
         {
@@ -55,7 +55,8 @@ public class EnemyMove : MonoBehaviour
                 isReturning = true;
             agent.destination = startPosition;
             agent.speed = startSpeed / 2;
-            isAggro = false;
+            if (!enemyHitpoints.damaged)
+                isAggro = false;
         }
     }
 

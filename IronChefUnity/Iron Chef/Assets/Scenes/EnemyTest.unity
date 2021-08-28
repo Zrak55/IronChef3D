@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
+  spawn: {x: 0, y: 1, z: 0}
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0

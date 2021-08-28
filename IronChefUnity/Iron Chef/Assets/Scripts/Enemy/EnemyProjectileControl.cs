@@ -14,7 +14,7 @@ public class EnemyProjectileControl : MonoBehaviour
     private void Update()
     {
         currentPosition = gameObject.transform.position;
-        gameObject.transform.position = new Vector3(currentPosition.x + speed * Time.deltaTime, currentPosition.y, currentPosition.z);
+        gameObject.transform.position += transform.forward * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
