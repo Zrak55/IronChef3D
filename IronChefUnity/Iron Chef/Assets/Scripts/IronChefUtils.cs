@@ -41,4 +41,16 @@ public static class IronChefUtils
         return Gamepad.all.Count == 0;
         
     }
+
+    public static Vector3 RotateUpByDegree(Vector3 forward, float angle)
+    {
+        forward = forward.normalized;
+
+        float Distance = Vector2.Distance(Vector2.right, new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+
+        forward = Vector3.MoveTowards(forward, Vector3.up, Distance);
+
+        return forward;
+
+    }
 }

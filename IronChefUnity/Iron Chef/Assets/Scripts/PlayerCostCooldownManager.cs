@@ -15,6 +15,11 @@ public class PlayerCostCooldownManager : MonoBehaviour
     float currentFryingPanCooldown = 0;
 
 
+    public float PowerCooldown;
+    [HideInInspector]
+    public float currentPowerCooldown = 0;
+    public bool PowerOnCooldown = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +39,21 @@ public class PlayerCostCooldownManager : MonoBehaviour
             currentFryingPanCooldown -= Time.deltaTime;
         }
         FryingPanOnCooldown = currentFryingPanCooldown > 0;
+
+        if(currentPowerCooldown > 0)
+        {
+            currentPowerCooldown -= Time.deltaTime;
+        }
+        PowerOnCooldown = currentPowerCooldown <= 0;
     }
 
     public void SetFryingPanCooldown()
     {
         currentFryingPanCooldown = FryingPanCooldown;
+    }
+
+    public void SetPowerCooldown()
+    {
+        currentPowerCooldown = PowerCooldown;
     }
 }
