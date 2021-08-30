@@ -20,11 +20,14 @@ public class EnemyMove : MonoBehaviour
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
     [HideInInspector] public bool isAggro = false;
+    [HideInInspector] public float playerDistance;
     private bool isReturning = false;
+    private EnemyAttack enemyAttack;
 
     private void OnEnable()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
+        enemyAttack = gameObject.GetComponent<EnemyAttack>();
         enemyHitpoints = gameObject.GetComponent<EnemyHitpoints>();
         startPosition = gameObject.transform.position;
     }
@@ -34,7 +37,7 @@ public class EnemyMove : MonoBehaviour
         //Distance from the enemy's start location to its current location
         float spawnDistance = Vector3.Distance(startPosition, gameObject.transform.position);
         //Distance from moveTowards to the enemy's current location
-        float playerDistance = Vector3.Distance(moveTowards.position, gameObject.transform.position);
+        playerDistance = Vector3.Distance(moveTowards.position, gameObject.transform.position);
 
         //Reverts the enemy to the original state after returning to spawn
         if (spawnDistance < returnRange)

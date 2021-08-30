@@ -552,10 +552,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 815076193, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
-      propertyPath: IFramesAmount
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 2978522925722276983, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -629,6 +625,7 @@ GameObject:
   - component: {fileID: 1065425708}
   - component: {fileID: 1065425709}
   - component: {fileID: 1065425710}
+  - component: {fileID: 1065425711}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -810,6 +807,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &1065425711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065425700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a2d9f308802b7a43b9b07cec9986a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 5
+  hitCenter: {x: 0, y: 0, z: 1}
+  hitSize: {x: 1, y: 1, z: 1}
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0

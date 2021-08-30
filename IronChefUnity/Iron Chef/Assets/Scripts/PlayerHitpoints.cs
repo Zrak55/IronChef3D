@@ -35,7 +35,6 @@ public class PlayerHitpoints : MonoBehaviour
             {
                 Die();
             }
-            Debug.Log(isIFrames);
         }
     }
     public void Die()
