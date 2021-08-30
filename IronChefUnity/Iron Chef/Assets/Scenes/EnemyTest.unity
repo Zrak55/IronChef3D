@@ -552,6 +552,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 815076193, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
+      propertyPath: IFramesAmount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2978522925722276983, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -602,23 +606,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
---- !u!1 &815076192 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2978522925722276983, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
-  m_PrefabInstance: {fileID: 815076191}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &815076193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815076192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1fc1911d5dfb1a4fb7f267795a90009, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &815076202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2978522925722276989, guid: f5618bc6daef6074bbeb9f1ed0a59fe3, type: 3}
@@ -641,6 +628,7 @@ GameObject:
   - component: {fileID: 1065425707}
   - component: {fileID: 1065425708}
   - component: {fileID: 1065425709}
+  - component: {fileID: 1065425710}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -809,6 +797,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
   spawn: {x: 0, y: 1, z: 0}
+--- !u!114 &1065425710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065425700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0
