@@ -23,6 +23,7 @@ public class EnemyMove : MonoBehaviour
     [HideInInspector] public float playerDistance;
     private bool isReturning = false;
     private EnemyAttack enemyAttack;
+    private Animator anim;
 
     private void OnEnable()
     {
@@ -30,6 +31,7 @@ public class EnemyMove : MonoBehaviour
         enemyAttack = gameObject.GetComponent<EnemyAttack>();
         enemyHitpoints = gameObject.GetComponent<EnemyHitpoints>();
         startPosition = gameObject.transform.position;
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -61,6 +63,12 @@ public class EnemyMove : MonoBehaviour
             if (!enemyHitpoints.damaged)
                 isAggro = false;
         }
+
+        //If the enemy isn't at its destination, then it is moving
+        if (agent.destination != gameObject.transform.position)
+            anim.SetBool("Walking", true);
+        else
+            anim.SetBool("Walking", false);
     }
 
     public void Pause(bool isStopped)

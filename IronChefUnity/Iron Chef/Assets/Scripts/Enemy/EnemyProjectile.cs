@@ -8,13 +8,12 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [Tooltip("Vector3 indicating the location the projectile spawns relative to the enemy.")]
     [SerializeField] private Vector3 spawn;
-    //private Animator animator;
+    private Animator anim;
     private EnemyMove enemyMove;
 
     private void OnEnable()
     {
-        //There isn't an animator yet
-        //animator = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
         enemyMove = gameObject.GetComponent<EnemyMove>();
     }
 
@@ -30,6 +29,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void projectileAttack()
     {
+        anim.SetTrigger("Projectile");
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
     }
 }
