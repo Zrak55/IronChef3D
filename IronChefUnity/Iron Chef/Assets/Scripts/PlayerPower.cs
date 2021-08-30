@@ -35,10 +35,9 @@ public class PlayerPower : MonoBehaviour
 
     public virtual void PerformPower()
     {
-        if(cooldownManager.PowerOnCooldown == false)
-        {
-            anim.SetInteger("PowerNumber", powerInformation.animationNumber);
-        }
+
+        anim.SetInteger("PowerNumber", powerInformation.animationNumber);
+
     }
 
     public virtual void DoPowerEffects()

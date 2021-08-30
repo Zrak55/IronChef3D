@@ -28,14 +28,19 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(CanHit)
+        DoCollisionThings(other);
+    }
+
+    private void DoCollisionThings(Collider other)
+    {
+        if (CanHit)
         {
             var opponent = other.gameObject.GetComponentInParent<EnemyHitpoints>();
-            if(opponent != null)
+            if (opponent != null)
             {
-                if(!enemiesHit.Contains(opponent))
+                if (!enemiesHit.Contains(opponent))
                 {
-                    if(IsCleave || enemiesHit.Count < 1)
+                    if (IsCleave || enemiesHit.Count < 1)
                     {
                         Debug.Log("Hit!");
                         enemiesHit.Add(opponent);

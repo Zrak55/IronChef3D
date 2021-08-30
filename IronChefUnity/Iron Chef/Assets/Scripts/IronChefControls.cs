@@ -81,6 +81,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePower"",
+                    ""type"": ""Button"",
+                    ""id"": ""feb2ab15-5077-4252-89b9-1e022b621357"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -380,6 +388,28 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""FryingPan"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1d6537b-2cf9-45d2-a863-b663d50bcb25"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5896cde4-96d7-4ccb-ab42-39a62571ac54"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePower"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -396,6 +426,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
         m_Gameplay_SwapBasicWeapon = m_Gameplay.FindAction("SwapBasicWeapon", throwIfNotFound: true);
         m_Gameplay_FryingPan = m_Gameplay.FindAction("FryingPan", throwIfNotFound: true);
+        m_Gameplay_UsePower = m_Gameplay.FindAction("UsePower", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -453,6 +484,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_BasicAttack;
     private readonly InputAction m_Gameplay_SwapBasicWeapon;
     private readonly InputAction m_Gameplay_FryingPan;
+    private readonly InputAction m_Gameplay_UsePower;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -465,6 +497,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
         public InputAction @SwapBasicWeapon => m_Wrapper.m_Gameplay_SwapBasicWeapon;
         public InputAction @FryingPan => m_Wrapper.m_Gameplay_FryingPan;
+        public InputAction @UsePower => m_Wrapper.m_Gameplay_UsePower;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -498,6 +531,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @FryingPan.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
                 @FryingPan.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
                 @FryingPan.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
+                @UsePower.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
+                @UsePower.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
+                @UsePower.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -526,6 +562,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @FryingPan.started += instance.OnFryingPan;
                 @FryingPan.performed += instance.OnFryingPan;
                 @FryingPan.canceled += instance.OnFryingPan;
+                @UsePower.started += instance.OnUsePower;
+                @UsePower.performed += instance.OnUsePower;
+                @UsePower.canceled += instance.OnUsePower;
             }
         }
     }
@@ -540,5 +579,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnBasicAttack(InputAction.CallbackContext context);
         void OnSwapBasicWeapon(InputAction.CallbackContext context);
         void OnFryingPan(InputAction.CallbackContext context);
+        void OnUsePower(InputAction.CallbackContext context);
     }
 }

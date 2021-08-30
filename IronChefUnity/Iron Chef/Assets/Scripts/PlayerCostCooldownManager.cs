@@ -16,14 +16,14 @@ public class PlayerCostCooldownManager : MonoBehaviour
 
 
     public float PowerCooldown;
-    [HideInInspector]
-    public float currentPowerCooldown = 0;
+    float currentPowerCooldown = 0;
     public bool PowerOnCooldown = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentFryingPanCooldown = 0;
+        currentPowerCooldown = 0;
     }
 
     // Update is called once per frame
@@ -44,7 +44,7 @@ public class PlayerCostCooldownManager : MonoBehaviour
         {
             currentPowerCooldown -= Time.deltaTime;
         }
-        PowerOnCooldown = currentPowerCooldown <= 0;
+        PowerOnCooldown = currentPowerCooldown > 0;
     }
 
     public void SetFryingPanCooldown()

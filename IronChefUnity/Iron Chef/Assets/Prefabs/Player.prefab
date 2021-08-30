@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8613754648391211620}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RollingPin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,89 @@ Transform:
   m_Children:
   - {fileID: 6970367606126524257}
   m_Father: {fileID: 2978522925548265648}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &663030019341226595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7167398767802955925}
+  - component: {fileID: 8872982760903671234}
+  - component: {fileID: 559343397788425382}
+  m_Layer: 6
+  m_Name: Malapeno
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7167398767802955925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663030019341226595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.613, y: 0.711, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 2978522925548265648}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8872982760903671234
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663030019341226595}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &559343397788425382
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 663030019341226595}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1906057242449987415
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2430084910336362509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CamFollowTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9109221223683227776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FiletKnife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +216,36 @@ Transform:
   m_Children:
   - {fileID: 3871078531835118045}
   m_Father: {fileID: 2978522925548265648}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2918853758964027901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7861996478004342187}
+  m_Layer: 6
+  m_Name: ThrowPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7861996478004342187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2918853758964027901}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.613, y: 0.7800001, z: 0.56}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_Children: []
+  m_Father: {fileID: 2978522925722276989}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2978522925318367644
@@ -149,7 +260,7 @@ GameObject:
   - component: {fileID: 2978522925318367640}
   - component: {fileID: 2978522925318367641}
   - component: {fileID: 2978522925318367646}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -243,7 +354,7 @@ GameObject:
   - component: {fileID: 2978522925548265648}
   - component: {fileID: 2978522925548265650}
   - component: {fileID: 2978522925548265651}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,6 +373,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2978522925318367647}
+  - {fileID: 7167398767802955925}
   - {fileID: 5942961158696322701}
   - {fileID: 8613754648391211620}
   - {fileID: 9109221223683227776}
@@ -335,7 +447,8 @@ GameObject:
   - component: {fileID: 2978522925722276991}
   - component: {fileID: 4662893921699608211}
   - component: {fileID: 815076193}
-  m_Layer: 0
+  - component: {fileID: 3780161931920010553}
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,6 +469,7 @@ Transform:
   - {fileID: 2978522925548265648}
   - {fileID: 6424586891956006155}
   - {fileID: 2430084910336362509}
+  - {fileID: 7861996478004342187}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -434,6 +548,7 @@ MonoBehaviour:
   - {fileID: 2719706488570818475}
   - {fileID: 115281701228691778}
   FryingPanPrefab: {fileID: 4312367088962146410, guid: 182d06f7561ed244089b4fd4612e85e6, type: 3}
+  throwPoint: {fileID: 7861996478004342187}
 --- !u!95 &2978522925722276979
 Animator:
   serializedVersion: 3
@@ -487,6 +602,8 @@ MonoBehaviour:
   SpringCostPerSecond: 10
   FryingPanCooldown: 5
   FryingPanOnCooldown: 0
+  PowerCooldown: 0
+  PowerOnCooldown: 0
 --- !u!114 &4662893921699608211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,6 +629,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IFramesAmount: 2
+--- !u!114 &3780161931920010553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978522925722276983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b835bdcb8fcf04096199bb4edfff32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerInformation: {fileID: 11400000, guid: 0feb79cf8e2425d4c848bde9a9ba9cee, type: 2}
+  anim: {fileID: 2978522925722276979}
+  baseDamagePerSecond: 1
+  baseDuration: 5
+  baseRadius: 10
+  launchAngle: 45
+  launchForce: 10
+  MolapenoPrefab: {fileID: 7219546348998335166, guid: 8daae9b691e2d744ebf1ef7be186a3e8, type: 3}
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0
@@ -526,7 +663,7 @@ GameObject:
   - component: {fileID: 2881450193537037545}
   - component: {fileID: 3915293461956198785}
   - component: {fileID: 1715543014020255076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -650,7 +787,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5942961158696322701}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cleaver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +807,7 @@ Transform:
   m_Children:
   - {fileID: 2720852054476844828}
   m_Father: {fileID: 2978522925548265648}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7298904600468057061
 GameObject:
@@ -686,7 +823,7 @@ GameObject:
   - component: {fileID: 4393590030581818847}
   - component: {fileID: 5415312285623806839}
   - component: {fileID: 8732549883198346558}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +952,7 @@ GameObject:
   - component: {fileID: 7254684251673478069}
   - component: {fileID: 6067214614017079056}
   - component: {fileID: 5668639583765036065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

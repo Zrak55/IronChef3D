@@ -68,6 +68,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "UsePower",
+                    "type": "Button",
+                    "id": "feb2ab15-5077-4252-89b9-1e022b621357",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -365,6 +373,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "FryingPan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1d6537b-2cf9-45d2-a863-b663d50bcb25",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePower",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5896cde4-96d7-4ccb-ab42-39a62571ac54",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UsePower",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

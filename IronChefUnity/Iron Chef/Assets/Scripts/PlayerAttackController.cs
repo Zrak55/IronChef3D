@@ -19,6 +19,8 @@ public class PlayerAttackController : MonoBehaviour
     [Header("Frying Pan")]
     public GameObject FryingPanPrefab;
 
+    [Header("PowerInfo")]
+    public Transform throwPoint;
 
 
 
@@ -46,6 +48,7 @@ public class PlayerAttackController : MonoBehaviour
         CheckBasicWeaponSwap();
         CheckBasic();
         CheckFryingPan();
+        CheckPower();
     }
 
 
@@ -74,17 +77,23 @@ public class PlayerAttackController : MonoBehaviour
             if (swapped)
             {
                 animator.SetInteger("BasicAttackNum", currentPlayerBasic);
-                foreach(var w in PlayerBasicWeaponModels)
-                {
-                    w.SetActive(false);
-                }
-                PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
+                ActivateBasicWeapon();
                 StartCoroutine(basicAttackDelay());
 
             }
         }
         
     }
+
+    private void ActivateBasicWeapon()
+    {
+        foreach (var w in PlayerBasicWeaponModels)
+        {
+            w.SetActive(false);
+        }
+        PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
+    }
+
     private IEnumerator basicAttackDelay()
     {
         canBasicAttack = false;
@@ -141,5 +150,21 @@ public class PlayerAttackController : MonoBehaviour
                 CDandCost.SetFryingPanCooldown();
             }
         }
+    }
+
+
+    private void CheckPower()
+    {
+        //Debug.Log("Input: " + InputControls.controls.Gameplay.UsePower.triggered + " On CD: " + CDandCost.PowerOnCooldown + " Attacking: " + attacking);
+        if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking)
+        {
+            attacking = true;
+            animator.SetBool("UsingPower", true);
+        }
+    }
+    private void EndPower()
+    {
+        attacking = false;
+        animator.SetBool("UsingPower", false);
     }
 }
