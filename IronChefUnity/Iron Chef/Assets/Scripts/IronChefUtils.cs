@@ -46,7 +46,7 @@ public static class IronChefUtils
     {
         forward = forward.normalized;
 
-        float Distance = Vector2.Distance(Vector2.right, new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
+        float Distance = Vector2.Distance(Vector2.right, new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle)));
 
         forward = Vector3.MoveTowards(forward, Vector3.up, Distance);
 
