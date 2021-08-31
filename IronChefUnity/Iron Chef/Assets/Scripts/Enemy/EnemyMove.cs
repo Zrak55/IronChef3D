@@ -15,6 +15,12 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] private int returnRange;
     [Tooltip("Speed the enemy moves at when going towards moveTowards.")]
     [SerializeField] private float startSpeed = 5f;
+
+    [HideInInspector]
+    [Tooltip("The target speed, modified by the EnemySpeedController when effects are applied to the enemy")]
+    private float currentSpeed;
+
+
     private Vector3 startPosition;
     private Vector3 currentPosition;
     private NavMeshAgent agent;
@@ -32,6 +38,7 @@ public class EnemyMove : MonoBehaviour
         enemyHitpoints = gameObject.GetComponent<EnemyHitpoints>();
         startPosition = gameObject.transform.position;
         anim = gameObject.GetComponent<Animator>();
+        currentSpeed = startSpeed;
     }
 
     void Update()
@@ -50,7 +57,7 @@ public class EnemyMove : MonoBehaviour
         if ((playerDistance < aggroDistance && spawnDistance < moveRange && !isReturning) || enemyHitpoints.damaged == true)
         {
             agent.destination = moveTowards.position;
-            agent.speed = startSpeed;
+            agent.speed = currentSpeed;
             isAggro = true;
         }
         else
@@ -59,7 +66,7 @@ public class EnemyMove : MonoBehaviour
             if (spawnDistance > moveRange)
                 isReturning = true;
             agent.destination = startPosition;
-            agent.speed = startSpeed / 2;
+            agent.speed = currentSpeed / 2;
             if (!enemyHitpoints.damaged)
                 isAggro = false;
         }
@@ -74,5 +81,15 @@ public class EnemyMove : MonoBehaviour
     public void Pause(bool isStopped)
     {
         agent.isStopped = isStopped;
+    }
+
+
+    public float GetStartSpeed()
+    {
+        return startSpeed;
+    }
+    public void SetCurrentSpeed(float s)
+    {
+        currentSpeed = s;
     }
 }

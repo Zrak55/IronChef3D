@@ -5,6 +5,13 @@ using UnityEngine.InputSystem;
 
 public static class IronChefUtils
 {
+    public static readonly float InfiniteDuration = -999;
+
+
+
+
+
+
     //Converts the x/z properties of a Vector3 to a Vector2
     public static Vector2 convertV3toV2(Vector3 inVector)
     {

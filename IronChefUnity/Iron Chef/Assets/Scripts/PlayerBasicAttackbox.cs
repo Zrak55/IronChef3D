@@ -6,6 +6,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
 {
     public bool CanHit = false;
     public List<EnemyHitpoints> enemiesHit;
+    private PlayerAttackModifierController modifier;
 
     public bool IsCleave = false;
 
@@ -14,6 +15,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
+        modifier = GetComponentInParent<PlayerAttackModifierController>();
     }
 
     public void HitOn()
@@ -45,8 +47,43 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         Debug.Log("Hit!");
                         enemiesHit.Add(opponent);
 
-                        //TODO: Check for status effects for on hit things
-                        opponent.TakeDamage(damage);
+                        var dmgMod = 0f;
+                        float dmgToDeal;
+                        foreach(var mod in modifier.HitModifiers)
+                        {
+                            dmgMod += mod.damageIncrease;
+                            if(mod.slowAmount > 0)
+                            {
+                                var oppSpeed = opponent.GetComponent<EnemySpeedController>();
+                                bool alreadyThere = false;
+                                foreach(var speedMod in oppSpeed.Modifiers)
+                                {
+                                    if(mod.slowName == speedMod.effectName)
+                                    {
+                                        if(mod.slowDuration > speedMod.duration)
+                                        {
+                                            alreadyThere = true;
+                                            speedMod.duration = mod.slowDuration;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if(!alreadyThere)
+                                {
+                                    SpeedEffector slow = new SpeedEffector();
+                                    slow.duration = mod.slowDuration;
+                                    slow.percentAmount = -mod.slowAmount;
+                                    slow.effectName = mod.slowName;
+                                    oppSpeed.Modifiers.Add(slow);
+                                }
+
+                            }
+                        }
+                        dmgToDeal = damage * (1 + dmgMod);
+
+                        
+
+                        opponent.TakeDamage(dmgToDeal);
                     }
                 }
             }

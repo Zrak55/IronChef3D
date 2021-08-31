@@ -7,4 +7,13 @@ public class SpeedEffector
     [Range(-1, 10)]
     public float percentAmount;
     public float duration;
+    public EffectorName effectName;
+
+
+
+
+    public enum EffectorName
+    {
+        Fridge
+    }
 }

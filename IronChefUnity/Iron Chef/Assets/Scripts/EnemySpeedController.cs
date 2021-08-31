@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(CharacterMover))]
-public class PlayerSpeedController : MonoBehaviour
+[RequireComponent(typeof(EnemyMove))]
+public class EnemySpeedController : MonoBehaviour
 {
-    CharacterMover mover;
-    
+    EnemyMove mover;
+    [SerializeField]
     public List<SpeedEffector> Modifiers;
     List<SpeedEffector> removeList;
 
@@ -15,13 +15,13 @@ public class PlayerSpeedController : MonoBehaviour
     {
         Modifiers = new List<SpeedEffector>();
         removeList = new List<SpeedEffector>();
-        mover = GetComponent<CharacterMover>();
+        mover = GetComponent<EnemyMove>();
     }
 
     private void Update()
     {
         float totalMod = 1;
-        foreach(var mod in Modifiers)
+        foreach (var mod in Modifiers)
         {
             totalMod += mod.percentAmount;
             if(mod.duration != IronChefUtils.InfiniteDuration)
@@ -31,14 +31,15 @@ public class PlayerSpeedController : MonoBehaviour
                 {
                     removeList.Add(mod);
                 }
+
             }
         }
-        foreach(var mod in removeList)
+        foreach (var mod in removeList)
         {
             Modifiers.Remove(mod);
         }
         removeList.Clear();
 
-        mover.speed = mover.GetBaseSpeed() * totalMod;
+        mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
     }
 }

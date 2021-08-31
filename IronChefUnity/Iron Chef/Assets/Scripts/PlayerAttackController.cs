@@ -25,6 +25,7 @@ public class PlayerAttackController : MonoBehaviour
 
 
     PlayerCostCooldownManager CDandCost;
+    CharacterMover mover;
 
 
     private void Awake()
@@ -33,7 +34,7 @@ public class PlayerAttackController : MonoBehaviour
         currentPlayerBasic = 0;
         animator.SetInteger("BasicAttackNum", 0);
         CDandCost = GetComponent<PlayerCostCooldownManager>();
-
+        mover = GetComponent<CharacterMover>();
     }
 
     // Start is called before the first frame update
@@ -145,13 +146,24 @@ public class PlayerAttackController : MonoBehaviour
         {
             if(!attacking && CDandCost.FryingPanOnCooldown == false)
             {
-                var fp = Instantiate(FryingPanPrefab, transform.position, transform.rotation);
-                fp.GetComponent<PlayerProjectile>().FireProjectile(transform.position + transform.forward);
-                CDandCost.SetFryingPanCooldown();
+                attacking = true;
+                animator.SetBool("RangedAttack", true);
             }
         }
     }
 
+    private void PerformFryingPan()
+    {
+        var fp = Instantiate(FryingPanPrefab, throwPoint.position, mover.model.transform.rotation);;
+        fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + fp.transform.forward);
+        CDandCost.SetFryingPanCooldown();
+    }
+    private void DoneFryingPan()
+    {
+        attacking = false;
+        animator.SetBool("RangedAttack", false);
+        ActivateBasicWeapon();
+    }
 
     private void CheckPower()
     {
