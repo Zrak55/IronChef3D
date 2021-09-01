@@ -448,8 +448,6 @@ GameObject:
   - component: {fileID: 4662893921699608211}
   - component: {fileID: 815076193}
   - component: {fileID: 6411622519581159654}
-  - component: {fileID: 3780161931920010553}
-  - component: {fileID: 8294919023532219026}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -643,39 +641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd52c7e099359024a9f59c56069ccaf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3780161931920010553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2978522925722276983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83b835bdcb8fcf04096199bb4edfff32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  powerInformation: {fileID: 11400000, guid: 0feb79cf8e2425d4c848bde9a9ba9cee, type: 2}
-  anim: {fileID: 2978522925722276979}
-  baseDamagePerSecond: 1
-  baseDuration: 5
-  baseRadius: 10
-  launchAngle: 45
-  launchForce: 10
-  MolapenoPrefab: {fileID: 7219546348998335166, guid: 8daae9b691e2d744ebf1ef7be186a3e8, type: 3}
---- !u!114 &8294919023532219026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2978522925722276983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 149e60d291bc619479802dedd7317786, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  applianceScriptable: {fileID: 11400000, guid: 07ea4fa3dbf3f6c4cb56792d757b2533, type: 2}
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0

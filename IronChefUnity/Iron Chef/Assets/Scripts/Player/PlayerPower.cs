@@ -30,7 +30,7 @@ public class PlayerPower : MonoBehaviour
     protected virtual void DoAwakeThings()
     {
         cooldownManager = GetComponent<PlayerCostCooldownManager>();
-        cooldownManager.PowerCooldown = powerInformation.cooldown;
+        anim = GetComponent<Animator>();
     }
 
     public virtual void PerformPower()
@@ -44,5 +44,11 @@ public class PlayerPower : MonoBehaviour
     {
         cooldownManager.SetPowerCooldown();
         
+    }
+
+    public virtual void SetScriptableData(PlayerPowerScriptable power)
+    {
+        powerInformation = power;
+        cooldownManager.PowerCooldown = powerInformation.cooldown;
     }
 }

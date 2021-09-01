@@ -8,7 +8,6 @@ public class Appliance : MonoBehaviour
 
     private void Awake()
     {
-        ApplyEffects();
     }
 
     // Start is called before the first frame update
@@ -26,5 +25,11 @@ public class Appliance : MonoBehaviour
     protected virtual void ApplyEffects()
     {
 
+    }
+
+    public virtual void SetScriptableData(PlayerApplianceScriptable appliance)
+    {
+        applianceScriptable = appliance;
+        ApplyEffects();
     }
 }

@@ -3,7 +3,10 @@ guid: 83b835bdcb8fcf04096199bb4edfff32
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - powerInformation: {fileID: 11400000, guid: 0feb79cf8e2425d4c848bde9a9ba9cee, type: 2}
+  - anim: {instanceID: 0}
+  - MolapenoPrefab: {fileID: 7219546348998335166, guid: 8daae9b691e2d744ebf1ef7be186a3e8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

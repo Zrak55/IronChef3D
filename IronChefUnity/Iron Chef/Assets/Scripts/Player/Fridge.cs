@@ -10,8 +10,8 @@ public class Fridge : Appliance
 
         PlayerAttackHitModifier mod = new PlayerAttackHitModifier();
         mod.damageIncrease = 0;
-        mod.slowAmount = 0.3f;
-        mod.slowDuration = 5f;
+        mod.slowAmount = applianceScriptable.values[0];
+        mod.slowDuration = applianceScriptable.values[1];
         mod.slowName = SpeedEffector.EffectorName.Fridge;
         mod.duration = IronChefUtils.InfiniteDuration;
 

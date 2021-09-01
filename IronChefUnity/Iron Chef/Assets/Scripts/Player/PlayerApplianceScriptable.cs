@@ -5,7 +5,7 @@ public class PlayerApplianceScriptable : ScriptableObject
 {
     public ApplianceName applianceName;
 
-
+    public float[] values;
 
 
 

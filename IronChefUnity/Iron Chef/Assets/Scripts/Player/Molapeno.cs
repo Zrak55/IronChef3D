@@ -35,4 +35,15 @@ public class Molapeno : PlayerPower
         proj.SetData(baseDamagePerSecond, launchForce, launchAngle, baseDuration, baseRadius);
 
     }
+
+    public override void SetScriptableData(PlayerPowerScriptable power)
+    {
+        base.SetScriptableData(power);
+        baseDamagePerSecond = powerInformation.values[0];
+        baseDuration = powerInformation.values[1];
+        baseRadius = powerInformation.values[2];
+        launchAngle = powerInformation.values[3];
+        launchForce = powerInformation.values[4];
+        MolapenoPrefab = powerInformation.prefabs[0];
+    }
 }

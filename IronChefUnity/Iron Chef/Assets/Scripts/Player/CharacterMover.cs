@@ -62,7 +62,6 @@ public class CharacterMover : MonoBehaviour
 
         cam = FindObjectOfType<Camera>().gameObject;
 
-        IronChefUtils.HideMouse();
     }
 
     // Start is called before the first frame update
