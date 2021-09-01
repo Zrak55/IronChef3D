@@ -78,7 +78,6 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("Walking", false);
 
 
-        Debug.Log(currentSpeed);
     }
 
     public void Pause(bool isStopped)
