@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlayerAttackModifierController : MonoBehaviour
 {
-    public List<PlayerAttackHitModifier> HitModifiers;
+    public List<PlayerAttackHitModifier> HitModifiers = new List<PlayerAttackHitModifier>();
     List<PlayerAttackHitModifier> RemoveHitModifiers;
 
     private void Awake()
     {
-        HitModifiers = new List<PlayerAttackHitModifier>();
         RemoveHitModifiers = new List<PlayerAttackHitModifier>();
     }
 
@@ -45,4 +44,6 @@ public class PlayerAttackModifierController : MonoBehaviour
         }
         RemoveHitModifiers.Clear();
     }
+
+
 }

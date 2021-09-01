@@ -28,9 +28,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""RotateCamera"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""4062c8f3-0767-41cf-aa0a-a12a3cf94b87"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -238,7 +238,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""ae4391be-054d-40cf-867e-82d8bf3c0ad7"",
-                    ""path"": ""<Mouse>/delta/x"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -249,7 +249,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a469766a-8b92-4e61-99b0-dbd3225acfb5"",
-                    ""path"": ""<Gamepad>/rightStick/x"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

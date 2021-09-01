@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerCameraSetup : MonoBehaviour
 {
     public Camera cam;
-    public Cinemachine.CinemachineVirtualCamera cinemachine;
+    public Cinemachine.CinemachineFreeLook cinemachine;
 
 
     private void Awake()
