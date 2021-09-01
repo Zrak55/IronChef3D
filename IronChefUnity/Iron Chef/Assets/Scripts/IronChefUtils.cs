@@ -60,4 +60,17 @@ public static class IronChefUtils
         return forward;
 
     }
+
+
+    public static void HideMouse()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    public static void ShowMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+    }
 }

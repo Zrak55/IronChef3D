@@ -67,7 +67,7 @@ public class PlayerAttackController : MonoBehaviour
                     currentPlayerBasic = 0;
                 swapped = true;
             }
-            if (input < 0)
+            else if (input < 0)
             {
                 currentPlayerBasic--;
                 if (currentPlayerBasic == -1)

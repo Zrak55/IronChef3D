@@ -8,12 +8,11 @@ public class PlayerSpeedController : MonoBehaviour
 {
     CharacterMover mover;
     
-    public List<SpeedEffector> Modifiers;
+    public List<SpeedEffector> Modifiers = new List<SpeedEffector>();
     List<SpeedEffector> removeList;
 
     private void Awake()
     {
-        Modifiers = new List<SpeedEffector>();
         removeList = new List<SpeedEffector>();
         mover = GetComponent<CharacterMover>();
     }
