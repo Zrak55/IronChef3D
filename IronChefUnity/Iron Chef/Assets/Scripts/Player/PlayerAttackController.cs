@@ -88,11 +88,16 @@ public class PlayerAttackController : MonoBehaviour
 
     private void ActivateBasicWeapon()
     {
+        DeactivateBasicWeapon();
+        PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
+    }
+
+    private void DeactivateBasicWeapon()
+    {
         foreach (var w in PlayerBasicWeaponModels)
         {
             w.SetActive(false);
         }
-        PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
     }
 
     private IEnumerator basicAttackDelay()
@@ -118,7 +123,6 @@ public class PlayerAttackController : MonoBehaviour
     }
     private void PerformBasic()
     {
-        //TODO: Different anim for different auto
         attacking = true;
         animator.SetBool("BasicAttack", true);
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
@@ -178,5 +182,6 @@ public class PlayerAttackController : MonoBehaviour
     {
         attacking = false;
         animator.SetBool("UsingPower", false);
+        ActivateBasicWeapon();
     }
 }

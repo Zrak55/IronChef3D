@@ -15,6 +15,10 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
+
+    }
+    private void Start()
+    {
         modifier = GetComponentInParent<PlayerAttackModifierController>();
     }
 
