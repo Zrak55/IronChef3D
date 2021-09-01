@@ -59,27 +59,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             if(mod.slowAmount > 0)
                             {
                                 var oppSpeed = opponent.GetComponent<EnemySpeedController>();
-                                bool alreadyThere = false;
-                                foreach(var speedMod in oppSpeed.Modifiers)
-                                {
-                                    if(mod.slowName == speedMod.effectName)
-                                    {
-                                        if(mod.slowDuration > speedMod.duration)
-                                        {
-                                            alreadyThere = true;
-                                            speedMod.duration = mod.slowDuration;
-                                            break;
-                                        }
-                                    }
-                                }
-                                if(!alreadyThere)
-                                {
-                                    SpeedEffector slow = new SpeedEffector();
-                                    slow.duration = mod.slowDuration;
-                                    slow.percentAmount = -mod.slowAmount;
-                                    slow.effectName = mod.slowName;
-                                    oppSpeed.Modifiers.Add(slow);
-                                }
+                                IronChefUtils.AddSlow(oppSpeed, mod.slowAmount, mod.slowDuration, mod.slowName);
+                                
 
                             }
                         }

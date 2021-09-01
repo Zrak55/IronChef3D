@@ -73,4 +73,57 @@ public static class IronChefUtils
         Cursor.lockState = CursorLockMode.None;
 
     }
+
+
+    public static void AddSlow(EnemySpeedController enemy, float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        bool alreadyThere = false;
+        foreach (var speedMod in enemy.Modifiers)
+        {
+            if (speedMod.effectName == effectName)
+            {
+                if (duration > speedMod.duration)
+                {
+                    alreadyThere = true;
+                    speedMod.duration = duration;
+                    break;
+                }
+            }
+        }
+        if (!alreadyThere)
+        {
+            var slow = MakeSlowEffector(amount, duration, effectName);
+            enemy.Modifiers.Add(slow);
+        }
+    }
+    public static void AddSlow(PlayerSpeedController player, float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        bool alreadyThere = false;
+        foreach (var speedMod in player.Modifiers)
+        {
+            if (speedMod.effectName == effectName)
+            {
+                if (duration > speedMod.duration)
+                {
+                    alreadyThere = true;
+                    speedMod.duration = duration;
+                    break;
+                }
+            }
+        }
+        if (!alreadyThere)
+        {
+            var slow = MakeSlowEffector(amount, duration, effectName);
+            player.Modifiers.Add(slow);
+        }
+    }
+
+    public static SpeedEffector MakeSlowEffector(float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        SpeedEffector slow = new SpeedEffector();
+        slow.duration = duration;
+        slow.percentAmount = -amount;
+        slow.effectName = effectName;
+        return slow;
+    }
 }
