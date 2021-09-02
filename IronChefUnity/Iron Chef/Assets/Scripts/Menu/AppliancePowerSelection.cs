@@ -29,16 +29,18 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             Destroy(player.GetComponent<PlayerPower>());
         }
+
+        PlayerPower power = null;
+
         switch(powerScriptable.powerName)
         {
             case PlayerPowerScriptable.PowerName.Molapeno:
-                player.AddComponent<Molapeno>();
+                power = player.AddComponent<Molapeno>();
                 break;
             default:
                 break;
         }
 
-        var power = player.GetComponent<PlayerPower>();
         if(power!= null)
         {
             power.SetScriptableData(powerScriptable);
@@ -51,16 +53,18 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             Destroy(player.GetComponent<Appliance>());
         }
+
+        Appliance appliance = null;
+
         switch (applianceScriptable.applianceName)
         {
             case PlayerApplianceScriptable.ApplianceName.Fridge:
-                player.AddComponent<Fridge>();
+                appliance = player.AddComponent<Fridge>();
                 break;
             default:
                 break;
         }
 
-        var appliance = player.GetComponent<Appliance>();
         if (appliance != null)
         {
             appliance.SetScriptableData(applianceScriptable);
