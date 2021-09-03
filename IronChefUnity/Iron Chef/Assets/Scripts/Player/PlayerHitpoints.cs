@@ -6,7 +6,6 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerHitpoints : MonoBehaviour
 {
-    //This maybe should be moved to playerStats
     [Tooltip("Float for how much time the player's invicibility after being hit lasts.")]
     [SerializeField] private float IFramesAmount;
     private PlayerStats playerStats;
