@@ -257,7 +257,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31216866}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.3, y: 1.3, z: 1.3}
@@ -545,6 +545,64 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 31.8, y: -46.6, z: 0}
+--- !u!1 &713791101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 713791102}
+  - component: {fileID: 713791104}
+  - component: {fileID: 713791103}
+  m_Layer: 8
+  m_Name: Hurtbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &713791102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713791101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1065425706}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &713791103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713791101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+--- !u!65 &713791104
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713791101}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3, y: 1.3, z: 1.3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &815076191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -625,7 +683,6 @@ GameObject:
   - component: {fileID: 1065425712}
   - component: {fileID: 1065425708}
   - component: {fileID: 1065425709}
-  - component: {fileID: 1065425710}
   - component: {fileID: 1065425711}
   m_Layer: 9
   m_Name: Enemy
@@ -738,6 +795,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 31216867}
+  - {fileID: 713791102}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -789,26 +847,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065425700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034968287a4286e44b0a08795c5e1fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
   spawn: {x: 0, y: 1, z: 0}
---- !u!114 &1065425710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065425700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!114 &1065425711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +867,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 5
+  attackTime: 10
+  time: 3
 --- !u!95 &1065425712
 Animator:
   serializedVersion: 3
@@ -1514,6 +1561,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 719636533, guid: a24b811ce125ca64f8f4e1b0d1667e81, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000002580941
+      objectReference: {fileID: 0}
+    - target: {fileID: 719636533, guid: a24b811ce125ca64f8f4e1b0d1667e81, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000003953814
+      objectReference: {fileID: 0}
     - target: {fileID: 3109323825666893894, guid: a24b811ce125ca64f8f4e1b0d1667e81, type: 3}
       propertyPath: m_Name
       value: PlayerCamera

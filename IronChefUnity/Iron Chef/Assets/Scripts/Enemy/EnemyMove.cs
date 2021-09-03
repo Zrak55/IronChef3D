@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     [Tooltip("Gameobject that the enemy will move towards.")]
-    [SerializeField] private Transform moveTowards;
+    [SerializeField] public Transform moveTowards;
     [Tooltip("Distance the enemy begins to target moveTowards.")]
     [SerializeField] private int aggroDistance;
     [Tooltip("Farthest distance the enemy will move before returning to start, ignored if the enemy is hit.")]
@@ -76,15 +76,12 @@ public class EnemyMove : MonoBehaviour
             anim.SetBool("Walking", true);
         else
             anim.SetBool("Walking", false);
-
-
     }
 
-    public void Pause(bool isStopped)
+    public void movePause(bool isStopped)
     {
         agent.isStopped = isStopped;
     }
-
 
     public float GetStartSpeed()
     {
