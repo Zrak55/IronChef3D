@@ -1,0 +1,23 @@
+Task List:
+
+Alex:
+Level Layout
+	Asset List (Visual)
+	Asset List (Audio)
+	Size, Layout
+
+Spencer:
+Continue AI scripting work
+	Attacks
+
+Wiliiam:
+Model all 1st level monsters/player (first pass)
+Rig Player
+
+
+Zach:
+Tree Modeling
+
+
+Kris:
+Gather all player SFX
