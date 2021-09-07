@@ -1,0 +1,26 @@
+Cleaver (2-4 sounds)
+Rolling Pin (2-4 sounds)
+Filet Knife (2-4 sounds)
+Frying Pan (2-4 sounds)
+Walk cycle
+"Power Activate" sound
+Attack swing/grunts (2-4 sounds)
+Malapeno (explosion splotch + fire crackle)
+Fridge?
+Get Hit noise
+
+
+Walk, attack, die noise for:
+Snakon strip
+Tomatroll
+Crustacean
+Fondemon
+Frits
+Egg
+
+Extra noises for Egg:
+	Rolling bounce off wall
+	egg shell crack
+
+Random sounds:
+Ambience (breeze, birds, foliage, etc)
