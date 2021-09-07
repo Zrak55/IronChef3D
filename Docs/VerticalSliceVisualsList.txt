@@ -1,0 +1,45 @@
+2D
+Menu
+	Title screen art image
+	Logo
+	Buttons
+	Font
+In Game
+	HUD
+		HP bar
+		Stamina bar
+		Minimap?
+		Logo for malapeno
+		Logo for fridge
+	Power Selection
+		popout window
+		powers/appliance logos (malapeno and fridge)
+
+	Particles
+		Blood/Food splatters
+		Fire particles
+		Frosty particles (fridge effect)
+		Flying dirt (enemy slams ground w big attack)
+		Cheese bloop (fondemon projectile hit)
+
+3D
+	Models
+		Iron Chef
+		Snakon Strip
+		Tomatroll
+		Crustacean
+		Fodemon
+		Eggs Benedict
+		Grits Gremlin
+		
+		Trees
+		Fridge
+		Basic Kitchen
+
+		Rolling Pin
+		Cleaver
+		Filet Knife
+		Frying Pan
+		Malapeno projectile
+
+		Fondemon Projectile
