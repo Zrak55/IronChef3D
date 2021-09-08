@@ -43,3 +43,23 @@ In Game
 		Malapeno projectile
 
 		Fondemon Projectile
+	Animations
+		Walk, Attack, Die
+			Tomatroll
+			Crustacean
+			Snakon Strip
+			Fondemon
+			Benedict
+			Grits
+		Power
+			Benedict
+		Player
+			Run
+			Sprint
+			Cleaver
+			Filet
+			Rolling Pin
+			Roll
+			Throw Malapeno
+			Throw Grying Pan
+			Spinning Frying Pan
