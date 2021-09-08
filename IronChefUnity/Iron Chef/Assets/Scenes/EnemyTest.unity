@@ -684,6 +684,8 @@ GameObject:
   - component: {fileID: 1065425708}
   - component: {fileID: 1065425709}
   - component: {fileID: 1065425711}
+  - component: {fileID: 1065425710}
+  - component: {fileID: 1065425713}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -828,7 +830,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065425700}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: df2e6158aa92c724a95ad814f9e40b34, type: 3}
   m_Name: 
@@ -854,7 +856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
   spawn: {x: 0, y: 1, z: 0}
---- !u!114 &1065425711
+--- !u!114 &1065425710
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -863,12 +865,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1065425700}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21a75936665e1924f80321a9aff1128c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1065425711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065425700}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a2d9f308802b7a43b9b07cec9986a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 5
   attackTime: 10
   time: 3
+  turnSpeed: 0
 --- !u!95 &1065425712
 Animator:
   serializedVersion: 3
@@ -888,6 +903,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1065425713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065425700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1178727527
 GameObject:
   m_ObjectHideFlags: 0
