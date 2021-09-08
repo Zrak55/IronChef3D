@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PlayerStats))]
 [RequireComponent(typeof(PlayerCostCooldownManager))]
+[RequireComponent(typeof(PlayerHitpoints))]
 public class CharacterMover : MonoBehaviour
 {
     [Tooltip("The base speed of the player")]
@@ -23,6 +24,7 @@ public class CharacterMover : MonoBehaviour
     private CharacterController controller;
     private PlayerStats stats;
     private PlayerCostCooldownManager costmanager;
+    private PlayerHitpoints hitpoints;
 
     private bool rolling;
     private bool sprinting;
@@ -52,6 +54,7 @@ public class CharacterMover : MonoBehaviour
         controller = GetComponent<CharacterController>();
         stats = GetComponent<PlayerStats>();
         costmanager = GetComponent<PlayerCostCooldownManager>();
+        hitpoints = GetComponent<PlayerHitpoints>();
 
         speed = baseSpeed;
 
@@ -154,6 +157,7 @@ public class CharacterMover : MonoBehaviour
                 currentMove.x = direction.x;
                 currentMove.z = direction.z;
                 rolling = true;
+                hitpoints.InvincibilityFrame(0.75f);
             }
         }
 
@@ -205,5 +209,10 @@ public class CharacterMover : MonoBehaviour
     public bool IsSprinting()
     {
         return sprinting;
+    }
+
+    public bool IsRolling()
+    {
+        return rolling;
     }
 }

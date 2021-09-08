@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerCostCooldownManager))]
+[RequireComponent(typeof(CharacterMover))]
 public class PlayerAttackController : MonoBehaviour
 {
     [Header("Basic Attacks")]
@@ -148,7 +149,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (InputControls.controls.Gameplay.FryingPan.triggered)
         {
-            if(!attacking && CDandCost.FryingPanOnCooldown == false)
+            if(!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
             {
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
@@ -172,7 +173,7 @@ public class PlayerAttackController : MonoBehaviour
     private void CheckPower()
     {
         //Debug.Log("Input: " + InputControls.controls.Gameplay.UsePower.triggered + " On CD: " + CDandCost.PowerOnCooldown + " Attacking: " + attacking);
-        if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking)
+        if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling())
         {
             attacking = true;
             animator.SetBool("UsingPower", true);
