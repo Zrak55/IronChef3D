@@ -5,25 +5,25 @@ using UnityEngine;
 public class BehaviorTree
 {
     //This class is just a container for the root node and some general use functions that apply to the whole tree.
-    Node root;
+    Sequence root;
 
     #region Constructors
     public BehaviorTree()
     {
-        root = new Node("root");
+        root = new Sequence("root");
     }
 
     public BehaviorTree(params Node[] childParam)
     {
-        root = new Node("root", childParam);
+        root = new Sequence("root", childParam);
     }
 
     #endregion
     #region Functions
-    //TODO: implement behavior
     //Include this in the update frame of the enemy behavior script. This is where the logic happens and it iterates through the tree.
     public void behavior()
     {
+        root.proccess();
     }
 
     //Prints out the tree recursively. Note that in Unity you need to click on the debug message to see the whole thing.
