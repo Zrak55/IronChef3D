@@ -29,6 +29,8 @@ public class CharacterMover : MonoBehaviour
     private bool rolling;
     private bool sprinting;
 
+    private bool canSprint = true;
+
 
     protected Vector3 inputDirection;
     protected Vector3 direction;
@@ -177,7 +179,7 @@ public class CharacterMover : MonoBehaviour
     private void TrySprint()
     {
         float sprintVal = InputControls.controls.Gameplay.Sprint.ReadValue<float>();
-        if(sprintVal > 0 && !rolling)
+        if(sprintVal > 0 && !rolling && canSprint)
         {
             if(stats.TrySpendStamina(costmanager.SpringCostPerSecond * Time.deltaTime))
             {
@@ -186,6 +188,7 @@ public class CharacterMover : MonoBehaviour
             else
             {
                 sprinting = false;
+                StartCoroutine(sprintDelay());
             }
         }
         else
@@ -214,5 +217,12 @@ public class CharacterMover : MonoBehaviour
     public bool IsRolling()
     {
         return rolling;
+    }
+
+    private IEnumerator sprintDelay()
+    {
+        canSprint = false;
+        yield return new WaitForSeconds(1f);
+        canSprint = true;
     }
 }
