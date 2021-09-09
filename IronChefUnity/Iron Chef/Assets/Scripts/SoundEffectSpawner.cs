@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundEffectSpawner : MonoBehaviour
 {
-    public static GameObject audioSource;
+    public GameObject audioSource;
+
+    public AudioMixer mixer;
 
     public AudioClip[] CleaverEffects;
     public AudioClip[] RollingPinEffects;
@@ -12,11 +15,15 @@ public class SoundEffectSpawner : MonoBehaviour
 
     
 
-    private static void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip)
+
+
+
+    private void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip)
     {
         var go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
         var ac = go.GetComponent<AudioSource>();
 
+        ac.outputAudioMixerGroup = mixer.FindMatchingGroups("FX")[0];
         ac.volume = volume;
         ac.clip = Clip;
         ac.Play();
@@ -25,7 +32,7 @@ public class SoundEffectSpawner : MonoBehaviour
     }
 
 
-    public static void MakeSoundEffect(Vector3 location, float volume, SoundEffect effect)
+    public void MakeSoundEffect(Vector3 location, float volume, SoundEffect effect)
     {
         AudioClip clipToPlay = null;
 
@@ -45,7 +52,7 @@ public class SoundEffectSpawner : MonoBehaviour
         }
     }
 
-    public static void MakeSoundEffect(Vector3 location, SoundEffect effect)
+    public void MakeSoundEffect(Vector3 location, SoundEffect effect)
     {
         MakeSoundEffect(location, 1, effect);
     }
