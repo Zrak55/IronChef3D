@@ -11,30 +11,18 @@ public class Leaf : Node
     #region Constructors
     Leaf() { }
 
-    //These constructors are the same as the Node class, with the delegate added.
+    public Leaf(string name)
+    {
+        this.name = name;
+
+    }
+
     public Leaf(string name, method leafAction)
     {
         this.name = name;
         this.leafAction = leafAction;
     }
 
-    //Once again, unsure if this constructor will ever be used.
-    public Leaf(method leafAction, params Node[] childParam)
-    {
-        this.leafAction = leafAction;
-        foreach (Node child in childParam)
-        {
-            this.children.Add(child);
-        }
-    }
-
-    public Leaf(string name, method leafAction, params Node[] childParam)
-    {
-        this.name = name;
-        this.leafAction = leafAction;
-        foreach (Node child in childParam)
-            this.children.Add(child);
-    }
     #endregion
     #region Functions
     //Leaf proccess override for leaf, where we run the delegate function.
@@ -44,5 +32,13 @@ public class Leaf : Node
             return STATUS.FAILURE;
         return leafAction();
     }
+
+    //This will run if you forgot to declare a method in the constructor.
+    public Node.STATUS defaultMethod()
+    {
+        Debug.Log("Forgot to declare a method for leaf node " + name + "!");
+        return STATUS.SUCCESS;
+    }
+
     #endregion
 }

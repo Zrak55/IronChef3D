@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 1065425712}
   - component: {fileID: 1065425710}
   - component: {fileID: 1065425713}
+  - component: {fileID: 1065425708}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -808,7 +809,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -820,6 +821,20 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1065425708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065425700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 30
+  damaged: 0
 --- !u!114 &1065425710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -834,6 +849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 815076202}
   aggroRange: 10
+  spawnRange: 50
+  attackRange: 5
 --- !u!95 &1065425712
 Animator:
   serializedVersion: 3

@@ -11,22 +11,41 @@ public class GenericEnemyBehavior : MonoBehaviour
     [SerializeField] private Transform player;
     [Tooltip("Float for the maximum disatnce the enemy will begin to follow the player from.")]
     [SerializeField] private float aggroRange;
+    [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
+    [SerializeField] private float spawnRange;
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
+    [SerializeField] private float attackRange;
+    private NavMeshAgent agent;
+    private EnemyHitpoints enemyHitpoints;
     //Nodes for the behavior tree. Will be adding more later.
-    private Node MoveTowardsPlayer, PlayerSpawnRange;
+    private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
 
     private void Start()
     {
         startPosition = transform.position;
+        agent = GetComponent<NavMeshAgent>();
+        enemyHitpoints = GetComponent<EnemyHitpoints>();
 
-        //Setup behavior tree
-        PlayerSpawnRange = new Leaf("Player in Aggro Range?", checkAggroRange);
+        //Setup leaf nodes
+        EnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
+        PlayerSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
+        PlayerAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
+        PlayerAttackRange = new Leaf("Player in Attack Range?", checkPlayerAttackRange);
         MoveTowardsPlayer = new Leaf("Move towards player", moveTowards);
-        genericBehaviorTree = new BehaviorTree(PlayerSpawnRange, MoveTowardsPlayer);
+        ResetMove = new Leaf("Reset Move", movePause);
+        Attack = new Leaf("Attack", attack);
+
+        //Setup sequence nodes and root
+        CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
+        CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
+        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
+        genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
         genericBehaviorTree.printTree();
     }
 
+    //TODO: Fix multiple things same frame.
     private void Update()
     {
         genericBehaviorTree.behavior();
@@ -35,13 +54,45 @@ public class GenericEnemyBehavior : MonoBehaviour
     //This is intended to be running in the update function through the behavior tree.
     public Node.STATUS moveTowards()
     {
-        Debug.Log("Moving towards the player.");
+        agent.destination = player.transform.position;
         return Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS movePause()
+    {
+        agent.destination = startPosition;
+        return Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS attack()
+    {
+        return Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS checkEnemyHurt()
+    {
+        if (enemyHitpoints.damaged)
+            return Node.STATUS.SUCCESS;
+        return Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkAggroRange()
     {
         if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
+            return Node.STATUS.SUCCESS;
+        return Node.STATUS.FAILURE;
+    }
+
+    public Node.STATUS checkSpawnRange()
+    {
+        if (Vector3.Distance(player.transform.position, startPosition) < spawnRange)
+            return Node.STATUS.SUCCESS;
+        return Node.STATUS.FAILURE;
+    }
+
+    public Node.STATUS checkPlayerAttackRange()
+    {
+        if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
             return Node.STATUS.SUCCESS;
         return Node.STATUS.FAILURE;
     }

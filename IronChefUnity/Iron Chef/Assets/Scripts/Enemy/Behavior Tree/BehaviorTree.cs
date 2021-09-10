@@ -5,17 +5,17 @@ using UnityEngine;
 public class BehaviorTree
 {
     //This class is just a container for the root node and some general use functions that apply to the whole tree.
-    Sequence root;
+    Summation root;
 
     #region Constructors
     public BehaviorTree()
     {
-        root = new Sequence("root");
+        root = new Summation("root");
     }
 
     public BehaviorTree(params Node[] childParam)
     {
-        root = new Sequence("root", childParam);
+        root = new Summation("root", childParam);
     }
 
     #endregion
@@ -32,7 +32,7 @@ public class BehaviorTree
         Debug.Log(root.printName(1));
     }
 
-    //TODO: check if this works
+    //TODO: check if this works. this function may not even be neccessary
     //Changes the status of every node in the tree to Start. Used when the enemy needs to be reset, or when the tree reaches the end (most trees will never have an "end").
     public void resetTree()
     {
