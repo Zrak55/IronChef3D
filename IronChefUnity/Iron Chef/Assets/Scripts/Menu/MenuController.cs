@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
@@ -34,6 +35,17 @@ public class MenuController : MonoBehaviour
     void Update()
     {
 
+    }
+
+
+    public void PlayGame(string LevelName)
+    {
+        SceneManager.LoadScene(LevelName);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     void LoadSettingsSliderValues()

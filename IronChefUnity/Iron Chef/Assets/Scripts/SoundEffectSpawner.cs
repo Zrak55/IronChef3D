@@ -15,6 +15,8 @@ public class SoundEffectSpawner : MonoBehaviour
 
     
 
+ 
+
 
 
 
@@ -36,13 +38,21 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
+
+        int index;
         switch(effect)
         {
             case SoundEffect.Cleaver:
+                index = Random.Range(0, CleaverEffects.Length);
+                clipToPlay = CleaverEffects[index];
                 break;
             case SoundEffect.RollingPin:
+                index = Random.Range(0, RollingPinEffects.Length);
+                clipToPlay = RollingPinEffects[index];
                 break;
             case SoundEffect.FilletKnife:
+                index = Random.Range(0, FilletKnifeEffects.Length);
+                clipToPlay = FilletKnifeEffects[index];
                 break;
         }
 
