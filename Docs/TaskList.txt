@@ -1,23 +1,25 @@
 Task List:
 
 Alex:
-Level Layout
-	Asset List (Visual)
-	Asset List (Audio)
-	Size, Layout
+Set up Demo
+Coordinate pieces together (audio, etc)
+Bug hunting for Demo
+Menu/Level food progress management
 
 Spencer:
-Continue AI scripting work
-	Attacks
+Wrap up basic enemy behavior (enough for demo)
+Enemy prefab for demo
 
 Wiliiam:
-Model all 1st level monsters/player (first pass)
-Rig Player
+Polish models
+UV/Texturing
+Rig (Stretch goal if UV goes quickly)
 
 
 Zach:
-Tree Modeling
+Tree Modeling - 2-3 good Trees for demo, 5 trees by end of Friday
 
 
 Kris:
-Gather all player SFX
+Gather more SFX
+Implement 1 SFX for 3 player weapons
