@@ -25,11 +25,13 @@ public class SoundEffectSpawner : MonoBehaviour
         var go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
         var ac = go.GetComponent<AudioSource>();
 
-        ac.outputAudioMixerGroup = mixer.FindMatchingGroups("FX")[0];
-        ac.volume = volume;
+
         ac.clip = Clip;
+        ac.volume = volume;
         ac.pitch = pitch;
         ac.Play();
+        
+        
         Destroy(go, ac.clip.length * 1.1f);
         
     }
@@ -39,7 +41,7 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
-        float pitch = 0;
+        float pitch = 1;
 
         int index;
         switch(effect)
@@ -69,7 +71,7 @@ public class SoundEffectSpawner : MonoBehaviour
 
     public void MakeSoundEffect(Vector3 location, SoundEffect effect)
     {
-        MakeSoundEffect(location, 1, 0);
+        MakeSoundEffect(location, 1, effect);
     }
 
 

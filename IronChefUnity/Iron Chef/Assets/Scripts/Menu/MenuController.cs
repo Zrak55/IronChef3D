@@ -58,6 +58,7 @@ public class MenuController : MonoBehaviour
         allowedToSet = true;
     }
 
+    
 
     public void GoToMenu(int i)
     {
@@ -68,21 +69,21 @@ public class MenuController : MonoBehaviour
         Menus[i].SetActive(true);
     }
 
+    public void SetMainVolume()
+    {
+        Settings.MainVolume = mainVolSlider.value;
+    }
+    public void SetMusicVolume()
+    {
+        Settings.MusicVolume = musicVolSlider.value;
+    }
+    public void SetSoundFXVolume()
+    {
+        Settings.SoundFXVolume = fxVolSlider.value;
+    }
+    public void SetSensitivity()
+    {
+        Settings.Sensitivity = sensitivitySlider.value;
+    }
 
-    public void SetMainVolume(float v)
-    {
-        Settings.MainVolume = v;
-    }
-    public void SetMusicVolume(float v)
-    {
-        Settings.MusicVolume = v;
-    }
-    public void SetSoundFXVolume(float v)
-    {
-        Settings.SoundFXVolume = v;
-    }
-    public void SetSensitivity(float v)
-    {
-        Settings.Sensitivity = v;
-    }
 }

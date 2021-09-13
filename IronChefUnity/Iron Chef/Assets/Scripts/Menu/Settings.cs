@@ -53,10 +53,11 @@ public static class Settings
         {
             _MainVolume = value;
             PlayerPrefs.SetFloat("MainVolume", _MainVolume);
-            SaveAllPrefs();
 
-            if(audioMixer != null)
-                audioMixer.SetFloat("MainVolume", Mathf.Log10(value) * 20);
+            Debug.Log(audioMixer);
+
+            audioMixer.SetFloat("MainVolume", Mathf.Log10(value) * 20);
+            SaveAllPrefs();
         }
     }
 
@@ -71,10 +72,9 @@ public static class Settings
         {
             _SoundFXVolume = value;
             PlayerPrefs.SetFloat("SoundFXVolume", _SoundFXVolume);
+            
+            audioMixer.SetFloat("SoundFXVolume", Mathf.Log10(value) * 20);
             SaveAllPrefs();
-
-            if (audioMixer != null)
-                audioMixer.SetFloat("SoundFXVolume", Mathf.Log10(value) * 20);
         }
     }
 
@@ -89,10 +89,9 @@ public static class Settings
         {
             _MusicVolume = value;
             PlayerPrefs.SetFloat("MusicVolume", _MusicVolume);
-            SaveAllPrefs();
 
-            if (audioMixer != null)
-                audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+            audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+            SaveAllPrefs();
         }
     }
 

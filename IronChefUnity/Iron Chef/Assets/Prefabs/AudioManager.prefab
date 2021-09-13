@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4315506107955883751}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 49.197025, y: 46.571297, z: -78.09458}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8163896201982866486, guid: ee24825185791db4c8283060ab92f295, type: 3}
   mixer: {fileID: 24100000, guid: 9075a5d1cc7b75f45958d16d61dd7d15, type: 2}
-  CleaverEffects: []
-  RollingPinEffects: []
-  FilletKnifeEffects: []
+  CleaverEffects:
+  - {fileID: 8300000, guid: 2ec4725247863ab44952f645cfc2c2fc, type: 3}
+  RollingPinEffects:
+  - {fileID: 8300000, guid: 2ec4725247863ab44952f645cfc2c2fc, type: 3}
+  FilletKnifeEffects:
+  - {fileID: 8300000, guid: 2ec4725247863ab44952f645cfc2c2fc, type: 3}
