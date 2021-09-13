@@ -29,6 +29,9 @@ public class PlayerAttackController : MonoBehaviour
     CharacterMover mover;
 
 
+    private float maxAttackTimer = 3f;
+    private float attackTimer = 0f;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -51,9 +54,27 @@ public class PlayerAttackController : MonoBehaviour
         CheckBasic();
         CheckFryingPan();
         CheckPower();
+        CheckAttackingStuck();
+
     }
 
-
+    private void CheckAttackingStuck()
+    {
+        if(canBasicAttack == false || attacking == true)
+        {
+            attackTimer += Time.deltaTime;
+            if(attackTimer >= maxAttackTimer)
+            {
+                canBasicAttack = true;
+                attacking = false;
+                attackTimer = 0;
+            }
+        }
+        else
+        {
+            attackTimer = 0;
+        }
+    }
 
     private void CheckBasicWeaponSwap()
     {
