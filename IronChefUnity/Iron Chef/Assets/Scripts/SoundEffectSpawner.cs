@@ -20,7 +20,7 @@ public class SoundEffectSpawner : MonoBehaviour
 
 
 
-    private void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip)
+    private void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch)
     {
         var go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
         var ac = go.GetComponent<AudioSource>();
@@ -28,6 +28,7 @@ public class SoundEffectSpawner : MonoBehaviour
         ac.outputAudioMixerGroup = mixer.FindMatchingGroups("FX")[0];
         ac.volume = volume;
         ac.clip = Clip;
+        ac.pitch = pitch;
         ac.Play();
         Destroy(go, ac.clip.length * 1.1f);
         
@@ -38,6 +39,7 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
+        float pitch = 0;
 
         int index;
         switch(effect)
@@ -54,17 +56,20 @@ public class SoundEffectSpawner : MonoBehaviour
                 index = Random.Range(0, FilletKnifeEffects.Length);
                 clipToPlay = FilletKnifeEffects[index];
                 break;
+            case SoundEffect.MalapenoExplosion:
+                ////
+                break;
         }
 
         if(clipToPlay != null)
         {
-            MakeSoundEffect(location, volume, clipToPlay);
+            MakeSoundEffect(location, volume, clipToPlay, pitch);
         }
     }
 
     public void MakeSoundEffect(Vector3 location, SoundEffect effect)
     {
-        MakeSoundEffect(location, 1, effect);
+        MakeSoundEffect(location, 1, 0);
     }
 
 
@@ -73,7 +78,8 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         Cleaver,
         RollingPin,
-        FilletKnife
+        FilletKnife,
+        MalapenoExplosion
     }
 }
    

@@ -7,19 +7,32 @@ public class PlayerBasicAttackbox : MonoBehaviour
     public bool CanHit = false;
     public List<EnemyHitpoints> enemiesHit;
     private PlayerAttackModifierController modifier;
+    public SoundEffectSpawner.SoundEffect soundEffect;
+    private SoundEffectSpawner sfx;
 
     public bool IsCleave = false;
 
     public float damage;
 
+    bool hasPlayedSound = false;
+
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
+        sfx = FindObjectOfType<SoundEffectSpawner>();
 
     }
     private void Start()
     {
         modifier = GetComponentInParent<PlayerAttackModifierController>();
+    }
+
+    private void Update()
+    {
+        if(hasPlayedSound)
+        {
+            hasPlayedSound = CanHit;
+        }
     }
 
     public void HitOn()
@@ -66,6 +79,15 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         }
                         dmgToDeal = damage * (1 + dmgMod);
 
+                        if(!hasPlayedSound)
+                        {
+                            hasPlayedSound = true;
+                            if(sfx == null)
+                            {
+                                sfx = FindObjectOfType<SoundEffectSpawner>();
+                            }
+                            sfx.MakeSoundEffect(transform.position, soundEffect);
+                        }
                         
 
                         opponent.TakeDamage(dmgToDeal);
