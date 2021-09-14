@@ -23,6 +23,7 @@ public class PlayerCameraSetup : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        cinemachine.m_YAxis.m_MaxSpeed = 0.25f * Settings.Sensitivity;
+        cinemachine.m_XAxis.m_MaxSpeed = 40 * Settings.Sensitivity;
     }
 }
