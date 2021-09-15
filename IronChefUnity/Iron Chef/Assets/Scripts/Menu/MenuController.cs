@@ -21,8 +21,7 @@ public class MenuController : MonoBehaviour
     public Toggle invertVerticalCam;
 
     private void Awake()
-    {
-        
+    {    
 
     }
 

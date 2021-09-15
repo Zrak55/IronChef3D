@@ -74,6 +74,10 @@ public static class IronChefUtils
 
     }
 
+    public static bool MouseIsHidden()
+    {
+        return Cursor.visible == false && Cursor.lockState == CursorLockMode.Locked;
+    }
 
     public static void AddSlow(EnemySpeedController enemy, float amount, float duration, SpeedEffector.EffectorName effectName)
     {

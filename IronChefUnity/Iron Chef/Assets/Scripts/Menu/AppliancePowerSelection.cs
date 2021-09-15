@@ -74,6 +74,7 @@ public class AppliancePowerSelection : MonoBehaviour
     public void Confirm()
     {
         IronChefUtils.HideMouse();
+        player.GetComponent<CharacterMover>().MouseOff = true;
         gameObject.SetActive(false);
     }
 }

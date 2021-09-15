@@ -49,6 +49,9 @@ public class CharacterMover : MonoBehaviour
     public Transform CamFollowPoint;
     public Transform CamLookPoint;
 
+    [HideInInspector]
+    public bool MouseOff;
+
     private void Awake()
     {
 
@@ -116,7 +119,10 @@ public class CharacterMover : MonoBehaviour
         }
         model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, targetRotation, modelRotSpeed * Time.deltaTime);
 
-
+        if(MouseOff && IronChefUtils.MouseIsHidden() == false)
+        {
+            IronChefUtils.HideMouse();
+        }
     }
 
     private Vector3 getMovementInputVector()

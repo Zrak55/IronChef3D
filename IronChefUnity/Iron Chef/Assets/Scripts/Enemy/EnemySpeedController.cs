@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[RequireComponent(typeof(EnemyMove))]
 public class EnemySpeedController : MonoBehaviour
 {
-    EnemyMove mover;
+    GenericEnemyBehavior mover;
     [SerializeField]
     public List<SpeedEffector> Modifiers = new List<SpeedEffector>();
     List<SpeedEffector> removeList;
@@ -14,7 +13,7 @@ public class EnemySpeedController : MonoBehaviour
     private void Awake()
     {
         removeList = new List<SpeedEffector>();
-        mover = GetComponent<EnemyMove>();
+        mover = GetComponent<GenericEnemyBehavior>();
     }
 
     private void Update()
@@ -39,6 +38,6 @@ public class EnemySpeedController : MonoBehaviour
         }
         removeList.Clear();
 
-        mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
+        //mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
     }
 }
