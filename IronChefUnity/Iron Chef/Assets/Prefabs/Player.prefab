@@ -432,6 +432,7 @@ MonoBehaviour:
   model: {fileID: 2978522925548265649}
   CamFollowPoint: {fileID: 2430084910336362509}
   CamLookPoint: {fileID: 2978522925548265648}
+  MouseOff: 0
 --- !u!114 &2978522925722276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanHit: 0
   enemiesHit: []
-  soundEffect: 0
+  soundEffect: 1
   IsCleave: 0
   damage: 2
 --- !u!54 &1715543014020255076
@@ -811,8 +812,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.52914, y: 1.5579473, z: 3.3180013}
-  m_Center: {x: -2.210045, y: 0.2789759, z: 0}
+  m_Size: {x: 7.52914, y: 2.5009458, z: 3.3180013}
+  m_Center: {x: -2.210045, y: 0.7504765, z: 0}
 --- !u!114 &5415312285623806839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,7 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanHit: 0
   enemiesHit: []
-  soundEffect: 0
+  soundEffect: 2
   IsCleave: 0
   damage: 0.5
 --- !u!54 &8732549883198346558
