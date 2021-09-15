@@ -38,6 +38,6 @@ public class EnemySpeedController : MonoBehaviour
         }
         removeList.Clear();
 
-        //mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
+        mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
     }
 }
