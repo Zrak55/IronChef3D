@@ -7,16 +7,18 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
+    [Header("Menu")]
     public GameObject[] Menus;
 
     [Space]
     public AudioMixer audioM;
 
+    [Header("Settings")]
     public Slider mainVolSlider;
     public Slider musicVolSlider;
     public Slider fxVolSlider;
     public Slider sensitivitySlider;
-    bool allowedToSet = false;
+    public Toggle invertVerticalCam;
 
     private void Awake()
     {
@@ -28,6 +30,9 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         Settings.LoadAllSettings(audioM);
+
+        SetSettingsListeners();
+
         LoadSettingsSliderValues();
     }
 
@@ -37,6 +42,33 @@ public class MenuController : MonoBehaviour
 
     }
 
+    void SetSettingsListeners()
+    {
+        mainVolSlider.onValueChanged.AddListener(delegate
+        {
+            SetMainVolume();
+        });
+
+        musicVolSlider.onValueChanged.AddListener(delegate
+        {
+            SetMusicVolume();
+        });
+
+        fxVolSlider.onValueChanged.AddListener(delegate
+        {
+            SetSoundFXVolume();
+        });
+
+        sensitivitySlider.onValueChanged.AddListener(delegate
+        {
+            SetSensitivity();
+        });
+
+        invertVerticalCam.onValueChanged.AddListener(delegate
+        {
+            SetInvertVerticalCam();
+        });
+    }
 
     public void PlayGame(string LevelName)
     {
@@ -54,8 +86,7 @@ public class MenuController : MonoBehaviour
         musicVolSlider.value = Settings.MusicVolume;
         fxVolSlider.value = Settings.SoundFXVolume;
         sensitivitySlider.value = Settings.Sensitivity;
-
-        allowedToSet = true;
+        invertVerticalCam.isOn = Settings.InvertVerticalCam;
     }
 
     
@@ -84,6 +115,10 @@ public class MenuController : MonoBehaviour
     public void SetSensitivity()
     {
         Settings.Sensitivity = sensitivitySlider.value;
+    }
+    public void SetInvertVerticalCam()
+    {
+        Settings.InvertVerticalCam = invertVerticalCam.isOn;
     }
 
 }

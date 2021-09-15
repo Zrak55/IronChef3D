@@ -25,5 +25,7 @@ public class PlayerCameraSetup : MonoBehaviour
     {
         cinemachine.m_YAxis.m_MaxSpeed = 0.25f * Settings.Sensitivity;
         cinemachine.m_XAxis.m_MaxSpeed = 40 * Settings.Sensitivity;
+
+        cinemachine.m_YAxis.m_InvertInput = Settings.InvertVerticalCam;
     }
 }
