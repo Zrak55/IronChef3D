@@ -34,14 +34,28 @@ public class Sequence : Node
     {
         Node.STATUS childStatus;
 
+        //If any children are running skip to those.
+        foreach (Node child in children)
+        {
+            if (child.status == STATUS.RUNNING)
+            {
+                status = child.proccess();
+                return status;
+            }
+        }
+
         //Updated version of the code that runs through every child every update frame. If a child ever fails, we exit the sequence.
         foreach (Node child in children)
         {
             childStatus = child.proccess();
-            if (childStatus == STATUS.FAILURE)
-                return childStatus;
+            if (childStatus == STATUS.FAILURE || childStatus == STATUS.RUNNING)
+            {
+                status = childStatus;
+                return status;
+            }
         }
-        return STATUS.SUCCESS;
+        status = STATUS.SUCCESS;
+        return status;
     }
     #endregion
 }

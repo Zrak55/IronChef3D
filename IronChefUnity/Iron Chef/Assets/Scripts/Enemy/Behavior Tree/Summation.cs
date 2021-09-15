@@ -36,9 +36,17 @@ public class Summation : Node
 
         foreach (Node child in children)
         {
-            childStatus = child.proccess();
+            if (child.status == STATUS.RUNNING)
+            {
+                status = child.proccess();
+                return status;
+            }
         }
-        return STATUS.SUCCESS;
+
+        foreach (Node child in children)
+            childStatus = child.proccess();
+        status = STATUS.SUCCESS;
+        return status;
     }
     #endregion
 }

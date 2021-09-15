@@ -29,6 +29,7 @@ public class Selector : Node
     }
     #endregion
     #region Functions
+    //This function is OUTDATED. Needs to be updated, not currently in use.
     //The node will run its first child. If it fails, keep going through children. Otherwise, continue with that node.
     //Selector needs more testing to confirm it works as is.
     public override STATUS proccess()

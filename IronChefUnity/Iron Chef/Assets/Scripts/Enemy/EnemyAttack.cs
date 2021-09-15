@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
+    //Dated script, unneeded.
     [Tooltip("Float for the range the enemy will attack the player in.")]
     [SerializeField] public float attackRange;
     [Tooltip("Float for the time between the enemy's attacks.")]

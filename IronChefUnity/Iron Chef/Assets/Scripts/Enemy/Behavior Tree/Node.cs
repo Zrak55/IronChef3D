@@ -55,7 +55,8 @@ public class Node
     //Base function for all nodes. Override in other types of nodes and add functionality
     public virtual STATUS proccess()
     {
-        return STATUS.SUCCESS;
+        status = STATUS.SUCCESS;
+        return status;
     }
     
     //Recursively prints out the tree.
