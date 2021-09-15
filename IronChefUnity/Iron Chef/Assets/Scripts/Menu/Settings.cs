@@ -18,11 +18,15 @@ public static class Settings
         MainVolume = PlayerPrefs.GetFloat("MainVolume", 1);
         SoundFXVolume = PlayerPrefs.GetFloat("SoundFXVolume", 1);
         MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
+        InvertVerticalCam = PlayerPrefs.GetInt("InvertVerticalCam", 0) == 1;
+        
 
 
         audioMixer.SetFloat("MainVolume", Mathf.Log10(_MainVolume) * 20);
         audioMixer.SetFloat("SoundFXVolume", Mathf.Log10(_SoundFXVolume) * 20);
         audioMixer.SetFloat("MusicVolume", Mathf.Log10(_MusicVolume) * 20);
+
+
 
     }
 
@@ -93,6 +97,26 @@ public static class Settings
             audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
             SaveAllPrefs();
         }
+    }
+
+    private static bool _InvertVerticalCam;
+    public static bool InvertVerticalCam
+    {
+        get
+        {
+            return _InvertVerticalCam;
+        }
+        set
+        {
+            _InvertVerticalCam = value;
+            if (value == true)
+                PlayerPrefs.SetInt("InvertVerticalCam", 1);
+            else
+                PlayerPrefs.SetInt("InvertVerticalCam", 0);
+
+            SaveAllPrefs();
+        }
+       
     }
 
 }
