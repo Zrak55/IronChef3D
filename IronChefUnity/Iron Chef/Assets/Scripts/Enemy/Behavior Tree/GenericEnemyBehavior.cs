@@ -15,12 +15,16 @@ public class GenericEnemyBehavior : MonoBehaviour
     [SerializeField] private float spawnRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
     [SerializeField] private float attackRange;
+    [Tooltip("Animation clip for the enemy's attack animation.")]
+    [SerializeField] private Animator attackAnim;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
     //Nodes for the behavior tree. Will be adding more later.
     private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
+    //Ensure the enemy doesn't start a new attack in the middle of an old one.
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -66,7 +70,25 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     public Node.STATUS attack()
     {
-        return Node.STATUS.SUCCESS;
+        if (!isAttacking)
+        {
+            isAttacking = true;
+            Invoke("attackEnd", 1);
+
+            attackAnim.Play("GenericLoafsterAttack");
+            agent.destination = transform.position;
+
+            if (isAttacking)
+                return Node.STATUS.RUNNING;
+            else
+                return Node.STATUS.SUCCESS;
+        }
+        return Node.STATUS.FAILURE;
+    }
+
+    private void attackEnd()
+    {
+        isAttacking = false;
     }
 
     public Node.STATUS checkEnemyHurt()
