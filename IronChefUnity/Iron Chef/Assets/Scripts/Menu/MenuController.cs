@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -97,6 +98,7 @@ public class MenuController : MonoBehaviour
             g.SetActive(false);
         }
         Menus[i].SetActive(true);
+        FindObjectOfType<EventSystem>().SetSelectedGameObject(Menus[i].GetComponentInChildren<Button>().gameObject);
     }
 
     public void SetMainVolume()
