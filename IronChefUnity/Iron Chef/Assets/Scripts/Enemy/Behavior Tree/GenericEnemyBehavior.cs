@@ -11,8 +11,6 @@ public class GenericEnemyBehavior : MonoBehaviour
     [SerializeField] private float aggroRange;
     [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
     [SerializeField] private float spawnRange;
-    [Tooltip("Script attached to the enemy's hitbox.")]
-    [SerializeField] private EnemyBasicAttackbox enemyBasicAttackbox;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
     [SerializeField] private float attackRange;
     [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
@@ -20,8 +18,10 @@ public class GenericEnemyBehavior : MonoBehaviour
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float attackCD;
     private Transform player;
+    private Animator animator;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
+    private EnemyBasicAttackbox enemyBasicAttackbox;
     //Nodes for the behavior tree. Will be adding more later.
     private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
     //The spawn location of the enemy is automatically set based on scene placement.
@@ -34,7 +34,9 @@ public class GenericEnemyBehavior : MonoBehaviour
     {
         startPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
+        enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
+        animator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
         startSpeed = agent.speed;
 
@@ -52,7 +54,6 @@ public class GenericEnemyBehavior : MonoBehaviour
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
         CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
-        genericBehaviorTree.printTree();
     }
 
     //TODO: Fix multiple things same frame.
@@ -64,6 +65,7 @@ public class GenericEnemyBehavior : MonoBehaviour
     //This is intended to be running in the update function through the behavior tree.
     public Node.STATUS moveTowards()
     {
+        animator.SetBool("isMoving", true);
         agent.destination = player.transform.position;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
@@ -72,6 +74,8 @@ public class GenericEnemyBehavior : MonoBehaviour
     public Node.STATUS movePause()
     {
         agent.destination = startPosition;
+        if (agent.velocity == Vector3.zero)
+            animator.SetBool("isMoving", false);
         ResetMove.status = Node.STATUS.SUCCESS;
         return ResetMove.status;
     }
@@ -92,6 +96,7 @@ public class GenericEnemyBehavior : MonoBehaviour
         else if (!isAttacking && !isAttackCD)
         {
             isAttacking = true;
+            animator.SetTrigger("Attack");
             Invoke("attackEnd", attackTime);
             enemyBasicAttackbox.HitOff();
 
