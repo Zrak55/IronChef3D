@@ -76,6 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanHit: 0
   playersHit: []
+  soundEffect: 0
+  myCollider: {fileID: 0}
   IsCleave: 0
   damage: 10
 --- !u!1 &1475416153710143299
@@ -197,6 +199,7 @@ GameObject:
   - component: {fileID: 1475416154569173100}
   - component: {fileID: 1475416154569173101}
   - component: {fileID: 8187776139406683009}
+  - component: {fileID: 6156062095218787149}
   m_Layer: 0
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -287,7 +290,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 20
   spawnRange: 50
-  enemyBasicAttackbox: {fileID: 6091418276934293596}
   attackRange: 10
   attackTime: 2
   attackCD: 2
@@ -344,6 +346,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0057a52e8deb9484fba7d7d7a46a40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6156062095218787149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781405636844246273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118b0f868f63c024cbab26895b51cf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: 3
 --- !u!1 &2492364155880515535
 GameObject:
   m_ObjectHideFlags: 0
