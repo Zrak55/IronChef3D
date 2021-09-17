@@ -196,10 +196,10 @@ GameObject:
   - component: {fileID: 8521597711591569850}
   - component: {fileID: 7803086111016615539}
   - component: {fileID: 7803086111016615538}
-  - component: {fileID: 7803086111016615536}
-  - component: {fileID: 2938536993577866456}
   - component: {fileID: 477952825927109779}
   - component: {fileID: 3244397501475929103}
+  - component: {fileID: 8332043286943580878}
+  - component: {fileID: 15454876}
   m_Layer: 0
   m_Name: Generic_Loafster
   m_TagString: Untagged
@@ -236,7 +236,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6, y: 4, z: 7}
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!54 &8521597711591569850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7803086111016615533}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 4
+  m_Radius: 4.3
   m_Speed: 8
   m_Acceleration: 8
   avoidancePriority: 50
@@ -289,37 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 15
   spawnRange: 50
-  enemyBasicAttackbox: {fileID: 0}
   attackRange: 5
-  attackTime: 0
-  attackCD: 0
---- !u!114 &7803086111016615536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 3
-  damaged: 0
---- !u!114 &2938536993577866456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
+  attackTime: 2
+  attackCD: 2
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,3 +318,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0057a52e8deb9484fba7d7d7a46a40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8332043286943580878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  IsCleave: 0
+  damage: 10
+--- !u!95 &15454876
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b3718a297cbe36e42af4a030ae908cde, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
