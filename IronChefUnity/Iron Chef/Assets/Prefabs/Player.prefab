@@ -668,6 +668,7 @@ MonoBehaviour:
   CanHit: 0
   enemiesHit: []
   soundEffect: 1
+  myCollider: {fileID: 2881450193537037545}
   IsCleave: 0
   damage: 2
 --- !u!54 &1715543014020255076
@@ -829,6 +830,7 @@ MonoBehaviour:
   CanHit: 0
   enemiesHit: []
   soundEffect: 2
+  myCollider: {fileID: 4393590030581818847}
   IsCleave: 0
   damage: 0.5
 --- !u!54 &8732549883198346558
@@ -959,6 +961,7 @@ MonoBehaviour:
   CanHit: 0
   enemiesHit: []
   soundEffect: 0
+  myCollider: {fileID: 7254684251673478069}
   IsCleave: 0
   damage: 1
 --- !u!54 &5668639583765036065

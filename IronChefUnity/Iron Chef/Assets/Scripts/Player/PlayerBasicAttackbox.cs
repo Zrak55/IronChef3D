@@ -9,6 +9,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private PlayerAttackModifierController modifier;
     public SoundEffectSpawner.SoundEffect soundEffect;
     private SoundEffectSpawner sfx;
+    public Collider myCollider;
 
     public bool IsCleave = false;
 
@@ -33,6 +34,16 @@ public class PlayerBasicAttackbox : MonoBehaviour
         {
             hasPlayedSound = CanHit;
         }
+
+        
+    }
+
+    private void FixedUpdate()
+    {
+        if (CanHit)
+        {
+            DoCollisionThings();
+        }
     }
 
     public void HitOn()
@@ -47,11 +58,59 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        DoCollisionThings(other);
     }
 
-    private void DoCollisionThings(Collider other)
+    private void DoCollisionThings()
     {
+        var hits = IronChefUtils.GetCastHits(myCollider);
+        foreach(var hit in hits)
+        {
+            var enemy = hit.GetComponentInParent<EnemyHitpoints>();
+            if(enemy != null)
+            {
+                if (!enemiesHit.Contains(enemy))
+                {
+                    if (IsCleave || enemiesHit.Count < 1)
+                    {
+                        Debug.Log("Hit!");
+                        enemiesHit.Add(enemy);
+
+                        var dmgMod = 0f;
+                        float dmgToDeal;
+                        foreach (var mod in modifier.HitModifiers)
+                        {
+                            dmgMod += mod.damageIncrease;
+                            if (mod.slowAmount > 0)
+                            {
+                                var oppSpeed = enemy.GetComponent<EnemySpeedController>();
+                                IronChefUtils.AddSlow(oppSpeed, mod.slowAmount, mod.slowDuration, mod.slowName);
+
+
+                            }
+                        }
+                        dmgToDeal = damage * (1 + dmgMod);
+
+                        if (!hasPlayedSound)
+                        {
+                            hasPlayedSound = true;
+                            if (sfx == null)
+                            {
+                                sfx = FindObjectOfType<SoundEffectSpawner>();
+                            }
+                            sfx.MakeSoundEffect(transform.position, soundEffect);
+                        }
+
+
+                        enemy.TakeDamage(dmgToDeal);
+                    }
+                }
+            }
+        }
+
+
+
+
+        /*
         if (CanHit)
         {
             var opponent = other.gameObject.GetComponentInParent<EnemyHitpoints>();
@@ -95,5 +154,6 @@ public class PlayerBasicAttackbox : MonoBehaviour
                 }
             }
         }
+        */
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -129,5 +130,38 @@ public static class IronChefUtils
         slow.percentAmount = -amount;
         slow.effectName = effectName;
         return slow;
+    }
+
+    public static List<GameObject> GetCastHits(Collider col)
+    {
+
+
+        Collider[] hits = { };
+        if (col is BoxCollider)
+            hits = Physics.OverlapBox(col.transform.position, (col as BoxCollider).size / 2, col.transform.rotation, 1 << LayerMask.NameToLayer("Hitbox"));
+        else if (col is CapsuleCollider)
+        {
+            var capcol = col as CapsuleCollider;
+            var direction = new Vector3 { [capcol.direction] = 1 };
+            var offset = capcol.height / 2 - capcol.radius;
+            var localPoint0 = capcol.center - direction * offset;
+            var localPoint1 = capcol.center + direction * offset;
+            var point0 = capcol.transform.TransformPoint(localPoint0);
+            var point1 = capcol.transform.TransformPoint(localPoint1);
+            hits = Physics.OverlapCapsule(point0, point1, capcol.radius);
+        }
+        else if (col is SphereCollider)
+            hits = Physics.OverlapSphere(col.transform.position, (col as SphereCollider).radius);
+
+        List<GameObject> HitGameObjects = new List<GameObject>();
+        foreach (var c in hits)
+        {
+            HitGameObjects.Add(c.gameObject);
+        }
+
+        return HitGameObjects;
+
+
+
     }
 }
