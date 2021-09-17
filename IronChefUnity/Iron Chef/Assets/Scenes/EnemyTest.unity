@@ -898,6 +898,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Generic_Loafster
       objectReference: {fileID: 0}
+    - target: {fileID: 8332043286943580878, guid: 6e82d260daa4f364d8fa8edd294e77a6, type: 3}
+      propertyPath: soundEffect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e82d260daa4f364d8fa8edd294e77a6, type: 3}
 --- !u!1 &1753079257
