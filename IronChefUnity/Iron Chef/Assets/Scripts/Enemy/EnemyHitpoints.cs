@@ -29,6 +29,7 @@ public class EnemyHitpoints : MonoBehaviour
     public void Die()
     {
         //TODO: Give ingredients
+        GetComponent<EnemyFoodDropper>().GiveFood();
 
         //TODO: Play death animation before deletion
 
