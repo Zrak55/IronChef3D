@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class EnemyBasicAttackbox : MonoBehaviour
 {
+    //Copied and pasted from PlayerBasicAttackbox
     public bool CanHit = false;
     public List<PlayerHitpoints> playersHit;
     private EnemyAttackModifierController modifier;
-    public SoundEffectSpawner.SoundEffect soundEffect;
-    private SoundEffectSpawner sfx;
+    //No sound yet
+    //public SoundEffectSpawner.SoundEffect soundEffect;
+    //private SoundEffectSpawner sfx;
     public Collider myCollider;
 
     public bool IsCleave = false;
 
     public float damage;
 
-    bool hasPlayedSound = false;
+    //bool hasPlayedSound = false;
 
     private void Awake()
     {
-        //There probably won't be multiple players, but keep this the same as playerBasicAttackbox for consistency's sake
         playersHit = new List<PlayerHitpoints>();
-        sfx = FindObjectOfType<SoundEffectSpawner>();
+        //sfx = FindObjectOfType<SoundEffectSpawner>();
 
     }
     private void Start()
@@ -31,10 +32,10 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     private void Update()
     {
-        if (hasPlayedSound)
+        /*if (hasPlayedSound)
         {
             hasPlayedSound = CanHit;
-        }
+        }*/
 
 
     }
@@ -91,7 +92,6 @@ public class EnemyBasicAttackbox : MonoBehaviour
                         }
                         dmgToDeal = damage * (1 + dmgMod);
 
-                        //No sound yet
                         /*if (!hasPlayedSound)
                         {
                             hasPlayedSound = true;
@@ -108,54 +108,5 @@ public class EnemyBasicAttackbox : MonoBehaviour
                 }
             }
         }
-
-
-
-
-        /*
-        if (CanHit)
-        {
-            var opponent = other.gameObject.GetComponentInParent<EnemyHitpoints>();
-            if (opponent != null)
-            {
-                if (!enemiesHit.Contains(opponent))
-                {
-                    if (IsCleave || enemiesHit.Count < 1)
-                    {
-                        Debug.Log("Hit!");
-                        enemiesHit.Add(opponent);
-
-                        var dmgMod = 0f;
-                        float dmgToDeal;
-                        foreach(var mod in modifier.HitModifiers)
-                        {
-                            dmgMod += mod.damageIncrease;
-                            if(mod.slowAmount > 0)
-                            {
-                                var oppSpeed = opponent.GetComponent<EnemySpeedController>();
-                                IronChefUtils.AddSlow(oppSpeed, mod.slowAmount, mod.slowDuration, mod.slowName);
-                                
-
-                            }
-                        }
-                        dmgToDeal = damage * (1 + dmgMod);
-
-                        if(!hasPlayedSound)
-                        {
-                            hasPlayedSound = true;
-                            if(sfx == null)
-                            {
-                                sfx = FindObjectOfType<SoundEffectSpawner>();
-                            }
-                            sfx.MakeSoundEffect(transform.position, soundEffect);
-                        }
-                        
-
-                        opponent.TakeDamage(dmgToDeal);
-                    }
-                }
-            }
-        }
-        */
     }
 }
