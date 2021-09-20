@@ -35,6 +35,8 @@ In Game
 		Trees
 		Fridge
 		Basic Kitchen
+		Hedges
+		Rocks (rock wall, terrain entorage, etc)
 
 		Rolling Pin
 		Cleaver
