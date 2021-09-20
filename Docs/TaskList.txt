@@ -1,25 +1,23 @@
 Task List:
 
 Alex:
-Set up Demo
-Coordinate pieces together (audio, etc)
-Bug hunting for Demo
-Menu/Level food progress management
+Level 1 Whiteboxing
+New code attack pattern
+Enemy Food Drops
+Level Progression scripts
+
 
 Spencer:
-Wrap up basic enemy behavior (enough for demo)
-Enemy prefab for demo
+Update enemies to new attack code pattern
+Crustacean animations/events
 
 Wiliiam:
-Polish models
-UV/Texturing
-Rig (Stretch goal if UV goes quickly)
-
+Texture models
 
 Zach:
-Tree Modeling - 2-3 good Trees for demo, 5 trees by end of Friday
+Tree Modeling - All 5 trees peter approved by Wednesday (If approval is longer, keep modeling)
+Placeholder texture for all 5 trees
 
 
 Kris:
-Gather more SFX
-Implement 1 SFX for 3 player weapons
+Gather ALL listed SFX in vertical slice
