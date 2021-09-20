@@ -5,12 +5,18 @@ using UnityEngine;
 public class AppliancePowerSelection : MonoBehaviour
 {
     public GameObject player;
+    public GameObject door;
+    public GameObject turnin;
+    public GameObject playerCam;
 
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<CharacterMover>().gameObject;
+        playerCam = FindObjectOfType<PlayerCameraSetup>().gameObject;
         IronChefUtils.ShowMouse();
+        player.GetComponent<CharacterMover>().enabled = false;
+        playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = false;
     }
 
     // Update is called once per frame
@@ -75,6 +81,17 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         IronChefUtils.HideMouse();
         player.GetComponent<CharacterMover>().MouseOff = true;
+
+        //TODO: Update with proper models/anims/etc
+        door.SetActive(false);
+        turnin.SetActive(true);
+
+        player.GetComponent<CharacterMover>().enabled = true;
+        playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = true;
+
+
         gameObject.SetActive(false);
+
+        
     }
 }

@@ -202,8 +202,8 @@ MonoBehaviour:
   - m_Height: 6
     m_Radius: 5
   - m_Height: 3.72
-    m_Radius: 11.87
-  - m_Height: -1.25
+    m_Radius: 15
+  - m_Height: -3
     m_Radius: 8
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
@@ -940,3 +940,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 719636532}
   cinemachine: {fileID: 493559123}
+  CanMoveCam: 0
