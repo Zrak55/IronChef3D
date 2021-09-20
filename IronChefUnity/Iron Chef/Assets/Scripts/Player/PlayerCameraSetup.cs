@@ -13,6 +13,7 @@ public class PlayerCameraSetup : MonoBehaviour
     {
         cinemachine.Follow = FindObjectOfType<CharacterMover>().CamFollowPoint;
         cinemachine.LookAt = FindObjectOfType<CharacterMover>().CamLookPoint;
+
     }
 
     // Start is called before the first frame update
