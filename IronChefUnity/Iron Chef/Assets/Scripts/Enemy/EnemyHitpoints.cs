@@ -16,7 +16,7 @@ public class EnemyHitpoints : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        //TODO: Check powers/status effects for taking damage
+        //TODO: Check enemy's powers/status effects for taking damage
         
         currentHP -= amount;
         damaged = true;
@@ -28,7 +28,6 @@ public class EnemyHitpoints : MonoBehaviour
     }
     public void Die()
     {
-        //TODO: Give ingredients
         GetComponent<EnemyFoodDropper>().GiveFood();
 
         //TODO: Play death animation before deletion

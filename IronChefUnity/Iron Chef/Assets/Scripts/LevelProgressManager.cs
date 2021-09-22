@@ -102,6 +102,7 @@ public class LevelProgressManager : MonoBehaviour
 
     public void FinishLevel()
     {
+
         Debug.Log("Level Over!");
         float score = 0;
         int numIngredients = 0;
@@ -144,5 +145,8 @@ public class LevelProgressManager : MonoBehaviour
         }
 
         Debug.Log("Score: " + score + "/100");
+
+
+        //TODO: Bring up win/score screen
     }
 }
