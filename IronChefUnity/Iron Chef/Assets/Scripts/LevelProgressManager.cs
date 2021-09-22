@@ -41,6 +41,9 @@ public class LevelProgressManager : MonoBehaviour
     void Start()
     {
         GetMaxes();
+
+
+        CompleteSetup();
     }
 
     // Update is called once per frame
@@ -68,6 +71,10 @@ public class LevelProgressManager : MonoBehaviour
         }
     }
 
+    void CompleteSetup()
+    {
+        FindObjectOfType<PlayerHUDManager>().SetFoodBars();
+    }
     public void AwardFood(EnemyFoodDropper.FoodType type)
     {
         if(type == ingredientOneType)
