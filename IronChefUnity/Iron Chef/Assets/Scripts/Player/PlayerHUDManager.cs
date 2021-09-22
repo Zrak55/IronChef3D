@@ -118,7 +118,7 @@ public class PlayerHUDManager : MonoBehaviour
         Color targetcolor;
 
         food1bar.value = foodInfo.ingredientOneCurrent;
-        if(foodInfo.ingredientOneCurrent > foodInfo.ingredientOneMaximum)
+        if(foodInfo.ingredientOneCurrent > foodInfo.ingredientOneRequired)
         {
             targetcolor = Color.red;
             
@@ -139,7 +139,7 @@ public class PlayerHUDManager : MonoBehaviour
 
 
         food2bar.value = foodInfo.ingredientTwoCurrent;
-        if (foodInfo.ingredientTwoCurrent > foodInfo.ingredientTwoMaximum)
+        if (foodInfo.ingredientTwoCurrent > foodInfo.ingredientTwoRequired)
         {
             targetcolor = Color.red;
 
@@ -159,7 +159,7 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
         food3bar.value = foodInfo.ingredientThreeCurrent;
-        if (foodInfo.ingredientThreeCurrent > foodInfo.ingredientThreeMaximum)
+        if (foodInfo.ingredientThreeCurrent > foodInfo.ingredientThreeRequired)
         {
             targetcolor = Color.red;
 
@@ -179,7 +179,7 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
         food4bar.value = foodInfo.ingredientFourCurrent;
-        if (foodInfo.ingredientFourCurrent > foodInfo.ingredientFourMaximum)
+        if (foodInfo.ingredientFourCurrent > foodInfo.ingredientFourRequired)
         {
             targetcolor = Color.red;
 
@@ -199,7 +199,7 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
         food5bar.value = foodInfo.ingredientFiveCurrent;
-        if (foodInfo.ingredientFiveCurrent > foodInfo.ingredientFiveMaximum)
+        if (foodInfo.ingredientFiveCurrent > foodInfo.ingredientFiveRequired)
         {
             targetcolor = Color.red;
 
