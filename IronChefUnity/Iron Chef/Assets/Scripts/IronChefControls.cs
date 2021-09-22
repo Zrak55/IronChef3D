@@ -89,6 +89,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""1237cfa8-6081-4e94-a864-374170af295a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -410,6 +418,28 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""UsePower"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b7b509bc-a61c-4725-85e3-84feb74356d4"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""46ec5741-fedf-4cbf-893b-3acc7c038be4"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -427,6 +457,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_SwapBasicWeapon = m_Gameplay.FindAction("SwapBasicWeapon", throwIfNotFound: true);
         m_Gameplay_FryingPan = m_Gameplay.FindAction("FryingPan", throwIfNotFound: true);
         m_Gameplay_UsePower = m_Gameplay.FindAction("UsePower", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -485,6 +516,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_SwapBasicWeapon;
     private readonly InputAction m_Gameplay_FryingPan;
     private readonly InputAction m_Gameplay_UsePower;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -498,6 +530,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @SwapBasicWeapon => m_Wrapper.m_Gameplay_SwapBasicWeapon;
         public InputAction @FryingPan => m_Wrapper.m_Gameplay_FryingPan;
         public InputAction @UsePower => m_Wrapper.m_Gameplay_UsePower;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -534,6 +567,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @UsePower.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
                 @UsePower.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
                 @UsePower.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
+                @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -565,6 +601,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @UsePower.started += instance.OnUsePower;
                 @UsePower.performed += instance.OnUsePower;
                 @UsePower.canceled += instance.OnUsePower;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -580,5 +619,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnSwapBasicWeapon(InputAction.CallbackContext context);
         void OnFryingPan(InputAction.CallbackContext context);
         void OnUsePower(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
