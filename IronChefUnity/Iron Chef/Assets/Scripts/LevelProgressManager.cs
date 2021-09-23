@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelProgressManager : MonoBehaviour
 {
@@ -32,9 +34,12 @@ public class LevelProgressManager : MonoBehaviour
     public int badIngredientsCurrent = 0;
     public int badIngredientsMaximum;
 
-    /*
-     * Hud things required
-     */
+    [Header("Win/Lose Screen")]
+    public GameObject LoseScreen;
+    public GameObject WinScreen;
+    public Text WinStatusText;
+    public Text ScoreText;
+    public Button continueButton;
 
 
     // Start is called before the first frame update
@@ -109,6 +114,10 @@ public class LevelProgressManager : MonoBehaviour
 
     public void FinishLevel()
     {
+        FindObjectOfType<CharacterMover>().enabled = false;
+        FindObjectOfType<PlayerCameraSetup>().CanMoveCam = false;
+
+        IronChefUtils.ShowMouse();
 
         Debug.Log("Level Over!");
         float score = 0;
@@ -154,6 +163,55 @@ public class LevelProgressManager : MonoBehaviour
         Debug.Log("Score: " + score + "/100");
 
 
-        //TODO: Bring up win/score screen
+        ShowWinScreen(score);
+        
+    
     }
+
+    public void continueOn()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void menu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ShowLoseScreen()
+    {
+        LoseScreen.SetActive(true);
+    }
+    public void ShowWinScreen(float score)
+    {
+        WinScreen.SetActive(true);
+
+        ScoreText.text = "Your score: " + score;
+        int stars = 0;
+        if (score < 50)
+        {
+            WinStatusText.text = "Your dish needs work...";
+            continueButton.gameObject.SetActive(false);
+        }
+        else if (score < 75)
+        {
+            WinStatusText.text = "On the right track...";
+            stars = 1;
+        }
+        else if (score < 90)
+        {
+            WinStatusText.text = "Scrumptious!";
+            stars = 2;
+        }
+        else
+        {
+            WinStatusText.text = "Perfection!";
+            stars = 3;
+        }
+    }
+
+
 }

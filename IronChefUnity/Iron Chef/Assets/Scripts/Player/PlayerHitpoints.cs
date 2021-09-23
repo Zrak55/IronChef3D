@@ -48,7 +48,7 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void Die()
     {
-        //TODO: Say you lose, restart level, other things of that nature
+        FindObjectOfType<LevelProgressManager>().ShowLoseScreen();
 
         //TODO: Play death animation before deletion
 
