@@ -34,7 +34,7 @@ public class PlayerAttackController : MonoBehaviour
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         currentPlayerBasic = 0;
         animator.SetInteger("BasicAttackNum", 0);
         CDandCost = GetComponent<PlayerCostCooldownManager>();
@@ -108,13 +108,13 @@ public class PlayerAttackController : MonoBehaviour
         
     }
 
-    private void ActivateBasicWeapon()
+    public void ActivateBasicWeapon()
     {
         DeactivateBasicWeapon();
         PlayerBasicWeaponModels[currentPlayerBasic].SetActive(true);
     }
 
-    private void DeactivateBasicWeapon()
+    public void DeactivateBasicWeapon()
     {
         foreach (var w in PlayerBasicWeaponModels)
         {
@@ -150,11 +150,11 @@ public class PlayerAttackController : MonoBehaviour
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
     }
 
-    private void BasicHitOn()
+    public void BasicHitOn()
     {
         PlayerBasics[currentPlayerBasic].HitOn();
     }
-    private void BasicHitOff()
+    public void BasicHitOff()
     {
 
         PlayerBasics[currentPlayerBasic].HitOff();
@@ -200,7 +200,7 @@ public class PlayerAttackController : MonoBehaviour
             animator.SetBool("UsingPower", true);
         }
     }
-    private void EndPower()
+    public void EndPower()
     {
         attacking = false;
         animator.SetBool("UsingPower", false);

@@ -25,6 +25,7 @@ public class CharacterMover : MonoBehaviour
     private PlayerStats stats;
     private PlayerCostCooldownManager costmanager;
     private PlayerHitpoints hitpoints;
+    private Animator animator;
 
     private bool rolling;
     private bool sprinting;
@@ -60,7 +61,7 @@ public class CharacterMover : MonoBehaviour
         stats = GetComponent<PlayerStats>();
         costmanager = GetComponent<PlayerCostCooldownManager>();
         hitpoints = GetComponent<PlayerHitpoints>();
-
+        animator = GetComponentInChildren<Animator>();
         speed = baseSpeed;
 
         rolling = false;
@@ -103,6 +104,10 @@ public class CharacterMover : MonoBehaviour
 
 
         currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
+        var currentHorizontalMove = currentMove;
+        currentHorizontalMove.y = 0;
+
+        animator.SetFloat("Speed", currentHorizontalMove.magnitude);
 
 
 

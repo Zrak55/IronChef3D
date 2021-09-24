@@ -15,7 +15,7 @@ public class PlayerHitpoints : MonoBehaviour
     private void Awake()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
-        anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
 
     public void TakeDamage(float amount)
