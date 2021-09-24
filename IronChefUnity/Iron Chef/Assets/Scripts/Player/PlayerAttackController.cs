@@ -160,7 +160,7 @@ public class PlayerAttackController : MonoBehaviour
         PlayerBasics[currentPlayerBasic].HitOff();
     }
 
-    private void DoneAttacking()
+    public void DoneAttacking()
     {
         attacking = false;
         animator.SetBool("BasicAttack", false);

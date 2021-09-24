@@ -1,23 +1,23 @@
 Task List:
 
 Alex:
-Level 1 Whiteboxing
-New code attack pattern
-Enemy Food Drops
-Level Progression scripts
-
+Enemy Powers List
+Rig Character
+Animate Character (Idle, Walk Cycle)
+Update temp attack anims
+Camera Clipping
 
 Spencer:
-Update enemies to new attack code pattern
-Crustacean animations/events
+Crustacean rig
+Snakon Rig
+Snakon Anims
 
 Wiliiam:
-Texture models
+Texture player
 
 Zach:
-Tree Modeling - All 5 trees peter approved by Wednesday (If approval is longer, keep modeling)
-Placeholder texture for all 5 trees
-
+Levelbuilding
 
 Kris:
-Gather ALL listed SFX in vertical slice
+Edit all SFX for vertical slice
+Implement as many SFX as humanly possible
