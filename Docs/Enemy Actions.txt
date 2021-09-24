@@ -1,3 +1,35 @@
 Snakon
-	Bite
+	Bite (2 different anims preferred)
 	Tail Spin
+
+
+Eggs Benedict
+	P1: Shelled
+		Attacks: Roll, Jump
+		Invuln to dmg
+		Get him to roll into something in stage to crack shell
+	P2: Cracked
+		Attacks: Roll, Jump, Bite
+		Takes Normal Dmg
+		Rolling into thing again goes to next phase
+	P3: Shelless
+		Attacks: Roll, Jump, Bite, Yolk Toss
+		Takes 2x dmg
+		Runs faster
+
+Crustacean
+	Left Claw
+	Right Claw
+
+
+Tomatroll
+	Left arm ground sweep
+	Right arm sweep (torso height)
+	Both arms overhead slam
+
+Fondemon
+	Toss left
+	Toss right
+
+Grits
+	None
