@@ -178,13 +178,13 @@ public class PlayerAttackController : MonoBehaviour
         }
     }
 
-    private void PerformFryingPan()
+    public void PerformFryingPan()
     {
         var fp = Instantiate(FryingPanPrefab, throwPoint.position, mover.model.transform.rotation);;
         fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + fp.transform.forward);
         CDandCost.SetFryingPanCooldown();
     }
-    private void DoneFryingPan()
+    public void DoneFryingPan()
     {
         attacking = false;
         animator.SetBool("RangedAttack", false);

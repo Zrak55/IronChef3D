@@ -40,4 +40,8 @@ public class AnimationEventsHandler : MonoBehaviour
     {
         playerAttacks.DeactivateBasicWeapon();
     }
+    public void PerformFryingPan()
+    {
+        playerAttacks.PerformFryingPan();
+    }
 }
