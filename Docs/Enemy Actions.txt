@@ -1,7 +1,7 @@
 Snakon
 	Bite (2 different anims preferred)
 	Tail Spin
-
+	Faster enemy
 
 Eggs Benedict
 	P1: Shelled
@@ -20,16 +20,19 @@ Eggs Benedict
 Crustacean
 	Left Claw
 	Right Claw
+	slow but deadly
 
 
 Tomatroll
 	Left arm ground sweep
 	Right arm sweep (torso height)
 	Both arms overhead slam
+	big strong attacks, well telegraphed
 
 Fondemon
 	Toss left
 	Toss right
+	stationary enemy throwing arcing projectile
 
 Grits
 	None
