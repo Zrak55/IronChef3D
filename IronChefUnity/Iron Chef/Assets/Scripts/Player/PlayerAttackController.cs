@@ -8,7 +8,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     [Header("Basic Attacks")]
     private bool attacking = false;
-    private Animator animator;
+    public Animator animator;
 
     public PlayerBasicAttackbox[] PlayerBasics;
     public int currentPlayerBasic = 0;
@@ -60,6 +60,9 @@ public class PlayerAttackController : MonoBehaviour
             CheckFryingPan();
             CheckPower();
             CheckAttackingStuck();
+
+
+            animator.SetLayerWeight(animator.GetLayerIndex("Mid Layer"), 1f-Mathf.Clamp(animator.GetFloat("Speed"), 0, 1));
 
         }
     }
@@ -151,6 +154,7 @@ public class PlayerAttackController : MonoBehaviour
     }
     private void PerformBasic()
     {
+        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
         attacking = true;
         animator.SetBool("BasicAttack", true);
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
@@ -170,6 +174,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         attacking = false;
         animator.SetBool("BasicAttack", false);
+        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
     }
 
     private void CheckFryingPan()
@@ -180,6 +185,7 @@ public class PlayerAttackController : MonoBehaviour
             {
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
+                animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
             }
         }
     }
@@ -195,6 +201,7 @@ public class PlayerAttackController : MonoBehaviour
         attacking = false;
         animator.SetBool("RangedAttack", false);
         ActivateBasicWeapon();
+        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
     }
 
     private void CheckPower()
@@ -204,12 +211,14 @@ public class PlayerAttackController : MonoBehaviour
         {
             attacking = true;
             animator.SetBool("UsingPower", true);
+            animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
         }
     }
     public void EndPower()
     {
         attacking = false;
         animator.SetBool("UsingPower", false);
+        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
         ActivateBasicWeapon();
     }
 }

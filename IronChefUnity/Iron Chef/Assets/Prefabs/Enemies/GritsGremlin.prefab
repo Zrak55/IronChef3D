@@ -125,7 +125,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 4.3
-  m_Speed: 8
+  m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 30
+  MaxHP: 3
   damaged: 0
 --- !u!114 &8332043286943580878
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 3587781569024699538}
   IsCleave: 0
-  damage: 10
+  damage: 0
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
