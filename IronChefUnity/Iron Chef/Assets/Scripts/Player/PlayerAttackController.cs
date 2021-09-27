@@ -34,6 +34,8 @@ public class PlayerAttackController : MonoBehaviour
     private float maxAttackTimer = 3f;
     private float attackTimer = 0f;
 
+    float targetOverrideWeight = 0;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -64,6 +66,15 @@ public class PlayerAttackController : MonoBehaviour
 
             animator.SetLayerWeight(animator.GetLayerIndex("Mid Layer"), 1f-Mathf.Clamp(animator.GetFloat("Speed"), 0, 1));
 
+            if(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) != targetOverrideWeight)
+            {
+                float tickRate = Time.deltaTime * 10;
+                if (targetOverrideWeight < animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")))
+                {
+                    tickRate *= -1;
+                }
+                animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) + tickRate, 0, 1));
+            }
         }
     }
 
@@ -154,7 +165,7 @@ public class PlayerAttackController : MonoBehaviour
     }
     private void PerformBasic()
     {
-        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
+        targetOverrideWeight = 1;
         attacking = true;
         animator.SetBool("BasicAttack", true);
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
@@ -174,7 +185,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         attacking = false;
         animator.SetBool("BasicAttack", false);
-        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
+        targetOverrideWeight = 0;
     }
 
     private void CheckFryingPan()
@@ -185,7 +196,7 @@ public class PlayerAttackController : MonoBehaviour
             {
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
-                animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
+                targetOverrideWeight = 1;
             }
         }
     }
@@ -201,7 +212,7 @@ public class PlayerAttackController : MonoBehaviour
         attacking = false;
         animator.SetBool("RangedAttack", false);
         ActivateBasicWeapon();
-        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
+        targetOverrideWeight = 0;
     }
 
     private void CheckPower()
@@ -211,14 +222,14 @@ public class PlayerAttackController : MonoBehaviour
         {
             attacking = true;
             animator.SetBool("UsingPower", true);
-            animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 1);
+            targetOverrideWeight = 1;
         }
     }
     public void EndPower()
     {
         attacking = false;
         animator.SetBool("UsingPower", false);
-        animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), 0);
+        targetOverrideWeight = 0;
         ActivateBasicWeapon();
     }
 }

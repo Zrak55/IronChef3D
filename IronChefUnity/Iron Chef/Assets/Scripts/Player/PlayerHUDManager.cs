@@ -231,6 +231,7 @@ public class PlayerHUDManager : MonoBehaviour
                 i.color = targetcolor;
         }
 
+        moveABar(badfoodbar, foodInfo.badIngredientsCurrent);
     }
 
     public void slowMoveSlider(Slider s, float target)

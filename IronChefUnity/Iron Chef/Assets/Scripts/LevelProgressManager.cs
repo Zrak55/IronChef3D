@@ -107,9 +107,6 @@ public class LevelProgressManager : MonoBehaviour
             badIngredientsCurrent++;
         }
 
-        /*
-         * TODO: Update sliders
-         */
     }
 
     public void FinishLevel()
