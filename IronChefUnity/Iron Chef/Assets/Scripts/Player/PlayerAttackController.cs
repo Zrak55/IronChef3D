@@ -15,6 +15,8 @@ public class PlayerAttackController : MonoBehaviour
 
     public GameObject[] PlayerBasicWeaponModels;
 
+    [HideInInspector]
+    public bool canAct = true;
     bool canBasicAttack = true;
 
     [Header("Frying Pan")]
@@ -50,12 +52,16 @@ public class PlayerAttackController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckBasicWeaponSwap();
-        CheckBasic();
-        CheckFryingPan();
-        CheckPower();
-        CheckAttackingStuck();
+        if(canAct)
+        {
 
+            CheckBasicWeaponSwap();
+            CheckBasic();
+            CheckFryingPan();
+            CheckPower();
+            CheckAttackingStuck();
+
+        }
     }
 
     private void CheckAttackingStuck()

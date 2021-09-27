@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: e34f5df2d45b7b7438a59d8917fde2aa
+guid: 7b655a2a2178af5439461e922e2ac91a
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Attack
+    second: Cleaver2
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Attack
+      name: Cleaver2
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 31
+      lastFrame: 38
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -59,14 +59,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.30466473
+      - time: 0.2811736
         functionName: BasicHitOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.6005831
+      - time: 0.58679706
         functionName: BasicHitOff
         data: 
         objectReferenceParameter: {instanceID: 0}

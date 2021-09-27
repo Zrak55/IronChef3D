@@ -17,6 +17,7 @@ public class AppliancePowerSelection : MonoBehaviour
         IronChefUtils.ShowMouse();
         player.GetComponent<CharacterMover>().enabled = false;
         playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = false;
+        player.GetComponent<PlayerAttackController>().canAct = false;
     }
 
     // Update is called once per frame
@@ -88,6 +89,7 @@ public class AppliancePowerSelection : MonoBehaviour
 
         player.GetComponent<CharacterMover>().enabled = true;
         playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = true;
+        player.GetComponent<PlayerAttackController>().canAct = true;
 
 
         gameObject.SetActive(false);
