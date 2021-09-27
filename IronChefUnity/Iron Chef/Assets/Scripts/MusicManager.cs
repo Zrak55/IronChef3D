@@ -17,7 +17,7 @@ public class MusicManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<CharacterMover>().gameObject;
+        
 
         currentNormalClip = 0;
         currentCombatClip = 0;
@@ -29,6 +29,8 @@ public class MusicManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(player == null)
+            player = FindObjectOfType<CharacterMover>().gameObject;
         updateMusicVolume();
         updateMusicClips();
     }

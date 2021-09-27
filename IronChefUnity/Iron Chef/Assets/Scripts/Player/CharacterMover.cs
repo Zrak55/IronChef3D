@@ -42,6 +42,7 @@ public class CharacterMover : MonoBehaviour
     public GameObject model;
     private float modelRotSpeed = 360f;
 
+    float targetRollWeight;
 
     Quaternion targetRotation;
     Vector3 currentMove;
@@ -128,6 +129,15 @@ public class CharacterMover : MonoBehaviour
         {
             IronChefUtils.HideMouse();
         }
+
+        if(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) != targetRollWeight)
+        {
+
+            float tickRate = Time.deltaTime * 10;
+            if (animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) > targetRollWeight)
+                tickRate *= -1;
+            animator.SetLayerWeight(animator.GetLayerIndex("Roll Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) + tickRate, 0, 1));
+        }
     }
 
     private Vector3 getMovementInputVector()
@@ -171,20 +181,18 @@ public class CharacterMover : MonoBehaviour
                 currentMove.z = direction.z;
                 rolling = true;
                 hitpoints.InvincibilityFrame(0.75f);
+                animator.SetBool("Rolling", true);
+                targetRollWeight = 1;
             }
         }
 
-        TryUndoRoll();
+        //TryUndoRoll();
     }
-    private void TryUndoRoll()
+    public void UndoRoll()
     {
-        if (rolling)
-        {
-            Vector3 horizontalMove = currentMove;
-            horizontalMove.y = 0;
-            if (horizontalMove.magnitude <= speed * 1.1f)
-                rolling = false;
-        }
+        rolling = false;
+        animator.SetBool("Rolling", false);
+        targetRollWeight = 0;
     }
 
     private void TrySprint()

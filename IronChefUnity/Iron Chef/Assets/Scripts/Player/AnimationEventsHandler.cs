@@ -6,10 +6,12 @@ public class AnimationEventsHandler : MonoBehaviour
 {
     public PlayerAttackController playerAttacks;
     public PlayerPower power;
+    public CharacterMover characterMover;
 
     private void Awake()
     {
         playerAttacks = GetComponentInParent<PlayerAttackController>();
+        characterMover = GetComponentInParent<CharacterMover>();
     }
     // Start is called before the first frame update
     void Start()
@@ -43,5 +45,10 @@ public class AnimationEventsHandler : MonoBehaviour
     public void PerformFryingPan()
     {
         playerAttacks.PerformFryingPan();
+    }
+
+    public void UndoRoll()
+    {
+        characterMover.UndoRoll();
     }
 }
