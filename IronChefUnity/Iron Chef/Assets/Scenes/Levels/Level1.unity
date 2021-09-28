@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: 18b8fcb37b9704447be88b1c8a91acbd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: c5ed32e4ff3e21847a218437003807c5, type: 2}
 --- !u!1 &12316860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,7 +1530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1437495255431286715, guid: 40bf73f306a396b4d86c64793df8e956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2734585
+      value: -4.57
       objectReference: {fileID: 0}
     - target: {fileID: 1437495255431286715, guid: 40bf73f306a396b4d86c64793df8e956, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8277,6 +8277,10 @@ PrefabInstance:
       value: -129.8
       objectReference: {fileID: 0}
     - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
       propertyPath: m_LocalPosition.z
       value: 4.8
       objectReference: {fileID: 0}
@@ -8744,7 +8748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1437495255431286715, guid: 40bf73f306a396b4d86c64793df8e956, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.2734547
+      value: -4.57
       objectReference: {fileID: 0}
     - target: {fileID: 1437495255431286715, guid: 40bf73f306a396b4d86c64793df8e956, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9887,7 +9891,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172127738309805111, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00009827112
+      value: 0.000070796385
       objectReference: {fileID: 0}
     - target: {fileID: 172127738439106393, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9915,7 +9919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172127738761022302, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00009827112
+      value: 0.000070796385
       objectReference: {fileID: 0}
     - target: {fileID: 172127738785138106, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchorMax.x
