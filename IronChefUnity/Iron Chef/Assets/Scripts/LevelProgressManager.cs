@@ -147,7 +147,7 @@ public class LevelProgressManager : MonoBehaviour
 
         if(badIngredientsMaximum > 0)
         {
-            score = score * (0.5f * (float)badIngredientsCurrent / badIngredientsMaximum);
+            score = score * (1-(0.5f * (float)badIngredientsCurrent / badIngredientsMaximum));
 
         }
 
