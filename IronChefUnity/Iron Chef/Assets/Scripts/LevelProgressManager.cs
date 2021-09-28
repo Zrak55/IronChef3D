@@ -121,33 +121,33 @@ public class LevelProgressManager : MonoBehaviour
         int numIngredients = 0;
         if(ingredientOneRequired > 0)
         {
-            score += 1 - Mathf.Abs(1 - (ingredientOneCurrent / ingredientOneRequired));
+            score += 1 - Mathf.Abs(1f - ((float)ingredientOneCurrent / ingredientOneRequired));
             numIngredients++;
         }
         if (ingredientTwoRequired > 0)
         {
-            score += 1 - Mathf.Abs(1 - (ingredientTwoCurrent / ingredientTwoRequired));
+            score += 1 - Mathf.Abs(1f - ((float)ingredientTwoCurrent / ingredientTwoRequired));
             numIngredients++;
         }
         if (ingredientThreeRequired > 0)
         {
-            score += 1 - Mathf.Abs(1 - (ingredientThreeCurrent / ingredientThreeRequired));
+            score += 1 - Mathf.Abs(1f - ((float)ingredientThreeCurrent / ingredientThreeRequired));
             numIngredients++;
         }
         if (ingredientFourRequired > 0)
         {
-            score += 1 - Mathf.Abs(1 - (ingredientFourCurrent / ingredientFourRequired));
+            score += 1 - Mathf.Abs(1f - ((float)ingredientFourCurrent / ingredientFourRequired));
             numIngredients++;
         }
         if (ingredientFiveRequired > 0)
         {
-            score += 1 - Mathf.Abs(1 - (ingredientFiveCurrent / ingredientFiveRequired));
+            score += 1 - Mathf.Abs(1f - ((float)ingredientFiveCurrent / ingredientFiveRequired));
             numIngredients++;
         }
 
         if(badIngredientsMaximum > 0)
         {
-            score = score * (0.5f * badIngredientsCurrent / badIngredientsMaximum);
+            score = score * (0.5f * (float)badIngredientsCurrent / badIngredientsMaximum);
 
         }
 
@@ -186,7 +186,7 @@ public class LevelProgressManager : MonoBehaviour
     {
         WinScreen.SetActive(true);
 
-        ScoreText.text = "Your score: " + score;
+        ScoreText.text = "Your score: " + ((int)score).ToString() + "/100";
         int stars = 0;
         if (score < 50)
         {
