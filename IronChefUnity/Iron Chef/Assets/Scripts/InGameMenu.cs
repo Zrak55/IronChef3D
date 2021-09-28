@@ -54,22 +54,16 @@ public class InGameMenu : MonoBehaviour
     {
         paused = true;
         Time.timeScale = 0;
-        player.enabled = false;
-        playerCam.CanMoveCam = false;
+        IronChefUtils.TurnOffCharacter();
         Menu.SetActive(true);
-        IronChefUtils.ShowMouse();
-        player.GetComponent<PlayerAttackController>().canAct = false;
         GoToMenu(0);
     }
     void Unpause()
     {
         paused = false;
         Time.timeScale = 1;
-        player.enabled = true;
-        playerCam.CanMoveCam = true;
         Menu.SetActive(false);
-        player.GetComponent<PlayerAttackController>().canAct = true;
-        IronChefUtils.HideMouse();
+        IronChefUtils.TurnOnCharacter();
 
     }
 

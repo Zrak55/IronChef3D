@@ -171,6 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAttacks: {fileID: 2978522925722276978}
   power: {fileID: 0}
+  characterMover: {fileID: 0}
 --- !u!1 &2667517843492065361
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSpeed: 8
-  sprintSpeed: 12
+  sprintSpeed: 15
   acceleration: 24
   jumpSpeed: 9
   rollSpeed: 24

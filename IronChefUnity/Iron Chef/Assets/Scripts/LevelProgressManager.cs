@@ -111,10 +111,7 @@ public class LevelProgressManager : MonoBehaviour
 
     public void FinishLevel()
     {
-        FindObjectOfType<CharacterMover>().enabled = false;
-        FindObjectOfType<PlayerCameraSetup>().CanMoveCam = false;
-
-        IronChefUtils.ShowMouse();
+        IronChefUtils.TurnOffCharacter();
 
         Debug.Log("Level Over!");
         float score = 0;
@@ -181,6 +178,7 @@ public class LevelProgressManager : MonoBehaviour
     public void ShowLoseScreen()
     {
         LoseScreen.SetActive(true);
+        IronChefUtils.TurnOffCharacter();
     }
     public void ShowWinScreen(float score)
     {

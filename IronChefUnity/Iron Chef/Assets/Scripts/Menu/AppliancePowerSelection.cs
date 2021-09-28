@@ -14,10 +14,7 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         player = FindObjectOfType<CharacterMover>().gameObject;
         playerCam = FindObjectOfType<PlayerCameraSetup>().gameObject;
-        IronChefUtils.ShowMouse();
-        player.GetComponent<CharacterMover>().enabled = false;
-        playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = false;
-        player.GetComponent<PlayerAttackController>().canAct = false;
+        IronChefUtils.TurnOffCharacter();
     }
 
     // Update is called once per frame
@@ -80,16 +77,12 @@ public class AppliancePowerSelection : MonoBehaviour
 
     public void Confirm()
     {
-        IronChefUtils.HideMouse();
-        player.GetComponent<CharacterMover>().MouseOff = true;
+        IronChefUtils.TurnOnCharacter();
 
         //TODO: Update with proper models/anims/etc
         door.SetActive(false);
         turnin.SetActive(true);
 
-        player.GetComponent<CharacterMover>().enabled = true;
-        playerCam.GetComponent<PlayerCameraSetup>().CanMoveCam = true;
-        player.GetComponent<PlayerAttackController>().canAct = true;
 
 
         gameObject.SetActive(false);
