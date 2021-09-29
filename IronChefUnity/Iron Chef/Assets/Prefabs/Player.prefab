@@ -196,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2667517843492065361}
   m_LocalRotation: {x: 0.00000008102506, y: 0.000000003361492, z: 2.2798471e-10, w: 1}
-  m_LocalPosition: {x: -0.0063924165, y: 2.9740596, z: -0.34784123}
+  m_LocalPosition: {x: -0.01, y: 3.22, z: -0.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2978522925722276989}
@@ -471,7 +471,7 @@ MonoBehaviour:
   speed: 0
   model: {fileID: 1948250837847046463}
   CamFollowPoint: {fileID: 2430084910336362509}
-  CamLookPoint: {fileID: 2978522925548265648}
+  CamLookPoint: {fileID: 2430084910336362509}
   MouseOff: 0
 --- !u!114 &2978522925722276978
 MonoBehaviour:
@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863490c7047905f4b976f1fe7ae84a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfx: {fileID: 0}
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0
