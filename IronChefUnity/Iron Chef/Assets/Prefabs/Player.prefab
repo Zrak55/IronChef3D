@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 815076193}
   - component: {fileID: 6411622519581159654}
   - component: {fileID: 3555264030390414627}
+  - component: {fileID: 4064311661559571719}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -578,6 +579,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2978522925722276983}
   m_Enabled: 1
+--- !u!114 &4064311661559571719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978522925722276983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863490c7047905f4b976f1fe7ae84a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1076,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 85989238d8b97164a9ab7bef53765219, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
+--- !u!4 &1044086119544404902 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
+  m_PrefabInstance: {fileID: 1713894542416528494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1171573053084836741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
@@ -1071,11 +1089,6 @@ Transform:
 --- !u!1 &1948250837847046463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
-  m_PrefabInstance: {fileID: 1713894542416528494}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1044086119544404902 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
   m_PrefabInstance: {fileID: 1713894542416528494}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2801202495094795078
