@@ -97,6 +97,22 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Eat"",
+                    ""type"": ""Button"",
+                    ""id"": ""013c189d-304a-4888-b6f3-09b7651ed83d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeEat"",
+                    ""type"": ""Value"",
+                    ""id"": ""7eb80eb3-ad80-4337-8fde-ccd0a529644f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -440,6 +456,94 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c52d01b-34fd-4ae8-811f-975381745c37"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a61ad684-b3cd-4184-91d2-9eb097cccdbb"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""c1697ad1-4754-43d2-b724-4d7134adf9ce"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""bd458132-9798-4bcf-b0cd-823363dd44f1"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8f907f08-c2cf-4335-a4c3-27962bed86b0"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""c6f2d759-576c-418f-8835-bf4c0b58ce0a"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""bfefa315-d59d-4119-bba8-f583acdafc5c"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""a593c098-d9ec-416c-bd88-bd060d4dec69"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEat"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -458,6 +562,8 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_FryingPan = m_Gameplay.FindAction("FryingPan", throwIfNotFound: true);
         m_Gameplay_UsePower = m_Gameplay.FindAction("UsePower", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_Eat = m_Gameplay.FindAction("Eat", throwIfNotFound: true);
+        m_Gameplay_ChangeEat = m_Gameplay.FindAction("ChangeEat", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -517,6 +623,8 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_FryingPan;
     private readonly InputAction m_Gameplay_UsePower;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_Eat;
+    private readonly InputAction m_Gameplay_ChangeEat;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -531,6 +639,8 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @FryingPan => m_Wrapper.m_Gameplay_FryingPan;
         public InputAction @UsePower => m_Wrapper.m_Gameplay_UsePower;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @Eat => m_Wrapper.m_Gameplay_Eat;
+        public InputAction @ChangeEat => m_Wrapper.m_Gameplay_ChangeEat;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +680,12 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Eat.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEat;
+                @Eat.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEat;
+                @Eat.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEat;
+                @ChangeEat.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
+                @ChangeEat.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
+                @ChangeEat.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -604,6 +720,12 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @Eat.started += instance.OnEat;
+                @Eat.performed += instance.OnEat;
+                @Eat.canceled += instance.OnEat;
+                @ChangeEat.started += instance.OnChangeEat;
+                @ChangeEat.performed += instance.OnChangeEat;
+                @ChangeEat.canceled += instance.OnChangeEat;
             }
         }
     }
@@ -620,5 +742,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnFryingPan(InputAction.CallbackContext context);
         void OnUsePower(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnEat(InputAction.CallbackContext context);
+        void OnChangeEat(InputAction.CallbackContext context);
     }
 }

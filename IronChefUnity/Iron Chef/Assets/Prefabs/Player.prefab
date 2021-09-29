@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 6411622519581159654}
   - component: {fileID: 3555264030390414627}
   - component: {fileID: 4064311661559571719}
+  - component: {fileID: 4543220090860235641}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -529,7 +530,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JumpCost: 30
   RollCost: 30
-  SpringCostPerSecond: 10
+  SprintCostPerSecond: 10
+  EatCD: 0
+  EatOnCD: 0
   FryingPanCooldown: 5
   FryingPanOnCooldown: 0
   PowerCooldown: 0
@@ -592,6 +595,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sfx: {fileID: 0}
+--- !u!114 &4543220090860235641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978522925722276983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24c2d1eb59d0ad447b8eb2ad39e338d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxAllowedEaten: 5
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0

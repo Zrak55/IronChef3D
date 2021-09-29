@@ -6,9 +6,12 @@ public class PlayerCostCooldownManager : MonoBehaviour
 {
     public float JumpCost = 30f;
     public float RollCost = 30f;
-    public float SpringCostPerSecond = 10f;
-
-
+    public float SprintCostPerSecond = 10f;
+    [Space]
+    public float EatCD;
+    [HideInInspector]
+    public bool EatOnCD = false;
+    float currentEatCD;
     public float FryingPanCooldown = 5f;
     [HideInInspector]
     public bool FryingPanOnCooldown = false;
@@ -45,6 +48,12 @@ public class PlayerCostCooldownManager : MonoBehaviour
             currentPowerCooldown -= Time.deltaTime;
         }
         PowerOnCooldown = currentPowerCooldown > 0;
+
+        if(currentEatCD > 0)
+        {
+            currentEatCD -= Time.deltaTime;
+        }
+        EatOnCD = currentEatCD > 0;
     }
 
     public void SetFryingPanCooldown()
@@ -55,5 +64,10 @@ public class PlayerCostCooldownManager : MonoBehaviour
     public void SetPowerCooldown()
     {
         currentPowerCooldown = PowerCooldown;
+    }
+
+    public void SetEatCD()
+    {
+        currentEatCD = EatCD;
     }
 }

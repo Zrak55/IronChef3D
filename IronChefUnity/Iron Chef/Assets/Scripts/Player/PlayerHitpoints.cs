@@ -59,6 +59,11 @@ public class PlayerHitpoints : MonoBehaviour
         isIFrames = false;
     }
 
+    public void RestoreHP(float amount)
+    {
+        playerStats.CurrentHP = Mathf.Clamp(playerStats.CurrentHP + amount, 0, playerStats.MaximumHP);
+    }
+
 
     
 }
