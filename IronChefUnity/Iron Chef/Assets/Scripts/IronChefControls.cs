@@ -113,6 +113,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ChangeEatTrigger"",
+                    ""type"": ""Button"",
+                    ""id"": ""3dd945e5-ecc9-4222-bf8e-ab2dccec8731"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -544,6 +552,50 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""ChangeEat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aa87043-169c-49ed-bf58-1296bb9411e4"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEatTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b0d2de17-a736-49fb-9d33-5211985f9816"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEatTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""301f7684-1332-4fcb-b646-88e600074945"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEatTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b6ac1db-71ed-4aa0-9b0a-541504e4c99a"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeEatTrigger"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -564,6 +616,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Eat = m_Gameplay.FindAction("Eat", throwIfNotFound: true);
         m_Gameplay_ChangeEat = m_Gameplay.FindAction("ChangeEat", throwIfNotFound: true);
+        m_Gameplay_ChangeEatTrigger = m_Gameplay.FindAction("ChangeEatTrigger", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -625,6 +678,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Eat;
     private readonly InputAction m_Gameplay_ChangeEat;
+    private readonly InputAction m_Gameplay_ChangeEatTrigger;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -641,6 +695,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Eat => m_Wrapper.m_Gameplay_Eat;
         public InputAction @ChangeEat => m_Wrapper.m_Gameplay_ChangeEat;
+        public InputAction @ChangeEatTrigger => m_Wrapper.m_Gameplay_ChangeEatTrigger;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -686,6 +741,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @ChangeEat.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
                 @ChangeEat.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
                 @ChangeEat.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEat;
+                @ChangeEatTrigger.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
+                @ChangeEatTrigger.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
+                @ChangeEatTrigger.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -726,6 +784,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @ChangeEat.started += instance.OnChangeEat;
                 @ChangeEat.performed += instance.OnChangeEat;
                 @ChangeEat.canceled += instance.OnChangeEat;
+                @ChangeEatTrigger.started += instance.OnChangeEatTrigger;
+                @ChangeEatTrigger.performed += instance.OnChangeEatTrigger;
+                @ChangeEatTrigger.canceled += instance.OnChangeEatTrigger;
             }
         }
     }
@@ -744,5 +805,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnEat(InputAction.CallbackContext context);
         void OnChangeEat(InputAction.CallbackContext context);
+        void OnChangeEatTrigger(InputAction.CallbackContext context);
     }
 }

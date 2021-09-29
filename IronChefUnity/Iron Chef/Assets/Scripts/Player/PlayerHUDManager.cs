@@ -9,9 +9,12 @@ public class PlayerHUDManager : MonoBehaviour
 
     [SerializeField] private PlayerStats stats;
     [SerializeField] private LevelProgressManager foodInfo;
+    [SerializeField] private PlayerFoodEater eatFood;
 
     public Slider hpBar;
     public Slider staminaBar;
+    public Slider hungryMeter;
+    public Image foodHighlight;
     float targetHPValue;
 
     [Header("Food Bars")]
@@ -38,6 +41,9 @@ public class PlayerHUDManager : MonoBehaviour
     {
         stats = FindObjectOfType<PlayerStats>();
         foodInfo = FindObjectOfType<LevelProgressManager>();
+        eatFood = FindObjectOfType<PlayerFoodEater>();
+
+        SetHungryBar();
     }
 
     void Start()
@@ -50,7 +56,11 @@ public class PlayerHUDManager : MonoBehaviour
     {
         UpdateBars();
     }
-
+    public void SetHungryBar()
+    {
+        hungryMeter.value = 0;
+        hungryMeter.maxValue = eatFood.maxAllowedEaten;
+    }
     public void SetFoodBars()
     {
 
@@ -114,9 +124,39 @@ public class PlayerHUDManager : MonoBehaviour
         UpdateHPBar();
         UpdateStaminaBar();
         UpdateFoodBars();
+        UpdateHungryBar();
     }
 
-
+    private void UpdateHungryBar()
+    {
+        moveABar(hungryMeter, eatFood.amountEaten);
+        Vector3 targetPos = foodHighlight.transform.position;
+        if(eatFood.currentEatIndex == 1)
+        {
+            targetPos = food1bar.transform.position;
+        }
+        else if (eatFood.currentEatIndex == 2)
+        {
+            targetPos = food2bar.transform.position;
+        }
+        else if (eatFood.currentEatIndex == 3)
+        {
+            targetPos = food3bar.transform.position;
+        }
+        else if (eatFood.currentEatIndex == 4)
+        {
+            targetPos = food4bar.transform.position;
+        }
+        else if (eatFood.currentEatIndex == 5)
+        {
+            targetPos = food5bar.transform.position;
+        }
+        else if (eatFood.currentEatIndex == 6)
+        {
+            targetPos = badfoodbar.transform.position;
+        }
+        foodHighlight.transform.position = targetPos;
+    }
     private void UpdateHPBar()
     {
         moveABar(hpBar, stats.CurrentHP / stats.MaximumHP);

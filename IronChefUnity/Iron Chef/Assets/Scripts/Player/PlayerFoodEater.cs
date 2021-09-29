@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerFoodEater : MonoBehaviour
 {
-    int currentEatIndex;
+    public int currentEatIndex;
     LevelProgressManager food;
     PlayerCostCooldownManager cooldown;
     PlayerHitpoints health;
     float eatCD = 0;
-    int amountEaten = 0;
+    public int amountEaten = 0;
     public int maxAllowedEaten;
     float eatDelay = 0;
 
@@ -83,7 +83,7 @@ public class PlayerFoodEater : MonoBehaviour
             }
             if (currentEatIndex == 6)
             {
-                if (food.badIngredientsCurrent > 0 && (amountEaten - maxAllowedEaten) >= 2)
+                if (food.badIngredientsCurrent > 0 && (maxAllowedEaten - amountEaten) >= 2)
                 {
                     food.badIngredientsCurrent--;
                     amountEaten += 2;
@@ -108,7 +108,7 @@ public class PlayerFoodEater : MonoBehaviour
     {
         eatDelay -= Time.deltaTime;
 
-        if(eatDelay <= 0)
+        if(InputControls.controls.Gameplay.ChangeEatTrigger.triggered)
         {
             float value = InputControls.controls.Gameplay.ChangeEat.ReadValue<float>();
 
@@ -122,25 +122,30 @@ public class PlayerFoodEater : MonoBehaviour
                 {
                     currentEatIndex--;
                 }
-                eatDelay = 0.1f;
             }
-
-            if (currentEatIndex == 2 && food.ingredientTwoRequired == 0)
+            bool swapped = true;
+            while (swapped)
             {
-                currentEatIndex += (int)value;
+                int old = currentEatIndex;
+                if (currentEatIndex == 2 && food.ingredientTwoRequired == 0)
+                {
+                    currentEatIndex += (int)value;
+                }
+                if (currentEatIndex == 3 && food.ingredientThreeRequired == 0)
+                {
+                    currentEatIndex += (int)value;
+                }
+                if (currentEatIndex == 4 && food.ingredientFourRequired == 0)
+                {
+                    currentEatIndex += (int)value;
+                }
+                if (currentEatIndex == 5 && food.ingredientFiveRequired == 0)
+                {
+                    currentEatIndex += (int)value;
+                }
+                swapped = old != currentEatIndex;
             }
-            if (currentEatIndex == 3 && food.ingredientThreeRequired == 0)
-            {
-                currentEatIndex += (int)value;
-            }
-            if (currentEatIndex == 4 && food.ingredientFourRequired == 0)
-            {
-                currentEatIndex += (int)value;
-            }
-            if (currentEatIndex == 5 && food.ingredientFiveRequired == 0)
-            {
-                currentEatIndex += (int)value;
-            }
+            
 
             if (currentEatIndex == 7)
             {
