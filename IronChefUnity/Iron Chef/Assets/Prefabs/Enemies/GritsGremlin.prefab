@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1000192917835242955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7328505489499032530}
+  - component: {fileID: 2504557052180134088}
+  m_Layer: 7
+  m_Name: Hitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &7328505489499032530
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000192917835242955}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.06, y: 0.68, z: 0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7422479558757950679}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2504557052180134088
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000192917835242955}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.3927913, y: 3.7415404, z: 3.4631755}
+  m_Center: {x: 0.06716609, y: 1.4707704, z: 0.04631746}
 --- !u!1 &3587781569024699532
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +55,7 @@ GameObject:
   - component: {fileID: 3587781569024699533}
   - component: {fileID: 3587781569024699538}
   m_Layer: 7
-  m_Name: Hitbox
+  m_Name: AttackHitbx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,6 +127,7 @@ Transform:
   m_Children:
   - {fileID: 3587781569024699533}
   - {fileID: 814565522741673573}
+  - {fileID: 7328505489499032530}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,7 +142,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6, y: 4, z: 7}
+  m_Size: {x: 3.850866, y: 4, z: 3.7716718}
   m_Center: {x: 0, y: 1.6, z: 0}
 --- !u!54 &8521597711591569850
 Rigidbody:
@@ -124,7 +169,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7803086111016615533}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 4.3
+  m_Radius: 1.92
   m_Speed: 6
   m_Acceleration: 8
   avoidancePriority: 50
