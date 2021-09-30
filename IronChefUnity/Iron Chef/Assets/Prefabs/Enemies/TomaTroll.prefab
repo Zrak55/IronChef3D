@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
   m_Father: {fileID: 1437495255431286715}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1868838686
 BoxCollider:
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 0}
+  myCollider: {fileID: 1868838686}
   IsCleave: 0
   damage: 10
 --- !u!1 &1475416153710143299
@@ -108,7 +108,7 @@ Transform:
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
   m_Father: {fileID: 1437495255431286715}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1475416153710143325
 BoxCollider:
@@ -123,64 +123,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1475416154293776240
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1475416154293776243}
-  - component: {fileID: 1475416154293776141}
-  - component: {fileID: 1475416154293776242}
-  m_Layer: 8
-  m_Name: Hurtbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
-  m_IsActive: 1
---- !u!4 &1475416154293776243
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475416154293776240}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.2, z: 0}
-  m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
-  m_Children: []
-  m_Father: {fileID: 1437495255431286715}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1475416154293776141
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475416154293776240}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1475416154293776242
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1475416154293776240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!1 &1781405636844246273
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +137,6 @@ GameObject:
   - component: {fileID: 1475416154569173097}
   - component: {fileID: 1475416154569173102}
   - component: {fileID: 1475416154569173103}
-  - component: {fileID: 1475416154569173100}
   - component: {fileID: 1475416154569173101}
   - component: {fileID: 8187776139406683009}
   - component: {fileID: 6156062095218787149}
@@ -220,7 +161,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6934924956212691480}
-  - {fileID: 1475416154293776243}
   - {fileID: 1475416153710143298}
   - {fileID: 1868838684}
   m_Father: {fileID: 0}
@@ -308,19 +248,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 3
   damaged: 0
---- !u!114 &1475416154569173100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781405636844246273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ef86e01c15212c48ad811529e86091e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
 --- !u!114 &1475416154569173101
 MonoBehaviour:
   m_ObjectHideFlags: 0
