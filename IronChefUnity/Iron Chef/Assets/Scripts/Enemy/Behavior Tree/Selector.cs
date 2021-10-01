@@ -29,23 +29,24 @@ public class Selector : Node
     }
     #endregion
     #region Functions
-    //This function is OUTDATED. Needs to be updated, not currently in use.
     //The node will run its first child. If it fails, keep going through children. Otherwise, continue with that node.
     //Selector needs more testing to confirm it works as is.
     public override STATUS proccess()
     {
-        //Run the process for the child we are currently on. If it fails, then stop the sequence. If it is running, then return running so we can return next update.
-        STATUS childStatus = children[currentChild].proccess();
-        if (childStatus != STATUS.FAILURE)
-            return childStatus;
+        STATUS childStatus;
 
-        //If it succeeds, then check to make sure we aren't out of bounds. If we are, then the sequence was succesful. Otherwise, we will run the next child next update.
-        currentChild++;
-        if (currentChild < children.Count)
-            return STATUS.RUNNING;
-        currentChild = 0;
-        return STATUS.FAILURE;
-
+        //Updated version that runs through every child in one update, but will only keep going if the nodes fail. Returns once we hit success or running
+        foreach (Node child in children)
+        {
+            childStatus = child.proccess();
+            if (childStatus == STATUS.SUCCESS || childStatus == STATUS.RUNNING)
+            {
+                status = childStatus;
+                return status;
+            }
+        }
+        status = STATUS.SUCCESS;
+        return status;
     }
     #endregion
 }
