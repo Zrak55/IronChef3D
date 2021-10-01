@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GenericEnemyBehavior : MonoBehaviour
+public class BenedictBehavior : MonoBehaviour
 {
     //This is a test class and not meant for actual use
     BehaviorTree genericBehaviorTree;
@@ -12,11 +12,29 @@ public class GenericEnemyBehavior : MonoBehaviour
     [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
     [SerializeField] private float spawnRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
-    [SerializeField] private float attackRange;
+    [SerializeField] private float biteRange;
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
+    [SerializeField] private float rollRange;
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
+    [SerializeField] private float jumpRange;
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
+    [SerializeField] private float yolkRange;
     [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
-    [SerializeField] private float attackTime;
+    [SerializeField] private float biteTime;
+    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [SerializeField] private float rolTime;
+    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [SerializeField] private float yolkTime;
+    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [SerializeField] private float jumpTime;
     [Tooltip("Float for the time between the enemy's attack")]
-    [SerializeField] private float attackCD;
+    [SerializeField] private float BiteCD;
+    [Tooltip("Float for the time between the enemy's attack")]
+    [SerializeField] private float RollCD;
+    [Tooltip("Float for the time between the enemy's attack")]
+    [SerializeField] private float YolkCD;
+    [Tooltip("Float for the time between the enemy's attack")]
+    [SerializeField] private float JumpCD;
     private Transform player;
     private Animator animator;
     private NavMeshAgent agent;
@@ -26,20 +44,45 @@ public class GenericEnemyBehavior : MonoBehaviour
     private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
+
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
-    private bool isAttacking = false, isAttackCD = false;
+    private bool isAttacking = false;
     private float startSpeed;
+
+    private bool BiteOnCD = false, RollOnCD = false, JumpOnCD = false, YolkOnCD = false;
+    private bool InBiteRange = false, InRollRange = false, InJumpRange = false, InYolkRange = false;
+    [HideInInspector]
+    public bool DoneRolling = false;
+    private BenedictRoll rollBehavior;
+
+    bool aggrod;
+
+
+    private currentAttack attackInUse = currentAttack.None;
+    private int currentPhase;
+
+
+
+    private enum currentAttack
+    {
+        None,
+        Bite,
+        Roll,
+        Jump, 
+        Yolk
+    }
 
     private void Start()
     {
+        currentPhase = 1;
+
         startPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
         enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
-        if (enemyBasicAttackbox == null)
-            enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
+        rollBehavior = GetComponent<BenedictRoll>();
         startSpeed = agent.speed;
 
         //Setup leaf nodes
@@ -68,42 +111,60 @@ public class GenericEnemyBehavior : MonoBehaviour
     public Node.STATUS moveTowards()
     {
         animator.SetBool("isMoving", true);
-        agent.destination = player.transform.position;
+        if(agent.enabled)
+            agent.destination = player.transform.position;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
     }
 
     public Node.STATUS movePause()
     {
-        agent.destination = startPosition;
-        if (agent.velocity == Vector3.zero)
-            animator.SetBool("isMoving", false);
+        if(agent.enabled)
+        {
+            agent.destination = startPosition;
+            if (agent.velocity == Vector3.zero)
+                animator.SetBool("isMoving", false);
+        }
+        
         ResetMove.status = Node.STATUS.SUCCESS;
         return ResetMove.status;
     }
 
     public Node.STATUS attack()
     {
-        //When the attack animation has finished this will play.
-        if (Attack.status == Node.STATUS.RUNNING && !isAttacking)
+        if(aggrod)
         {
-            isAttackCD = true;
-            Invoke("attackCDEnd", attackCD);
-            enemyBasicAttackbox.HitOn();
+            //When the attack animation has finished this will play.
+            if (Attack.status == Node.STATUS.RUNNING && !isAttacking)
+            {
+                Attack.status = Node.STATUS.SUCCESS;
+                return Attack.status;
+            }
 
-            Attack.status = Node.STATUS.SUCCESS;
-            return Attack.status;
-        }
-        //If we aren't already attack and the cd is done, then attack.
-        else if (!isAttacking && !isAttackCD)
-        {
-            isAttacking = true;
-            animator.SetTrigger("Attack");
-            Invoke("attackEnd", attackTime);
-            enemyBasicAttackbox.HitOff();
 
-            agent.destination = transform.position;
+            //If we aren't already attack and the cd is done, then attack.
+            if (!isAttacking && !BiteOnCD && currentPhase >= 2 && InBiteRange)
+            {
+                Invoke("BiteCDEnd", BiteCD + biteTime);
+                BiteOnCD = true;
+                isAttacking = true;
+                animator.SetTrigger("Bite");
+                Invoke("attackEnd", biteTime);
+
+                agent.destination = transform.position;
+            }
+            else if (!isAttacking && !RollOnCD && InRollRange)
+            {
+                Invoke("RollCDEnd", RollCD + rolTime);
+                RollOnCD = true;
+                isAttacking = true;
+                animator.SetBool("Roll", true);
+                Invoke("attackEnd", rolTime);
+                rollBehavior.BeginRolling(rolTime);
+                agent.enabled = false;
+            }
         }
+        
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
     }
@@ -111,11 +172,25 @@ public class GenericEnemyBehavior : MonoBehaviour
     private void attackEnd()
     {
         isAttacking = false;
+        agent.enabled = true;
+        attackInUse = currentAttack.None;
     }
 
-    private void attackCDEnd()
+    private void BiteCDEnd()
     {
-        isAttackCD = false;
+        BiteOnCD = false;
+    }
+    private void JumpCDEnd()
+    {
+        JumpOnCD = false;
+    }
+    private void RollCDEnd()
+    {
+        RollOnCD = false;
+    }
+    private void YolkCDEnd()
+    {
+        YolkOnCD = false;
     }
 
     public Node.STATUS checkEnemyHurt()
@@ -131,12 +206,12 @@ public class GenericEnemyBehavior : MonoBehaviour
 
     public Node.STATUS checkAggroRange()
     {
+        PlayerAggroRange.status = Node.STATUS.FAILURE;
         if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
         {
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
-            return PlayerAggroRange.status;
+            aggrod = true;
         }
-        PlayerAggroRange.status = Node.STATUS.FAILURE;
         return PlayerAggroRange.status;
     }
 
@@ -148,23 +223,35 @@ public class GenericEnemyBehavior : MonoBehaviour
             return PlayerSpawnRange.status;
         }
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
+        aggrod = false;
         return PlayerSpawnRange.status;
     }
 
+
     public Node.STATUS checkPlayerAttackRange()
     {
-        if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
-        {
-            PlayerAttackRange.status = Node.STATUS.SUCCESS;
-            return PlayerAttackRange.status;
-        }
+        InBiteRange = false;
+        InYolkRange = false;
+        InJumpRange = false;
+        InRollRange = false;
         PlayerAttackRange.status = Node.STATUS.FAILURE;
+        if (Vector3.Distance(player.transform.position, transform.position) < biteRange)
+        {
+            InBiteRange = true;
+            PlayerAttackRange.status = Node.STATUS.SUCCESS;
+        }
+        if (Vector3.Distance(player.transform.position, transform.position) < rollRange)
+        {
+            InRollRange = true;
+            PlayerAttackRange.status = Node.STATUS.SUCCESS;
+        }
         return PlayerAttackRange.status;
     }
 
     public void SetCurrentSpeed(float s)
     {
-        agent.speed = s;
+        if(agent.enabled)
+            agent.speed = s;
     }
 
     public float GetStartSpeed()

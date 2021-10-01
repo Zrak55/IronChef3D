@@ -132,13 +132,13 @@ public static class IronChefUtils
         return slow;
     }
 
-    public static List<GameObject> GetCastHits(Collider col)
+    public static List<GameObject> GetCastHits(Collider col, string Layer = "Hitbox")
     {
 
 
         Collider[] hits = { };
         if (col is BoxCollider)
-            hits = Physics.OverlapBox(col.transform.position, (col as BoxCollider).size / 2, col.transform.rotation, 1 << LayerMask.NameToLayer("Hitbox"));
+            hits = Physics.OverlapBox(col.transform.position, (col as BoxCollider).size / 2, col.transform.rotation, 1 << LayerMask.NameToLayer(Layer));
         else if (col is CapsuleCollider)
         {
             var capcol = col as CapsuleCollider;
