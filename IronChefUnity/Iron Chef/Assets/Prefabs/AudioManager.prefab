@@ -308,6 +308,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e7a500e6a077fdb4ca4bc1cab95b081b, type: 3}
   FilletKnifeEffects:
   - {fileID: 8300000, guid: b7061fb358b9cb642a25e04a7ab6978f, type: 3}
+  FootstepEffects:
+  - {fileID: 8300000, guid: d91cf28dc06e8604187cf0d88ffe5551, type: 3}
+  FridgeSlow: {fileID: 8300000, guid: 4a59d765f4f80044eac6026538a12269, type: 3}
+  MalapenoExplosion: {fileID: 8300000, guid: 040ef1cef1c5ed740bc939cc4b2ee5a2, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,4 +329,4 @@ MonoBehaviour:
   normalClips:
   - {fileID: 8300000, guid: f0419fa092e403f43a4d6927f0aab311, type: 3}
   combatClips:
-  - {fileID: 8300000, guid: 3df7212d2d388404da30b7511373cfd0, type: 3}
+  - {fileID: 8300000, guid: 0f1c97bd9290f78439726e0bea80df76, type: 3}

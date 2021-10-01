@@ -12,10 +12,11 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] CleaverEffects;
     public AudioClip[] RollingPinEffects;
     public AudioClip[] FilletKnifeEffects;
+    public AudioClip[] FootstepEffects;
+    public AudioClip FridgeSlow;
+    public AudioClip MalapenoExplosion;
 
-    
 
- 
 
 
 
@@ -30,10 +31,10 @@ public class SoundEffectSpawner : MonoBehaviour
         ac.volume = volume;
         ac.pitch = pitch;
         ac.Play();
-        
-        
+
+
         Destroy(go, ac.clip.length * 1.1f);
-        
+
     }
 
 
@@ -41,10 +42,10 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
-        float pitch = 1;
+        float pitch = Random.Range(0.9333f, 1.0667f);
 
         int index;
-        switch(effect)
+        switch (effect)
         {
             case SoundEffect.Cleaver:
                 index = Random.Range(0, CleaverEffects.Length);
@@ -59,11 +60,19 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = FilletKnifeEffects[index];
                 break;
             case SoundEffect.MalapenoExplosion:
-                ////
+                clipToPlay = MalapenoExplosion;
                 break;
+            case SoundEffect.FridgeSlow:
+                clipToPlay = FridgeSlow;
+                break;
+            case SoundEffect.Footstep:
+                index = Random.Range(0, FootstepEffects.Length);
+                clipToPlay = FilletKnifeEffects[index];
+                break;
+
         }
 
-        if(clipToPlay != null)
+        if (clipToPlay != null)
         {
             MakeSoundEffect(location, volume, clipToPlay, pitch);
         }
@@ -81,7 +90,9 @@ public class SoundEffectSpawner : MonoBehaviour
         Cleaver,
         RollingPin,
         FilletKnife,
-        MalapenoExplosion
+        MalapenoExplosion,
+        FridgeSlow,
+        Footstep
     }
 }
-   
+
