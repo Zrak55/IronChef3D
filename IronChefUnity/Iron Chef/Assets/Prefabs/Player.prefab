@@ -172,6 +172,7 @@ MonoBehaviour:
   playerAttacks: {fileID: 2978522925722276978}
   power: {fileID: 0}
   characterMover: {fileID: 0}
+  audioEvent: {fileID: 0}
 --- !u!1 &2667517843492065361
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,6 +500,7 @@ MonoBehaviour:
   canAct: 1
   FryingPanPrefab: {fileID: 4312367088962146410, guid: 182d06f7561ed244089b4fd4612e85e6, type: 3}
   throwPoint: {fileID: 7861996478004342187}
+  manager: {fileID: 0}
 --- !u!114 &2978522925722276990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,6 +609,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24c2d1eb59d0ad447b8eb2ad39e338d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEatIndex: 0
+  amountEaten: 0
   maxAllowedEaten: 5
 --- !u!1 &4786784189082371845
 GameObject:
