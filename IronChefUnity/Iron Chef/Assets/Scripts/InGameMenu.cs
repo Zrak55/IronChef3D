@@ -129,6 +129,7 @@ public class InGameMenu : MonoBehaviour
 
     public void Quit()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("MainMenu");
     }
 
