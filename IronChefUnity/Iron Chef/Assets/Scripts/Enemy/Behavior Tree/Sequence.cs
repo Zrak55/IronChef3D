@@ -35,12 +35,15 @@ public class Sequence : Node
         Node.STATUS childStatus;
 
         //If any children are running skip to those.
-        foreach (Node child in children)
+        if (this.status == STATUS.RUNNING)
         {
-            if (child.status == STATUS.RUNNING)
+            foreach (Node child in children)
             {
-                status = child.proccess();
-                return status;
+                if (child.status == STATUS.RUNNING)
+                {
+                    status = child.proccess();
+                    return status;
+                }
             }
         }
 
