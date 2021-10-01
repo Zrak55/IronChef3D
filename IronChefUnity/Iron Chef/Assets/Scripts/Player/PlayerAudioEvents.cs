@@ -20,8 +20,8 @@ public class PlayerAudioEvents : MonoBehaviour
 
     }
 
-    public void MakeFootstep()
+    public void MakeFootstepSound()
     {
-        //sfx.MakeSoundEffect(transform.position, 0.5f, SoundEffectSpawner.SoundEffect.Cleaver);
+        sfx.MakeSoundEffect(transform.position, 0.5f, SoundEffectSpawner.SoundEffect.Footstep);
     }
 }

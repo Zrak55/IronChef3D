@@ -67,7 +67,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 break;
             case SoundEffect.Footstep:
                 index = Random.Range(0, FootstepEffects.Length);
-                clipToPlay = FilletKnifeEffects[index];
+                clipToPlay = FootstepEffects[index];
                 break;
 
         }

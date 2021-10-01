@@ -60,16 +60,16 @@ ModelImporter:
       curves: []
       events:
       - time: 0.31426033
-        functionName: NewEvent
+        functionName: MakeFootstepSound
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: d91cf28dc06e8604187cf0d88ffe5551, type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.65621495
-        functionName: NewEvent
+        functionName: MakeFootstepSound
         data: 
-        objectReferenceParameter: {fileID: 8300000, guid: d91cf28dc06e8604187cf0d88ffe5551, type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0

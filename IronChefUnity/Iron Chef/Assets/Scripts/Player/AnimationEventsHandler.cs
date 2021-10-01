@@ -7,11 +7,13 @@ public class AnimationEventsHandler : MonoBehaviour
     public PlayerAttackController playerAttacks;
     public PlayerPower power;
     public CharacterMover characterMover;
+    public PlayerAudioEvents audioEvent;
 
     private void Awake()
     {
         playerAttacks = GetComponentInParent<PlayerAttackController>();
         characterMover = GetComponentInParent<CharacterMover>();
+        audioEvent = GetComponentInParent<PlayerAudioEvents>();
     }
     // Start is called before the first frame update
     void Start()
@@ -50,5 +52,10 @@ public class AnimationEventsHandler : MonoBehaviour
     public void UndoRoll()
     {
         characterMover.UndoRoll();
+    }
+    
+    public void MakeFootstepSound()
+    {
+        audioEvent.MakeFootstepSound();
     }
 }

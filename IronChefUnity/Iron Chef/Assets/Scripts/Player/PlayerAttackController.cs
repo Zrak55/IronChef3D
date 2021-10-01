@@ -25,6 +25,7 @@ public class PlayerAttackController : MonoBehaviour
     [Header("PowerInfo")]
     public Transform throwPoint;
 
+    public SoundEffectSpawner manager;
 
 
     PlayerCostCooldownManager CDandCost;
