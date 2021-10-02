@@ -187,7 +187,7 @@ public class BenedictBehavior : MonoBehaviour
                 float scale = Random.Range(1f, 2f);
                 var projectile = Instantiate(yolkBomb, BombSpawnPoint.position, Random.rotation).GetComponent<ProjectileLaunch>();
                 projectile.transform.localScale = new Vector3(scale, scale, scale);
-                projectile.Launch(Random.Range(5, 20), new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Random.Range(10, 80));
+                projectile.Launch(Random.Range(5, 40), new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized, Random.Range(10, 80));
                 Destroy(projectile.gameObject, 5f);
             }
         }
@@ -319,7 +319,9 @@ public class BenedictBehavior : MonoBehaviour
                 fast.percentAmount = 1;
                 fast.duration = IronChefUtils.InfiniteDuration;
                 GetComponent<EnemySpeedController>().Modifiers.Add(fast);
-                GetComponent<BenedictRoll>().rollSpeed *= 1.5f;
+                
+                rollBehavior.rollSpeed *= 1.25f;
+                jumpTime *= 0.75f;
             }
             
         }

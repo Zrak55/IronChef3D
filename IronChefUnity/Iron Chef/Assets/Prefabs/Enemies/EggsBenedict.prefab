@@ -399,7 +399,7 @@ MonoBehaviour:
   jumpTime: 1.5
   BiteCD: 3
   RollCD: 10
-  YolkCD: 0.5
+  YolkCD: 0.25
   JumpCD: 8
   DoneRolling: 0
   yolkBomb: {fileID: 4088226268673702336, guid: fb412c7ffd3a47246931b63eeb7ac598, type: 3}
