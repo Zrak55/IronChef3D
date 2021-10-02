@@ -170,6 +170,16 @@ public class PlayerAttackController : MonoBehaviour
         attacking = true;
         animator.SetBool("BasicAttack", true);
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
+
+        Invoke("EmergencyShutoff", 2.5f);
+    }
+
+    private void EmergencyShutoff()
+    {
+        if(!attacking && animator.GetBool("BasicAttack"))
+        {
+            animator.SetBool("BasicAttack", false);
+        }
     }
 
     public void BasicHitOn()
