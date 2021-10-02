@@ -51,6 +51,14 @@ public class MusicManager : MonoBehaviour
                     break;
                 }
             }
+            foreach(var e in FindObjectsOfType<BenedictBehavior>())
+            {
+                if(e.IsAggrod())
+                {
+                    inCombat = true;
+                    break;
+                }
+            }
 
             if (inCombat)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemySpeedController : MonoBehaviour
 {
-    GenericEnemyBehavior mover;
+    EnemySpeed mover;
     [SerializeField]
     public List<SpeedEffector> Modifiers = new List<SpeedEffector>();
     List<SpeedEffector> removeList;
@@ -13,7 +13,7 @@ public class EnemySpeedController : MonoBehaviour
     private void Awake()
     {
         removeList = new List<SpeedEffector>();
-        mover = GetComponent<GenericEnemyBehavior>();
+        mover = GetComponent<EnemySpeed>();
     }
 
     private void Update()

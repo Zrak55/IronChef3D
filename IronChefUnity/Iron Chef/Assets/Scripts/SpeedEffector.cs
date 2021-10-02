@@ -14,6 +14,7 @@ public class SpeedEffector
 
     public enum EffectorName
     {
-        Fridge
+        Fridge,
+        BenedictSpeed,
     }
 }

@@ -28,7 +28,6 @@ public class GenericEnemyBehavior : MonoBehaviour
     private Vector3 startPosition;
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
     private bool isAttacking = false, isAttackCD = false;
-    private float startSpeed;
 
     private void Start()
     {
@@ -40,7 +39,6 @@ public class GenericEnemyBehavior : MonoBehaviour
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
-        startSpeed = agent.speed;
 
         //Setup leaf nodes
         EnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
@@ -157,18 +155,13 @@ public class GenericEnemyBehavior : MonoBehaviour
         {
             PlayerAttackRange.status = Node.STATUS.SUCCESS;
             return PlayerAttackRange.status;
+            return PlayerAttackRange.status;
         }
         PlayerAttackRange.status = Node.STATUS.FAILURE;
         return PlayerAttackRange.status;
     }
 
-    public void SetCurrentSpeed(float s)
-    {
-        agent.speed = s;
-    }
+    
 
-    public float GetStartSpeed()
-    {
-        return startSpeed;
-    }
+    
 }

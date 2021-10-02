@@ -44,16 +44,30 @@ public class BenedictRoll : MonoBehaviour
     {
         if(rolling)
         {
+            //Collision Check
             var list = IronChefUtils.GetCastHits(collider, "Terrain");
             foreach (var i in list)
             {
 
                 targetFacing = Vector3.MoveTowards(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position, Vector3.Angle(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position) / 2);
-
+                targetFacing.y = 0;
 
             }
+
+            //Phase Check
+            list = IronChefUtils.GetCastHits(collider, "SpecialBossLayer1");
+            if(list.Count > 0)
+            {
+                behavior.GoToNextPhase();
+            }
+
+
+            //Move
             transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * Time.deltaTime);
             transform.LookAt(transform.position + targetFacing);
+
+            RollCollider.playersHit.Clear();
+            
         }
     }
 
@@ -62,6 +76,7 @@ public class BenedictRoll : MonoBehaviour
         startingRoll = false;
         rolling = true;
         targetFacing = transform.forward;
+        targetFacing.y = 0;
         RollCollider.HitOn();
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), true);
         foreach(var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())

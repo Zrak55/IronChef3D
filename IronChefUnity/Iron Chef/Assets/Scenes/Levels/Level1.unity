@@ -3368,7 +3368,7 @@ GameObject:
   - component: {fileID: 745463709}
   - component: {fileID: 745463708}
   - component: {fileID: 745463707}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Cube (69)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6546,7 +6546,7 @@ GameObject:
   - component: {fileID: 1443199698}
   - component: {fileID: 1443199697}
   - component: {fileID: 1443199696}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Cube (70)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6995,6 +6995,10 @@ PrefabInstance:
     - target: {fileID: 7803086111016615533, guid: f7e65f267ea973343b6c8bd394b7ce43, type: 3}
       propertyPath: m_Name
       value: EggsBenedict
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181710798279154573, guid: f7e65f267ea973343b6c8bd394b7ce43, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7e65f267ea973343b6c8bd394b7ce43, type: 3}
@@ -9883,7 +9887,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172127738309805111, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 54.436
       objectReference: {fileID: 0}
     - target: {fileID: 172127738439106393, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9911,7 +9915,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 172127738761022302, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.000030517578
+      value: 54.436
       objectReference: {fileID: 0}
     - target: {fileID: 172127738785138106, guid: eac83c4c43819fd4d8f55c07eaf02799, type: 3}
       propertyPath: m_AnchorMax.x

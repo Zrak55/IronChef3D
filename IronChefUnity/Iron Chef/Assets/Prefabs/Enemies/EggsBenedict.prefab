@@ -150,6 +150,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.999999, y: 3.6835015, z: 4.0451117}
   m_Center: {x: 0, y: 1.441752, z: -0.5225578}
+--- !u!1 &6907650809978562329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9181710798279154573}
+  m_Layer: 0
+  m_Name: BombSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9181710798279154573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6907650809978562329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3846604449621732815}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7803086111016615533
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7422479558757950679}
+  - component: {fileID: 436092292271447978}
   - component: {fileID: 6737522677001501040}
   - component: {fileID: 8521597711591569850}
   - component: {fileID: 7803086111016615539}
@@ -170,6 +201,8 @@ GameObject:
   - component: {fileID: 4867357815208474035}
   - component: {fileID: 3625025167294289699}
   - component: {fileID: 6105392256241112007}
+  - component: {fileID: 6410379416721885783}
+  - component: {fileID: 4798391828614751253}
   m_Layer: 9
   m_Name: EggsBenedict
   m_TagString: Untagged
@@ -192,6 +225,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &436092292271447978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d8b67098a2fba468fd9e74a5df6611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &6737522677001501040
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -231,7 +276,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 3.31
-  m_Speed: 8
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -255,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 3
+  MaxHP: 10
   damaged: 0
 --- !u!114 &8332043286943580878
 MonoBehaviour:
@@ -344,19 +389,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 30
   spawnRange: 100
-  biteRange: 5
+  biteRange: 6
   rollRange: 100
   jumpRange: 100
   yolkRange: 100
   biteTime: 3
   rolTime: 10
-  yolkTime: 0.1
-  jumpTime: 3
+  yolkTime: 0
+  jumpTime: 1.5
   BiteCD: 3
   RollCD: 10
-  YolkCD: 1
+  YolkCD: 0.5
   JumpCD: 8
   DoneRolling: 0
+  yolkBomb: {fileID: 4088226268673702336, guid: fb412c7ffd3a47246931b63eeb7ac598, type: 3}
+  BombSpawnPoint: {fileID: 9181710798279154573}
 --- !u!114 &6105392256241112007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +420,95 @@ MonoBehaviour:
   collider: {fileID: 6737522677001501040}
   animator: {fileID: 0}
   rollSpeed: 40
+--- !u!114 &6410379416721885783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7edadd0b3003e8c4e8d4cdb64e7cd8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHitbox: {fileID: 7428588346767849276}
+  behavior: {fileID: 0}
+  maxJumpHeight: 15
+--- !u!114 &4798391828614751253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8892962108287223260
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5253624436902270365}
+  - component: {fileID: 157670040086219631}
+  - component: {fileID: 7428588346767849276}
+  m_Layer: 8
+  m_Name: JumpHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &5253624436902270365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892962108287223260}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.19, y: -4.44, z: 3.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3846604449621732815}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &157670040086219631
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892962108287223260}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.01, y: 3.53, z: 11.1}
+  m_Center: {x: 0.12685442, y: -0.64, z: 3.6999211}
+--- !u!114 &7428588346767849276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892962108287223260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  myCollider: {fileID: 157670040086219631}
+  IsCleave: 1
+  damage: 10
 --- !u!1001 &3669126517064895012
 PrefabInstance:
   m_ObjectHideFlags: 0

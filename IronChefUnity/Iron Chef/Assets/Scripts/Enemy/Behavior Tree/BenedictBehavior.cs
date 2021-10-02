@@ -47,19 +47,22 @@ public class BenedictBehavior : MonoBehaviour
 
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
     private bool isAttacking = false;
-    private float startSpeed;
 
     private bool BiteOnCD = false, RollOnCD = false, JumpOnCD = false, YolkOnCD = false;
     private bool InBiteRange = false, InRollRange = false, InJumpRange = false, InYolkRange = false;
     [HideInInspector]
     public bool DoneRolling = false;
     private BenedictRoll rollBehavior;
+    private BenedictJump jumpBehavior;
 
     bool aggrod;
-
+    public GameObject yolkBomb;
+    public Transform BombSpawnPoint;
 
     private currentAttack attackInUse = currentAttack.None;
     private int currentPhase;
+
+    bool phaseDelay = false;
 
 
 
@@ -83,7 +86,7 @@ public class BenedictBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
         rollBehavior = GetComponent<BenedictRoll>();
-        startSpeed = agent.speed;
+        jumpBehavior = GetComponent<BenedictJump>();
 
         //Setup leaf nodes
         EnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
@@ -99,6 +102,8 @@ public class BenedictBehavior : MonoBehaviour
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
         CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
+
+        GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
     }
 
     //TODO: Fix multiple things same frame.
@@ -156,12 +161,34 @@ public class BenedictBehavior : MonoBehaviour
             else if (!isAttacking && !RollOnCD && InRollRange)
             {
                 Invoke("RollCDEnd", RollCD + rolTime);
+                phaseDelay = false;
                 RollOnCD = true;
                 isAttacking = true;
                 animator.SetBool("Roll", true);
                 Invoke("attackEnd", rolTime);
                 rollBehavior.BeginRolling(rolTime);
                 agent.enabled = false;
+            }
+            else if(!isAttacking && !JumpOnCD && InJumpRange)
+            {
+                Invoke("JumpCDEnd", JumpCD + jumpTime);
+                JumpOnCD = true;
+                isAttacking = true;
+                animator.SetBool("Jump", true);
+                Invoke("attackEnd", jumpTime);
+                jumpBehavior.BeginJumping(jumpTime);
+                agent.enabled = false;
+            }
+
+            if (!YolkOnCD && InYolkRange && currentPhase >= 3)
+            {
+                Invoke("YolkCDEnd", YolkCD + yolkTime);
+                YolkOnCD = true;
+                float scale = Random.Range(1f, 2f);
+                var projectile = Instantiate(yolkBomb, BombSpawnPoint.position, Random.rotation).GetComponent<ProjectileLaunch>();
+                projectile.transform.localScale = new Vector3(scale, scale, scale);
+                projectile.Launch(Random.Range(5, 20), new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)), Random.Range(10, 80));
+                Destroy(projectile.gameObject, 5f);
             }
         }
         
@@ -191,6 +218,11 @@ public class BenedictBehavior : MonoBehaviour
     private void YolkCDEnd()
     {
         YolkOnCD = false;
+    }
+
+    public bool IsAggrod()
+    {
+        return aggrod;
     }
 
     public Node.STATUS checkEnemyHurt()
@@ -245,17 +277,51 @@ public class BenedictBehavior : MonoBehaviour
             InRollRange = true;
             PlayerAttackRange.status = Node.STATUS.SUCCESS;
         }
+        if(Vector3.Distance(player.transform.position, transform.position) < jumpRange)
+        {
+            InJumpRange = true;
+            PlayerAttackRange.status = Node.STATUS.SUCCESS;
+        }
+        if (Vector3.Distance(player.transform.position, transform.position) < yolkRange)
+        {
+            InYolkRange = true;
+            PlayerAttackRange.status = Node.STATUS.SUCCESS;
+        }
         return PlayerAttackRange.status;
     }
 
-    public void SetCurrentSpeed(float s)
-    {
-        if(agent.enabled)
-            agent.speed = s;
-    }
+   
 
-    public float GetStartSpeed()
+    public void GoToNextPhase()
     {
-        return startSpeed;
+        if(!phaseDelay && currentPhase < 3)
+        {
+            Debug.Log("Phased!!!!!");
+
+            currentPhase++;
+            phaseDelay = true;
+            //TODO: ANIMATIONS FOR PHASING
+
+
+
+            if(currentPhase == 2)
+            {
+
+                GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
+            }
+            else if(currentPhase == 3)
+            {
+
+                GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictDouble, 1, IronChefUtils.InfiniteDuration);
+
+                SpeedEffector fast = new SpeedEffector();
+                fast.effectName = SpeedEffector.EffectorName.BenedictSpeed;
+                fast.percentAmount = 1;
+                fast.duration = IronChefUtils.InfiniteDuration;
+                GetComponent<EnemySpeedController>().Modifiers.Add(fast);
+                GetComponent<BenedictRoll>().rollSpeed *= 1.5f;
+            }
+            
+        }
     }
 }

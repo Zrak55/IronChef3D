@@ -7,16 +7,20 @@ public class EnemyHitpoints : MonoBehaviour
     [Tooltip("Float representing the enemy's starting hitpoints.")]
     [SerializeField] private float MaxHP;
     [HideInInspector] public bool damaged = false;
+    private EnemyDamageTakenModifierController mods;
     private float currentHP;
 
     private void Awake()
     {
         currentHP = MaxHP;
+        mods = GetComponent<EnemyDamageTakenModifierController>();
     }
 
     public void TakeDamage(float amount)
     {
-        //TODO: Check enemy's powers/status effects for taking damage
+        amount = Mathf.Max(amount * mods.getMultiplier(), 0);
+
+        Debug.Log(amount);
         
         currentHP -= amount;
         damaged = true;
