@@ -7,11 +7,10 @@ public class Node
     #region Variables
     /*Each status indicates what the tree should do upon arriving at that node.
      * If the node is a method node, "this node's function" is an in game effect, otherwise it just is more logical operations
-     *  Failure: Return to parent if parent is sequential, move to sibling if parent is selector
-     *  Success: Proceed to the next node if the parent is a sequential, move to uncle if parent is a selector
+     *  Failure: Return failure to parent if parent is sequential, move to sibling if parent is selector
+     *  Success: Move to sibling if the parent is sequential, return failure if parent is a selector
      *  Running: Do this node's function again, until it returns failure or success
      *  Start: The tree hasn't gotten to this node yet, so do its function
-     *  This logic has yet to be implemented. In addition, more types of nodes can be added in the future (will add conditional eventually).
     */
     public enum STATUS {FAILURE, SUCCESS, RUNNING, START};
     //Nodes representing the children of the currrent node.
