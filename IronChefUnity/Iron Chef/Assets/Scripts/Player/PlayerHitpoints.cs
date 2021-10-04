@@ -65,5 +65,10 @@ public class PlayerHitpoints : MonoBehaviour
     }
 
 
+    public bool isIframed()
+    {
+        return isIFrames;
+    }
+
     
 }

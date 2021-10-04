@@ -7,6 +7,7 @@ public class BenedictRoll : MonoBehaviour
     // Start is called before the first frame update
 
     public EnemyBasicAttackbox RollCollider;
+    public KnockPlayerAway RollKnockbox;
     private BenedictBehavior behavior;
     public Collider collider;
     public Animator animator;
@@ -14,6 +15,10 @@ public class BenedictRoll : MonoBehaviour
     bool startingRoll = false;
     bool rolling = false;
     Vector3 targetFacing;
+
+    bool recentTerrainHit = false;
+
+    public Transform RoomCenter;
 
     public float rollSpeed;
 
@@ -48,9 +53,20 @@ public class BenedictRoll : MonoBehaviour
             var list = IronChefUtils.GetCastHits(collider, "Terrain");
             foreach (var i in list)
             {
+                if(recentTerrainHit)
+                {
+                    targetFacing = (RoomCenter.position - transform.position).normalized;
+                    targetFacing.y = 0;
+                }
+                else
+                {
+                    recentTerrainHit = true;
+                    Invoke("UndoRecentTerrain", 0.25f);
 
-                targetFacing = Vector3.MoveTowards(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position, Vector3.Angle(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position) / 2);
-                targetFacing.y = 0;
+
+                    targetFacing = Vector3.MoveTowards(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position, Vector3.Angle(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position) / 2);
+                    targetFacing.y = 0;
+                }
 
             }
 
@@ -67,8 +83,13 @@ public class BenedictRoll : MonoBehaviour
             transform.LookAt(transform.position + targetFacing);
 
             RollCollider.playersHit.Clear();
-            
+            RollKnockbox.playersHit.Clear();
         }
+    }
+
+    void UndoRecentTerrain()
+    {
+        recentTerrainHit = false;
     }
 
     private void LaunchRoll()
@@ -77,7 +98,9 @@ public class BenedictRoll : MonoBehaviour
         rolling = true;
         targetFacing = transform.forward;
         targetFacing.y = 0;
+        recentTerrainHit = false;
         RollCollider.HitOn();
+        RollKnockbox.HitOn();
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), true);
         foreach(var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
         {
@@ -95,6 +118,7 @@ public class BenedictRoll : MonoBehaviour
     public void EndRolling()
     {
         RollCollider.HitOff();
+        RollKnockbox.HitOff();
         rolling = false;
         behavior.DoneRolling = true;
         animator.SetBool("Roll", false);

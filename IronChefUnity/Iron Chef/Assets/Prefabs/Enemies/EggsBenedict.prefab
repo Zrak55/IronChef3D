@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2783999823270776962}
   - component: {fileID: 8786063601787335458}
   - component: {fileID: 1240528440509515222}
+  - component: {fileID: 2023216774}
   m_Layer: 8
   m_Name: RollHitbox
   m_TagString: Untagged
@@ -62,6 +63,23 @@ MonoBehaviour:
   myCollider: {fileID: 8786063601787335458}
   IsCleave: 1
   damage: 10
+--- !u!114 &2023216774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2208442320464094946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5407e8fce7bd5438f579a274e687e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  myCollider: {fileID: 8786063601787335458}
+  IsCleave: 1
+  force: 10
 --- !u!1 &2326482505033596584
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6907650809978562329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.42, z: 0}
+  m_LocalPosition: {x: 0, y: 3.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3846604449621732815}
@@ -404,6 +422,7 @@ MonoBehaviour:
   DoneRolling: 0
   yolkBomb: {fileID: 4088226268673702336, guid: fb412c7ffd3a47246931b63eeb7ac598, type: 3}
   BombSpawnPoint: {fileID: 9181710798279154573}
+  bossWall: {fileID: 0}
 --- !u!114 &6105392256241112007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,8 +436,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RollCollider: {fileID: 1240528440509515222}
+  RollKnockbox: {fileID: 2023216774}
   collider: {fileID: 6737522677001501040}
   animator: {fileID: 0}
+  RoomCenter: {fileID: 0}
   rollSpeed: 40
 --- !u!114 &6410379416721885783
 MonoBehaviour:
@@ -433,8 +454,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHitbox: {fileID: 7428588346767849276}
+  jumpKnockbox: {fileID: 1044353528}
   behavior: {fileID: 0}
   maxJumpHeight: 15
+  collider: {fileID: 6737522677001501040}
 --- !u!114 &4798391828614751253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,6 +481,7 @@ GameObject:
   - component: {fileID: 5253624436902270365}
   - component: {fileID: 157670040086219631}
   - component: {fileID: 7428588346767849276}
+  - component: {fileID: 1044353528}
   m_Layer: 8
   m_Name: JumpHitbox
   m_TagString: Untagged
@@ -490,8 +514,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12.01, y: 3.53, z: 11.1}
-  m_Center: {x: 0.12685442, y: -0.64, z: 3.6999211}
+  m_Size: {x: 7.6274652, y: 3.5300002, z: 6.3718343}
+  m_Center: {x: 0.1268544, y: -0.6400001, z: 3.6999228}
 --- !u!114 &7428588346767849276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,6 +533,23 @@ MonoBehaviour:
   myCollider: {fileID: 157670040086219631}
   IsCleave: 1
   damage: 10
+--- !u!114 &1044353528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8892962108287223260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5407e8fce7bd5438f579a274e687e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  myCollider: {fileID: 157670040086219631}
+  IsCleave: 1
+  force: 10
 --- !u!1001 &3669126517064895012
 PrefabInstance:
   m_ObjectHideFlags: 0

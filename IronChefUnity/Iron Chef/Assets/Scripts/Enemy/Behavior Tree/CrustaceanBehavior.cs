@@ -67,7 +67,15 @@ public class CrustaceanBehavior : MonoBehaviour
     public Node.STATUS moveTowards()
     {
         animator.SetBool("isMoving", true);
-        agent.destination = player.transform.position;
+
+        Vector3 midpoint = (player.transform.position - transform.position);
+        if (midpoint.magnitude < (attackRange/3)) 
+            midpoint *= (0.05f / midpoint.magnitude);
+
+
+        Vector3 target = transform.position + midpoint;
+
+        agent.destination = target;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
     }

@@ -119,7 +119,17 @@ public class BenedictBehavior : MonoBehaviour
     {
         animator.SetBool("isMoving", true);
         if(agent.enabled)
-            agent.destination = player.transform.position;
+        {
+
+            Vector3 midpoint = (player.transform.position - transform.position);
+            if (midpoint.magnitude < (biteRange / 3))
+                midpoint *= (0.05f / midpoint.magnitude);
+
+
+            Vector3 target = transform.position + midpoint;
+
+            agent.destination = target;
+        }
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
     }

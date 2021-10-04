@@ -54,6 +54,8 @@ public class CharacterMover : MonoBehaviour
     [HideInInspector]
     public bool MouseOff;
 
+    bool knockbackIframe = false;
+
     private void Awake()
     {
 
@@ -181,6 +183,7 @@ public class CharacterMover : MonoBehaviour
                 currentMove.z = direction.z;
                 rolling = true;
                 hitpoints.InvincibilityFrame(0.75f);
+                KnockbackIframe(0.75f);
                 animator.SetBool("Rolling", true);
                 targetRollWeight = 1;
             }
@@ -244,4 +247,41 @@ public class CharacterMover : MonoBehaviour
         yield return new WaitForSeconds(1f);
         canSprint = true;
     }
+
+    public void ForceDirection(Vector3 force)
+    {
+        if(!knockbackIframe)
+        {
+            currentMove.x = force.x;
+            currentMove.z = force.z;
+
+            Invoke("AccelChange", 0.5f);
+            Invoke("UndoAccelChange", 0.75f);
+
+            KnockbackIframe(0.75f);
+        
+        
+        }
+    }
+
+    void AccelChange()
+    {
+
+        acceleration *= 10;
+    }
+    void UndoAccelChange()
+    {
+        acceleration /= 10;
+    }
+
+    void KnockbackIframe(float time)
+    {
+        knockbackIframe = true;
+        Invoke("RemoveKnockbackIframe", time);
+    }
+    void RemoveKnockbackIframe()
+    {
+        knockbackIframe = false;
+    }
+
 }

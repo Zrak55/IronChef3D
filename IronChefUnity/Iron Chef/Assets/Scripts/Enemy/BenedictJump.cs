@@ -5,8 +5,10 @@ using UnityEngine;
 public class BenedictJump : MonoBehaviour
 {
     public EnemyBasicAttackbox jumpHitbox;
+    public KnockPlayerAway jumpKnockbox;
     public BenedictBehavior behavior;
     public float maxJumpHeight;
+    public Collider collider;
     
 
     // Start is called before the first frame update
@@ -28,16 +30,30 @@ public class BenedictJump : MonoBehaviour
 
     private void LaunchJump(Vector3 target, float time)
     {
+        Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), true);
+        foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
+        {
+            Physics.IgnoreCollision(collider, c, true);
+        }
+
         StartCoroutine(jumpTick(target, time));
     }
     private IEnumerator jumpTick(Vector3 target, float time)
     {
+        bool hitOn = false;
         float cTime = 0;
         float yOffset = -4 * maxJumpHeight / Mathf.Pow(time, 2);
         Vector3 startPos = transform.position;
-        jumpHitbox.HitOn();
         while(cTime < time)
         {
+            if(cTime >= time/2 && hitOn == false)
+            {
+
+                jumpHitbox.HitOn();
+                jumpKnockbox.HitOn();
+                hitOn = true;
+            }
+
             transform.position = startPos;
             transform.position = Vector3.Lerp(startPos, target, cTime / time);
             float yAmount = yOffset * cTime * (cTime - time);
@@ -48,10 +64,18 @@ public class BenedictJump : MonoBehaviour
         }
         transform.position = target;
         DoneJumping();
+        
     }
 
     public void DoneJumping()
     {
+        Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
+        foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
+        {
+            Physics.IgnoreCollision(collider, c, false);
+        }
+
         jumpHitbox.HitOff();
+        jumpKnockbox.HitOff();
     }
 }
