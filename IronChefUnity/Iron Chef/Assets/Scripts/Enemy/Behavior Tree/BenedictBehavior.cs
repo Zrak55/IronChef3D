@@ -59,7 +59,6 @@ public class BenedictBehavior : MonoBehaviour
     public GameObject yolkBomb;
     public Transform BombSpawnPoint;
 
-    private currentAttack attackInUse = currentAttack.None;
     private int currentPhase;
 
     bool phaseDelay = false;
@@ -67,15 +66,16 @@ public class BenedictBehavior : MonoBehaviour
 
     public GameObject bossWall;
 
+    [Header("Meshes")]
+    public MeshRenderer BenedictMeshMaterial;
+    public MeshFilter BenedictMesh;
+    public Mesh BenedictP1Mesh;
+    public Material BenedictP1material;
+    public Mesh BenedictP2Mesh;
+    public Material BenedictP2Material;
+    public Mesh BenedictP3Mesh;
+    public Material BenedictP3Material;
 
-    private enum currentAttack
-    {
-        None,
-        Bite,
-        Roll,
-        Jump, 
-        Yolk
-    }
 
     private void Start()
     {
@@ -105,7 +105,7 @@ public class BenedictBehavior : MonoBehaviour
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
-        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, BiteAttack, RollAttack, JumpAttack, YolkAttack);
+        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, YolkAttack, BiteAttack, RollAttack, JumpAttack);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
 
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
@@ -280,7 +280,6 @@ public class BenedictBehavior : MonoBehaviour
     {
         isAttacking = false;
         agent.enabled = true;
-        attackInUse = currentAttack.None;
     }
 
     private void BiteCDEnd()
@@ -389,11 +388,16 @@ public class BenedictBehavior : MonoBehaviour
 
             if(currentPhase == 2)
             {
+                BenedictMeshMaterial.material = BenedictP2Material;
+                BenedictMesh.mesh = BenedictP2Mesh;
 
                 GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
             }
             else if(currentPhase == 3)
             {
+
+                BenedictMeshMaterial.material = BenedictP3Material;
+                BenedictMesh.mesh = BenedictP3Mesh;
 
                 GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictDouble, 1, IronChefUtils.InfiniteDuration);
 
