@@ -76,6 +76,8 @@ public class PlayerAttackController : MonoBehaviour
                 }
                 animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) + tickRate, 0, 1));
             }
+
+            EmergencyShutoff();
         }
     }
 

@@ -41,7 +41,7 @@ public class BenedictBehavior : MonoBehaviour
     private EnemyHitpoints enemyHitpoints;
     private EnemyBasicAttackbox enemyBasicAttackbox;
     //Nodes for the behavior tree. Will be adding more later.
-    private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
+    private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, BiteAttack, JumpAttack, RollAttack, YolkAttack;
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
 
@@ -97,12 +97,15 @@ public class BenedictBehavior : MonoBehaviour
         PlayerAttackRange = new Leaf("Player in Attack Range?", checkPlayerAttackRange);
         MoveTowardsPlayer = new Leaf("Move towards player", moveTowards);
         ResetMove = new Leaf("Reset Move", movePause);
-        Attack = new Leaf("Attack", attack);
+        BiteAttack = new Leaf("BiteAttack", biteAttack);
+        JumpAttack = new Leaf("JumpAttack", jumpAttack);
+        RollAttack = new Leaf("RollAttack", rollAttack);
+        YolkAttack = new Leaf("YolkAttack", yolkAttack);
 
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
-        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
+        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, BiteAttack, RollAttack, JumpAttack, YolkAttack);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
 
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
@@ -147,53 +150,12 @@ public class BenedictBehavior : MonoBehaviour
         return ResetMove.status;
     }
 
-    public Node.STATUS attack()
+
+    public Node.STATUS yolkAttack()
     {
-        if(aggrod)
+        if (aggrod)
         {
-            //When the attack animation has finished this will play.
-            if (Attack.status == Node.STATUS.RUNNING && !isAttacking)   
-            {
-                Attack.status = Node.STATUS.SUCCESS;
-                return Attack.status;
-            }
-
-            //else if(BiteOnCD || currentPhase < 2 || !InBiteRange)
-                //return a success
-
-            //If we aren't already attack and the cd is done, then attack.
-            if (!isAttacking && !BiteOnCD && currentPhase >= 2 && InBiteRange)
-            {
-                Invoke("BiteCDEnd", BiteCD + biteTime);
-                BiteOnCD = true;
-                isAttacking = true;
-                animator.SetTrigger("Bite");
-                Invoke("attackEnd", biteTime);
-
-                agent.destination = transform.position;
-            }
-            else if (!isAttacking && !RollOnCD && InRollRange)
-            {
-                Invoke("RollCDEnd", RollCD + rolTime);
-                phaseDelay = false;
-                RollOnCD = true;
-                isAttacking = true;
-                animator.SetBool("Roll", true);
-                Invoke("attackEnd", rolTime);
-                rollBehavior.BeginRolling(rolTime);
-                agent.enabled = false;
-            }
-            else if(!isAttacking && !JumpOnCD && InJumpRange)
-            {
-                Invoke("JumpCDEnd", JumpCD + jumpTime);
-                JumpOnCD = true;
-                isAttacking = true;
-                animator.SetBool("Jump", true);
-                Invoke("attackEnd", jumpTime);
-                jumpBehavior.BeginJumping(jumpTime);
-                agent.enabled = false;
-            }
-
+            YolkAttack.status = Node.STATUS.SUCCESS;
             if (!YolkOnCD && InYolkRange && currentPhase >= 3)
             {
                 Invoke("YolkCDEnd", YolkCD + yolkTime);
@@ -205,9 +167,113 @@ public class BenedictBehavior : MonoBehaviour
                 Destroy(projectile.gameObject, 5f);
             }
         }
+        return YolkAttack.status;
+    }
+
+    public Node.STATUS jumpAttack()
+    {
+        if (aggrod && !isAttacking)
+        {
+
+
+            if (JumpAttack.status == Node.STATUS.RUNNING && !isAttacking)
+            {
+                JumpAttack.status = Node.STATUS.SUCCESS;
+                return JumpAttack.status;
+            }
+            else if (JumpOnCD || !InJumpRange)
+            {
+                JumpAttack.status = Node.STATUS.SUCCESS;
+                return JumpAttack.status;
+            }
+            else
+            {
+                Invoke("JumpCDEnd", JumpCD + jumpTime);
+                JumpOnCD = true;
+                isAttacking = true;
+                animator.SetBool("Jump", true);
+                Invoke("attackEnd", jumpTime);
+                jumpBehavior.BeginJumping(jumpTime);
+                agent.enabled = false;
+                RollAttack.status = Node.STATUS.RUNNING;
+            }
+        }
+        return JumpAttack.status;
+    }
+
+    public Node.STATUS rollAttack()
+    {
+        if(aggrod && !isAttacking)
+        {
+           
+                if (RollAttack.status == Node.STATUS.RUNNING && !isAttacking)
+                {
+                    RollAttack.status = Node.STATUS.SUCCESS;
+                    return RollAttack.status;
+                }
+                else if (RollOnCD || !InRollRange)
+                {
+                    RollAttack.status = Node.STATUS.SUCCESS;
+                    return RollAttack.status;
+                }
+                else
+                {
+                    Invoke("RollCDEnd", RollCD + rolTime);
+                    phaseDelay = false;
+                    RollOnCD = true;
+                    isAttacking = true;
+                    animator.SetBool("Roll", true);
+                    Invoke("attackEnd", rolTime);
+                    rollBehavior.BeginRolling(rolTime);
+                    agent.enabled = false;
+
+
+                    RollAttack.status = Node.STATUS.RUNNING;
+                }
+            
+            
+        }
+        return RollAttack.status;
+    }
+
+    public Node.STATUS biteAttack()
+    {
+        if(aggrod && !isAttacking)
+        {
+            //When the attack animation has finished this will play.
+            if (BiteAttack.status == Node.STATUS.RUNNING && !isAttacking)   
+            {
+                BiteAttack.status = Node.STATUS.SUCCESS;
+                return BiteAttack.status;
+            }
+            else if(BiteOnCD || currentPhase < 2 || !InBiteRange)
+            {
+                BiteAttack.status = Node.STATUS.SUCCESS;
+                return BiteAttack.status;
+            }
+            else
+            {
+                Invoke("BiteCDEnd", BiteCD + biteTime);
+                BiteOnCD = true;
+                isAttacking = true;
+                animator.SetTrigger("Bite");
+                Invoke("attackEnd", biteTime);
+
+                agent.destination = transform.position;
+
+
+                BiteAttack.status = Node.STATUS.RUNNING;
+            }
+
+
+
+            
+           
+
+            
+        }
         
-        Attack.status = Node.STATUS.RUNNING;
-        return Attack.status;
+        return BiteAttack.status;
     }
 
     private void attackEnd()

@@ -176,7 +176,7 @@ public class CharacterMover : MonoBehaviour
         //Roll
         if (InputControls.controls.Gameplay.Roll.triggered)
         {
-            if (!rolling && stats.TrySpendStamina(costmanager.RollCost) && inputDirection != Vector3.zero)
+            if (!rolling && inputDirection != Vector3.zero && stats.TrySpendStamina(costmanager.RollCost) )
             {
                 direction = direction.normalized * rollSpeed;
                 currentMove.x = direction.x;
