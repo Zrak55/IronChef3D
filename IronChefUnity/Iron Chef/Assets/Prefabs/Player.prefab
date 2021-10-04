@@ -1095,6 +1095,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 85989238d8b97164a9ab7bef53765219, type: 2}
+    - target: {fileID: 6933949223781528678, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 557591ee0259f77459d8fb9279463e09, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9df6f67cb5a89dd4fa750ffe69d67110, type: 3}
 --- !u!4 &1044086119544404902 stripped
@@ -1167,6 +1171,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 690e39e8917c84d4cb5e2cae4ba6aee9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 557591ee0259f77459d8fb9279463e09, type: 2}
     - target: {fileID: 919132149155446097, guid: 690e39e8917c84d4cb5e2cae4ba6aee9, type: 3}
       propertyPath: m_Name
       value: ironChefH
