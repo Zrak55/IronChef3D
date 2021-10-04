@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 3555264030390414627}
   - component: {fileID: 4064311661559571719}
   - component: {fileID: 4543220090860235641}
+  - component: {fileID: 3375815215961834090}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -597,6 +598,20 @@ MonoBehaviour:
   currentEatIndex: 0
   amountEaten: 0
   maxAllowedEaten: 5
+--- !u!136 &3375815215961834090
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978522925722276983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.79
+  m_Height: 4.01
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.63, z: 0}
 --- !u!1 &4786784189082371845
 GameObject:
   m_ObjectHideFlags: 0

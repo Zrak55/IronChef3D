@@ -63,8 +63,9 @@ public class BenedictBehavior : MonoBehaviour
 
     bool phaseDelay = false;
 
-
+    [Space]
     public GameObject bossWall;
+    public GameObject postBossPortal;
 
     [Header("Meshes")]
     public MeshRenderer BenedictMeshMaterial;

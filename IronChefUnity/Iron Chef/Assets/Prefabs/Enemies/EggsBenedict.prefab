@@ -423,6 +423,7 @@ MonoBehaviour:
   yolkBomb: {fileID: 4088226268673702336, guid: fb412c7ffd3a47246931b63eeb7ac598, type: 3}
   BombSpawnPoint: {fileID: 9181710798279154573}
   bossWall: {fileID: 0}
+  postBossPortal: {fileID: 0}
   BenedictMeshMaterial: {fileID: 8621996854717910207}
   BenedictMesh: {fileID: 2989899335561755332}
   BenedictP1Mesh: {fileID: -7682706084370656893, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
