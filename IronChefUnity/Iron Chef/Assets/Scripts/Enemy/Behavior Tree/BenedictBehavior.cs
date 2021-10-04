@@ -65,6 +65,8 @@ public class BenedictBehavior : MonoBehaviour
     bool phaseDelay = false;
 
 
+    public GameObject bossWall;
+
 
     private enum currentAttack
     {
@@ -243,6 +245,9 @@ public class BenedictBehavior : MonoBehaviour
         {
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
             aggrod = true;
+
+            if (bossWall.activeSelf == false)
+                bossWall.SetActive(true);
         }
         return PlayerAggroRange.status;
     }
