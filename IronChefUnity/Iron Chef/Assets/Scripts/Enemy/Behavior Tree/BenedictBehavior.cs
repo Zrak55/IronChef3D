@@ -142,12 +142,14 @@ public class BenedictBehavior : MonoBehaviour
         if(aggrod)
         {
             //When the attack animation has finished this will play.
-            if (Attack.status == Node.STATUS.RUNNING && !isAttacking)
+            if (Attack.status == Node.STATUS.RUNNING && !isAttacking)   
             {
                 Attack.status = Node.STATUS.SUCCESS;
                 return Attack.status;
             }
 
+            //else if(BiteOnCD || currentPhase < 2 || !InBiteRange)
+                //return a success
 
             //If we aren't already attack and the cd is done, then attack.
             if (!isAttacking && !BiteOnCD && currentPhase >= 2 && InBiteRange)

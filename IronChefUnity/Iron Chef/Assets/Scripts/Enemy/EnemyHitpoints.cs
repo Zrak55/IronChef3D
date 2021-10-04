@@ -9,6 +9,7 @@ public class EnemyHitpoints : MonoBehaviour
     [HideInInspector] public bool damaged = false;
     private EnemyDamageTakenModifierController mods;
     private float currentHP;
+    bool imDead = false;
 
     private void Awake()
     {
@@ -32,13 +33,19 @@ public class EnemyHitpoints : MonoBehaviour
     }
     public void Die()
     {
-        GetComponent<EnemyFoodDropper>().GiveFood();
+        if(!imDead)
+        {
+            imDead = true;
 
-        //TODO: Play death animation before deletion
+            GetComponent<EnemyFoodDropper>().GiveFood();
 
-        GetComponent<BenedictBehavior>()?.bossWall.SetActive(false);
+            //TODO: Play death animation before deletion
 
-        Destroy(gameObject);
+            GetComponent<BenedictBehavior>()?.bossWall.SetActive(false);
+
+            Destroy(gameObject);
+        }
+        
 
     }
 }

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1868838684}
   - component: {fileID: 1868838686}
-  - component: {fileID: 7288806472670395756}
   - component: {fileID: 6091418276934293596}
   m_Layer: 8
   m_Name: AttackBoxLow
@@ -44,24 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19835328, y: 0.07124016, z: 1.5971653}
-  m_Center: {x: 0, y: -0.46438077, z: 0.29858297}
---- !u!54 &7288806472670395756
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868838683}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 0.7597126, y: 0.45142585, z: 2.6784823}
+  m_Center: {x: 0, y: -0.27428868, z: -0.24207711}
 --- !u!114 &6091418276934293596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +118,6 @@ GameObject:
   - component: {fileID: 1475416154569173099}
   - component: {fileID: 1475416154569173096}
   - component: {fileID: 1475416154569173097}
-  - component: {fileID: 1475416154569173102}
   - component: {fileID: 1475416154569173103}
   - component: {fileID: 1475416154569173101}
   - component: {fileID: 8187776139406683009}
@@ -144,6 +126,8 @@ GameObject:
   - component: {fileID: -1015529159017639542}
   - component: {fileID: 6367696004050921830}
   - component: {fileID: -507142076491613760}
+  - component: {fileID: 3337183044137147794}
+  - component: {fileID: 9185996406835358969}
   m_Layer: 0
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -217,23 +201,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1475416154569173102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781405636844246273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21a75936665e1924f80321a9aff1128c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aggroRange: 20
-  spawnRange: 50
-  attackRange: 10
-  attackTime: 2
-  attackCD: 2
 --- !u!114 &1475416154569173103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +309,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3337183044137147794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781405636844246273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b62f20c9462eb41a4a5210092f7b20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 20
+  spawnRange: 20
+  attackRange: 12
+  attackOneTime: 2
+  attackTwoTime: 2
+  attackThreeTime: 2.5
+  attackCD: 3
+--- !u!114 &9185996406835358969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781405636844246273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32304624fa267904582ef96adf58e249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 6091418276934293596}
+  - {fileID: 4247266061546188677}
+  - {fileID: 3755099571786460567}
 --- !u!1 &2492364155880515535
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +439,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6793319027592984188}
   - component: {fileID: 8360736793372117818}
-  - component: {fileID: 7992710402084893556}
   - component: {fileID: 4247266061546188677}
   m_Layer: 8
   m_Name: AttackBoxMid
@@ -471,24 +472,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19835328, y: 0.07124016, z: 1.5971653}
-  m_Center: {x: 0, y: -0.46438077, z: 0.29858297}
---- !u!54 &7992710402084893556
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2642978465994962414}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 0.8235705, y: 0.42230186, z: 2.6290503}
+  m_Center: {x: 0.12384273, y: -0.47522032, z: -0.21736045}
 --- !u!114 &4247266061546188677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -516,7 +501,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6337286134668416752}
   - component: {fileID: 6807727701177144755}
-  - component: {fileID: 4607377900565834770}
   - component: {fileID: 3755099571786460567}
   m_Layer: 8
   m_Name: AttackBoxOverhead
@@ -550,24 +534,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.19835328, y: 0.6189341, z: 1.5971653}
-  m_Center: {x: 0, y: -0.19053404, z: 0.29858297}
---- !u!54 &4607377900565834770
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6888293568192005447}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 1.2893584, y: 0.8686274, z: 2.6886215}
+  m_Center: {x: 0.05465563, y: -0.065688044, z: -0.2471458}
 --- !u!114 &3755099571786460567
 MonoBehaviour:
   m_ObjectHideFlags: 0
