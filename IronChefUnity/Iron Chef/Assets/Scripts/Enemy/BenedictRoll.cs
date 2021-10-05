@@ -17,6 +17,7 @@ public class BenedictRoll : MonoBehaviour
     Vector3 targetFacing;
 
     bool recentTerrainHit = false;
+    bool recentHit = false;
 
     public Transform RoomCenter;
 
@@ -50,29 +51,35 @@ public class BenedictRoll : MonoBehaviour
         if(rolling)
         {
             //Collision Check
-            var list = IronChefUtils.GetCastHits(collider, "Terrain");
-            foreach (var i in list)
+            if(!recentHit)
             {
-                if(recentTerrainHit)
+                var list = IronChefUtils.GetCastHits(collider, "Terrain");
+                foreach (var i in list)
                 {
-                    targetFacing = (RoomCenter.position - transform.position).normalized;
-                    targetFacing.y = 0;
+                    if (recentTerrainHit)
+                    {
+                        targetFacing = (RoomCenter.position - transform.position).normalized;
+                        targetFacing.y = 0;
+                    }
+                    else
+                    {
+                        recentTerrainHit = true;
+                        Invoke("UndoRecentTerrain", 0.5f);
+
+
+                        targetFacing = FindObjectOfType<CharacterMover>().transform.position - transform.position;
+                        targetFacing.y = 0;
+                    }
+
+                    recentHit = true;
+                    Invoke("RecentHit", 0.25f);
                 }
-                else
-                {
-                    recentTerrainHit = true;
-                    Invoke("UndoRecentTerrain", 0.25f);
-
-
-                    targetFacing = Vector3.MoveTowards(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position, Vector3.Angle(targetFacing, FindObjectOfType<CharacterMover>().transform.position - transform.position) / 2);
-                    targetFacing.y = 0;
-                }
-
             }
+            
 
             //Phase Check
-            list = IronChefUtils.GetCastHits(collider, "SpecialBossLayer1");
-            if(list.Count > 0)
+            var slist = IronChefUtils.GetCastHits(collider, "SpecialBossLayer1");
+            if(slist.Count > 0)
             {
                 behavior.GoToNextPhase();
             }
@@ -90,6 +97,10 @@ public class BenedictRoll : MonoBehaviour
     void UndoRecentTerrain()
     {
         recentTerrainHit = false;
+    }
+    void RecentHit()
+    {
+        recentHit = false;
     }
 
     private void LaunchRoll()

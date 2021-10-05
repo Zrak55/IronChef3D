@@ -320,15 +320,23 @@ public class BenedictBehavior : MonoBehaviour
 
     public Node.STATUS checkAggroRange()
     {
-        PlayerAggroRange.status = Node.STATUS.FAILURE;
-        if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
+        if(!aggrod)
+        {
+            PlayerAggroRange.status = Node.STATUS.FAILURE;
+            if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
+            {
+                PlayerAggroRange.status = Node.STATUS.SUCCESS;
+                aggrod = true;
+
+                if (bossWall.activeSelf == false)
+                    bossWall.SetActive(true);
+            }
+        }
+        else
         {
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
-            aggrod = true;
-
-            if (bossWall.activeSelf == false)
-                bossWall.SetActive(true);
         }
+        
         return PlayerAggroRange.status;
     }
 
