@@ -429,7 +429,7 @@ MonoBehaviour:
   BenedictP1Mesh: {fileID: -7682706084370656893, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
   BenedictP1material: {fileID: 2100000, guid: 996cc51cd2e2fdb438db864b028a8e3a, type: 2}
   BenedictP2Mesh: {fileID: -115355423220970930, guid: c48e335eceb12bd4a8c3a2d01ab16b47, type: 3}
-  BenedictP2Material: {fileID: 5561349426305759274, guid: c48e335eceb12bd4a8c3a2d01ab16b47, type: 3}
+  BenedictP2Material: {fileID: 2100000, guid: 558410aeaaf81834ba6b9631e7c37254, type: 2}
   BenedictP3Mesh: {fileID: -7682706084370656893, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
   BenedictP3Material: {fileID: 2100000, guid: 6f22944c78f8f80478d3dbc378b1cd33, type: 2}
 --- !u!114 &6105392256241112007
