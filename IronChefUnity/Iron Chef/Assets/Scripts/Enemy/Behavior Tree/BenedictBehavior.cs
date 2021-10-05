@@ -41,7 +41,7 @@ public class BenedictBehavior : MonoBehaviour
     private EnemyHitpoints enemyHitpoints;
     private EnemyBasicAttackbox enemyBasicAttackbox;
     //Nodes for the behavior tree. Will be adding more later.
-    private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, BiteAttack, JumpAttack, RollAttack, YolkAttack;
+    private Node CheckPlayer, CheckHurt, CheckAttack, CheckYolk, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, BiteAttack, JumpAttack, RollAttack, YolkAttack;
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
 
@@ -106,8 +106,10 @@ public class BenedictBehavior : MonoBehaviour
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
-        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, YolkAttack, BiteAttack, RollAttack, JumpAttack);
-        genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
+        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, BiteAttack, RollAttack, JumpAttack);
+        CheckYolk = new Sequence("Yolk Sequence", YolkAttack);
+        genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckYolk, CheckAttack);
+
 
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
     }
@@ -157,7 +159,7 @@ public class BenedictBehavior : MonoBehaviour
         if (aggrod)
         {
             YolkAttack.status = Node.STATUS.SUCCESS;
-            if (!YolkOnCD && InYolkRange && currentPhase >= 3)
+            if (!YolkOnCD && currentPhase >= 3)
             {
                 Invoke("YolkCDEnd", YolkCD + yolkTime);
                 YolkOnCD = true;
