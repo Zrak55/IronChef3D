@@ -201,7 +201,7 @@ public class CharacterMover : MonoBehaviour
     private void TrySprint()
     {
         float sprintVal = InputControls.controls.Gameplay.Sprint.ReadValue<float>();
-        if(sprintVal > 0 && !rolling && canSprint)
+        if(sprintVal > 0 && !rolling && canSprint && inputDirection != Vector3.zero)
         {
             if(stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
             {
