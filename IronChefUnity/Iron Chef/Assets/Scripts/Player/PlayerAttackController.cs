@@ -125,6 +125,7 @@ public class PlayerAttackController : MonoBehaviour
                 animator.SetInteger("BasicAttackNum", currentPlayerBasic);
                 ActivateBasicWeapon();
                 StartCoroutine(basicAttackDelay());
+                FindObjectOfType<PlayerHUDManager>().SetWeaponImage(currentPlayerBasic);
 
             }
         }

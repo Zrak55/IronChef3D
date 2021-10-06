@@ -41,12 +41,25 @@ public class EnemyHitpoints : MonoBehaviour
 
             //TODO: Play death animation before deletion
 
-            GetComponent<BenedictBehavior>()?.bossWall.SetActive(false);
-            GetComponent<BenedictBehavior>()?.postBossPortal.SetActive(true);
+            CheckDeadBoss();
 
             Destroy(gameObject);
         }
         
+
+    }
+
+    public float GetPercentHP()
+    {
+        return currentHP / MaxHP;
+    }
+
+    private void CheckDeadBoss()
+    {
+        GetComponent<BenedictBehavior>()?.bossWall.SetActive(false);
+        GetComponent<BenedictBehavior>()?.postBossPortal.SetActive(true);
+        GetComponent<BenedictBehavior>()?.BossOver();
+
 
     }
 }

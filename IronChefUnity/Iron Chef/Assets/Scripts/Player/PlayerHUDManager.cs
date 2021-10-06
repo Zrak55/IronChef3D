@@ -10,7 +10,9 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private PlayerStats stats;
     [SerializeField] private LevelProgressManager foodInfo;
     [SerializeField] private PlayerFoodEater eatFood;
+    [SerializeField] private PlayerCostCooldownManager cooldowns;
 
+    [Header("Bars")]
     public Slider hpBar;
     public Slider staminaBar;
     public Slider hungryMeter;
@@ -36,14 +38,31 @@ public class PlayerHUDManager : MonoBehaviour
     public Text food3ingredient;
     public Text food4ingredient;
     public Text food5ingredient;
+    [Header("Weapon/Cooldowns")]
+    public Image WeaponImage;
+    public Sprite[] weaponImages;
+    public Image powerImage;
+    public Sprite MalapenoImage;
+    public Slider FryingPanCD;
+    public Slider PowerCD;
+    [Header("Boss")]
+    public Slider BossHP;
+    public Text BossName;
+    public Text BossTip;
+    public Image BossTipBackground;
+    EnemyHitpoints LevelBossHP;
+    bool fadeDelay = false;
 
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
         foodInfo = FindObjectOfType<LevelProgressManager>();
         eatFood = FindObjectOfType<PlayerFoodEater>();
+        cooldowns = FindObjectOfType<PlayerCostCooldownManager>();
 
         SetHungryBar();
+
+        InvokeRepeating("BossTipFade", 0, 0.05f);
     }
 
     void Start()
@@ -125,6 +144,23 @@ public class PlayerHUDManager : MonoBehaviour
         UpdateStaminaBar();
         UpdateFoodBars();
         UpdateHungryBar();
+        UpdateCDBars();
+        UpdateBossHPBar();
+    }
+
+    private void UpdateBossHPBar()
+    {
+        if(LevelBossHP != null)
+        {
+            moveABar(BossHP, LevelBossHP.GetPercentHP());
+        }
+    }
+
+    private void UpdateCDBars()
+    {
+        moveABar(FryingPanCD, 1 - cooldowns.GetFryingPanCDPercent());
+        moveABar(PowerCD, 1 - cooldowns.GetPowerCDPercent());
+
     }
 
     private void UpdateHungryBar()
@@ -314,4 +350,63 @@ public class PlayerHUDManager : MonoBehaviour
         }
     }
 
+    public void SetWeaponImage(int i)
+    {
+        WeaponImage.sprite = weaponImages[i];
+    }
+
+    public void SetPowerImage(PlayerPowerScriptable.PowerName power)
+    {
+        switch(power)
+        {
+            case PlayerPowerScriptable.PowerName.Molapeno:
+                powerImage.sprite = MalapenoImage;
+                break;
+        }
+    }
+
+
+    public void BossInfoOn(string bossName, EnemyHitpoints bossHP, string bossTip)
+    {
+        BossName.gameObject.SetActive(true);
+        BossTip.gameObject.SetActive(true);
+        BossHP.gameObject.SetActive(true);
+        BossTipBackground.gameObject.SetActive(true);
+
+        BossName.text = bossName;
+        LevelBossHP = bossHP;
+        BossTip.text = bossTip;
+        if(BossTip.text == "")
+        {
+            BossTip.color = new Color(BossTip.color.r, BossTip.color.g, BossTip.color.b, 0);
+            BossTipBackground.color = new Color(BossTipBackground.color.r, BossTipBackground.color.g, BossTipBackground.color.b, 0);
+        }
+    }
+
+    public void SetBossTip(string s)
+    {
+        BossTip.color = new Color(BossTip.color.r, BossTip.color.g, BossTip.color.b, 1);
+        BossTip.text = s;
+        fadeDelay = true;
+        Invoke("UndoFadeDelay", 4f);
+    }
+
+    void BossTipFade()
+    {
+        if(!fadeDelay)
+            BossTip.color = new Color(BossTip.color.r, BossTip.color.g, BossTip.color.b, Mathf.Max(BossTip.color.a - 0.05f, 0));
+        BossTipBackground.color = new Color(BossTipBackground.color.r, BossTipBackground.color.g, BossTipBackground.color.b, Mathf.Max(BossTip.color.a - 0.05f, 0));
+
+    }
+    void UndoFadeDelay()
+    {
+        fadeDelay = false;
+    }
+
+    public void BossOver()
+    {
+        BossName.gameObject.SetActive(false);
+        BossTip.gameObject.SetActive(false);
+        BossHP.gameObject.SetActive(false);
+    }
 }

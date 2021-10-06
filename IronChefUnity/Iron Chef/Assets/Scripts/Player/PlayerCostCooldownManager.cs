@@ -35,6 +35,15 @@ public class PlayerCostCooldownManager : MonoBehaviour
         cooldownAll();
     }
 
+    public float GetPowerCDPercent()
+    {
+        return currentPowerCooldown / PowerCooldown;
+    }
+    public float GetFryingPanCDPercent()
+    {
+        return currentFryingPanCooldown / FryingPanCooldown;
+    }
+
     void cooldownAll()
     {
         if(currentFryingPanCooldown > 0)

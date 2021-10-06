@@ -51,6 +51,8 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             power.SetScriptableData(powerScriptable);
         }
+
+        FindObjectOfType<PlayerHUDManager>().SetPowerImage(powerScriptable.powerName);
     }
 
     public void SelectAppliance(PlayerApplianceScriptable applianceScriptable)

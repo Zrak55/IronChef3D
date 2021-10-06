@@ -249,6 +249,10 @@ public class BenedictBehavior : MonoBehaviour
                 BiteAttack.status = Node.STATUS.SUCCESS;
                 return BiteAttack.status;
             }
+            else if(BiteAttack.status == Node.STATUS.RUNNING && isAttacking)
+            {
+                return BiteAttack.status;
+            }
             else if(BiteOnCD || currentPhase < 2 || !InBiteRange)
             {
                 BiteAttack.status = Node.STATUS.SUCCESS;
@@ -330,6 +334,9 @@ public class BenedictBehavior : MonoBehaviour
 
                 if (bossWall.activeSelf == false)
                     bossWall.SetActive(true);
+
+                FindObjectOfType<PlayerHUDManager>().BossInfoOn("Benedict, the Arm-egg-eddon", GetComponent<EnemyHitpoints>(), "");
+                Invoke("Phase1Tip", 20f);
             }
         }
         else
@@ -403,6 +410,8 @@ public class BenedictBehavior : MonoBehaviour
                 BenedictMesh.mesh = BenedictP2Mesh;
 
                 GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
+
+                Phase2Tip();
             }
             else if(currentPhase == 3)
             {
@@ -420,8 +429,32 @@ public class BenedictBehavior : MonoBehaviour
                 
                 rollBehavior.rollSpeed *= 1.25f;
                 jumpTime *= 0.75f;
+
+                Phase3Tip();
             }
             
         }
+    }
+
+    void Phase1Tip()
+    {
+        if(currentPhase == 1)
+        {
+            FindObjectOfType<PlayerHUDManager>().SetBossTip("Your attacks appear to have no effect, find a way to crack his shell...");
+        }
+    }
+    void Phase2Tip()
+    {
+        FindObjectOfType<PlayerHUDManager>().SetBossTip("His shell is cracked, he is vulnerable!  But it looks like there's more to break...");
+    }
+
+    void Phase3Tip()
+    {
+        FindObjectOfType<PlayerHUDManager>().SetBossTip("He's totally exposed, but extra dangerous!");
+    }
+
+    public void BossOver()
+    {
+        FindObjectOfType<PlayerHUDManager>().BossOver();
     }
 }
