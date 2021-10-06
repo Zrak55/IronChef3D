@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class EnemyBasicAttackbox : MonoBehaviour
 {
-    //Copied and pasted from PlayerBasicAttackbox
-    public bool CanHit = false;
-    public List<PlayerHitpoints> playersHit;
+    //Copied and pasted from PlayerBasicAttackbox (with small edits)
+    [Tooltip("Collider representing the enemies' attack range.")]
+    public Collider attackbox;
+    [HideInInspector] public bool CanHit = false;
+    [HideInInspector] public List<PlayerHitpoints> playersHit;
     private EnemyAttackModifierController modifier;
     //No sound yet
     //public SoundEffectSpawner.SoundEffect soundEffect;
     //private SoundEffectSpawner sfx;
-    public Collider myCollider;
-
-    public bool IsCleave = false;
 
     public float damage;
 
@@ -64,7 +63,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     private void DoCollisionThings()
     {
-        var hits = IronChefUtils.GetCastHits(myCollider);
+        var hits = IronChefUtils.GetCastHits(attackbox);
         foreach (var hit in hits)
         {
             var player = hit.GetComponentInParent<PlayerHitpoints>();
@@ -72,7 +71,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
             {
                 if (!playersHit.Contains(player))
                 {
-                    if (IsCleave || playersHit.Count < 1)
+                    if (playersHit.Count < 1)
                     {
                         Debug.Log("Hit!");
                         playersHit.Add(player);

@@ -7,15 +7,15 @@ public class SnakonBehavior : MonoBehaviour
 {
     BehaviorTree snakonBehaviorTree;
     [Tooltip("Float for the maximum disatnce the enemy will begin to follow the player from.")]
-    [SerializeField] private float aggroRange = 10;
+    [SerializeField] private float aggroRange = 20;
     [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
-    [SerializeField] private float spawnRange = 30;
-    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
-    [SerializeField] private float attackRange = 5;
+    [SerializeField] private float spawnRange = 50;
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from. (Should be changed to check if collision)")]
+    [SerializeField] private float attackRange = 6;
     [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
-    [SerializeField] private float attackTime = 4;
+    [SerializeField] private float attackTime = 2;
     [Tooltip("Float for the time between the enemy's attack")]
-    [SerializeField] private float attackCD = 2;
+    [SerializeField] private float attackCD = 1;
     private Transform player;
     private Animator animator;
     private NavMeshAgent agent;
@@ -36,7 +36,7 @@ public class SnakonBehavior : MonoBehaviour
         if (enemyBasicAttackbox == null)
             enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
 
         //Setup leaf nodes
@@ -65,7 +65,15 @@ public class SnakonBehavior : MonoBehaviour
     public Node.STATUS moveTowards()
     {
         animator.SetBool("isMoving", true);
-        agent.destination = player.transform.position;
+
+        Vector3 midpoint = (player.transform.position - transform.position);
+        if (midpoint.magnitude < (attackRange / 3))
+            midpoint *= (0.05f / midpoint.magnitude);
+
+
+        Vector3 target = transform.position + midpoint;
+
+        agent.destination = target;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
     }
@@ -86,7 +94,8 @@ public class SnakonBehavior : MonoBehaviour
         {
             isAttackCD = true;
             Invoke("attackCDEnd", attackCD);
-            enemyBasicAttackbox.HitOn();
+            //This is in genericEnemyBehavior as a placeholder, it is now an animation event. So we will turn it off afterwards
+            enemyBasicAttackbox.HitOff();
 
             Attack.status = Node.STATUS.SUCCESS;
             return Attack.status;
@@ -98,9 +107,8 @@ public class SnakonBehavior : MonoBehaviour
             animator.SetTrigger("Attack");
             Invoke("attackEnd", attackTime);
             enemyBasicAttackbox.HitOff();
-
-            agent.destination = transform.position;
         }
+        agent.destination = transform.position;
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
     }

@@ -20,8 +20,6 @@ public class EnemyHitpoints : MonoBehaviour
     public void TakeDamage(float amount)
     {
         amount = Mathf.Max(amount * mods.getMultiplier(), 0);
-
-        Debug.Log(amount);
         
         currentHP -= amount;
         damaged = true;
