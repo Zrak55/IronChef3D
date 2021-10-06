@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 3093980021044873479}
   - component: {fileID: 3006323845726260468}
   - component: {fileID: 1029432160560112435}
-  - component: {fileID: 15454876}
   m_Layer: 0
   m_Name: SnakonStrip
   m_TagString: Untagged
@@ -293,25 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &15454876
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &841484080028459832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -367,6 +347,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakonNew
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
 --- !u!4 &875726044123055315 stripped
