@@ -316,6 +316,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7422479558757950679}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
+    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
     - target: {fileID: -8679921383154817045, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -364,21 +376,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SnakonIdle
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
-    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+    - target: {fileID: 6205319294226877842, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
-=======
->>>>>>> Stashed changes
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bacf6460e69e148458ab053392aa060d, type: 3}
 --- !u!1 &702432154798479647 stripped
