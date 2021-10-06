@@ -128,7 +128,7 @@ public class BenedictBehavior : MonoBehaviour
         {
 
             Vector3 midpoint = (player.transform.position - transform.position);
-            if (midpoint.magnitude < (biteRange / 3))
+            if (midpoint.magnitude < (biteRange /1.5f))
                 midpoint *= (0.05f / midpoint.magnitude);
 
 
