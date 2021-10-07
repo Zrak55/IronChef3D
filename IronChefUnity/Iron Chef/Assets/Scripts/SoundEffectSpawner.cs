@@ -15,7 +15,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] FootstepEffects;
     public AudioClip FridgeSlow;
     public AudioClip MalapenoExplosion;
-
+    public AudioClip[] GruntEffects;
 
 
 
@@ -69,6 +69,10 @@ public class SoundEffectSpawner : MonoBehaviour
                 index = Random.Range(0, FootstepEffects.Length);
                 clipToPlay = FootstepEffects[index];
                 break;
+            case SoundEffect.Grunt:
+                index = Random.Range(0, .Length);
+                clipToPlay = GruntEffects[index];
+                break;
 
         }
 
@@ -92,7 +96,8 @@ public class SoundEffectSpawner : MonoBehaviour
         FilletKnife,
         MalapenoExplosion,
         FridgeSlow,
-        Footstep
+        Footstep,
+        Grunt
     }
 }
 

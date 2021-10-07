@@ -312,6 +312,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d91cf28dc06e8604187cf0d88ffe5551, type: 3}
   FridgeSlow: {fileID: 8300000, guid: 4a59d765f4f80044eac6026538a12269, type: 3}
   MalapenoExplosion: {fileID: 8300000, guid: 040ef1cef1c5ed740bc939cc4b2ee5a2, type: 3}
+  GetHit:
+  - {fileID: 8300000, guid: 5b0e62e8fe4cbfe44b2f75b3c09969a2, type: 3}
+  - {fileID: 8300000, guid: beb1e4a0c1659cc4499d226b2db479b7, type: 3}
+  - {fileID: 8300000, guid: 29f6fcbfb08eb1a4b9ad583f35d15873, type: 3}
+  - {fileID: 8300000, guid: 65b25b4d23d7a3344a67afa959d11892, type: 3}
+  - {fileID: 8300000, guid: b0a307753f6be704197f9493b27361ca, type: 3}
+  - {fileID: 8300000, guid: 4337ca388ebd2ea409ae7e63ea168244, type: 3}
+  - {fileID: 8300000, guid: 18a0c7545b15a4546af6a5b075bff11c, type: 3}
+  - {fileID: 8300000, guid: 97a30e135fb29604ca363bf815fc3745, type: 3}
+  - {fileID: 8300000, guid: a9ca5f06a4988be43b67ec973f46cd17, type: 3}
+  - {fileID: 8300000, guid: b626bc131dd477245b8e6dabb88b086f, type: 3}
+  - {fileID: 8300000, guid: d7ec23b5a8610704ba0b4f2f0b264bf8, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
