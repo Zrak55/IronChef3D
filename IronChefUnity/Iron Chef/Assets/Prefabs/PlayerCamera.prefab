@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
-    NearClipPlane: 1.5
+    NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
     LensShift: {x: 0, y: 0}
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
   m_CameraRadius: 0.1
-  m_Strategy: 1
+  m_Strategy: 0
   m_MaximumEffort: 4
   m_SmoothingTime: 0
   m_Damping: 0
@@ -972,3 +972,5 @@ MonoBehaviour:
   cam: {fileID: 719636532}
   cinemachine: {fileID: 493559123}
   CanMoveCam: 0
+  playerRig: {fileID: 0}
+  clipPlayerDistance: 4.75

@@ -13,7 +13,8 @@ public class EnemySpeed : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        startSpeed = agent.speed;
+        if(agent != null)
+            startSpeed = agent.speed;
     }
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class EnemySpeed : MonoBehaviour
 
     public void SetCurrentSpeed(float s)
     {
-        agent.speed = s;
+        if(agent != null)
+            agent.speed = s;
     }
 }
