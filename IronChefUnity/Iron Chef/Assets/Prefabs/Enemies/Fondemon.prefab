@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
-  spawn: {x: 6.7, y: 4.8, z: 0}
+  spawn: {x: 0, y: 1.49, z: 0}
 --- !u!95 &15454876
 Animator:
   serializedVersion: 3
@@ -300,7 +300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc0289c07a1e1444eb04994df61d3326, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.99
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc0289c07a1e1444eb04994df61d3326, type: 3}
       propertyPath: m_LocalPosition.z

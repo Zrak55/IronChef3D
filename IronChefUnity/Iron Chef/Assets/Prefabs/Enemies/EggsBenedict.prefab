@@ -58,10 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbox: {fileID: 8786063601787335458}
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 8786063601787335458}
-  IsCleave: 1
   damage: 10
 --- !u!114 &2023216774
 MonoBehaviour:
@@ -332,10 +331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbox: {fileID: 3587781569024699538}
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 3587781569024699538}
-  IsCleave: 0
   damage: 10
 --- !u!114 &3244397501475929103
 MonoBehaviour:
@@ -537,10 +535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbox: {fileID: 157670040086219631}
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 157670040086219631}
-  IsCleave: 1
   damage: 10
 --- !u!114 &1044353528
 MonoBehaviour:

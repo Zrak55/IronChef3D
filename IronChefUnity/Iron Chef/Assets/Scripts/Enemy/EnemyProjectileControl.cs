@@ -26,7 +26,7 @@ public class EnemyProjectileControl : MonoBehaviour
 
             //TODO: Check for status effects for on hit things
             playerHitpoints.TakeDamage(damage);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
