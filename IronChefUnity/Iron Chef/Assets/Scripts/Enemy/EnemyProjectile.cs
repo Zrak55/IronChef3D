@@ -27,8 +27,8 @@ public class EnemyProjectile : MonoBehaviour
         //Later on, add logic here for when enemy attacks. Different enemies will attack at different times in different ways.
         if (isAggro || enemyMove.isAggro)
         {
-            Invoke("projectileAttack", 2f);
-            this.enabled = false;
+            //Invoke("projectileAttack", 2f);
+            //this.enabled = false;
         }
     }
 

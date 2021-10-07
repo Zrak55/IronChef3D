@@ -232,7 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 40
   spawnRange: 75
-  moveRange: 7
+  moveRange: 10
 --- !u!1001 &1215016312144112404
 PrefabInstance:
   m_ObjectHideFlags: 0
