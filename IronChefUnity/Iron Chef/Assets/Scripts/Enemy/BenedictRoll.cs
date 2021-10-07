@@ -56,23 +56,27 @@ public class BenedictRoll : MonoBehaviour
                 var list = IronChefUtils.GetCastHits(collider, "Terrain");
                 foreach (var i in list)
                 {
-                    if (recentTerrainHit)
+                    if(i.gameObject.name != "Floor")
                     {
-                        targetFacing = (RoomCenter.position - transform.position).normalized;
-                        targetFacing.y = 0;
+                        if (recentTerrainHit)
+                        {
+                            targetFacing = (RoomCenter.position - transform.position).normalized;
+                            targetFacing.y = 0;
+                        }
+                        else
+                        {
+                            recentTerrainHit = true;
+                            Invoke("UndoRecentTerrain", 0.5f);
+
+
+                            targetFacing = FindObjectOfType<CharacterMover>().transform.position - transform.position;
+                            targetFacing.y = 0;
+                        }
+
+                        recentHit = true;
+                        Invoke("RecentHit", 0.25f);
                     }
-                    else
-                    {
-                        recentTerrainHit = true;
-                        Invoke("UndoRecentTerrain", 0.5f);
-
-
-                        targetFacing = FindObjectOfType<CharacterMover>().transform.position - transform.position;
-                        targetFacing.y = 0;
-                    }
-
-                    recentHit = true;
-                    Invoke("RecentHit", 0.25f);
+                    
                 }
             }
             
