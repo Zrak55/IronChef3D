@@ -70,7 +70,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = FootstepEffects[index];
                 break;
             case SoundEffect.Grunt:
-                index = Random.Range(0, .Length);
+                index = Random.Range(0, GruntEffects.Length);
                 clipToPlay = GruntEffects[index];
                 break;
 

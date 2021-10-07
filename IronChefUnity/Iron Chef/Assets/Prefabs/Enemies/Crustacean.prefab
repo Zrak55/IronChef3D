@@ -101,10 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbox: {fileID: 0}
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 3587781569024699538}
-  IsCleave: 0
   damage: 10
 --- !u!1 &5533044081969613678
 GameObject:
@@ -117,7 +116,7 @@ GameObject:
   - component: {fileID: 8606494392846636468}
   - component: {fileID: 3397875781063718769}
   - component: {fileID: 131788013820264463}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LobsterUVGood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +210,7 @@ GameObject:
   - component: {fileID: -8710290548720715660}
   - component: {fileID: 5942391592770005198}
   - component: {fileID: 7941993860622995322}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Crustacean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,8 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackbox: {fileID: 0}
   CanHit: 0
   playersHit: []
-  myCollider: {fileID: 3617504908792537396}
-  IsCleave: 0
   damage: 10

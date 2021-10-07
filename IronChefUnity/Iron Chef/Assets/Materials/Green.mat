@@ -21,14 +21,13 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Green
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e27ee64496a7da546a7b6b0e68584fc2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -117,6 +116,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_bd5e00c702944ce6bc2e7c3e3dada2d1: {r: 0.004279829, g: 0.26415092, b: 0, a: 0}
     - _BaseColor: {r: 0.033819854, g: 0.3773585, b: 0.03739841, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

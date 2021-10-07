@@ -122,7 +122,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 6.22626, y: 9.209562, z: 5.748513}
-  m_Center: {x: 0.12685442, y: 4.2047815, z: 3.6999211}
+  m_Center: {x: 0.12685442, y: 4.2047815, z: 0}
 --- !u!1 &3587781569024699532
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9181710798279154573}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BombSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -608,12 +608,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8263302753899578470, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -8263302753899578470, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4474481998293459196, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
       propertyPath: m_Name
       value: eggsBenedict
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7552445533500889986, guid: 1454f4806120f854aab93f2d45c9dd41, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -687,6 +699,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8263302753899578470, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -7370310635656456664, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -694,6 +710,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
       propertyPath: m_Name
       value: eggsBenedictInsideYolk
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888387984619582860, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46a9e81db18e7f49a89465bc6f92999, type: 3}
