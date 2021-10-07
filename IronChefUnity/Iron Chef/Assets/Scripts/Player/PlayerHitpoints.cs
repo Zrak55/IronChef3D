@@ -32,6 +32,8 @@ public class PlayerHitpoints : MonoBehaviour
 
             playerStats.CurrentHP -= amount;
 
+            FindObjectOfType<SoundEffectSpawner>()?.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
+
             if (playerStats.CurrentHP <= 0)
             {
                 Die();
