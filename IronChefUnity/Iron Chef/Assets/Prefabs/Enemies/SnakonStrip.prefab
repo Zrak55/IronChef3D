@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 50
+  MaxHP: 3
   damaged: 0
 --- !u!114 &4867357815208474035
 MonoBehaviour:
@@ -275,7 +275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2342973415078283714}
   - component: {fileID: 9210668598408575498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,8 +307,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 2.4, z: 2.7}
-  m_Center: {x: 0, y: 1.2, z: 1}
+  m_Size: {x: 1.1, y: 2.4, z: 6.573999}
+  m_Center: {x: 0, y: 1.2, z: -0.93699956}
 --- !u!1001 &396003970606064718
 PrefabInstance:
   m_ObjectHideFlags: 0
