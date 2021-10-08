@@ -317,6 +317,16 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 18a0c7545b15a4546af6a5b075bff11c, type: 3}
   - {fileID: 8300000, guid: 97a30e135fb29604ca363bf815fc3745, type: 3}
   - {fileID: 8300000, guid: b626bc131dd477245b8e6dabb88b086f, type: 3}
+  EggCrackEffects:
+  - {fileID: 8300000, guid: b35427e746dbad34182938714ac1e1a1, type: 3}
+  - {fileID: 8300000, guid: 519d41bfd51b6a147a01fe32e748bce2, type: 3}
+  - {fileID: 8300000, guid: 847b34585ced8144bbbf8b40d43e7cfd, type: 3}
+  EggRollHit: {fileID: 8300000, guid: 0dfc0d0a8fb8f8c48aabf45dd060c385, type: 3}
+  EggRollStart: {fileID: 8300000, guid: fe208d2edf698dd41b8404cb3a8158ee, type: 3}
+  SlimeEffects:
+  - {fileID: 8300000, guid: 57d01a2b40c783c4caa2cb83a02d166e, type: 3}
+  - {fileID: 8300000, guid: b57689a7846d9634e88ac77cb0faec91, type: 3}
+  - {fileID: 8300000, guid: cf4aaa3742470a44dab13952acaa7a9b, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0

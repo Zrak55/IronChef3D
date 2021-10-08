@@ -16,7 +16,10 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip FridgeSlow;
     public AudioClip MalapenoExplosion;
     public AudioClip[] GruntEffects;
-
+    public AudioClip[] EggCrackEffects;
+    public AudioClip EggRollHit;
+    public AudioClip EggRollStart;
+    public AudioClip[] SlimeEffects;
 
 
 
@@ -73,10 +76,23 @@ public class SoundEffectSpawner : MonoBehaviour
                 index = Random.Range(0, GruntEffects.Length);
                 clipToPlay = GruntEffects[index];
                 break;
+            case SoundEffect.Slime:
+                index = Random.Range(0, SlimeEffects.Length);
+                clipToPlay = SlimeEffects[index];
+                break;
+            case SoundEffect.EggCrack:
+                index = Random.Range(0, EggCrackEffects.Length);
+                clipToPlay = EggCrackEffects[index];
+                break;
+            case SoundEffect.EggRollHit:
+                clipToPlay = EggRollHit;
+                break;
+            case SoundEffect.EggRollStart:
+                clipToPlay = EggRollStart;
+                break;
 
         }
-
-        if (clipToPlay != null)
+                if (clipToPlay != null)
         {
             MakeSoundEffect(location, volume, clipToPlay, pitch);
         }
@@ -97,7 +113,11 @@ public class SoundEffectSpawner : MonoBehaviour
         MalapenoExplosion,
         FridgeSlow,
         Footstep,
-        Grunt
+        Grunt,
+        Slime,
+        EggRollStart,
+        EggCrack,
+        EggRollHit
     }
 }
 
