@@ -10,6 +10,9 @@ public class EnemyBasicAttackbox : MonoBehaviour
     [HideInInspector] public bool CanHit = false;
     [HideInInspector] public List<PlayerHitpoints> playersHit;
     private EnemyAttackModifierController modifier;
+
+    [SerializeField]
+    public SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver;
     //No sound yet
     //public SoundEffectSpawner.SoundEffect soundEffect;
     //private SoundEffectSpawner sfx;
@@ -102,7 +105,9 @@ public class EnemyBasicAttackbox : MonoBehaviour
                         }*/
 
 
-                        player.TakeDamage(dmgToDeal);
+                        player.TakeDamage(dmgToDeal, sound);
+
+                        
                     }
                 }
             }

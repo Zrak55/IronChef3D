@@ -61,6 +61,7 @@ MonoBehaviour:
   attackbox: {fileID: 8786063601787335458}
   CanHit: 0
   playersHit: []
+  sound: 10
   damage: 10
 --- !u!114 &2023216774
 MonoBehaviour:
@@ -334,6 +335,7 @@ MonoBehaviour:
   attackbox: {fileID: 3587781569024699538}
   CanHit: 0
   playersHit: []
+  sound: 0
   damage: 10
 --- !u!114 &3244397501475929103
 MonoBehaviour:
@@ -538,6 +540,7 @@ MonoBehaviour:
   attackbox: {fileID: 157670040086219631}
   CanHit: 0
   playersHit: []
+  sound: 0
   damage: 10
 --- !u!114 &1044353528
 MonoBehaviour:

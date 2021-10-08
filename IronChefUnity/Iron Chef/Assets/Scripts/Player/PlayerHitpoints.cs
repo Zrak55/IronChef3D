@@ -18,7 +18,7 @@ public class PlayerHitpoints : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animator>();
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver)
     {
         //TODO: Check player powers/status effects for taking damage
         if (isIFrames == false)
@@ -37,6 +37,11 @@ public class PlayerHitpoints : MonoBehaviour
             if (playerStats.CurrentHP <= 0)
             {
                 Die();
+            }
+
+            if(sound != SoundEffectSpawner.SoundEffect.Cleaver)
+            {
+                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, sound);
             }
         }
     }

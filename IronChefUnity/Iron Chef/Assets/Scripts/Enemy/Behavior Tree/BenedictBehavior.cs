@@ -398,6 +398,8 @@ public class BenedictBehavior : MonoBehaviour
         {
             Debug.Log("Phased!!!!!");
 
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggCrack);
+
             currentPhase++;
             phaseDelay = true;
             //TODO: ANIMATIONS FOR PHASING
