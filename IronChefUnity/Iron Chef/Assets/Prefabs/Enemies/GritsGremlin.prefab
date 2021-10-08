@@ -58,11 +58,11 @@ GameObject:
   - component: {fileID: 7803086111016615539}
   - component: {fileID: 477952825927109779}
   - component: {fileID: 3244397501475929103}
-  - component: {fileID: 15454876}
   - component: {fileID: 4867357815208474035}
   - component: {fileID: 4306623042804806687}
   - component: {fileID: 8637874127979021576}
   - component: {fileID: 4535639727752920370}
+  - component: {fileID: 1439458322267130707}
   m_Layer: 9
   m_Name: GritsGremlin
   m_TagString: Untagged
@@ -162,25 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0057a52e8deb9484fba7d7d7a46a40d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &15454876
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d910795de8f5b5f4e9e98be6afc6aeaf, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &4867357815208474035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +214,25 @@ MonoBehaviour:
   aggroRange: 40
   spawnRange: 75
   moveRange: 10
+--- !u!95 &1439458322267130707
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+  m_Controller: {fileID: 9100000, guid: d910795de8f5b5f4e9e98be6afc6aeaf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1215016312144112404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,6 +240,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7422479558757950679}
     m_Modifications:
+    - target: {fileID: -9152731826235660619, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -292,6 +296,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 387288261850545155, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
       propertyPath: m_Name
       value: gritsModel
@@ -300,7 +308,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d910795de8f5b5f4e9e98be6afc6aeaf, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924526511623304525, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b3d28a36fd26d9a479c485a831adcba3, type: 2}
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 55e8a68168f3a094e8f934574e4a4eb5, type: 3}
 --- !u!4 &1681570661628824831 stripped
 Transform:

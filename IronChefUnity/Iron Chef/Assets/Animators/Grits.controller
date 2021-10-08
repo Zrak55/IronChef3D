@@ -58,7 +58,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GritsMoving
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3683848539868696258}
@@ -71,7 +71,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c4cdd34b5ecb1084f88426a5823e8739, type: 2}
+  m_Motion: {fileID: 1827226128182048838, guid: ab2a31d53a30c4940b58a3aacdacf095, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
