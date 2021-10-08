@@ -160,9 +160,11 @@ public class SnakonBehavior : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
         {
-            PlayerAttackRange.status = Node.STATUS.SUCCESS;
-            return PlayerAttackRange.status;
-            return PlayerAttackRange.status;
+            if (Vector3.Dot(player.position - transform.position, transform.forward) > .5f)
+            {
+                PlayerAttackRange.status = Node.STATUS.SUCCESS;
+                return PlayerAttackRange.status;
+            }
         }
         PlayerAttackRange.status = Node.STATUS.FAILURE;
         return PlayerAttackRange.status;
