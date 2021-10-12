@@ -285,7 +285,7 @@ public class BenedictBehavior : MonoBehaviour
         return BiteAttack.status;
     }
 
-    void UndoPhaseDelay()
+    public void UndoPhaseDelay()
     {
         phaseDelay = false;
     }
@@ -408,7 +408,6 @@ public class BenedictBehavior : MonoBehaviour
 
             currentPhase++;
             phaseDelay = true;
-            Invoke("UndoPhaseDelay", 3f);
             //TODO: ANIMATIONS FOR PHASING
 
 

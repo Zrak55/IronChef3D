@@ -27,6 +27,7 @@ public class BenedictJump : MonoBehaviour
             if (slist.Count > 0)
             {
                 behavior.GoToNextPhase();
+                behavior.Invoke("UndoPhaseDelay", 2.5f);
             }
         }
         

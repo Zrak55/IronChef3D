@@ -139,6 +139,7 @@ public class BenedictRoll : MonoBehaviour
         rolling = false;
         behavior.DoneRolling = true;
         animator.SetBool("Roll", false);
+        behavior.UndoPhaseDelay();
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
         {
