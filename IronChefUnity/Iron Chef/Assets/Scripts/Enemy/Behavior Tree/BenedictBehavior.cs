@@ -36,7 +36,7 @@ public class BenedictBehavior : MonoBehaviour
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float JumpCD;
     private Transform player;
-    private Animator animator;
+    public Animator animator;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
     private EnemyBasicAttackbox enemyBasicAttackbox;
@@ -68,8 +68,8 @@ public class BenedictBehavior : MonoBehaviour
     public GameObject postBossPortal;
 
     [Header("Meshes")]
-    public MeshRenderer BenedictMeshMaterial;
-    public MeshFilter BenedictMesh;
+    //public MeshRenderer BenedictMeshMaterial;
+    public SkinnedMeshRenderer BenedictMesh;
     public Mesh BenedictP1Mesh;
     public Material BenedictP1material;
     public Mesh BenedictP2Mesh;
@@ -82,11 +82,13 @@ public class BenedictBehavior : MonoBehaviour
     {
         currentPhase = 1;
 
+        BenedictMesh.material = BenedictP1material;
+
         startPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
         enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         rollBehavior = GetComponent<BenedictRoll>();
         jumpBehavior = GetComponent<BenedictJump>();
@@ -222,7 +224,6 @@ public class BenedictBehavior : MonoBehaviour
                 else
                 {
                     Invoke("RollCDEnd", RollCD + rolTime);
-                    phaseDelay = false;
                     RollOnCD = true;
                     isAttacking = true;
                     animator.SetBool("Roll", true);
@@ -251,6 +252,7 @@ public class BenedictBehavior : MonoBehaviour
             }
             else if(BiteAttack.status == Node.STATUS.RUNNING && isAttacking)
             {
+                BiteAttack.status = Node.STATUS.RUNNING;
                 return BiteAttack.status;
             }
             else if(BiteOnCD || currentPhase < 2 || !InBiteRange)
@@ -283,6 +285,10 @@ public class BenedictBehavior : MonoBehaviour
         return BiteAttack.status;
     }
 
+    void UndoPhaseDelay()
+    {
+        phaseDelay = false;
+    }
     private void attackEnd()
     {
         isAttacking = false;
@@ -402,14 +408,16 @@ public class BenedictBehavior : MonoBehaviour
 
             currentPhase++;
             phaseDelay = true;
+            Invoke("UndoPhaseDelay", 3f);
             //TODO: ANIMATIONS FOR PHASING
 
 
 
             if(currentPhase == 2)
             {
-                BenedictMeshMaterial.material = BenedictP2Material;
-                BenedictMesh.mesh = BenedictP2Mesh;
+                //BenedictMeshMaterial.material = BenedictP2Material;
+                BenedictMesh.sharedMesh = BenedictP2Mesh;
+                BenedictMesh.material = BenedictP2Material;
 
                 GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
 
@@ -418,8 +426,8 @@ public class BenedictBehavior : MonoBehaviour
             else if(currentPhase == 3)
             {
 
-                BenedictMeshMaterial.material = BenedictP3Material;
-                BenedictMesh.mesh = BenedictP3Mesh;
+                BenedictMesh.sharedMesh = BenedictP3Mesh;
+                BenedictMesh.material = BenedictP3Material;
 
                 GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictDouble, 1, IronChefUtils.InfiniteDuration);
 

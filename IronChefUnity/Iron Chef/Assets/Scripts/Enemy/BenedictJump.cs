@@ -20,6 +20,15 @@ public class BenedictJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Phase Check
+        if(jumpHitbox.CanHit)
+        {
+            var slist = IronChefUtils.GetCastHits(collider, "SpecialBossLayer1");
+            if (slist.Count > 0)
+            {
+                behavior.GoToNextPhase();
+            }
+        }
         
     }
     public void BeginJumping(float time)

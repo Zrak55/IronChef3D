@@ -26,7 +26,7 @@ public class BenedictRoll : MonoBehaviour
     void Start()
     {
         behavior = GetComponent<BenedictBehavior>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

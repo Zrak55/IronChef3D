@@ -1,23 +1,24 @@
 Task List:
 
 Alex:
-Enemy Powers List
-Rig Character
-Animate Character (Idle, Walk Cycle)
-Update temp attack anims
-Camera Clipping
+Improve Level
+Rig/Animate Tomatroll
 
 Spencer:
-Crustacean rig
-Snakon Rig
-Snakon Anims
+Fondemon rig/animate
+Begin rig/animate Crustacean
 
 Wiliiam:
-Texture player
+Grits Gremlin Rig/Animate
+Egg rig/animate
 
 Zach:
-Levelbuilding
+Terrain Assets
+Break Game (Find bugs/issues)
 
 Kris:
-Edit all SFX for vertical slice
-Implement as many SFX as humanly possible
+Fix egg sounds
+Implement sounds for:
+	Tomatroll
+	Frying Pan
+	Fondemon
