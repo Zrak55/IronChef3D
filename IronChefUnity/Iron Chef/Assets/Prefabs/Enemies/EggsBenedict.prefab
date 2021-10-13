@@ -220,7 +220,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7422479558757950679}
   - component: {fileID: 436092292271447978}
-  - component: {fileID: 6737522677001501040}
   - component: {fileID: 8521597711591569850}
   - component: {fileID: 7803086111016615539}
   - component: {fileID: 477952825927109779}
@@ -232,6 +231,7 @@ GameObject:
   - component: {fileID: 6105392256241112007}
   - component: {fileID: 6410379416721885783}
   - component: {fileID: 4798391828614751253}
+  - component: {fileID: 6479774543020380392}
   m_Layer: 9
   m_Name: EggsBenedict
   m_TagString: Untagged
@@ -266,19 +266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d8b67098a2fba468fd9e74a5df6611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &6737522677001501040
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6, y: 10.067874, z: 7}
-  m_Center: {x: 0, y: 4.6339364, z: 0}
 --- !u!54 &8521597711591569850
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -438,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RollCollider: {fileID: 1240528440509515222}
   RollKnockbox: {fileID: 2023216774}
-  collider: {fileID: 6737522677001501040}
+  collider: {fileID: 6479774543020380392}
   animator: {fileID: 7047592814056382529}
   RoomCenter: {fileID: 0}
   rollSpeed: 40
@@ -458,7 +445,7 @@ MonoBehaviour:
   jumpKnockbox: {fileID: 1044353528}
   behavior: {fileID: 0}
   maxJumpHeight: 15
-  collider: {fileID: 6737522677001501040}
+  collider: {fileID: 6479774543020380392}
 --- !u!114 &4798391828614751253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +458,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &6479774543020380392
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.4
+  m_Center: {x: 0, y: 2.4, z: 0}
 --- !u!1 &8892962108287223260
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,6 +606,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -7682706084370656893, guid: e269a047521f8ea4d8a19c1059a45a4c, type: 3}
+    - target: {fileID: -1093652034062663240, guid: 5f528c6208e492644b2afe8e911ec667, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 996cc51cd2e2fdb438db864b028a8e3a, type: 2}
     - target: {fileID: 919132149155446097, guid: 5f528c6208e492644b2afe8e911ec667, type: 3}
       propertyPath: m_Name
       value: EggP2Rig

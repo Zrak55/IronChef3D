@@ -186,6 +186,7 @@ public class CharacterMover : MonoBehaviour
                 KnockbackIframe(0.75f);
                 animator.SetBool("Rolling", true);
                 targetRollWeight = 1;
+                Invoke("UndoRoll", (7f / 6f));
             }
         }
 

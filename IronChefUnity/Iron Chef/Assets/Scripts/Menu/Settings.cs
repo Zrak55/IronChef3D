@@ -14,11 +14,11 @@ public static class Settings
     public static void LoadAllSettings(AudioMixer mixer)
     {
         audioMixer = mixer;
-        Sensitivity = PlayerPrefs.GetFloat("Sensitivity", 5);
+        Sensitivity = PlayerPrefs.GetFloat("Sensitivity", 3);
         MainVolume = PlayerPrefs.GetFloat("MainVolume", 1);
         SoundFXVolume = PlayerPrefs.GetFloat("SoundFXVolume", 1);
         MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1);
-        InvertVerticalCam = PlayerPrefs.GetInt("InvertVerticalCam", 0) == 1;
+        InvertVerticalCam = PlayerPrefs.GetInt("InvertVerticalCam", 1) == 1;
         
 
 
