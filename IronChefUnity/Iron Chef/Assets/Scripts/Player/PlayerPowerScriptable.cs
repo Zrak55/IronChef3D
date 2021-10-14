@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerPowerScriptable : ScriptableObject
 {
     public PowerName powerName;
+
+    public string description;
+
     public float cooldown;
     public int animationNumber;
 

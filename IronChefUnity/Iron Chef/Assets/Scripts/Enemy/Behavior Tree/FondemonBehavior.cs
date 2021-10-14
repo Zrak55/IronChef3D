@@ -60,7 +60,7 @@ public class FondemonBehavior : MonoBehaviour
             return Attack.status;
         }
         //If we aren't already attack and the cd is done, then attack.
-        else if (!isAttacking && !Physics.Raycast(new Ray(transform.position, (player.transform.position + new Vector3(0, 1, 0)) - transform.position) , attackRange, 1 << LayerMask.NameToLayer("Terrain")))
+        else if (!isAttacking)
         {
             isAttacking = true;
             animator.SetTrigger("Attack");

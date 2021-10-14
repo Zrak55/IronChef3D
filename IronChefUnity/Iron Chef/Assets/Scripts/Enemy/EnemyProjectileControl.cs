@@ -29,5 +29,10 @@ public class EnemyProjectileControl : MonoBehaviour
             playerHitpoints.TakeDamage(damage);
             Destroy(gameObject);
         }
+
+        if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            Destroy(gameObject);
+        }    
     }
 }

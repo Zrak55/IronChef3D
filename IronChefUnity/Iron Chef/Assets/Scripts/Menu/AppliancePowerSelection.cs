@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AppliancePowerSelection : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class AppliancePowerSelection : MonoBehaviour
     public GameObject door;
     public GameObject turnin;
     public GameObject playerCam;
+
+    public Text PowerName;
+    public Text ApplianceName;
+    public Text PowerDesc;
+    public Text ApplianceDesc;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +28,10 @@ public class AppliancePowerSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        PowerName.text = player.GetComponent<PlayerPower>().powerInformation.powerName.ToString();
+        ApplianceName.text = player.GetComponent<Appliance>().applianceScriptable.applianceName.ToString();
+        PowerDesc.text = player.GetComponent<PlayerPower>().powerInformation.description;
+        ApplianceDesc.text = player.GetComponent<Appliance>().applianceScriptable.description;
     }
 
     public void SelectPower()

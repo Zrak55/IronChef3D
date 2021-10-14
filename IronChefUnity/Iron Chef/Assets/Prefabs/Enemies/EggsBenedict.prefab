@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0bdf1bee0a6ff4b92d190f2d475327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 30
+  aggroRange: 70
   spawnRange: 100
   biteRange: 12
   rollRange: 100

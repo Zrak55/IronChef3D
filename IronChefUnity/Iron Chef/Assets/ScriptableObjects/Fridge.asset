@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Fridge
   m_EditorClassIdentifier: 
   applianceName: 0
+  description: Your basic attacks slow the enemy's movement speed by 30%
   values:
   - 0.3
   - 5

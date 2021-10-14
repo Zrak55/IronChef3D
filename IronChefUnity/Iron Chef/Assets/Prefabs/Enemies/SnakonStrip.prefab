@@ -620,8 +620,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778f781a3a45024489512716652fe5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aggroRange: 20
-  spawnRange: 50
+  aggroRange: 50
+  spawnRange: 70
   attackRange: 6
   attackTime: 2
   attackCD: 1

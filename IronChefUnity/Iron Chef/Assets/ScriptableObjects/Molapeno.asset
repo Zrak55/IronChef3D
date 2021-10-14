@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Molapeno
   m_EditorClassIdentifier: 
   powerName: 0
+  description: Throw a projectile that leaves a damaging zone for 5s.
   cooldown: 10
   animationNumber: 1
   values:
