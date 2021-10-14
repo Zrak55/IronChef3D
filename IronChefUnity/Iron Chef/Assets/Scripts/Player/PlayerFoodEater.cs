@@ -8,6 +8,7 @@ public class PlayerFoodEater : MonoBehaviour
     LevelProgressManager food;
     PlayerCostCooldownManager cooldown;
     PlayerHitpoints health;
+    PlayerHUDManager hud;
     float eatCD = 0;
     public int amountEaten = 0;
     public int maxAllowedEaten;
@@ -19,6 +20,7 @@ public class PlayerFoodEater : MonoBehaviour
         food = FindObjectOfType<LevelProgressManager>();
         cooldown = GetComponent<PlayerCostCooldownManager>();
         health = GetComponent<PlayerHitpoints>();
+        hud = FindObjectOfType<PlayerHUDManager>();
         currentEatIndex = 1;
     }
 
@@ -35,7 +37,7 @@ public class PlayerFoodEater : MonoBehaviour
         if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false)
         {
             bool ate = false;
-            Debug.Log(currentEatIndex);
+            bool full = false;
             if(currentEatIndex == 1)
             {
                 if(food.ingredientOneCurrent > 0 && (maxAllowedEaten - amountEaten) >= 1)
@@ -43,6 +45,11 @@ public class PlayerFoodEater : MonoBehaviour
                     food.ingredientOneCurrent--;
                     amountEaten++;
                     ate = true;
+                }
+
+                else if ((maxAllowedEaten - amountEaten) < 1)
+                {
+                    full = true;
                 }
             }
             if (currentEatIndex == 2)
@@ -53,6 +60,11 @@ public class PlayerFoodEater : MonoBehaviour
                     amountEaten++;
                     ate = true;
                 }
+
+                else if ((maxAllowedEaten - amountEaten) < 1)
+                {
+                    full = true;
+                }
             }
             if (currentEatIndex == 3)
             {
@@ -61,6 +73,11 @@ public class PlayerFoodEater : MonoBehaviour
                     food.ingredientThreeCurrent--;
                     amountEaten++;
                     ate = true;
+                }
+
+                else if ((maxAllowedEaten - amountEaten) < 1)
+                {
+                    full = true;
                 }
             }
             if (currentEatIndex == 4)
@@ -71,6 +88,11 @@ public class PlayerFoodEater : MonoBehaviour
                     amountEaten++;
                     ate = true;
                 }
+
+                else if ((maxAllowedEaten - amountEaten) < 1)
+                {
+                    full = true;
+                }
             }
             if (currentEatIndex == 5)
             {
@@ -79,6 +101,11 @@ public class PlayerFoodEater : MonoBehaviour
                     food.ingredientFiveCurrent--;
                     amountEaten++;
                     ate = true;
+                }
+
+                else if ((maxAllowedEaten - amountEaten) < 1)
+                {
+                    full = true;
                 }
             }
             if (currentEatIndex == 6)
@@ -89,12 +116,21 @@ public class PlayerFoodEater : MonoBehaviour
                     amountEaten += 2;
                     ate = true;
                 }
+
+                else if ((maxAllowedEaten - amountEaten) < 2)
+                {
+                    full = true;
+                }
             }
 
             if (ate)
             {
                 RestoreHealth();
                 cooldown.SetEatCD();
+            }
+            else if(full)
+            {
+                hud.PlayFullAnim();
             }
         }
     }

@@ -342,7 +342,7 @@ public class BenedictBehavior : MonoBehaviour
                     bossWall.SetActive(true);
 
                 FindObjectOfType<PlayerHUDManager>().BossInfoOn("Benedict, the Arm-egg-eddon", GetComponent<EnemyHitpoints>(), "");
-                Invoke("Phase1Tip", 20f);
+                Invoke("Phase1Tip", 15f);
             }
         }
         else

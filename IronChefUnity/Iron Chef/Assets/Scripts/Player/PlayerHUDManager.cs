@@ -152,20 +152,20 @@ public class PlayerHUDManager : MonoBehaviour
     {
         if(LevelBossHP != null)
         {
-            moveABar(BossHP, LevelBossHP.GetPercentHP());
+            IronChefUtils.moveABar(BossHP, LevelBossHP.GetPercentHP());
         }
     }
 
     private void UpdateCDBars()
     {
-        moveABar(FryingPanCD, 1 - cooldowns.GetFryingPanCDPercent());
-        moveABar(PowerCD, 1 - cooldowns.GetPowerCDPercent());
+        IronChefUtils.moveABar(FryingPanCD, 1 - cooldowns.GetFryingPanCDPercent());
+        IronChefUtils.moveABar(PowerCD, 1 - cooldowns.GetPowerCDPercent());
 
     }
 
     private void UpdateHungryBar()
     {
-        moveABar(hungryMeter, eatFood.amountEaten);
+        IronChefUtils.moveABar(hungryMeter, eatFood.amountEaten);
         Vector3 targetPos = foodHighlight.transform.position;
         if(eatFood.currentEatIndex == 1)
         {
@@ -195,18 +195,18 @@ public class PlayerHUDManager : MonoBehaviour
     }
     private void UpdateHPBar()
     {
-        moveABar(hpBar, stats.CurrentHP / stats.MaximumHP);
+        IronChefUtils.moveABar(hpBar, stats.CurrentHP / stats.MaximumHP);
     }
     private void UpdateStaminaBar()
     {
-        moveABar(staminaBar, stats.CurrentStamina / stats.MaximumStamina);
+        IronChefUtils.moveABar(staminaBar, stats.CurrentStamina / stats.MaximumStamina);
     }
 
     private void UpdateFoodBars()
     {
         Color targetcolor;
 
-        moveABar(food1bar, foodInfo.ingredientOneCurrent);
+        IronChefUtils.moveABar(food1bar, foodInfo.ingredientOneCurrent);
         if(foodInfo.ingredientOneCurrent > foodInfo.ingredientOneRequired)
         {
             targetcolor = Color.red;
@@ -227,7 +227,7 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
 
-        moveABar(food2bar, foodInfo.ingredientTwoCurrent);
+        IronChefUtils.moveABar(food2bar, foodInfo.ingredientTwoCurrent);
         if (foodInfo.ingredientTwoCurrent > foodInfo.ingredientTwoRequired)
         {
             targetcolor = Color.red;
@@ -247,7 +247,7 @@ public class PlayerHUDManager : MonoBehaviour
                 i.color = targetcolor;
         }
 
-        moveABar(food3bar, foodInfo.ingredientThreeCurrent);
+        IronChefUtils.moveABar(food3bar, foodInfo.ingredientThreeCurrent);
         if (foodInfo.ingredientThreeCurrent > foodInfo.ingredientThreeRequired)
         {
             targetcolor = Color.red;
@@ -267,7 +267,7 @@ public class PlayerHUDManager : MonoBehaviour
                 i.color = targetcolor;
         }
 
-        moveABar(food4bar, foodInfo.ingredientFourCurrent);
+        IronChefUtils.moveABar(food4bar, foodInfo.ingredientFourCurrent);
         if (foodInfo.ingredientFourCurrent > foodInfo.ingredientFourRequired)
         {
             targetcolor = Color.red;
@@ -287,7 +287,7 @@ public class PlayerHUDManager : MonoBehaviour
                 i.color = targetcolor;
         }
 
-        moveABar(food5bar, foodInfo.ingredientFiveCurrent);
+        IronChefUtils.moveABar(food5bar, foodInfo.ingredientFiveCurrent);
         if (foodInfo.ingredientFiveCurrent > foodInfo.ingredientFiveRequired)
         {
             targetcolor = Color.red;
@@ -307,7 +307,7 @@ public class PlayerHUDManager : MonoBehaviour
                 i.color = targetcolor;
         }
 
-        moveABar(badfoodbar, foodInfo.badIngredientsCurrent);
+        IronChefUtils.moveABar(badfoodbar, foodInfo.badIngredientsCurrent);
     }
 
     public void slowMoveSlider(Slider s, float target)
@@ -334,21 +334,7 @@ public class PlayerHUDManager : MonoBehaviour
     }
 
 
-    void moveABar(Slider s, float target)
-    {
-        if (s.value != target)
-        {
-            float tickRate = Mathf.Clamp(Mathf.Abs(s.value - target) * Time.deltaTime * 0.5f * (s.maxValue - s.minValue), Time.deltaTime * 2, Mathf.Infinity);
-            if (Mathf.Abs(target - s.value) < tickRate)
-                s.value = target;
-            else
-            {
-                if (target < s.value)
-                    tickRate *= -1;
-                s.value = s.value + tickRate;
-            }
-        }
-    }
+    
 
     public void SetWeaponImage(int i)
     {
@@ -408,5 +394,11 @@ public class PlayerHUDManager : MonoBehaviour
         BossName.gameObject.SetActive(false);
         BossTip.gameObject.SetActive(false);
         BossHP.gameObject.SetActive(false);
+    }
+
+    public void PlayFullAnim()
+    {
+        hungryMeter.GetComponent<Animator>().SetTrigger("Full");
+        
     }
 }

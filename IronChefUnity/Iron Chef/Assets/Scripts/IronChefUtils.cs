@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.UI;
 public static class IronChefUtils
 {
     public static readonly float InfiniteDuration = -999;
@@ -148,10 +148,10 @@ public static class IronChefUtils
             var localPoint1 = capcol.center + direction * offset;
             var point0 = capcol.transform.TransformPoint(localPoint0);
             var point1 = capcol.transform.TransformPoint(localPoint1);
-            hits = Physics.OverlapCapsule(point0, point1, capcol.radius);
+            hits = Physics.OverlapCapsule(point0, point1, capcol.radius, 1 << LayerMask.NameToLayer(Layer));
         }
         else if (col is SphereCollider)
-            hits = Physics.OverlapSphere(col.transform.position, (col as SphereCollider).radius);
+            hits = Physics.OverlapSphere(col.transform.position, (col as SphereCollider).radius, 1 << LayerMask.NameToLayer(Layer));
 
         List<GameObject> HitGameObjects = new List<GameObject>();
         foreach (var c in hits)
@@ -181,5 +181,21 @@ public static class IronChefUtils
         GameObject.FindObjectOfType<PlayerCameraSetup>().CanMoveCam = true;
         GameObject.FindObjectOfType<PlayerAttackController>().canAct = true;
         HideMouse();
+    }
+
+    public static void moveABar(Slider s, float target)
+    {
+        if (s.value != target)
+        {
+            float tickRate = Mathf.Clamp(Mathf.Abs(s.value - target) * Time.deltaTime * 0.5f * (s.maxValue - s.minValue), Time.deltaTime * 2, Mathf.Infinity);
+            if (Mathf.Abs(target - s.value) < tickRate)
+                s.value = target;
+            else
+            {
+                if (target < s.value)
+                    tickRate *= -1;
+                s.value = s.value + tickRate;
+            }
+        }
     }
 }
