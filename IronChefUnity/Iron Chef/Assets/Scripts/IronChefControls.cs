@@ -424,7 +424,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e1d6537b-2cf9-45d2-a863-b663d50bcb25"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -479,7 +479,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a61ad684-b3cd-4184-91d2-9eb097cccdbb"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -534,7 +534,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""bfefa315-d59d-4119-bba8-f583acdafc5c"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -545,7 +545,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""a593c098-d9ec-416c-bd88-bd060d4dec69"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
