@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(SpawnTreesOnMaterial))]
 public class CustomEditorButton : Editor
 {
@@ -23,3 +24,4 @@ public class CustomEditorButton : Editor
         }
     }
 }
+#endif

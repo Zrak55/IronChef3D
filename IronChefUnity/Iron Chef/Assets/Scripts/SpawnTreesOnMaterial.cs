@@ -74,9 +74,11 @@ public class SpawnTreesOnMaterial : MonoBehaviour
                     {
                         if (hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial == targetMaterial)
                         {
+#if UNITY_EDITOR
                             spawnedTrees.Add(PrefabUtility.InstantiatePrefab(TreePrefabs[Random.Range(0, TreePrefabs.Length)]) as GameObject);
                             spawnedTrees[spawnedTrees.Count - 1].transform.position = hit.point;
                             spawnedTrees[spawnedTrees.Count - 1].transform.SetParent(transform);
+#endif
                         }
                     }
                 }
