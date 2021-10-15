@@ -213,11 +213,11 @@ GameObject:
   - component: {fileID: 8187776139406683009}
   - component: {fileID: 6156062095218787149}
   - component: {fileID: 6445302755759957285}
-  - component: {fileID: -1015529159017639542}
   - component: {fileID: 6367696004050921830}
   - component: {fileID: -507142076491613760}
   - component: {fileID: 3337183044137147794}
   - component: {fileID: 9185996406835358969}
+  - component: {fileID: 4738878139005710027}
   m_Layer: 9
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -357,25 +357,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3621e951ac02a3c43ad4198566fc3edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &-1015529159017639542
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781405636844246273}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d907a2d2279758c4193f47fd40f14630, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &6367696004050921830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +416,25 @@ MonoBehaviour:
   - {fileID: 6091418276934293596}
   - {fileID: 4247266061546188677}
   - {fileID: 3755099571786460567}
+--- !u!95 &4738878139005710027
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781405636844246273}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 3a0e52217fc63714a86d279417e500a2, type: 3}
+  m_Controller: {fileID: 9100000, guid: d907a2d2279758c4193f47fd40f14630, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2373546530833790350
 GameObject:
   m_ObjectHideFlags: 0
