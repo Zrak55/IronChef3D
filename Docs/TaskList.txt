@@ -1,24 +1,24 @@
 Task List:
 
 Alex:
-Improve Level
-Rig/Animate Tomatroll
+Feedback Improvements
+Spatula Animation
+Crustacean Rig/Animate
 
 Spencer:
 Fondemon rig/animate
-Begin rig/animate Crustacean
+Fondemon/Tomatroll in Unity
 
 Wiliiam:
-Grits Gremlin Rig/Animate
-Egg rig/animate
+Tomatroll Rig/Animate
+Snakon Strip Roll
 
 Zach:
 Terrain Assets
 Break Game (Find bugs/issues)
 
 Kris:
-Fix egg sounds
-Implement sounds for:
-	Tomatroll
-	Frying Pan
-	Fondemon
+Playthrough Improvements
+Spatula Sounds
+Crustacean Sounds
+Snakon Sounds
