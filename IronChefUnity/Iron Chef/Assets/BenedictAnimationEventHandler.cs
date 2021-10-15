@@ -24,4 +24,9 @@ public class BenedictAnimationEventHandler : MonoBehaviour
     {
         GetComponentInParent<EnemyBasicAttackbox>().HitOff();
     }
+
+    public void EggRollSound()
+    {
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggRoll);
+    }
 }

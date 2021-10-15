@@ -106,6 +106,7 @@ public class TomatrollBehavior : MonoBehaviour
         //If we aren't already attack and the cd is done, then attack.
         else if (!isAttacking && !isAttackCD)
         {
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Tomatroll);
             isAttacking = true;
             animator.SetTrigger("Attack");
             animator.SetInteger("AttackNum", Random.Range(0, 3));

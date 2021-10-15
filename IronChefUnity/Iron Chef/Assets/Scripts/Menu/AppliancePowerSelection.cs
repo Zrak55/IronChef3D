@@ -23,6 +23,7 @@ public class AppliancePowerSelection : MonoBehaviour
         IronChefUtils.TurnOffCharacter();
         FindObjectOfType<PowerButton>().SelectPower();
         FindObjectOfType<ApplianceButton>().SelectAppliance();
+
     }
 
     // Update is called once per frame

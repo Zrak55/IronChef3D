@@ -62,6 +62,7 @@ public class FondemonBehavior : MonoBehaviour
         //If we aren't already attack and the cd is done, then attack.
         else if (!isAttacking)
         {
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Fondemon);
             isAttacking = true;
             animator.SetTrigger("Attack");
             Invoke("attackEnd", attackTime);

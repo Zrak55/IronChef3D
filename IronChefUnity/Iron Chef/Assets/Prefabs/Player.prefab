@@ -578,7 +578,7 @@ MonoBehaviour:
   EatOnCD: 0
   FryingPanCooldown: 5
   FryingPanOnCooldown: 0
-  PowerCooldown: 0
+  PowerCooldown: 1
   PowerOnCooldown: 0
 --- !u!114 &4662893921699608211
 MonoBehaviour:

@@ -116,7 +116,10 @@ public class GritsBehavior : MonoBehaviour
         return PlayerSpawnRange.status;
     }
 
-
+    public void SlimeSound()
+    {
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Slime);
+    }
     
 
     

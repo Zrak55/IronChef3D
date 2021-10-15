@@ -15,6 +15,9 @@ public class PlayerProjectile : MonoBehaviour
     [Header("Projectile")]
     public float damage;
 
+    public SoundEffectSpawner.SoundEffect HitSound;
+    public SoundEffectSpawner.SoundEffect FlightSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +56,7 @@ public class PlayerProjectile : MonoBehaviour
         var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
         if(enemyHealth != null)
         {
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
             enemyHealth.TakeDamage(damage);
             ApplyHitEffects();
             Destroy(gameObject);
@@ -70,6 +74,12 @@ public class PlayerProjectile : MonoBehaviour
     protected virtual void ApplyHitEffects()
     {
 
+    }
+
+    public void MakeFlightSound()
+    {
+
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, FlightSound);
     }
 
 }

@@ -36,6 +36,7 @@ public class InGameMenu : MonoBehaviour
             playerCam = FindObjectOfType<PlayerCameraSetup>();
 
         LoadSettingsSliderValues();
+        SetSettingsListeners();
     }
 
     // Start is called before the first frame update
