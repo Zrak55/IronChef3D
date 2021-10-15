@@ -20,6 +20,11 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip EggRollHit;
     public AudioClip EggRollStart;
     public AudioClip[] SlimeEffects;
+    public AudioClip[] EggRoll;
+    public AudioClip[] TomatrollEffects;
+    public AudioClip FryingPanFly;
+    public AudioClip FryingPanHit;
+    public AudioClip[] FondemonEffects;
 
 
 
@@ -50,6 +55,16 @@ public class SoundEffectSpawner : MonoBehaviour
         int index;
         switch (effect)
         {
+
+            /*
+             * BLANK CASE STATEMENT:             
+             case SoundEffect.:
+                index = Random.Range(0, .Length);
+                clipToPlay = [index];
+                break;
+             */
+
+
             case SoundEffect.Cleaver:
                 index = Random.Range(0, CleaverEffects.Length);
                 clipToPlay = CleaverEffects[index];
@@ -90,7 +105,24 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.EggRollStart:
                 clipToPlay = EggRollStart;
                 break;
-
+            case SoundEffect.EggRoll:
+                index = Random.Range(0, EggRoll.Length);
+                clipToPlay = EggRoll[index];
+                break;
+            case SoundEffect.Tomatroll:
+                index = Random.Range(0, TomatrollEffects.Length);
+                clipToPlay = TomatrollEffects[index];
+                break;
+            case SoundEffect.Fondemon:
+                index = Random.Range(0, FondemonEffects.Length);
+                clipToPlay = FondemonEffects[index];
+                break;
+            case SoundEffect.FryingPanHit:
+                clipToPlay = FryingPanHit;
+                break;
+            case SoundEffect.FryingPanFly:
+                clipToPlay = FryingPanFly;
+                break;
         }
                 if (clipToPlay != null)
         {
@@ -117,7 +149,12 @@ public class SoundEffectSpawner : MonoBehaviour
         Slime,
         EggRollStart,
         EggCrack,
-        EggRollHit
+        EggRollHit,
+        EggRoll,
+        Tomatroll,
+        FryingPanHit,
+        FryingPanFly,
+        Fondemon
     }
 }
 
