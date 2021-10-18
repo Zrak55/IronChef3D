@@ -27,7 +27,7 @@ public class FondemonBehavior : MonoBehaviour
         startPosition = transform.position;
         enemyProjectile = GetComponent<EnemyProjectile>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
 
         //Setup leaf nodes
@@ -39,7 +39,6 @@ public class FondemonBehavior : MonoBehaviour
         CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
         CheckPlayer = new Selector("Player Location Sequence", CheckAttack, Idle);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
-        fondemonBehaviorTree.printTree();
     }
 
     //TODO: Fix multiple things same frame.
@@ -66,7 +65,6 @@ public class FondemonBehavior : MonoBehaviour
             isAttacking = true;
             animator.SetTrigger("Attack");
             Invoke("attackEnd", attackTime);
-            enemyProjectile.projectileAttack();
         }
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;

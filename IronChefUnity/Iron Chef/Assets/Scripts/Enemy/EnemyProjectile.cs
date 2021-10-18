@@ -34,6 +34,7 @@ public class EnemyProjectile : MonoBehaviour
 
     public void projectileAttack()
     {
+        Debug.Log("test");
         if (!isAggro)
             anim.SetTrigger("Projectile");
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
