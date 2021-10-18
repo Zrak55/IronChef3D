@@ -20,7 +20,7 @@ public class TomatrollBehavior : MonoBehaviour
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float attackCD;
     private Transform player;
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
     private EnemyBasicAttackbox enemyBasicAttackbox;
@@ -39,7 +39,6 @@ public class TomatrollBehavior : MonoBehaviour
         if (enemyBasicAttackbox == null)
             enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        animator = GetComponent<Animator>();
         player = GameObject.Find("Player").transform;
 
         //Setup leaf nodes
