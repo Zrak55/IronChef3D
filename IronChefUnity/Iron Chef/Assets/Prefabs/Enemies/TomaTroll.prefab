@@ -217,7 +217,6 @@ GameObject:
   - component: {fileID: -507142076491613760}
   - component: {fileID: 3337183044137147794}
   - component: {fileID: 9185996406835358969}
-  - component: {fileID: 4738878139005710027}
   m_Layer: 9
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -416,25 +415,6 @@ MonoBehaviour:
   - {fileID: 6091418276934293596}
   - {fileID: 4247266061546188677}
   - {fileID: 3755099571786460567}
---- !u!95 &4738878139005710027
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781405636844246273}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
-  m_Controller: {fileID: 9100000, guid: 6b602db0f0863534cb8bcb784c3cd37b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2373546530833790350
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +560,7 @@ GameObject:
   - component: {fileID: 6934924956212691480}
   - component: {fileID: 5832217663969864459}
   - component: {fileID: 1159190657246609141}
+  - component: {fileID: 7053032707152540204}
   m_Layer: 9
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -654,6 +635,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &7053032707152540204
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2492364155880515535}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
+  m_Controller: {fileID: 9100000, guid: 6b602db0f0863534cb8bcb784c3cd37b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2642978465994962414
 GameObject:
   m_ObjectHideFlags: 0
