@@ -31,8 +31,8 @@ public class PlayerCameraSetup : MonoBehaviour
     {
         if(CanMoveCam)
         {
-            cinemachine.m_YAxis.m_MaxSpeed = 0.25f * Settings.Sensitivity;
-            cinemachine.m_XAxis.m_MaxSpeed = 40 * Settings.Sensitivity;
+            cinemachine.m_YAxis.m_MaxSpeed = 0.35f * Settings.Sensitivity;
+            cinemachine.m_XAxis.m_MaxSpeed = 30 * Settings.Sensitivity;
         }
         else
         {

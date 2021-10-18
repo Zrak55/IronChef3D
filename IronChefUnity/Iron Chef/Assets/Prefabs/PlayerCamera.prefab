@@ -201,11 +201,11 @@ MonoBehaviour:
   m_SplineCurvature: 0.2
   m_Orbits:
   - m_Height: 6
-    m_Radius: 9
-  - m_Height: 3.72
     m_Radius: 15
+  - m_Height: 3.72
+    m_Radius: 19
   - m_Height: -3
-    m_Radius: 12
+    m_Radius: 15
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 1981333387}
@@ -282,8 +282,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719636529}
-  m_LocalRotation: {x: 0.14029205, y: 0.000000012567027, z: -0.0000000017806651, w: 0.99011016}
-  m_LocalPosition: {x: 0, y: 4.1, z: -8.51}
+  m_LocalRotation: {x: -0.004328943, y: 0.6782665, z: 0.003995926, w: 0.73479235}
+  m_LocalPosition: {x: -25.504246, y: 4.6084905, z: -74.3877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3109323825666893895}
@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.5754788, z: -14.877869}
+  m_FollowOffset: {x: 0, y: 3.9114413, z: -19.798025}
   m_XDamping: 0.25
   m_YDamping: 0.25
   m_ZDamping: 0.25
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.5754788, z: -14.877869}
+  m_FollowOffset: {x: 0, y: 3.9114413, z: -19.798025}
   m_XDamping: 0.25
   m_YDamping: 0.25
   m_ZDamping: 0.25
@@ -782,7 +782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 1.5754788, z: -14.877869}
+  m_FollowOffset: {x: 0, y: 3.9114413, z: -19.798025}
   m_XDamping: 0.25
   m_YDamping: 0.25
   m_ZDamping: 0.25
@@ -972,5 +972,5 @@ MonoBehaviour:
   cam: {fileID: 719636532}
   cinemachine: {fileID: 493559123}
   CanMoveCam: 0
-  playerRig: {fileID: 0}
+  playerView: {fileID: 0}
   clipPlayerDistance: 4.75
