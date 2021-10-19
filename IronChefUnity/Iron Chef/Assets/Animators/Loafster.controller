@@ -153,7 +153,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CurstaceanRightClaw
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3137113174809251667}
@@ -166,7 +166,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7aa397e8efd847d4e80586666d26ac04, type: 2}
+  m_Motion: {fileID: 1827226128182048838, guid: 4fd090c405db5fa45b17c1caa18a3716, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -312,7 +312,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CrustaceanLeftClaw
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3759737208728586578}
@@ -325,7 +325,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 922b9956f35e08b42ae27a1ad11fdae0, type: 2}
+  m_Motion: {fileID: 1827226128182048838, guid: 36d8cc98fdd92204c895e8459bffac31, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
