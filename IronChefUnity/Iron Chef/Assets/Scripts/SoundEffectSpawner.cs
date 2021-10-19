@@ -25,8 +25,8 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip FryingPanFly;
     public AudioClip FryingPanHit;
     public AudioClip[] FondemonEffects;
-
-
+    public AudioClip SpatulaLaunch;
+    public AudioClip SpatulaAir;
 
 
     private void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch)
@@ -123,6 +123,12 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.FryingPanFly:
                 clipToPlay = FryingPanFly;
                 break;
+            case SoundEffect.SpatulaLaunch:
+                clipToPlay = SpatulaLaunch;
+                break;
+            case SoundEffect.SpatulaAir:
+                clipToPlay = SpatulaAir;
+                break;
         }
                 if (clipToPlay != null)
         {
@@ -154,7 +160,9 @@ public class SoundEffectSpawner : MonoBehaviour
         Tomatroll,
         FryingPanHit,
         FryingPanFly,
-        Fondemon
+        Fondemon,
+        SpatulaLaunch,
+        SpatulaAir
     }
 }
 

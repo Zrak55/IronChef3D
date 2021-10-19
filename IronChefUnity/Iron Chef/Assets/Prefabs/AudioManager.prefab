@@ -324,9 +324,8 @@ MonoBehaviour:
   EggRollHit: {fileID: 8300000, guid: 0dfc0d0a8fb8f8c48aabf45dd060c385, type: 3}
   EggRollStart: {fileID: 8300000, guid: fe208d2edf698dd41b8404cb3a8158ee, type: 3}
   SlimeEffects:
-  - {fileID: 8300000, guid: 57d01a2b40c783c4caa2cb83a02d166e, type: 3}
-  - {fileID: 8300000, guid: b57689a7846d9634e88ac77cb0faec91, type: 3}
   - {fileID: 8300000, guid: cf4aaa3742470a44dab13952acaa7a9b, type: 3}
+  - {fileID: 8300000, guid: b57689a7846d9634e88ac77cb0faec91, type: 3}
   EggRoll:
   - {fileID: 8300000, guid: 5945077b194484c42aa18c4af98680c1, type: 3}
   - {fileID: 8300000, guid: 293bb9a36a66696489b98ffa0f543326, type: 3}
@@ -339,11 +338,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ce350a1f1424aa34a9361492967eb856, type: 3}
   - {fileID: 8300000, guid: e6b26e39803503242ab0777565eedb26, type: 3}
   - {fileID: 8300000, guid: badf6f428508e3249ae5ec045979e6d9, type: 3}
-  FryingPanFly: {fileID: 8300000, guid: 06f08109a62483f43800315adf5a495f, type: 3}
+  FryingPanFly: {fileID: 8300000, guid: b6665942f8146ce4188c4019a113b7e4, type: 3}
   FryingPanHit: {fileID: 8300000, guid: 1569c3b0fb8469e489da0bf05da6b221, type: 3}
   FondemonEffects:
   - {fileID: 8300000, guid: f17d37b2e4401e44bb657dd0c3acdb55, type: 3}
   - {fileID: 8300000, guid: 9fb8c0ed681c3be419952f92fc6a9e99, type: 3}
+  SpatulaLaunch: {fileID: 8300000, guid: e67ff130d62524d449da0f93524ff5e2, type: 3}
+  SpatulaAir: {fileID: 8300000, guid: 4483de74fc5ef1947974688a734a04ba, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
