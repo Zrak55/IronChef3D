@@ -107,6 +107,11 @@ public class CrustaceanBehavior : MonoBehaviour
             animator.SetInteger("AttackNum", Random.Range(0, 2));
 
             agent.destination = transform.position;
+            float time = attackOneTime;
+            if (animator.GetInteger("AttackNum") == 1)
+                time = attackTwoTime;
+
+            Invoke("attackEnd", time);
         }
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
