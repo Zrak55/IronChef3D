@@ -11,6 +11,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private SoundEffectSpawner sfx;
     public Collider myCollider;
     PlayerCamControl pcam;
+    public float attackAnimTime;
 
     public bool IsCleave = false;
 
@@ -102,7 +103,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             sfx.MakeSoundEffect(transform.position, soundEffect);
                         }
 
-                        pcam.ShakeCam(dmgToDeal * 1.5f, dmgToDeal * 1.5f * 0.4f);
+                        pcam.ShakeCam(dmgToDeal/10f , dmgToDeal * 0.4f / 10f);
                         enemy.TakeDamage(dmgToDeal);
                     }
                 }

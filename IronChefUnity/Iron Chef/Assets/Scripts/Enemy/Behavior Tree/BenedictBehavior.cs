@@ -49,6 +49,7 @@ public class BenedictBehavior : EnemyBehaviorTree
     private bool isAttacking = false;
 
     private bool BiteOnCD = false, RollOnCD = false, JumpOnCD = false, YolkOnCD = false;
+    bool genericCD = false;
     private bool InBiteRange = false, InRollRange = false, InJumpRange = false, InYolkRange = false;
     [HideInInspector]
     public bool DoneRolling = false;
@@ -298,6 +299,13 @@ public class BenedictBehavior : EnemyBehaviorTree
     {
         isAttacking = false;
         agent.enabled = true;
+        genericCD = true;
+        Invoke("UndoGenericCD", 1f);
+    }
+
+    void UndoGenericCD()
+    {
+        genericCD = false;
     }
 
     private void BiteCDEnd()
@@ -400,6 +408,12 @@ public class BenedictBehavior : EnemyBehaviorTree
             InYolkRange = true;
             PlayerAttackRange.status = Node.STATUS.SUCCESS;
         }
+
+        if(genericCD)
+        {
+            PlayerAttackRange.status = Node.STATUS.FAILURE;
+        }
+
         return PlayerAttackRange.status;
     }
 

@@ -578,7 +578,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""301f7684-1332-4fcb-b646-88e600074945"",
-                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -589,7 +589,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7b6ac1db-71ed-4aa0-9b0a-541504e4c99a"",
-                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""path"": ""<Gamepad>/dpad/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

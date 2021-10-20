@@ -208,7 +208,6 @@ GameObject:
   - component: {fileID: 1475416154569173099}
   - component: {fileID: 1475416154569173096}
   - component: {fileID: 1475416154569173097}
-  - component: {fileID: 1475416154569173103}
   - component: {fileID: 1475416154569173101}
   - component: {fileID: 8187776139406683009}
   - component: {fileID: 6156062095218787149}
@@ -291,20 +290,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1475416154569173103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781405636844246273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 5
-  damaged: 0
 --- !u!114 &1475416154569173101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 30
+  MaxHP: 50
   damaged: 0
 --- !u!114 &8187776139406683009
 MonoBehaviour:
@@ -880,7 +865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b118117bfac099408386574298c6046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 1475416154569173103}
+  hp: {fileID: 1475416154569173101}
   hpSlider: {fileID: 6114074837165801375}
   dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
   animTime: 1

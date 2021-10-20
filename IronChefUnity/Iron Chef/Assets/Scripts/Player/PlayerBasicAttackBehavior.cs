@@ -13,7 +13,7 @@ public class PlayerBasicAttackBehavior : StateMachineBehaviour
             player = FindObjectOfType<PlayerAttackController>();
 
 
-        player.Invoke("DoneAttacking", stateInfo.length);
+        //player.Invoke("DoneAttacking", stateInfo.length);
 
     }
     void DoneAttacking()

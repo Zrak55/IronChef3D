@@ -174,7 +174,9 @@ public class PlayerAttackController : MonoBehaviour
         animator.SetBool("BasicAttack", true);
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
 
-        Invoke("EmergencyShutoff", 2.5f);
+        Invoke("DoneAttacking", PlayerBasics[currentPlayerBasic].attackAnimTime);
+
+        Invoke("EmergencyShutoff", 2f);
     }
 
     private void EmergencyShutoff()

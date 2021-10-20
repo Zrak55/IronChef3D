@@ -11,6 +11,7 @@ public class PlayerProjectile : MonoBehaviour
     Vector3 start;
     float currentDistance;
     bool travelling = false;
+    bool hit = false;
 
     [Header("Projectile")]
     public float damage;
@@ -53,14 +54,19 @@ public class PlayerProjectile : MonoBehaviour
 
     protected virtual void DoCollisionThings(Collider other)
     {
-        var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
-        if(enemyHealth != null)
+        if(!hit)
         {
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
-            enemyHealth.TakeDamage(damage);
-            ApplyHitEffects();
-            Destroy(gameObject);
+            var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
+            if (enemyHealth != null)
+            {
+                hit = true;
+                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
+                enemyHealth.TakeDamage(damage);
+                ApplyHitEffects();
+                Destroy(gameObject);
+            }
         }
+        
     }
 
     public virtual void FireProjectile(Vector3 target)
