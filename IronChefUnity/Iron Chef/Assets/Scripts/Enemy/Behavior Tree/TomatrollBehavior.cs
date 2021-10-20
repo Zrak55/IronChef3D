@@ -20,7 +20,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float attackCD;
     private Transform player;
-    [SerializeField] private Animator animator;
+    private Animator animator;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
     private EnemyBasicAttackbox enemyBasicAttackbox;
@@ -39,6 +39,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
         startPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
         enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
+        animator = GetComponentInChildren<Animator>();
         if (enemyBasicAttackbox == null)
             enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
@@ -112,8 +113,23 @@ public class TomatrollBehavior : EnemyBehaviorTree
         {
             FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Tomatroll);
             isAttacking = true;
-            animator.SetTrigger("Attack");
-            animator.SetInteger("AttackNum", Random.Range(0, 3));
+            switch (Random.Range(1, 3))
+            {
+                case 3:
+                    animator.SetTrigger("AttackThree");
+                    Invoke("attackEnd", attackThreeTime);
+                    break;
+                case 2:
+                    animator.SetTrigger("AttackTwo");
+                    Invoke("attackEnd", attackTwoTime);
+                    break;
+                case 1:
+                    animator.SetTrigger("AttackOne");
+                    Invoke("attackEnd", attackOneTime);
+                    break;
+                default:
+                    break;
+            }
 
             agent.destination = transform.position;
         }
@@ -175,7 +191,6 @@ public class TomatrollBehavior : EnemyBehaviorTree
         if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
         {
             PlayerAttackRange.status = Node.STATUS.SUCCESS;
-            return PlayerAttackRange.status;
             return PlayerAttackRange.status;
         }
         PlayerAttackRange.status = Node.STATUS.FAILURE;
