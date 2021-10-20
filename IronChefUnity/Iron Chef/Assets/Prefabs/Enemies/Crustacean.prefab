@@ -141,7 +141,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 0
-  damage: 10
+  damage: 8
 --- !u!1 &4470167129770485588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 0
-  damage: 10
+  damage: 8
 --- !u!1 &9139872486678876944
 GameObject:
   m_ObjectHideFlags: 0

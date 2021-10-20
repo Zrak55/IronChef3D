@@ -36,7 +36,7 @@ public class PlayerHitpoints : MonoBehaviour
 
             playerStats.CurrentHP -= amount;
 
-            pcam.ShakeCam(amount / 10f, amount * 0.4f / 10f);
+            pcam.ShakeCam(amount / 5f, amount * 0.4f / 5f);
 
             sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
 
