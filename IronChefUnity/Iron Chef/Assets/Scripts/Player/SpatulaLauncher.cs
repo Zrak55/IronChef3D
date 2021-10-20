@@ -24,6 +24,8 @@ public class SpatulaLauncher : MonoBehaviour
         if(other.GetComponent<PlayerSpatulaJumper>() != null)
         {
             other.GetComponent<PlayerSpatulaJumper>().Jump(target.position, time);
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SpatulaLaunch);
+            FindObjectOfType<SoundEffectSpawner>().MakeFollowingSoundEffect(other.transform, SoundEffectSpawner.SoundEffect.SpatulaAir, 1, time);
         }
     }
 }

@@ -28,8 +28,17 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip SpatulaLaunch;
     public AudioClip SpatulaAir;
 
-
-    private void MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch)
+    public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
+    {
+        return MakeFollowingSoundEffect(follow, effect, 1, -1);
+    }
+    public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect, float volume, float overrideTimeAlive)
+    {
+        var x = MakeSoundEffect(transform.position, volume, effect, overrideTimeAlive);
+        x.transform.SetParent(follow);
+        return x;
+    }
+    private AudioSource MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch, float overrideTimeAlive = -1)
     {
         var go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
         var ac = go.GetComponent<AudioSource>();
@@ -40,13 +49,17 @@ public class SoundEffectSpawner : MonoBehaviour
         ac.pitch = pitch;
         ac.Play();
 
+        if (overrideTimeAlive > 0)
+            Destroy(go, overrideTimeAlive);
+        else
+            Destroy(go, ac.clip.length * 1.1f);
 
-        Destroy(go, ac.clip.length * 1.1f);
+        return ac;
 
     }
 
 
-    public void MakeSoundEffect(Vector3 location, float volume, SoundEffect effect)
+    public AudioSource MakeSoundEffect(Vector3 location, float volume, SoundEffect effect, float overrideTimeAlive = -1)
     {
         AudioClip clipToPlay = null;
 
@@ -130,15 +143,17 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = SpatulaAir;
                 break;
         }
-                if (clipToPlay != null)
+        if (clipToPlay != null)
         {
-            MakeSoundEffect(location, volume, clipToPlay, pitch);
+            return MakeSoundEffect(location, volume, clipToPlay, pitch, overrideTimeAlive);
         }
+        else
+            return null;
     }
 
-    public void MakeSoundEffect(Vector3 location, SoundEffect effect)
+    public AudioSource MakeSoundEffect(Vector3 location, SoundEffect effect)
     {
-        MakeSoundEffect(location, 1, effect);
+        return MakeSoundEffect(location, 1, effect);
     }
 
 
