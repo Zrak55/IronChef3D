@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FondemonBehavior : MonoBehaviour
+public class FondemonBehavior : EnemyBehaviorTree
 {
     //Behavior for the Fondemon prefab, not meant for other use.
     //It is simpler than most of the other behaviors because the fondemon doesn't move
@@ -22,6 +22,9 @@ public class FondemonBehavior : MonoBehaviour
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
     private bool isAttacking = false;
 
+
+    MusicManager music;
+
     private void Start()
     {
         startPosition = transform.position;
@@ -39,6 +42,8 @@ public class FondemonBehavior : MonoBehaviour
         CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
         CheckPlayer = new Selector("Player Location Sequence", CheckAttack, Idle);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
+
+        music = FindObjectOfType<MusicManager>();
     }
 
     //TODO: Fix multiple things same frame.
@@ -78,9 +83,19 @@ public class FondemonBehavior : MonoBehaviour
     public Node.STATUS checkPlayerAttackRange()
     {
         if (Vector3.Distance(player.transform.position, transform.position) < attackRange)
+        {
             PlayerAttackRange.status = Node.STATUS.SUCCESS;
+            if (!aggrod)
+                music.combatCount++;
+            aggrod = true;
+        }
         else
+        {
             PlayerAttackRange.status = Node.STATUS.FAILURE;
+            if (aggrod)
+                music.combatCount--;
+            aggrod = false;
+        }
         return PlayerAttackRange.status;
     }
     private void attackEnd()

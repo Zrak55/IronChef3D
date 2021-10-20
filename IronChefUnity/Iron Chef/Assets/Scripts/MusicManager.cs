@@ -14,6 +14,8 @@ public class MusicManager : MonoBehaviour
     int currentNormalClip;
     int currentCombatClip;
 
+    public int combatCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,26 +41,8 @@ public class MusicManager : MonoBehaviour
     {
         if (player != null)
         {
-            //TODO: MAKE BETTER CHECK
-            bool inCombat = false;
 
-
-            foreach (var e in FindObjectsOfType<GenericEnemyBehavior>())
-            {
-                if (Vector3.Distance(player.transform.position, e.gameObject.transform.position) <= 20)
-                {
-                    inCombat = true;
-                    break;
-                }
-            }
-            foreach(var e in FindObjectsOfType<BenedictBehavior>())
-            {
-                if(e.IsAggrod())
-                {
-                    inCombat = true;
-                    break;
-                }
-            }
+            bool inCombat = combatCount > 0;
 
             if (inCombat)
             {

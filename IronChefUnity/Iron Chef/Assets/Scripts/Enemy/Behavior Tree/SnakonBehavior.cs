@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SnakonBehavior : MonoBehaviour
+public class SnakonBehavior : EnemyBehaviorTree
 {
     BehaviorTree snakonBehaviorTree;
     [Tooltip("Float for the maximum disatnce the enemy will begin to follow the player from.")]
@@ -27,6 +27,8 @@ public class SnakonBehavior : MonoBehaviour
     private Vector3 startPosition;
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
     private bool isAttacking = false, isAttackCD = false;
+
+    MusicManager music;
 
     private void Start()
     {
@@ -53,6 +55,9 @@ public class SnakonBehavior : MonoBehaviour
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
         CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, Attack);
         snakonBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, CheckAttack);
+
+
+        music = FindObjectOfType<MusicManager>();
     }
 
     //TODO: Fix multiple things same frame.
@@ -138,6 +143,10 @@ public class SnakonBehavior : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
         {
+            if (!aggrod)
+                music.combatCount++;
+            aggrod = true;
+
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
             return PlayerAggroRange.status;
         }
@@ -152,6 +161,9 @@ public class SnakonBehavior : MonoBehaviour
             PlayerSpawnRange.status = Node.STATUS.SUCCESS;
             return PlayerSpawnRange.status;
         }
+        if (aggrod)
+            music.combatCount--;
+        aggrod = false;
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
         return PlayerSpawnRange.status;
     }

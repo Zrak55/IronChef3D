@@ -37,6 +37,11 @@ public class EnemyHitpoints : MonoBehaviour
 
             GetComponent<EnemyFoodDropper>().GiveFood();
 
+            if(GetComponent<EnemyBehaviorTree>().isAggrod())
+            {
+                FindObjectOfType<MusicManager>().combatCount--;
+            }
+
             //TODO: Play death animation before deletion
 
             CheckDeadBoss();

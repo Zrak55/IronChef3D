@@ -743,7 +743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 40
   spawnRange: 75
-  moveRange: 10
+  moveRange: 12
 --- !u!95 &1439458322267130707
 Animator:
   serializedVersion: 3

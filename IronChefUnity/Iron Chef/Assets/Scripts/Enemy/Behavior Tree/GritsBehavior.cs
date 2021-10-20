@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GritsBehavior : MonoBehaviour
+public class GritsBehavior : EnemyBehaviorTree
 {
     //This is a test class and not meant for actual use
     BehaviorTree genericBehaviorTree;
@@ -23,6 +23,8 @@ public class GritsBehavior : MonoBehaviour
     //The spawn location of the enemy is automatically set based on scene placement.
     private Vector3 startPosition;
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
+
+    MusicManager music;
 
     private void Start()
     {
@@ -46,6 +48,8 @@ public class GritsBehavior : MonoBehaviour
         CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt);
+
+        music = FindObjectOfType<MusicManager>();
     }
 
     //TODO: Fix multiple things same frame.
@@ -98,6 +102,9 @@ public class GritsBehavior : MonoBehaviour
     {
         if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
         {
+            if (!aggrod)
+                music.combatCount++;
+            aggrod = true;
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
             return PlayerAggroRange.status;
         }
@@ -112,6 +119,9 @@ public class GritsBehavior : MonoBehaviour
             PlayerSpawnRange.status = Node.STATUS.SUCCESS;
             return PlayerSpawnRange.status;
         }
+        if (aggrod)
+            music.combatCount--;
+        aggrod = false;
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
         return PlayerSpawnRange.status;
     }

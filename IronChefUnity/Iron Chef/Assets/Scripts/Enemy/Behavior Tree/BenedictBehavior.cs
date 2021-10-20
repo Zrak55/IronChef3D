@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BenedictBehavior : MonoBehaviour
+public class BenedictBehavior : EnemyBehaviorTree
 {
     //This is a test class and not meant for actual use
     BehaviorTree genericBehaviorTree;
@@ -55,7 +55,6 @@ public class BenedictBehavior : MonoBehaviour
     private BenedictRoll rollBehavior;
     private BenedictJump jumpBehavior;
 
-    bool aggrod;
     public GameObject yolkBomb;
     public Transform BombSpawnPoint;
 
@@ -77,6 +76,7 @@ public class BenedictBehavior : MonoBehaviour
     public Mesh BenedictP3Mesh;
     public Material BenedictP3Material;
 
+    private MusicManager music;
 
     private void Start()
     {
@@ -114,6 +114,8 @@ public class BenedictBehavior : MonoBehaviour
 
 
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
+
+        music = FindObjectOfType<MusicManager>();
     }
 
     //TODO: Fix multiple things same frame.
@@ -139,6 +141,9 @@ public class BenedictBehavior : MonoBehaviour
             agent.destination = target;
         }
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
+
+
+
         return MoveTowardsPlayer.status;
     }
 
@@ -312,10 +317,6 @@ public class BenedictBehavior : MonoBehaviour
         YolkOnCD = false;
     }
 
-    public bool IsAggrod()
-    {
-        return aggrod;
-    }
 
     public Node.STATUS checkEnemyHurt()
     {
@@ -333,10 +334,13 @@ public class BenedictBehavior : MonoBehaviour
         if(!aggrod)
         {
             PlayerAggroRange.status = Node.STATUS.FAILURE;
+            
             if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
             {
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
+
+                music.combatCount++;
 
                 if (bossWall.activeSelf == false)
                     bossWall.SetActive(true);
@@ -361,7 +365,10 @@ public class BenedictBehavior : MonoBehaviour
             return PlayerSpawnRange.status;
         }
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
+        if (aggrod)
+            music.combatCount--;
         aggrod = false;
+
         return PlayerSpawnRange.status;
     }
 
