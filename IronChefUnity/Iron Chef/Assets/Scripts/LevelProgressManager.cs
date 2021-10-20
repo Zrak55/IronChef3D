@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LevelProgressManager : MonoBehaviour
 {
@@ -40,6 +41,10 @@ public class LevelProgressManager : MonoBehaviour
     public Text WinStatusText;
     public Text ScoreText;
     public Button continueButton;
+    public GameObject firstWinSelectButton;
+    public GameObject firstLoseSelectButton;
+
+    
 
 
     // Start is called before the first frame update
@@ -179,10 +184,24 @@ public class LevelProgressManager : MonoBehaviour
     {
         LoseScreen.SetActive(true);
         IronChefUtils.TurnOffCharacter();
+        EventSystem.current.SetSelectedGameObject(firstLoseSelectButton);
+
+        if (firstLoseSelectButton.GetComponent<Image>().color != firstLoseSelectButton.GetComponent<Button>().colors.selectedColor)
+        {
+            firstLoseSelectButton.GetComponent<Image>().color = firstLoseSelectButton.GetComponent<Button>().colors.selectedColor;
+            firstLoseSelectButton.gameObject.AddComponent<DeselectColorReset>();
+        }
     }
     public void ShowWinScreen(float score)
     {
         WinScreen.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(firstWinSelectButton);
+        if (firstWinSelectButton.GetComponent<Image>().color != firstWinSelectButton.GetComponent<Button>().colors.selectedColor)
+        {
+            firstWinSelectButton.GetComponent<Image>().color = firstWinSelectButton.GetComponent<Button>().colors.selectedColor;
+            firstWinSelectButton.gameObject.AddComponent<DeselectColorReset>();
+        }
 
         ScoreText.text = "Your score: " + ((int)score).ToString() + "/100";
         int stars = 0;

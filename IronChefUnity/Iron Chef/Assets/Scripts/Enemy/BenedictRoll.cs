@@ -62,6 +62,7 @@ public class BenedictRoll : MonoBehaviour
                         {
                             targetFacing = (RoomCenter.position - transform.position).normalized;
                             targetFacing.y = 0;
+                            FindObjectOfType<PlayerCamControl>().ShakeCam(2.5f, 0.75f);
                         }
                         else
                         {
@@ -71,6 +72,7 @@ public class BenedictRoll : MonoBehaviour
 
                             targetFacing = FindObjectOfType<CharacterMover>().transform.position - transform.position;
                             targetFacing.y = 0;
+                            FindObjectOfType<PlayerCamControl>().ShakeCam(2.5f, 0.75f);
                         }
 
                         recentHit = true;

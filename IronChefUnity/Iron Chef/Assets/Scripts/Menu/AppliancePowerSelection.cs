@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class AppliancePowerSelection : MonoBehaviour
@@ -14,6 +15,14 @@ public class AppliancePowerSelection : MonoBehaviour
     public Text ApplianceName;
     public Text PowerDesc;
     public Text ApplianceDesc;
+
+    [Space]
+    public GameObject firstSelectButton;
+
+    private void Awake()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSelectButton);
+    }
 
     // Start is called before the first frame update
     void Start()

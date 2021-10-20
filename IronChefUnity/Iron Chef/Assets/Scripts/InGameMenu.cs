@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InGameMenu : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class InGameMenu : MonoBehaviour
 
     public CharacterMover player;
     public PlayerCameraSetup playerCam;
+
+    [Space]
+    public GameObject firstSelectButton;
 
     bool paused = false;
 
@@ -49,6 +53,7 @@ public class InGameMenu : MonoBehaviour
     void Update()
     {
         CheckPause();
+
     }
 
     void Pause()
@@ -58,6 +63,8 @@ public class InGameMenu : MonoBehaviour
         IronChefUtils.TurnOffCharacter();
         Menu.SetActive(true);
         GoToMenu(0);
+
+        EventSystem.current.SetSelectedGameObject(firstSelectButton);
     }
     void Unpause()
     {
@@ -93,6 +100,7 @@ public class InGameMenu : MonoBehaviour
             m.SetActive(false);
         }
         MenuItem[i].SetActive(true);
+        EventSystem.current.SetSelectedGameObject(MenuItem[i].GetComponentInChildren<Button>().gameObject);
     }
 
     void SetSettingsListeners()

@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class TutorialManager : MonoBehaviour
 {
     public TextMeshProUGUI text;
     public GameObject Tutorial;
     public GameObject selector;
+    public GameObject continueBtn;
     bool on = false;
 
     // Start is called before the first frame update
@@ -30,6 +32,9 @@ public class TutorialManager : MonoBehaviour
 
 
         Tutorial.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(continueBtn);
+
         text.text = s;
 
     }
@@ -43,6 +48,14 @@ public class TutorialManager : MonoBehaviour
         {
             on = true;
             selector.SetActive(true);
+            var btn = selector.GetComponentInChildren<Button>();
+            EventSystem.current.SetSelectedGameObject(btn.gameObject);
+            if(btn.GetComponent<Image>().color != btn.colors.selectedColor)
+            {
+                btn.GetComponent<Image>().color = btn.colors.selectedColor;
+                btn.gameObject.AddComponent<DeselectColorReset>();
+            }
+
         }
     }
 }

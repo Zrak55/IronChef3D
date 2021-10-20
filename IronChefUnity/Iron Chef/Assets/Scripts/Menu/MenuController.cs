@@ -98,7 +98,7 @@ public class MenuController : MonoBehaviour
             g.SetActive(false);
         }
         Menus[i].SetActive(true);
-        FindObjectOfType<EventSystem>().SetSelectedGameObject(Menus[i].GetComponentInChildren<Button>().gameObject);
+        EventSystem.current.SetSelectedGameObject(Menus[i].GetComponentInChildren<Button>().gameObject);
     }
 
     public void SetMainVolume()

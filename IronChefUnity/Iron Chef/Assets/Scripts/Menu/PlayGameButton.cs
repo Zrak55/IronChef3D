@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayGameButton : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class PlayGameButton : MonoBehaviour
         {
             preLevelWindow.descText.text += "Ingredient " + (i + 1) + ": " + levelInfo.ingredients[i] + "\n";
         }
+
+        EventSystem.current.SetSelectedGameObject(preLevelWindow.GetComponentInChildren<Button>().gameObject);
     }
 
 

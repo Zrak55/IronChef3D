@@ -8,15 +8,16 @@ public class PreLevelWindow : MonoBehaviour
 {
     public string levelName;
     public Text descText;
+    public GameObject PlayButton;
 
     private void Awake()
     {
-        GetComponentInChildren<Button>().Select();
     }
     public void Hide()
     {
-        EventSystem.current.SetSelectedGameObject(transform.parent.gameObject.GetComponentInChildren<Button>().gameObject);
         gameObject.SetActive(false);
+        
+        EventSystem.current.SetSelectedGameObject(transform.parent.GetComponentInChildren<Button>().gameObject);
     }
     public void Play()
     {
