@@ -10,6 +10,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     public SoundEffectSpawner.SoundEffect soundEffect;
     private SoundEffectSpawner sfx;
     public Collider myCollider;
+    PlayerCamControl pcam;
 
     public bool IsCleave = false;
 
@@ -21,6 +22,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     {
         enemiesHit = new List<EnemyHitpoints>();
         sfx = FindObjectOfType<SoundEffectSpawner>();
+        pcam = FindObjectOfType<PlayerCamControl>();
 
     }
     private void Start()
@@ -100,7 +102,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             sfx.MakeSoundEffect(transform.position, soundEffect);
                         }
 
-
+                        pcam.ShakeCam(dmgToDeal * 1.5f, dmgToDeal * 1.5f * 0.4f);
                         enemy.TakeDamage(dmgToDeal);
                     }
                 }

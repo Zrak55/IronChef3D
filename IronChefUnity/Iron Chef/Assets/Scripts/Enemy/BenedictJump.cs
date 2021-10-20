@@ -79,6 +79,8 @@ public class BenedictJump : MonoBehaviour
 
     public void DoneJumping()
     {
+        FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
+
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
         {

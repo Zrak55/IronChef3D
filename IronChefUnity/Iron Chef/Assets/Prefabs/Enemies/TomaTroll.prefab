@@ -399,7 +399,6 @@ MonoBehaviour:
   attackTwoTime: 2
   attackThreeTime: 2.5
   attackCD: 3
-  animator: {fileID: 9001757956823665487}
 --- !u!114 &9185996406835358969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +882,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 1475416154569173103}
   hpSlider: {fileID: 6114074837165801375}
+  dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
+  animTime: 1
 --- !u!1 &8616772853948125435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1133,10 +1134,5 @@ PrefabInstance:
 --- !u!4 &3029946181283778869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
-  m_PrefabInstance: {fileID: 3280378110432114398}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &9001757956823665487 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
   m_PrefabInstance: {fileID: 3280378110432114398}
   m_PrefabAsset: {fileID: 0}

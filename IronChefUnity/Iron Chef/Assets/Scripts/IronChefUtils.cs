@@ -169,7 +169,7 @@ public static class IronChefUtils
     {
         GameObject.FindObjectOfType<CharacterMover>().MouseOff = false;
         GameObject.FindObjectOfType<CharacterMover>().enabled = false;
-        GameObject.FindObjectOfType<PlayerCameraSetup>().CanMoveCam = false;
+        GameObject.FindObjectOfType<PlayerCamControl>().CanMoveCam(false);
         GameObject.FindObjectOfType<PlayerAttackController>().canAct = false;
         ShowMouse();
 
@@ -178,7 +178,7 @@ public static class IronChefUtils
     {
         GameObject.FindObjectOfType<CharacterMover>().MouseOff = true;
         GameObject.FindObjectOfType<CharacterMover>().enabled = true;
-        GameObject.FindObjectOfType<PlayerCameraSetup>().CanMoveCam = true;
+        GameObject.FindObjectOfType<PlayerCamControl>().CanMoveCam(true);
         GameObject.FindObjectOfType<PlayerAttackController>().canAct = true;
         HideMouse();
     }

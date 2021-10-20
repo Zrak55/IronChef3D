@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 477952825927109779}
   hpSlider: {fileID: 7663141458754971336}
+  dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
+  animTime: 1
 --- !u!1 &1931062759135674386
 GameObject:
   m_ObjectHideFlags: 0

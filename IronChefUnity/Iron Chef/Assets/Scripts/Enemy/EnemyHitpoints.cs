@@ -10,25 +10,57 @@ public class EnemyHitpoints : MonoBehaviour
     private EnemyDamageTakenModifierController mods;
     private float currentHP;
     bool imDead = false;
+    float smallDmg = 0;
+    bool isInvoking = false;
+    EnemyCanvas floatingDmg;
 
     private void Awake()
     {
         currentHP = MaxHP;
         mods = GetComponent<EnemyDamageTakenModifierController>();
+        floatingDmg = GetComponentInChildren<EnemyCanvas>();
     }
 
     public void TakeDamage(float amount)
     {
+        float dmgNumAmount = amount;
         amount = Mathf.Max(amount * mods.getMultiplier(), 0);
-        
+        if (amount > dmgNumAmount)
+            dmgNumAmount = amount;
+
         currentHP -= amount;
         damaged = true;
         
+
+        if(dmgNumAmount >= 1)
+        {
+            floatingDmg.MakeDamageNumber(amount);
+        }
+        else
+        {
+            smallDmg += amount;
+            if(!isInvoking)
+            {
+                isInvoking = true;
+                Invoke("SmallDmgDisplay", 1f);
+            }
+        }
+
+
         if(currentHP <= 0)
         {
             Die();
         }
     }
+
+    void SmallDmgDisplay()
+    {
+        floatingDmg.MakeDamageNumber(smallDmg);
+        
+        smallDmg = 0;
+        isInvoking = false;
+    }
+
     public void Die()
     {
         if(!imDead)

@@ -11,11 +11,15 @@ public class PlayerHitpoints : MonoBehaviour
     private PlayerStats playerStats;
     private Animator anim;
     private bool isIFrames = false;
+    PlayerCamControl pcam;
+    SoundEffectSpawner sounds;
 
     private void Awake()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
         anim = gameObject.GetComponentInChildren<Animator>();
+        sounds = FindObjectOfType<SoundEffectSpawner>();
+        pcam = FindObjectOfType<PlayerCamControl>();
     }
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver)
@@ -32,7 +36,9 @@ public class PlayerHitpoints : MonoBehaviour
 
             playerStats.CurrentHP -= amount;
 
-            FindObjectOfType<SoundEffectSpawner>()?.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
+            pcam.ShakeCam(amount / 10f, amount * 0.4f / 10f);
+
+            sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
 
             if (playerStats.CurrentHP <= 0)
             {
@@ -43,6 +49,8 @@ public class PlayerHitpoints : MonoBehaviour
             {
                 FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, sound);
             }
+
+            
         }
     }
 
