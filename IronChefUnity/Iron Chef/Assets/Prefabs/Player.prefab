@@ -585,8 +585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 8
   sprintSpeed: 15
-  acceleration: 24
-  jumpSpeed: 9
+  acceleration: 36
+  jumpSpeed: 13.5
   rollSpeed: 24
   speed: 0
   model: {fileID: 1948250837847046463}

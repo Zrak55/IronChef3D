@@ -26,6 +26,11 @@ public class PlayerHUDManager : MonoBehaviour
     public Slider food4bar;
     public Slider food5bar;
     public Slider badfoodbar;
+    public Image food1barImage;
+    public Image food2barImage;
+    public Image food3barImage;
+    public Image food4barImage;
+    public Image food5barImage;
     [Space]
     public Image food1requiredbar;
     public Image food2requiredbar;
@@ -52,6 +57,15 @@ public class PlayerHUDManager : MonoBehaviour
     public Image BossTipBackground;
     EnemyHitpoints LevelBossHP;
     bool fadeDelay = false;
+
+
+    [Header("FoodBarSprites")]
+    public Sprite cheese;
+    public Sprite egg;
+    public Sprite tomato;
+    public Sprite bacon;
+    public Sprite bread;
+
 
     private void Awake()
     {
@@ -82,11 +96,13 @@ public class PlayerHUDManager : MonoBehaviour
     }
     public void SetFoodBars()
     {
+        float height = 110;
 
         food5bar.maxValue = foodInfo.ingredientFiveMaximum;
         food5bar.value = foodInfo.ingredientFiveRequired;
         food5requiredbar.transform.position = food5bar.handleRect.transform.position;
         food5ingredient.text = foodInfo.ingredientFiveType.ToString();
+        SetFoodBarImage(food5barImage, foodInfo.ingredientFiveType, height);
         if (food5bar.maxValue == 0)
         {
             food5bar.gameObject.SetActive(false);
@@ -99,6 +115,7 @@ public class PlayerHUDManager : MonoBehaviour
         food4bar.value = foodInfo.ingredientFourRequired;
         food4requiredbar.transform.position = food4bar.handleRect.transform.position;
         food4ingredient.text = foodInfo.ingredientFourType.ToString();
+        SetFoodBarImage(food4barImage, foodInfo.ingredientFourType, height);
         if (food4bar.maxValue == 0)
         {
             food4bar.gameObject.SetActive(false);
@@ -109,6 +126,7 @@ public class PlayerHUDManager : MonoBehaviour
         food3bar.value = foodInfo.ingredientThreeRequired;
         food3requiredbar.transform.position = food3bar.handleRect.transform.position;
         food3ingredient.text = foodInfo.ingredientThreeType.ToString();
+        SetFoodBarImage(food3barImage, foodInfo.ingredientThreeType, height);
         if (food3bar.maxValue == 0)
         {
             food3bar.gameObject.SetActive(false);
@@ -119,6 +137,7 @@ public class PlayerHUDManager : MonoBehaviour
         food2bar.value = foodInfo.ingredientTwoRequired;
         food2requiredbar.transform.position = food2bar.handleRect.transform.position;
         food2ingredient.text = foodInfo.ingredientTwoType.ToString();
+        SetFoodBarImage(food2barImage, foodInfo.ingredientTwoType, height);
         if (food2bar.maxValue == 0)
         {
             food2bar.gameObject.SetActive(false);
@@ -129,6 +148,7 @@ public class PlayerHUDManager : MonoBehaviour
         food1bar.value = foodInfo.ingredientOneRequired;
         food1requiredbar.transform.position = food1bar.handleRect.transform.position;
         food1ingredient.text = foodInfo.ingredientOneType.ToString();
+        SetFoodBarImage(food1barImage, foodInfo.ingredientOneType, height);
         if (food1bar.maxValue == 0)
         {
             food1bar.gameObject.SetActive(false);
@@ -138,6 +158,34 @@ public class PlayerHUDManager : MonoBehaviour
         badfoodbar.maxValue = foodInfo.badIngredientsMaximum;
     }
 
+
+    void SetFoodBarImage(Image i, EnemyFoodDropper.FoodType food, float targetHeight)
+    {
+        switch(food)
+        {
+            case EnemyFoodDropper.FoodType.Bacon:
+                i.sprite = bacon;
+                break;
+            case EnemyFoodDropper.FoodType.Bread:
+                i.sprite = bread;
+                break;
+            case EnemyFoodDropper.FoodType.Cheese:
+                i.sprite = cheese;
+                break;
+            case EnemyFoodDropper.FoodType.Egg:
+                i.sprite = egg;
+                break;
+            case EnemyFoodDropper.FoodType.Tomato:
+                i.sprite = tomato;
+                break;
+            default:
+                break;
+        }
+
+        i.SetNativeSize();
+        float ratio = targetHeight / i.rectTransform.rect.height;
+        i.rectTransform.sizeDelta *= ratio;
+    }
     private void UpdateBars()
     {
         UpdateHPBar();
