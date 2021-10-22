@@ -343,8 +343,11 @@ MonoBehaviour:
   FondemonEffects:
   - {fileID: 8300000, guid: f17d37b2e4401e44bb657dd0c3acdb55, type: 3}
   - {fileID: 8300000, guid: 9fb8c0ed681c3be419952f92fc6a9e99, type: 3}
-  SpatulaLaunch: {fileID: 8300000, guid: e67ff130d62524d449da0f93524ff5e2, type: 3}
+  SpatulaLaunch: {fileID: 8300000, guid: ca817cf08657c514390c75ef4273b9f7, type: 3}
   SpatulaAir: {fileID: 8300000, guid: 4483de74fc5ef1947974688a734a04ba, type: 3}
+  CrabWalk: {fileID: 8300000, guid: 532de27d74f794f409d62601ee69177d, type: 3}
+  CrabSnapOpen: {fileID: 8300000, guid: 020cc692f5980174b8d1f84decc4640f, type: 3}
+  CrabSnapClose: {fileID: 8300000, guid: 5ec0fc6ce9054bf4aadb4966b8911810, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,3 +366,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0419fa092e403f43a4d6927f0aab311, type: 3}
   combatClips:
   - {fileID: 8300000, guid: 0f1c97bd9290f78439726e0bea80df76, type: 3}
+  combatCount: 0

@@ -27,6 +27,9 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] FondemonEffects;
     public AudioClip SpatulaLaunch;
     public AudioClip SpatulaAir;
+    public AudioClip CrabWalk;
+    public AudioClip CrabSnapOpen;
+    public AudioClip CrabSnapClose;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -142,6 +145,15 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.SpatulaAir:
                 clipToPlay = SpatulaAir;
                 break;
+            case SoundEffect.CrabSnapClose:
+                clipToPlay = CrabSnapClose;
+                break;
+            case SoundEffect.CrabSnapOpen:
+                clipToPlay = CrabSnapOpen;
+                break;
+            case SoundEffect.CrabWalk:
+                clipToPlay = CrabWalk;
+                break;
         }
         if (clipToPlay != null)
         {
@@ -177,7 +189,10 @@ public class SoundEffectSpawner : MonoBehaviour
         FryingPanFly,
         Fondemon,
         SpatulaLaunch,
-        SpatulaAir
+        SpatulaAir,
+        CrabWalk,
+        CrabSnapOpen,
+        CrabSnapClose
     }
 }
 
