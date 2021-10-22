@@ -5,11 +5,13 @@ using UnityEngine;
 public class CrustaceanAnimationEventHandler : MonoBehaviour
 {
     public EnemyMultiAttackboxController behavior;
+    public SoundEffectSpawner sounds;
 
     // Start is called before the first frame update
     void Start()
     {
         behavior = GetComponentInParent<EnemyMultiAttackboxController>();
+        sounds = FindObjectOfType<SoundEffectSpawner>();
     }
 
     // Update is called once per frame
@@ -38,4 +40,20 @@ public class CrustaceanAnimationEventHandler : MonoBehaviour
         behavior.TurnHitboxOff(1);
 
     }
+
+    public void WalkSound()
+    {
+        sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CrabWalk);
+    }
+    public void SnapSound()
+    {
+
+        sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CrabSnapClose);
+    }
+    public void SnapOpenSound()
+    {
+
+        sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CrabSnapOpen);
+    }
+
 }
