@@ -164,9 +164,10 @@ public class CharacterMover : MonoBehaviour
         //Jump
         if (InputControls.controls.Gameplay.Jump.triggered)
         {
-            if (stats.TrySpendStamina(costmanager.JumpCost))
+            if (costmanager.JumpOnCooldown == false && stats.TrySpendStamina(costmanager.JumpCost))
             {
                 currentMove.y = jumpSpeed;
+                costmanager.SetJumpCD();
 
             }
         }

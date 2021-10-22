@@ -102,7 +102,6 @@ public class PlayerCamControl : MonoBehaviour
             shouldChange = true;
         }
 
-        Debug.Log(currentShakeFrequency + " " + currentShakeIntensity);
     }
 
     public void ShakeCam(float intensity, float frequency)

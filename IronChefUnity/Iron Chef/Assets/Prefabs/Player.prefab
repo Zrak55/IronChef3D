@@ -655,8 +655,10 @@ MonoBehaviour:
   EatOnCD: 0
   FryingPanCooldown: 5
   FryingPanOnCooldown: 0
+  jumpCD: 1
   PowerCooldown: 1
   PowerOnCooldown: 0
+  JumpOnCooldown: 0
 --- !u!114 &4662893921699608211
 MonoBehaviour:
   m_ObjectHideFlags: 0

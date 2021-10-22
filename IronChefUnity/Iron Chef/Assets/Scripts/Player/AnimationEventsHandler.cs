@@ -9,6 +9,9 @@ public class AnimationEventsHandler : MonoBehaviour
     public CharacterMover characterMover;
     public PlayerAudioEvents audioEvent;
 
+
+    bool doubleFPPrevent = false;
+
     private void Awake()
     {
         playerAttacks = GetComponentInParent<PlayerAttackController>();
@@ -46,9 +49,17 @@ public class AnimationEventsHandler : MonoBehaviour
     }
     public void PerformFryingPan()
     {
-        playerAttacks.PerformFryingPan();
+        if(!doubleFPPrevent)
+        {
+            doubleFPPrevent = true;
+            playerAttacks.PerformFryingPan();
+            Invoke("UndoFPPrevent", 0.5f);
+        }
     }
-
+    void UndoFPPrevent()
+    {
+        doubleFPPrevent = false;
+    }
     public void UndoRoll()
     {
         characterMover.UndoRoll();

@@ -54,10 +54,11 @@ public class PlayerProjectile : MonoBehaviour
 
     protected virtual void DoCollisionThings(Collider other)
     {
-        if(!hit)
+        
+        var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
+        if (enemyHealth != null)
         {
-            var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
-            if (enemyHealth != null)
+            if (!hit)
             {
                 hit = true;
                 FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
@@ -66,6 +67,7 @@ public class PlayerProjectile : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        
         
     }
 
