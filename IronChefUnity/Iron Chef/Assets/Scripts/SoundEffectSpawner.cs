@@ -30,6 +30,8 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip CrabWalk;
     public AudioClip CrabSnapOpen;
     public AudioClip CrabSnapClose;
+    public AudioClip BaconBite;
+    public AudioClip BaconIdle;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -154,6 +156,12 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.CrabWalk:
                 clipToPlay = CrabWalk;
                 break;
+            case SoundEffect.BaconBite:
+                clipToPlay = BaconBite;
+                break;
+            case SoundEffect.BaconIdle:
+                clipToPlay = BaconIdle;
+                break;
         }
         if (clipToPlay != null)
         {
@@ -192,7 +200,9 @@ public class SoundEffectSpawner : MonoBehaviour
         SpatulaAir,
         CrabWalk,
         CrabSnapOpen,
-        CrabSnapClose
+        CrabSnapClose,
+        BaconBite,
+        BaconIdle
     }
 }
 
