@@ -348,6 +348,8 @@ MonoBehaviour:
   CrabWalk: {fileID: 8300000, guid: 532de27d74f794f409d62601ee69177d, type: 3}
   CrabSnapOpen: {fileID: 8300000, guid: 020cc692f5980174b8d1f84decc4640f, type: 3}
   CrabSnapClose: {fileID: 8300000, guid: 5ec0fc6ce9054bf4aadb4966b8911810, type: 3}
+  BaconBite: {fileID: 8300000, guid: 75e61a70dd3aadf419f017a1df390ecc, type: 3}
+  BaconIdle: {fileID: 8300000, guid: bb7c4502bd65e614498f04188c37fa78, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
