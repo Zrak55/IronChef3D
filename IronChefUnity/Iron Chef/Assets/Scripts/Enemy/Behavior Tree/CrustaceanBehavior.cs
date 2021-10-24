@@ -117,7 +117,6 @@ public class CrustaceanBehavior : EnemyBehaviorTree
 
             Invoke("attackEnd", time);
         }
-        agent.destination = transform.position;
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
     }
