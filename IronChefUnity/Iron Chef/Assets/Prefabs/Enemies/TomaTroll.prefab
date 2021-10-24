@@ -57,10 +57,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackbox: {fileID: 0}
+  attackbox: {fileID: 1868838686}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 12
   damage: 10
 --- !u!1 &714155024763968157
 GameObject:
@@ -574,10 +574,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackbox: {fileID: 0}
+  attackbox: {fileID: 8360736793372117818}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 12
   damage: 10
 --- !u!1 &6062969170237727426
 GameObject:
@@ -672,10 +672,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6acb2bb96f16cc45829bb1060ef37d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackbox: {fileID: 0}
+  attackbox: {fileID: 6807727701177144755}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 12
   damage: 10
 --- !u!95 &2559384243830555707
 Animator:
