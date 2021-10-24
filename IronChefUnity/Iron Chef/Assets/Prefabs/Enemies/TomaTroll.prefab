@@ -29,8 +29,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.96, z: 6.699997}
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
-  m_Father: {fileID: 7988860594834689625}
-  m_RootOrder: 8
+  m_Father: {fileID: 3029946181283778869}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1868838686
 BoxCollider:
@@ -180,8 +180,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.96, z: 0}
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
-  m_Father: {fileID: 7988860594834689625}
-  m_RootOrder: 7
+  m_Father: {fileID: 3029946181283778869}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1475416153710143325
 BoxCollider:
@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 6367696004050921830}
   - component: {fileID: -507142076491613760}
   - component: {fileID: 3337183044137147794}
+  - component: {fileID: 9185996406835358969}
   m_Layer: 9
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -233,7 +234,7 @@ Transform:
   m_LocalPosition: {x: -0, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7988860594834689625}
+  - {fileID: 3029946181283778869}
   - {fileID: 3936153846816958854}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -379,10 +380,26 @@ MonoBehaviour:
   aggroRange: 40
   spawnRange: 50
   attackRange: 12
-  attackOneTime: 3
-  attackTwoTime: 3
-  attackThreeTime: 3
+  attackOneTime: 2
+  attackTwoTime: 2
+  attackThreeTime: 2.5
   attackCD: 3
+--- !u!114 &9185996406835358969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781405636844246273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32304624fa267904582ef96adf58e249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 6091418276934293596}
+  - {fileID: 4247266061546188677}
+  - {fileID: 3755099571786460567}
 --- !u!1 &2373546530833790350
 GameObject:
   m_ObjectHideFlags: 0
@@ -546,8 +563,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 8.810001, z: 6.699997}
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
-  m_Father: {fileID: 7988860594834689625}
-  m_RootOrder: 9
+  m_Father: {fileID: 3029946181283778869}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8360736793372117818
 BoxCollider:
@@ -644,8 +661,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.96, z: 6.699997}
   m_LocalScale: {x: 6.7, y: 8.4, z: 5.2}
   m_Children: []
-  m_Father: {fileID: 7988860594834689625}
-  m_RootOrder: 10
+  m_Father: {fileID: 3029946181283778869}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6807727701177144755
 BoxCollider:
@@ -677,6 +694,7 @@ MonoBehaviour:
   playersHit: []
   sound: 12
   damage: 10
+<<<<<<< HEAD
 --- !u!95 &2559384243830555707
 Animator:
   serializedVersion: 3
@@ -712,6 +730,8 @@ MonoBehaviour:
   - {fileID: 3755099571786460567}
   - {fileID: 6091418276934293596}
   - {fileID: 3755099571786460567}
+=======
+>>>>>>> parent of ebb086e (Tomatroll working (kinda), fixed crustacean)
 --- !u!1 &7694218689797554054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,74 +1093,69 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1001 &7589861830101674418
+--- !u!1001 &3280378110432114398
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 1437495255431286715}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
+    - target: {fileID: 919132149155446097, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
       propertyPath: m_Name
-      value: TomaTroll New
+      value: TomaTroll
       objectReference: {fileID: 0}
-    - target: {fileID: 5927003313925229105, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 5866666021909216657, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 2100000, guid: 7dd8ec359c5c36b4492b0957755a37c0, type: 2}
+      objectReference: {fileID: 9100000, guid: 6b602db0f0863534cb8bcb784c3cd37b, type: 2}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
---- !u!4 &7988860594834689625 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
+--- !u!4 &3029946181283778869 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
-  m_PrefabInstance: {fileID: 7589861830101674418}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7320023739185009891 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e62a8b07a2896ac47ad509c824fd8dd9, type: 3}
-  m_PrefabInstance: {fileID: 7589861830101674418}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6ac2cb778652c7340aa868bff14d8259, type: 3}
+  m_PrefabInstance: {fileID: 3280378110432114398}
   m_PrefabAsset: {fileID: 0}
