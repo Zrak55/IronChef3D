@@ -160,6 +160,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = BaconBite;
                 break;
             case SoundEffect.BaconIdle:
+                volume = 0.1f;
                 clipToPlay = BaconIdle;
                 break;
         }

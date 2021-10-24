@@ -29,6 +29,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     private bool isAttacking = false, isAttackCD = false;
 
     MusicManager music;
+    AudioSource idleSound;
 
     private void Start()
     {
@@ -78,6 +79,9 @@ public class SnakonBehavior : EnemyBehaviorTree
 
         Vector3 target = transform.position + midpoint;
 
+        if (idleSound != null)
+            idleSound.enabled = false;
+
         agent.destination = target;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
         return MoveTowardsPlayer.status;
@@ -118,6 +122,12 @@ public class SnakonBehavior : EnemyBehaviorTree
         return Attack.status;
     }
 
+    public void AttackWindupSoundEffect()
+    {
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.BaconBite);
+    }
+
+
     private void attackEnd()
     {
         isAttacking = false;
@@ -150,6 +160,9 @@ public class SnakonBehavior : EnemyBehaviorTree
             PlayerAggroRange.status = Node.STATUS.SUCCESS;
             return PlayerAggroRange.status;
         }
+
+        if (idleSound == null)
+            idleSound = FindObjectOfType<SoundEffectSpawner>().MakeFollowingSoundEffect(transform, SoundEffectSpawner.SoundEffect.BaconIdle);
         PlayerAggroRange.status = Node.STATUS.FAILURE;
         return PlayerAggroRange.status;
     }

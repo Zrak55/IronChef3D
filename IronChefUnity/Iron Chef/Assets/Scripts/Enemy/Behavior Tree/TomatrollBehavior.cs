@@ -133,6 +133,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
 
             agent.destination = transform.position;
         }
+        agent.destination = transform.position;
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
     }
