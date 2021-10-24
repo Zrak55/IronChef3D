@@ -846,9 +846,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 40
   spawnRange: 60
-  attackRange: 16
-  attackOneTime: 2.6666667
-  attackTwoTime: 2.6666667
+  attackRange: 5
+  attackOneTime: 3.8
+  attackTwoTime: 3.9
   attackCD: 1.5
   animator: {fileID: 1156743338092070193}
 --- !u!1 &8869666137041305271

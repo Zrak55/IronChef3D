@@ -23,7 +23,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
     private Animator animator;
     private NavMeshAgent agent;
     private EnemyHitpoints enemyHitpoints;
-    private EnemyBasicAttackbox enemyBasicAttackbox;
+    private EnemyMultiAttackboxController enemyMultiAttackboxController;
     //Nodes for the behavior tree. Will be adding more later.
     private Node CheckPlayer, CheckHurt, CheckAttack, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
     //The spawn location of the enemy is automatically set based on scene placement.
@@ -38,10 +38,10 @@ public class TomatrollBehavior : EnemyBehaviorTree
     {
         startPosition = transform.position;
         agent = GetComponent<NavMeshAgent>();
-        enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
+        enemyMultiAttackboxController = GetComponent<EnemyMultiAttackboxController>();
         animator = GetComponentInChildren<Animator>();
-        if (enemyBasicAttackbox == null)
-            enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
+        if (enemyMultiAttackboxController == null)
+            enemyMultiAttackboxController = GetComponentInChildren<EnemyMultiAttackboxController>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         player = GameObject.Find("Player").transform;
 
@@ -104,7 +104,9 @@ public class TomatrollBehavior : EnemyBehaviorTree
         {
             isAttackCD = true;
             Invoke("attackCDEnd", attackCD);
-
+            enemyMultiAttackboxController.TurnHitboxOff(1);
+            enemyMultiAttackboxController.TurnHitboxOff(2);
+            enemyMultiAttackboxController.TurnHitboxOff(3);
             Attack.status = Node.STATUS.SUCCESS;
             return Attack.status;
         }
@@ -130,9 +132,8 @@ public class TomatrollBehavior : EnemyBehaviorTree
                 default:
                     break;
             }
-
-            agent.destination = transform.position;
         }
+        agent.destination = transform.position;
         Attack.status = Node.STATUS.RUNNING;
         return Attack.status;
     }
