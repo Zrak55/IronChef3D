@@ -22,6 +22,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "RotateCameraControllerCheck",
+                    "type": "PassThrough",
+                    "id": "ecadbbec-1154-434f-a5e6-b6504448e8f6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "80fb8638-2802-44ad-9a68-f306011e6748",
@@ -581,6 +589,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ChangeEatTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1903b5f8-4439-40a5-9d3c-d2640962f9f6",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCameraControllerCheck",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

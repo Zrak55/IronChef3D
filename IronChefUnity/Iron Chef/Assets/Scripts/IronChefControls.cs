@@ -35,6 +35,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""RotateCameraControllerCheck"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""ecadbbec-1154-434f-a5e6-b6504448e8f6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""80fb8638-2802-44ad-9a68-f306011e6748"",
@@ -596,6 +604,17 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""ChangeEatTrigger"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1903b5f8-4439-40a5-9d3c-d2640962f9f6"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCameraControllerCheck"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -606,6 +625,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_RotateCamera = m_Gameplay.FindAction("RotateCamera", throwIfNotFound: true);
+        m_Gameplay_RotateCameraControllerCheck = m_Gameplay.FindAction("RotateCameraControllerCheck", throwIfNotFound: true);
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Roll = m_Gameplay.FindAction("Roll", throwIfNotFound: true);
         m_Gameplay_Sprint = m_Gameplay.FindAction("Sprint", throwIfNotFound: true);
@@ -668,6 +688,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_RotateCamera;
+    private readonly InputAction m_Gameplay_RotateCameraControllerCheck;
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Roll;
     private readonly InputAction m_Gameplay_Sprint;
@@ -685,6 +706,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public GameplayActions(@IronChefControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @RotateCamera => m_Wrapper.m_Gameplay_RotateCamera;
+        public InputAction @RotateCameraControllerCheck => m_Wrapper.m_Gameplay_RotateCameraControllerCheck;
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Roll => m_Wrapper.m_Gameplay_Roll;
         public InputAction @Sprint => m_Wrapper.m_Gameplay_Sprint;
@@ -711,6 +733,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @RotateCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
                 @RotateCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
                 @RotateCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCamera;
+                @RotateCameraControllerCheck.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCameraControllerCheck;
+                @RotateCameraControllerCheck.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCameraControllerCheck;
+                @RotateCameraControllerCheck.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateCameraControllerCheck;
                 @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
@@ -754,6 +779,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @RotateCamera.started += instance.OnRotateCamera;
                 @RotateCamera.performed += instance.OnRotateCamera;
                 @RotateCamera.canceled += instance.OnRotateCamera;
+                @RotateCameraControllerCheck.started += instance.OnRotateCameraControllerCheck;
+                @RotateCameraControllerCheck.performed += instance.OnRotateCameraControllerCheck;
+                @RotateCameraControllerCheck.canceled += instance.OnRotateCameraControllerCheck;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -795,6 +823,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotateCamera(InputAction.CallbackContext context);
+        void OnRotateCameraControllerCheck(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnRoll(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);

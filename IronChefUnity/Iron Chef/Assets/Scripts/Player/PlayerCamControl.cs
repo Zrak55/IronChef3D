@@ -15,7 +15,11 @@ public class PlayerCamControl : MonoBehaviour
     public float frequencyAcceleration;
     public float intensityAcceleration;
 
+    float verticalMult = 0.35f;
+
     bool shouldChange;
+
+    bool canMove;
 
 
     private void Awake()
@@ -48,18 +52,34 @@ public class PlayerCamControl : MonoBehaviour
         }
 
 
+
         TickCamShake();
-        
 
 
+
+        float oldVert = verticalMult;
+        if (InputControls.controls.Gameplay.RotateCameraControllerCheck.ReadValue<Vector2>() != Vector2.zero)
+        {
+
+            verticalMult = 1f;
+            
+        }
+        else
+        {
+            verticalMult = 0.35f;
+        }
+
+        if (oldVert != verticalMult)
+            SetCamSensitivity();
 
     }
 
-    public void CanMoveCam(bool CanMove)
+    void SetCamSensitivity()
     {
-        if (CanMove)
+        if (canMove)
         {
-            cinemachine.m_YAxis.m_MaxSpeed = 0.35f * Settings.Sensitivity;
+
+            cinemachine.m_YAxis.m_MaxSpeed = verticalMult * Settings.Sensitivity;
             cinemachine.m_XAxis.m_MaxSpeed = 30 * Settings.Sensitivity;
         }
         else
@@ -69,6 +89,12 @@ public class PlayerCamControl : MonoBehaviour
         }
 
         cinemachine.m_YAxis.m_InvertInput = Settings.InvertVerticalCam;
+    }
+
+    public void CanMoveCam(bool CanMove)
+    {
+        canMove = CanMove;
+        SetCamSensitivity();
     }
 
     void TickCamShake()
