@@ -1,24 +1,24 @@
 Task List:
 
 Alex:
-Feedback Improvements
-Spatula Animation
-Crustacean Rig/Animate
+Camera Improvements
+Build/Questionairre for Friday
+General Improvements/Tuning
 
 Spencer:
-Fondemon rig/animate
-Fondemon/Tomatroll in Unity
+UI Art
+AI Behavior improvements (patrolling)
 
 Wiliiam:
-Tomatroll Rig/Animate
-Snakon Strip Roll
+Improve Tomatroll Animations
+Model Level smoother in maya
 
 Zach:
-Terrain Assets
+Terrain Assets (Dirt/Grass textures, Skybox)
+Fire Particles
+Playtest looking for missing elements (sound bytes needed, etc)
 Break Game (Find bugs/issues)
 
 Kris:
-Playthrough Improvements
-Spatula Sounds
-Crustacean Sounds
-Snakon Sounds
+Mess w/ sound fx rolloff curve
+Continue to implement more sounds
