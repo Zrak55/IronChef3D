@@ -59,14 +59,14 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.45721924
+      - time: 0.3850543
         functionName: HitOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.5828877
+      - time: 0.5272176
         functionName: HitOff
         data: 
         objectReferenceParameter: {instanceID: 0}
