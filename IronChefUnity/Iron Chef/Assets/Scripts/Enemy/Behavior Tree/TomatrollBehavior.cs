@@ -17,6 +17,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
     [SerializeField] private float attackOneTime;
     [SerializeField] private float attackTwoTime;
     [SerializeField] private float attackThreeTime;
+    [SerializeField] private float attackFourTime;
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float attackCD;
     private Transform player;
@@ -113,8 +114,13 @@ public class TomatrollBehavior : EnemyBehaviorTree
         {
             FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Tomatroll);
             isAttacking = true;
-            switch (Random.Range(1, 3))
+            switch (Random.Range(1, 5))
             {
+                case 4:
+                    animator.SetTrigger("AttackFour");
+                    Invoke("attackEnd", attackFourTime);
+                    break;
+
                 case 3:
                     animator.SetTrigger("AttackThree");
                     Invoke("attackEnd", attackThreeTime);
