@@ -66,6 +66,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     private void DoCollisionThings()
     {
+        Debug.Log(gameObject.name);
         var hits = IronChefUtils.GetCastHits(attackbox);
         foreach (var hit in hits)
         {

@@ -64,8 +64,8 @@ public class GritsBehavior : EnemyBehaviorTree
         animator.SetBool("isMoving", true);
 
         Vector3 midpoint = (player.transform.position - transform.position);
-        if (midpoint.magnitude < (moveRange/2)) 
-            midpoint *= (0.05f / midpoint.magnitude);
+        if (midpoint.magnitude < (moveRange / 2))
+            midpoint = Vector3.zero;
 
 
         Vector3 target = transform.position + midpoint;
