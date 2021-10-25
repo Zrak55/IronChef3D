@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 400000}
   - component: {fileID: 1046419315397284646}
+  - component: {fileID: 1181197551732199059}
   m_Layer: 11
   m_Name: Tree01
   m_TagString: Untagged
@@ -63,6 +64,27 @@ LODGroup:
     renderers:
     - renderer: {fileID: 5764881145755260631}
   m_Enabled: 1
+--- !u!114 &1181197551732199059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1829bee006c92a7488c9d9cdbe7423c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mesh: {fileID: 2300000}
+  mainMat: {fileID: 2100000, guid: 72bd0dc902d705245bab13f791ce78ed, type: 2}
+  alternateMats:
+  - {fileID: 2100000, guid: ecfbf2405cb025744aa0b58237265cc3, type: 2}
+  - {fileID: 2100000, guid: 21b548823ba63814d8070b4d015cf401, type: 2}
+  - {fileID: 2100000, guid: a11381a1003192345bc1146fefd909ea, type: 2}
+  - {fileID: 2100000, guid: 4abf611b5863da54699ede45d0c1ce75, type: 2}
+  - {fileID: 2100000, guid: b6304b1ca6d670a4484253c5463ed24d, type: 2}
+  percentChangeChance: 0.25
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

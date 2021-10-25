@@ -22,6 +22,28 @@ public class CustomEditorButton : Editor
         {
             myScript.ClearTrees();
         }
+        if(GUILayout.Button("Change Leaf Colors"))
+        {
+            myScript.ChangeLeafColors();
+        }
+    }
+}
+
+
+[CustomEditor(typeof(LeafColorChanger))]
+public class AnotherCustomEditorButton : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        GUILayout.Space(10);
+
+        LeafColorChanger myScript = (LeafColorChanger)target;
+        if (GUILayout.Button("Change Leaf Color"))
+        {
+            myScript.ChangeColor();
+        }
     }
 }
 #endif

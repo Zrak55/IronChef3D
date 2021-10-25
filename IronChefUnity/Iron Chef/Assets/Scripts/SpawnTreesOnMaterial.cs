@@ -85,4 +85,13 @@ public class SpawnTreesOnMaterial : MonoBehaviour
             }
         }
     }
+
+
+    public void ChangeLeafColors()
+    {
+        foreach(var lc in GetComponentsInChildren<LeafColorChanger>())
+        {
+            lc.ChangeColor();
+        }
+    }
 }
