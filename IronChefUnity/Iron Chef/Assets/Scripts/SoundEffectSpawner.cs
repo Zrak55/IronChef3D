@@ -32,6 +32,8 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip CrabSnapClose;
     public AudioClip BaconBite;
     public AudioClip BaconIdle;
+    public AudioClip AbilityRecharge;
+    public AudioClip[] PlayerArmorHitEffects;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -162,6 +164,13 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.BaconIdle:
                 clipToPlay = BaconIdle;
                 break;
+            case SoundEffect.AbilityRecharge:
+                clipToPlay = AbilityRecharge;
+                break;
+            case SoundEffect.PlayerArmorHit:
+                index = Random.Range(0, PlayerArmorHitEffects.Length);
+                clipToPlay = PlayerArmorHitEffects[index];
+                break;
         }
         if (clipToPlay != null)
         {
@@ -202,7 +211,9 @@ public class SoundEffectSpawner : MonoBehaviour
         CrabSnapOpen,
         CrabSnapClose,
         BaconBite,
-        BaconIdle
+        BaconIdle,
+        AbilityRecharge,
+        PlayerArmorHit
     }
 }
 

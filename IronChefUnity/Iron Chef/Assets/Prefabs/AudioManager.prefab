@@ -350,6 +350,12 @@ MonoBehaviour:
   CrabSnapClose: {fileID: 8300000, guid: 5ec0fc6ce9054bf4aadb4966b8911810, type: 3}
   BaconBite: {fileID: 8300000, guid: 75e61a70dd3aadf419f017a1df390ecc, type: 3}
   BaconIdle: {fileID: 8300000, guid: bb7c4502bd65e614498f04188c37fa78, type: 3}
+  AbilityRecharge: {fileID: 8300000, guid: 4e475d7bd297f8f488c9cca1d58a5fbd, type: 3}
+  PlayerArmorHitEffects:
+  - {fileID: 8300000, guid: 4ffabb94c2bdf9e46a5f297dc6b75da5, type: 3}
+  - {fileID: 8300000, guid: 0c1ebba9f03e374448082c346ed6c9c6, type: 3}
+  - {fileID: 8300000, guid: e88e58378bf5a92449c9432a13208bac, type: 3}
+  - {fileID: 8300000, guid: bad927267d501c64fbd9bdc87eb0b6ff, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
