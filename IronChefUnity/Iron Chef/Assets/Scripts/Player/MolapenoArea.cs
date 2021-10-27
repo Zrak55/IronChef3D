@@ -40,7 +40,6 @@ public class MolapenoArea : MonoBehaviour
     {
         instParticles = Instantiate(particles, transform);
         instParticles.transform.localPosition = Vector3.zero;
-        scaleParticles();
     }
 
     void DoDmg()
@@ -67,14 +66,4 @@ public class MolapenoArea : MonoBehaviour
         Destroy(gameObject, duration);
     }
 
-    private void scaleParticles()
-    {
-        foreach(var ps in instParticles.GetComponentsInChildren<ParticleSystem>())
-        {
-            var main = ps.main;
-            main.startSpeed = 10 * (radius / FindObjectOfType<Molapeno>().baseRadius);
-
-        }
-        
-    }
 }
