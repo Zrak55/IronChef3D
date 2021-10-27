@@ -13,6 +13,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject continueBtn;
     bool on = false;
 
+
+    public Image image;
+
+    IEnumerator fader = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,55 @@ public class TutorialManager : MonoBehaviour
     {
         
     }
+
+    public void SetImage(Sprite i)
+    {
+        if (fader != null)
+            StopCoroutine(fader);
+        fader = fadeImageIn(i);
+        StartCoroutine(fader);
+    }
+    public void LeaveImage()
+    {
+        if (fader != null)
+            StopCoroutine(fader);
+        fader = fadeImageOut();
+        StartCoroutine(fader);
+    }
+
+    IEnumerator fadeImageIn(Sprite s)
+    {
+        if(image.sprite != s)
+        {
+            while (image.color.a > 0)
+            {
+                image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Clamp(image.color.a - (2*Time.deltaTime), 0, 1));
+                yield return null;
+            }
+            image.sprite = null;
+        }
+
+        image.sprite = s;
+
+        while (image.color.a < 1)
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Clamp(image.color.a + (2*Time.deltaTime), 0, 1));
+            yield return null;
+        }
+
+    }
+
+    IEnumerator fadeImageOut()
+    {
+        while(image.color.a > 0)
+        {
+            image.color = new Color(image.color.r, image.color.g, image.color.b, Mathf.Clamp(image.color.a - (2*Time.deltaTime), 0, 1));
+            yield return null;
+        }
+        image.sprite = null;
+    }
+
+
 
     public void SetText(string s)
     {

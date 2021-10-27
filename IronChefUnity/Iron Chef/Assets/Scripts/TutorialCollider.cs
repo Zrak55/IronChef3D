@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TutorialCollider : MonoBehaviour
 {
-    public string Message;
+    public Sprite sprite;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,16 @@ public class TutorialCollider : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            FindObjectOfType<TutorialManager>().SetText(Message);
-            Destroy(gameObject);
+            FindObjectOfType<TutorialManager>().SetImage(sprite);
+            Debug.Log("Fade In");
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            FindObjectOfType<TutorialManager>().LeaveImage();
+            Debug.Log("FadeOut");
         }
     }
 }
