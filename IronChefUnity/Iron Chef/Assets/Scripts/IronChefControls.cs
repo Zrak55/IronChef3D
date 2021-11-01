@@ -333,7 +333,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""0c8c8f20-98b7-41c6-a361-0d39ad603a57"",
-                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -487,7 +487,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a61ad684-b3cd-4184-91d2-9eb097cccdbb"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
