@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9405ace2252954e52577e5d5b37f27e109c6af1a91735d28dbffcb421e860c6e
-size 656
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: Molapeno
+  m_EditorClassIdentifier: 
+  powerName: 0
+  description: Throw a projectile that leaves a damaging zone for 5s.
+  cooldown: 10
+  animationNumber: 1
+  values:
+  - 10
+  - 3
+  - 10
+  - 15
+  - 25
+  prefabs:
+  - {fileID: 7219546348998335166, guid: 8daae9b691e2d744ebf1ef7be186a3e8, type: 3}

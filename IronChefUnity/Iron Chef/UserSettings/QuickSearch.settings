@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dcd617ec1ce27179cdc31cfd0050be4543b45ec686ed39151115301057010d3d
-size 283
+trackSelection = false
+fetchPreview = false
+wantsMore = false
+dockable = false
+debug = false
+itemIconSize = 1
+queryFolder = "Assets/Editor/Queries"
+onBoardingDoNotAskAgain = true
+showPackageIndexes = false
+debounceMs = 250
+filters = {
+}
+scopes = {
+}
+providers = {
+}
+assetIndexing = 1
