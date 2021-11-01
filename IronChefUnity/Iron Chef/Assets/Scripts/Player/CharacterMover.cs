@@ -31,6 +31,7 @@ public class CharacterMover : MonoBehaviour
     private bool sprinting;
 
     private bool canSprint = true;
+    private bool sprintToggled = false;
 
 
     protected Vector3 inputDirection;
@@ -102,7 +103,7 @@ public class CharacterMover : MonoBehaviour
 
 
         TryRoll();
-        TryJump();
+        //TryJump();
         TrySprint();
 
 
@@ -202,8 +203,12 @@ public class CharacterMover : MonoBehaviour
 
     private void TrySprint()
     {
-        float sprintVal = InputControls.controls.Gameplay.Sprint.ReadValue<float>();
-        if(sprintVal > 0 && !rolling && canSprint && inputDirection != Vector3.zero)
+        if(InputControls.controls.Gameplay.Sprint.triggered)
+        {
+            sprintToggled = !sprintToggled;
+        }
+
+        if(sprintToggled && !rolling && canSprint && inputDirection != Vector3.zero)
         {
             if(stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
             {
@@ -212,12 +217,14 @@ public class CharacterMover : MonoBehaviour
             else
             {
                 sprinting = false;
+                sprintToggled = false;
                 StartCoroutine(sprintDelay());
             }
         }
         else
         {
             sprinting = false;
+            sprintToggled = false;
         }
     }
 
