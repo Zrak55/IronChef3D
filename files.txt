@@ -1,0 +1,58 @@
+.gitattributes
+Images/Tutorial/AttackTutorial.ai
+Images/Tutorial/FryingPanTutorial.ai
+IronChefUnity/Iron Chef/Assets/Artwork/Tutorial/AttackTutorial.png
+IronChefUnity/Iron Chef/Assets/Artwork/Tutorial/FryingPanTutorial.png
+IronChefUnity/Iron Chef/Assets/Assets.index
+IronChefUnity/Iron Chef/Assets/Assets.index.meta
+IronChefUnity/Iron Chef/Assets/EmaceArt/Free Meadows/Material/Grass.mat
+IronChefUnity/Iron Chef/Assets/Models/Level1NoExtra.fbx
+IronChefUnity/Iron Chef/Assets/Models/Level1NoExtra.fbx.meta
+IronChefUnity/Iron Chef/Assets/Models/Meshes/FullLevel1.fbx
+IronChefUnity/Iron Chef/Assets/Models/Meshes/FullLevel1.fbx.meta
+IronChefUnity/Iron Chef/Assets/NewLvl1.fbx
+IronChefUnity/Iron Chef/Assets/NewLvl1.fbx.meta
+IronChefUnity/Iron Chef/Assets/Prefabs/MalapenoParticles.prefab
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Level1.unity
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Level1/NavMesh.asset
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Level1/NavMesh.asset.meta
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Level1TerrainBuilt.unity
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Level1TerrainBuilt.unity.meta
+IronChefUnity/Iron Chef/Assets/Scenes/Levels/Tutorial.unity
+IronChefUnity/Iron Chef/Assets/Scenes/MainMenu.unity
+IronChefUnity/Iron Chef/Assets/ScriptableObjects/Molapeno.asset
+IronChefUnity/Iron Chef/Assets/Scripts/LevelProgressManager.cs
+IronChefUnity/Iron Chef/Assets/Scripts/Player/PlayerCamControl.cs
+IronChefUnity/Iron Chef/Assets/Scripts/Player/PlayerCostCooldownManager.cs
+IronChefUnity/Iron Chef/Packages/manifest.json
+IronChefUnity/Iron Chef/Packages/packages-lock.json
+IronChefUnity/Iron Chef/ProjectSettings/GraphicsSettings.asset
+IronChefUnity/Iron Chef/ProjectSettings/PackageManagerSettings.asset
+IronChefUnity/Iron Chef/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+IronChefUnity/Iron Chef/ProjectSettings/ProjectSettings.asset
+IronChefUnity/Iron Chef/UserSettings/EditorUserSettings.asset
+IronChefUnity/Iron Chef/UserSettings/QuickSearch.settings
+Models/Meshes/Level1NoExtra.fbx
+Models/Meshes/creatures/ironChef/ironChef.fbx
+Models/Meshes/creatures/ironChef/ironChefFinal.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_Bite.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_Idle.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_Kick.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_Move.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_VineSweep.fbx
+Models/Meshes/creatures/tomaTroll/TomaTroll_vineOverhead.fbx
+Models/Meshes/objects/Molopeno.fbx
+Models/Meshes/objects/Molopeno_Spin.fbx
+Models/Meshes/objects/cauldron.fbx
+Models/Meshes/objects/dish_Omelette.fbx
+Models/Meshes/objects/pancake/pancakeTrap_Closed.fbx
+Models/Meshes/objects/pancake/pancakeTrap_Open.fbx
+Models/Meshes/objects/pancake/pancake_CloseAnim.fbx
+Models/Textures/dish_Omelette_omeletteTextures_BaseMap.png
+Models/Textures/dish_Omelette_omeletteTextures_MaskMap.png
+Models/Textures/dish_Omelette_omeletteTextures_Normal.png
+Models/Textures/pancakeTrap_butterTextures_BaseMap.png
+Models/Textures/pancakeTrap_butterTextures_MaskMap.png
+Models/Textures/pancakeTrap_butterTextures_Normal.png
+Models/Tutorials.txt
