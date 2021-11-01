@@ -1,24 +1,24 @@
 Task List:
 
 Alex:
-Camera Improvements
-Build/Questionairre for Friday
-General Improvements/Tuning
+Improve Crustacean
+Tutorial improvements
+Player/Camera Improvements
+Continue to smooth lvl 1
+Setup for multi-level
 
 Spencer:
-UI Art
-AI Behavior improvements (patrolling)
+Improve AI Behavior
+Improve Snakon attacks
 
 Wiliiam:
-Improve Tomatroll Animations
-Model Level smoother in maya
+Modeling monsters for next levels
+Improve Tomatroll kick attack
 
 Zach:
-Terrain Assets (Dirt/Grass textures, Skybox)
-Fire Particles
-Playtest looking for missing elements (sound bytes needed, etc)
-Break Game (Find bugs/issues)
+Find asset store needs (food models, water texture, etc)
+Create sample maps for level 2, 3, 4
 
 Kris:
-Mess w/ sound fx rolloff curve
-Continue to implement more sounds
+Sound rolloff curve
+More SFX
