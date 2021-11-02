@@ -7,16 +7,32 @@ using UnityEngine.EventSystems;
 
 public class LevelProgressManager : MonoBehaviour
 {
+    float score;
+
+    public LevelScriptable level;
+
+    ChapterManager chapters;
+
+    [HideInInspector]
     public int ingredientOneRequired;
+    [HideInInspector]
     public int ingredientTwoRequired;
+    [HideInInspector]
     public int ingredientThreeRequired;
+    [HideInInspector]
     public int ingredientFourRequired;
+    [HideInInspector]
     public int ingredientFiveRequired;
     [Space]
+    [HideInInspector]
     public int ingredientOneMaximum;
+    [HideInInspector]
     public int ingredientTwoMaximum;
+    [HideInInspector]
     public int ingredientThreeMaximum;
+    [HideInInspector]
     public int ingredientFourMaximum;
+    [HideInInspector]
     public int ingredientFiveMaximum;
     [Space]
     public int ingredientOneCurrent = 0;
@@ -25,24 +41,25 @@ public class LevelProgressManager : MonoBehaviour
     public int ingredientFourCurrent = 0;
     public int ingredientFiveCurrent = 0;
     [Space]
+    [HideInInspector]
     public EnemyFoodDropper.FoodType ingredientOneType = 0;
+    [HideInInspector]
     public EnemyFoodDropper.FoodType ingredientTwoType = 0;
+    [HideInInspector]
     public EnemyFoodDropper.FoodType ingredientThreeType = 0;
+    [HideInInspector]
     public EnemyFoodDropper.FoodType ingredientFourType = 0;
+    [HideInInspector]
     public EnemyFoodDropper.FoodType ingredientFiveType = 0;
 
 
     public int badIngredientsCurrent = 0;
     public int badIngredientsMaximum;
 
-    [Header("Win/Lose Screen")]
-    public GameObject LoseScreen;
-    public GameObject WinScreen;
-    public Text WinStatusText;
-    public Text ScoreText;
-    public Button continueButton;
-    public GameObject firstWinSelectButton;
-    public GameObject firstLoseSelectButton;
+    
+
+    [Space]
+    public int currentLevel = 0;
 
     
 
@@ -50,16 +67,44 @@ public class LevelProgressManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetMaxes();
-
-
-        CompleteSetup();
+        chapters = FindObjectOfType<ChapterManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void DoAllSetup(LevelScriptable newLevel)
+    {
+        level = newLevel;
+
+
+        SetInformation();
+
+
+        GetMaxes();
+
+
+        CompleteSetup();
+    }
+
+
+    private void SetInformation()
+    {
+        ingredientOneRequired = level.ingredientOneRequired;
+        ingredientTwoRequired = level.ingredientTwoRequired;
+        ingredientThreeRequired = level.ingredientThreeRequired;
+        ingredientFourRequired = level.ingredientFourRequired;
+        ingredientFiveRequired = level.ingredientFiveRequired;
+
+
+        ingredientOneType = level.ingredientOneType;
+        ingredientTwoType = level.ingredientTwoType;
+        ingredientThreeType = level.ingredientThreeType;
+        ingredientFourType = level.ingredientFourType;
+        ingredientFiveType = level.ingredientFiveType;
     }
 
     private void GetMaxes()
@@ -114,12 +159,13 @@ public class LevelProgressManager : MonoBehaviour
 
     }
 
+
     public void FinishLevel()
     {
         IronChefUtils.TurnOffCharacter();
 
         Debug.Log("Level Over!");
-        float score = 0;
+        score = 0;
         int numIngredients = 0;
         if(ingredientOneRequired > 0)
         {
@@ -161,71 +207,16 @@ public class LevelProgressManager : MonoBehaviour
 
         Debug.Log("Score: " + score + "/100");
 
-
-        ShowWinScreen(score);
+        continueOn();
         
     
     }
 
     public void continueOn()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        chapters.GoToNextLevel(score);
     }
-    public void menu()
-    {
-        SceneManager.LoadScene(0);
-    }
-    public void Replay()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void ShowLoseScreen()
-    {
-        LoseScreen.SetActive(true);
-        IronChefUtils.TurnOffCharacter();
-        EventSystem.current.SetSelectedGameObject(firstLoseSelectButton);
-
-        if (firstLoseSelectButton.GetComponent<Image>().color != firstLoseSelectButton.GetComponent<Button>().colors.selectedColor)
-        {
-            firstLoseSelectButton.GetComponent<Image>().color = firstLoseSelectButton.GetComponent<Button>().colors.selectedColor;
-            firstLoseSelectButton.gameObject.AddComponent<DeselectColorReset>();
-        }
-    }
-    public void ShowWinScreen(float score)
-    {
-        WinScreen.SetActive(true);
-
-        EventSystem.current.SetSelectedGameObject(firstWinSelectButton);
-        if (firstWinSelectButton.GetComponent<Image>().color != firstWinSelectButton.GetComponent<Button>().colors.selectedColor)
-        {
-            firstWinSelectButton.GetComponent<Image>().color = firstWinSelectButton.GetComponent<Button>().colors.selectedColor;
-            firstWinSelectButton.gameObject.AddComponent<DeselectColorReset>();
-        }
-
-        ScoreText.text = "Your score: " + ((int)score).ToString() + "/100";
-        int stars = 0;
-        if (score < 50)
-        {
-            WinStatusText.text = "Your dish needs work...\nTry to avoid unnecessary ingredients!";
-            //continueButton.gameObject.SetActive(false);
-        }
-        else if (score < 75)
-        {
-            WinStatusText.text = "On the right track...";
-            stars = 1;
-        }
-        else if (score < 90)
-        {
-            WinStatusText.text = "Scrumptious!";
-            stars = 2;
-        }
-        else
-        {
-            WinStatusText.text = "Perfection!";
-            stars = 3;
-        }
-    }
+    
 
 
 }

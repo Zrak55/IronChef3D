@@ -63,7 +63,7 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void Die()
     {
-        FindObjectOfType<LevelProgressManager>().ShowLoseScreen();
+        FindObjectOfType<ChapterManager>().ShowLoseScreen();
 
         //TODO: Play death animation before deletion
 

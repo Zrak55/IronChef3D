@@ -19,8 +19,9 @@ public class PreLevelWindow : MonoBehaviour
         
         EventSystem.current.SetSelectedGameObject(transform.parent.GetComponentInChildren<Button>().gameObject);
     }
-    public void Play()
+    public void Play(int start)
     {
+        ChapterManager.LevelToStartAt = start;
         FindObjectOfType<MenuController>().PlayGame(levelName);
         
     }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d634c6043bd55945839e87ea6ab7e87, type: 3}
+  m_Name: Tutorial
+  m_EditorClassIdentifier: 
+  dish: 
+  ingredientOneRequired: 2
+  ingredientTwoRequired: 2
+  ingredientThreeRequired: 1
+  ingredientFourRequired: 0
+  ingredientFiveRequired: 0
+  ingredientOneType: 2
+  ingredientTwoType: 1
+  ingredientThreeType: 3
+  ingredientFourType: 0
+  ingredientFiveType: 0

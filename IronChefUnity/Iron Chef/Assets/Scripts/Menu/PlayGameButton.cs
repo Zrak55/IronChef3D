@@ -7,20 +7,22 @@ using UnityEngine.UI;
 public class PlayGameButton : MonoBehaviour
 {
     public PreLevelWindow preLevelWindow;
-    public PreLevelScriptable levelInfo;
+    public PreLevelScriptable chapterInfo;
 
 
     public void ShowPreLevel()
     {
+        
         preLevelWindow.gameObject.SetActive(true);
-        preLevelWindow.levelName = levelInfo.LevelName;
-        preLevelWindow.descText.text = levelInfo.dishName + "\n";
-        for(int i = 0; i < levelInfo.ingredients.Count; i++)
-        {
-            preLevelWindow.descText.text += "Ingredient " + (i + 1) + ": " + levelInfo.ingredients[i] + "\n";
-        }
+        preLevelWindow.levelName = chapterInfo.LevelName;
+        
+        
 
-        EventSystem.current.SetSelectedGameObject(preLevelWindow.GetComponentInChildren<Button>().gameObject);
+        //FindObjectOfType<MenuController>().PlayGame(levelInfo.LevelName);
+
+
+
+        //EventSystem.current.SetSelectedGameObject(preLevelWindow.GetComponentInChildren<Button>().gameObject);
     }
 
 
