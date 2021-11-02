@@ -14,6 +14,9 @@ public class EnemyHitpoints : MonoBehaviour
     bool isInvoking = false;
     EnemyCanvas floatingDmg;
 
+    public GameObject DeathParticleSystem;
+    public GameObject DeathParticle;
+
     private void Awake()
     {
         currentHP = MaxHP;
@@ -75,6 +78,9 @@ public class EnemyHitpoints : MonoBehaviour
             }
 
             //TODO: Play death animation before deletion
+
+            var dp = Instantiate(DeathParticleSystem, transform.position, Quaternion.identity);
+            dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
 
             CheckDeadBoss();
 
