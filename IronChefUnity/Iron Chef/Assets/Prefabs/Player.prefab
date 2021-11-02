@@ -583,11 +583,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04d8d7b80509668488de47ee054c8238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseSpeed: 8
-  sprintSpeed: 15
-  acceleration: 36
+  baseSpeed: 12
+  sprintSpeed: 20
+  acceleration: 48
   jumpSpeed: 13.5
-  rollSpeed: 24
+  rollSpeed: 36
   speed: 0
   model: {fileID: 1948250837847046463}
   CamFollowPoint: {fileID: 2430084910336362509}
@@ -659,6 +659,7 @@ MonoBehaviour:
   PowerCooldown: 1
   PowerOnCooldown: 0
   JumpOnCooldown: 0
+  sounds: {fileID: 0}
 --- !u!114 &4662893921699608211
 MonoBehaviour:
   m_ObjectHideFlags: 0
