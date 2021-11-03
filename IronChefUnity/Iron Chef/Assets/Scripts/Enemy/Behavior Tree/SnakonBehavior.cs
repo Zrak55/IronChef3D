@@ -79,8 +79,6 @@ public class SnakonBehavior : EnemyBehaviorTree
 
         Vector3 target = transform.position + midpoint;
 
-        if (idleSound != null)
-            idleSound.enabled = false;
 
         agent.destination = target;
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
