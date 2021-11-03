@@ -123,6 +123,7 @@ public class BenedictBehavior : EnemyBehaviorTree
     private void Update()
     {
         genericBehaviorTree.behavior();
+        StopEscaping();
     }
 
     //This is intended to be running in the update function through the behavior tree.
@@ -486,5 +487,20 @@ public class BenedictBehavior : EnemyBehaviorTree
     public void BossOver()
     {
         FindObjectOfType<PlayerHUDManager>().BossOver();
+    }
+
+    public void StopEscaping()
+    {
+        Vector3 myPos = transform.position;
+        myPos.y = 0;
+        Vector3 centerPos = rollBehavior.RoomCenter.position;
+        centerPos.y = 0;
+
+
+
+        if(Vector3.Distance(myPos, centerPos) > 65)
+        {
+            transform.position = new Vector3(centerPos.x, transform.position.y, centerPos.z) + (myPos - centerPos).normalized * 65;
+        }
     }
 }
