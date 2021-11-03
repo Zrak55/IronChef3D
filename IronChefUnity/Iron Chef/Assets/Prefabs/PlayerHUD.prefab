@@ -3086,6 +3086,7 @@ MonoBehaviour:
   powerImage: {fileID: 2243609607592365090}
   MalapenoImage: {fileID: 21300000, guid: c9fe60a43461c7e4fb751b09a9bda0cb, type: 3}
   BreadTrapImage: {fileID: 21300000, guid: acac447b23cc54be1bfc375090e81d90, type: 3}
+  SpearOfDesticheeseImage: {fileID: 21300000, guid: 002c43ffb601473498bfa067fd8e5d94, type: 3}
   FryingPanCD: {fileID: 4637321172747905478}
   PowerCD: {fileID: 2186335998541098982}
   BossHP: {fileID: 3279070991662583522}

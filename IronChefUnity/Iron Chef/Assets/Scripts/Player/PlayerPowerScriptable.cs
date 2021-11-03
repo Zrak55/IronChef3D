@@ -20,6 +20,7 @@ public class PlayerPowerScriptable : ScriptableObject
     public enum PowerName
     {
         Molapeno,
-        BreadTrap
+        BreadTrap,
+        SpearOfDesticheese
     }
 }

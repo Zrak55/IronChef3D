@@ -68,6 +68,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.BreadTrap:
                 power = player.AddComponent<BreadTrap>();
                 break;
+            case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
+                power = player.AddComponent<SpearOfDesticheese>();
+                break;
             default:
                 break;
         }

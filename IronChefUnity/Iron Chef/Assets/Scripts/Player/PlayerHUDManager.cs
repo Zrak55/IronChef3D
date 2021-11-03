@@ -47,8 +47,10 @@ public class PlayerHUDManager : MonoBehaviour
     public Image WeaponImage;
     public Sprite[] weaponImages;
     public Image powerImage;
+    [Space]
     public Sprite MalapenoImage;
     public Sprite BreadTrapImage;
+    public Sprite SpearOfDesticheeseImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -400,6 +402,9 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.BreadTrap:
                 powerImage.sprite = BreadTrapImage;
+                break;
+            case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
+                powerImage.sprite = SpearOfDesticheeseImage;
                 break;
         }
     }
