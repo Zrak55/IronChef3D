@@ -239,6 +239,7 @@ public class PlayerAttackController : MonoBehaviour
             attacking = true;
             animator.SetBool("UsingPower", true);
             targetOverrideWeight = 1;
+            GetComponent<PlayerPower>().PerformPower();
         }
     }
     public void EndPower()

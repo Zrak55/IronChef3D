@@ -51,4 +51,9 @@ public class PlayerPower : MonoBehaviour
         cooldownManager.PowerCooldown = powerInformation.cooldown;
         anim.SetInteger("PowerNumber", powerInformation.animationNumber);
     }
+
+    public virtual void DoRemovalThings()
+    {
+
+    }
 }

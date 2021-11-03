@@ -51,6 +51,8 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite MalapenoImage;
     public Sprite BreadTrapImage;
     public Sprite SpearOfDesticheeseImage;
+    public Sprite PortableLunchImage;
+    public Sprite HamMerImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -405,6 +407,12 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
                 powerImage.sprite = SpearOfDesticheeseImage;
+                break;
+            case PlayerPowerScriptable.PowerName.PortableLunch:
+                powerImage.sprite = PortableLunchImage;
+                break;
+            case PlayerPowerScriptable.PowerName.Ham_mer:
+                powerImage.sprite = HamMerImage;
                 break;
         }
     }

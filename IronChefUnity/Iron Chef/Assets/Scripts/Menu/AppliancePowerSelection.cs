@@ -55,6 +55,7 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         if(player.GetComponent<PlayerPower>() != null)
         {
+            player.GetComponent<PlayerPower>().DoRemovalThings();
             Destroy(player.GetComponent<PlayerPower>());
         }
 
@@ -70,6 +71,12 @@ public class AppliancePowerSelection : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
                 power = player.AddComponent<SpearOfDesticheese>();
+                break;
+            case PlayerPowerScriptable.PowerName.PortableLunch:
+                power = player.AddComponent<PortableLunch>();
+                break;
+            case PlayerPowerScriptable.PowerName.Ham_mer:
+                power = player.AddComponent<Hammer>();
                 break;
             default:
                 break;

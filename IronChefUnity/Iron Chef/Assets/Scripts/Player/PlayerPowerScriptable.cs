@@ -21,6 +21,8 @@ public class PlayerPowerScriptable : ScriptableObject
     {
         Molapeno,
         BreadTrap,
-        SpearOfDesticheese
+        SpearOfDesticheese,
+        PortableLunch,
+        Ham_mer
     }
 }
