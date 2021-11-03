@@ -546,6 +546,7 @@ GameObject:
   - component: {fileID: 3093980021044873479}
   - component: {fileID: 3006323845726260468}
   - component: {fileID: 1029432160560112435}
+  - component: {fileID: 258981776975906467}
   m_Layer: 9
   m_Name: SnakonStrip
   m_TagString: Untagged
@@ -714,6 +715,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &258981776975906467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4dd2d1d3109d040adac4802ed76669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8043967736513652177

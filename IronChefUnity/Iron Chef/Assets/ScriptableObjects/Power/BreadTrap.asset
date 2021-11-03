@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: BreadTrap
+  m_EditorClassIdentifier: 
+  powerName: 1
+  description: Lay down a permanant bread trap.  Enemies who touch it are stunned.
+  cooldown: 20
+  animationNumber: 2
+  values:
+  - 8
+  - 3
+  valueDescriptions:
+  - Stun Duration
+  - Trigger Radius
+  prefabs:
+  - {fileID: 7219546348998335166, guid: 42a20be5d0500ad41a27585be138f10a, type: 3}

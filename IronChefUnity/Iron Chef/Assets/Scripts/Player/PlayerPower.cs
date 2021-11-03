@@ -30,13 +30,12 @@ public class PlayerPower : MonoBehaviour
     protected virtual void DoAwakeThings()
     {
         cooldownManager = GetComponent<PlayerCostCooldownManager>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     public virtual void PerformPower()
     {
 
-        anim.SetInteger("PowerNumber", powerInformation.animationNumber);
 
     }
 
@@ -50,5 +49,6 @@ public class PlayerPower : MonoBehaviour
     {
         powerInformation = power;
         cooldownManager.PowerCooldown = powerInformation.cooldown;
+        anim.SetInteger("PowerNumber", powerInformation.animationNumber);
     }
 }

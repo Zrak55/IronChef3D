@@ -18,6 +18,8 @@ public class AppliancePowerSelection : MonoBehaviour
 
     [Space]
     public GameObject firstSelectButton;
+    public PowerButton firstPowerButton;
+    public ApplianceButton firstApplianceButton;
 
     private void Awake()
     {
@@ -30,8 +32,9 @@ public class AppliancePowerSelection : MonoBehaviour
         player = FindObjectOfType<CharacterMover>().gameObject;
         playerCam = FindObjectOfType<PlayerCameraSetup>().gameObject;
         IronChefUtils.TurnOffCharacter();
-        FindObjectOfType<PowerButton>().SelectPower();
-        FindObjectOfType<ApplianceButton>().SelectAppliance();
+
+        firstPowerButton.SelectPower();
+        firstApplianceButton.SelectAppliance();
 
     }
 
@@ -61,6 +64,9 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             case PlayerPowerScriptable.PowerName.Molapeno:
                 power = player.AddComponent<Molapeno>();
+                break;
+            case PlayerPowerScriptable.PowerName.BreadTrap:
+                power = player.AddComponent<BreadTrap>();
                 break;
             default:
                 break;

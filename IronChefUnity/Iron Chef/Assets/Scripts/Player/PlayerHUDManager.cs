@@ -48,6 +48,8 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite[] weaponImages;
     public Image powerImage;
     public Sprite MalapenoImage;
+    public Sprite BreadTrapImage;
+    [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
     [Header("Boss")]
@@ -395,6 +397,9 @@ public class PlayerHUDManager : MonoBehaviour
         {
             case PlayerPowerScriptable.PowerName.Molapeno:
                 powerImage.sprite = MalapenoImage;
+                break;
+            case PlayerPowerScriptable.PowerName.BreadTrap:
+                powerImage.sprite = BreadTrapImage;
                 break;
         }
     }

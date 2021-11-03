@@ -11,12 +11,15 @@ public class PlayerPowerScriptable : ScriptableObject
     public int animationNumber;
 
     public float[] values;
+    [Tooltip("Only used for readability")]
+    public string[] valueDescriptions;
     public GameObject[] prefabs;
 
 
 
     public enum PowerName
     {
-        Molapeno
+        Molapeno,
+        BreadTrap
     }
 }

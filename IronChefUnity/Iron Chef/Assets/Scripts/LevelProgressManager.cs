@@ -128,6 +128,13 @@ public class LevelProgressManager : MonoBehaviour
 
     void CompleteSetup()
     {
+        ingredientFiveCurrent = 0;
+        ingredientFourCurrent = 0;
+        ingredientThreeCurrent = 0;
+        ingredientTwoCurrent = 0;
+        ingredientOneCurrent = 0;
+        badIngredientsCurrent = 0;
+
         FindObjectOfType<PlayerHUDManager>().SetFoodBars();
     }
     public void AwardFood(EnemyFoodDropper.FoodType type)
