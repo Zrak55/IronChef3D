@@ -57,6 +57,9 @@ public class CharacterMover : MonoBehaviour
 
     bool knockbackIframe = false;
 
+    [Space]
+    public List<Material> AllowedWalkMaterials;
+
     private void Awake()
     {
 
@@ -114,8 +117,7 @@ public class CharacterMover : MonoBehaviour
         animator.SetFloat("Speed", currentHorizontalMove.magnitude);
 
 
-
-        controller.Move(currentMove * Time.deltaTime);
+        TryMove();
 
 
         //Rotation of model
@@ -140,6 +142,22 @@ public class CharacterMover : MonoBehaviour
             if (animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) > targetRollWeight)
                 tickRate *= -1;
             animator.SetLayerWeight(animator.GetLayerIndex("Roll Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) + tickRate, 0, 1));
+        }
+    }
+
+
+    public void TryMove()
+    {
+        var oldPos = transform.position;
+        controller.Move(currentMove * Time.deltaTime);
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
+        {
+            if(!AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
+            {
+                Debug.Log("Found Illegal material! " + hit.collider.gameObject.GetComponent<MeshRenderer>().material.name);
+                transform.position = oldPos;
+            }
         }
     }
 

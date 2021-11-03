@@ -593,6 +593,9 @@ MonoBehaviour:
   CamFollowPoint: {fileID: 2430084910336362509}
   CamLookPoint: {fileID: 2430084910336362509}
   MouseOff: 0
+  AllowedWalkMaterials:
+  - {fileID: 2100000, guid: 6cd4c414c7729fb409127ec28cecc4d5, type: 2}
+  - {fileID: 2100000, guid: 49ede68308b849e4cabf4f980e6ef26d, type: 2}
 --- !u!114 &2978522925722276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
