@@ -15,15 +15,18 @@ public class PlayerProjectile : MonoBehaviour
 
     [Header("Projectile")]
     public float damage;
+    public bool multiHit = false;
 
     public SoundEffectSpawner.SoundEffect HitSound;
     public SoundEffectSpawner.SoundEffect FlightSound;
+
+    List<EnemyHitpoints> allhits;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        allhits = new List<EnemyHitpoints>();
     }
 
     // Update is called once per frame
@@ -58,13 +61,18 @@ public class PlayerProjectile : MonoBehaviour
         var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
         if (enemyHealth != null)
         {
-            if (!hit)
+            if (multiHit || !hit)
             {
-                hit = true;
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
-                enemyHealth.TakeDamage(damage);
-                ApplyHitEffects();
-                Destroy(gameObject);
+                if(!allhits.Contains(enemyHealth))
+                {
+                    allhits.Add(enemyHealth);
+                    hit = true;
+                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
+                    enemyHealth.TakeDamage(damage);
+                    ApplyHitEffects();
+                    if (!multiHit)
+                        Destroy(gameObject);
+                }
             }
         }
         

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: Catapasta
+  m_EditorClassIdentifier: 
+  powerName: 6
+  description: Mark a location to be bombarded by your Catapastas!
+  cooldown: 25
+  animationNumber: 1
+  values:
+  - 5
+  - 50
+  valueDescriptions:
+  - Time
+  - Damage
+  prefabs:
+  - {fileID: 4312367088962146410, guid: 3b6bcd0f7c7939f4ca68b08387b051bf, type: 3}
+  - {fileID: 7219546348998335166, guid: f8a32771299a24947b2a7ce1f84016cb, type: 3}

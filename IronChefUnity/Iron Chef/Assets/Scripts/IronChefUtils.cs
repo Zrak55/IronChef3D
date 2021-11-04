@@ -132,6 +132,17 @@ public static class IronChefUtils
         return slow;
     }
 
+    public static List<GameObject> GetCastHits(float width, float height, float depth, Vector3 location, Quaternion rotation, string Layer = "Hitbox")
+    {
+        var newGO = GameObject.Instantiate(new GameObject(), location, rotation);
+        var col = newGO.AddComponent<BoxCollider>();
+        col.isTrigger = true;
+        col.size = new Vector3(width, depth, height);
+        var list = GetCastHits(col, Layer);
+        GameObject.Destroy(newGO);
+        return list;
+    }
+
     public static List<GameObject> GetCastHits(Collider col, string Layer = "Hitbox")
     {
 

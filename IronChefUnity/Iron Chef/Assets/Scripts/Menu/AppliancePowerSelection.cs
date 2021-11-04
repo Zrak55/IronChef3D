@@ -78,6 +78,12 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Ham_mer:
                 power = player.AddComponent<Hammer>();
                 break;
+            case PlayerPowerScriptable.PowerName._50CheeseStrike:
+                power = player.AddComponent<_50CheeseStrike>();
+                break;
+            case PlayerPowerScriptable.PowerName.Catapasta:
+                power = player.AddComponent<Catapasta>();
+                break;
             default:
                 break;
         }

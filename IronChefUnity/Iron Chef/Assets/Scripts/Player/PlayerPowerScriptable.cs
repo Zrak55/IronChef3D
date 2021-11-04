@@ -23,6 +23,8 @@ public class PlayerPowerScriptable : ScriptableObject
         BreadTrap,
         SpearOfDesticheese,
         PortableLunch,
-        Ham_mer
+        Ham_mer,
+        _50CheeseStrike,
+        Catapasta
     }
 }
