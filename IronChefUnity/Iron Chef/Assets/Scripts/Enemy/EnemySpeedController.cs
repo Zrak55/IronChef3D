@@ -40,4 +40,14 @@ public class EnemySpeedController : MonoBehaviour
 
         mover.SetCurrentSpeed(mover.GetStartSpeed() * totalMod);
     }
+
+    public float GetMod()
+    {
+        float totalMod = 1;
+        foreach (var mod in Modifiers)
+        {
+            totalMod += mod.percentAmount;
+        }
+        return totalMod;
+    }
 }

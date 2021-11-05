@@ -11,6 +11,7 @@ public class BenedictRoll : MonoBehaviour
     private BenedictBehavior behavior;
     public Collider collider;
     public Animator animator;
+    EnemySpeedController speed;
 
     bool startingRoll = false;
     bool rolling = false;
@@ -26,6 +27,7 @@ public class BenedictRoll : MonoBehaviour
     void Start()
     {
         behavior = GetComponent<BenedictBehavior>();
+        speed = GetComponent<EnemySpeedController>();
         //animator = GetComponent<Animator>();
     }
 
@@ -92,7 +94,7 @@ public class BenedictRoll : MonoBehaviour
 
 
             //Move
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * speed.GetMod()  * Time.deltaTime);
             transform.LookAt(transform.position + targetFacing);
 
             RollCollider.playersHit.Clear();
