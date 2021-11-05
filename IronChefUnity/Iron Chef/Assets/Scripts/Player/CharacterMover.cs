@@ -102,7 +102,7 @@ public class CharacterMover : MonoBehaviour
         }
         direction = direction.normalized * speed;
         targetMoveSpeed = direction;
-        targetMoveSpeed.y = -9.8f;
+        targetMoveSpeed.y = -100f;
 
 
         TryRoll();

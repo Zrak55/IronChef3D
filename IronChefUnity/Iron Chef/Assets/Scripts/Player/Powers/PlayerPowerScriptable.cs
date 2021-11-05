@@ -26,6 +26,8 @@ public class PlayerPowerScriptable : ScriptableObject
         Ham_mer,
         _50CheeseStrike,
         Catapasta,
-        IceTray
+        IceTray,
+        SugarRush,
+        Glockamole
     }
 }

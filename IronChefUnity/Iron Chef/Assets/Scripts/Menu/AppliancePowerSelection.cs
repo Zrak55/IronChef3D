@@ -87,6 +87,12 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.IceTray:
                 power = player.AddComponent<IceTray>();
                 break;
+            case PlayerPowerScriptable.PowerName.SugarRush:
+                power = player.AddComponent<SugarRush>();
+                break;
+            case PlayerPowerScriptable.PowerName.Glockamole:
+                power = player.AddComponent<Glockamole>();
+                break;
             default:
                 break;
         }

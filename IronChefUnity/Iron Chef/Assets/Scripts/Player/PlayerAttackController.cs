@@ -154,7 +154,23 @@ public class PlayerAttackController : MonoBehaviour
     }
 
 
+    public void AddAttackSpeed(float amount)
+    {
+        animator.speed += amount;
+        foreach(var pb in PlayerBasics)
+        {
+            pb.attackAnimTime *= (1 - amount);
+        }
+    }
+    public void RemoveAttackSpeed(float amount)
+    {
+        animator.speed -= amount;
 
+        foreach (var pb in PlayerBasics)
+        {
+            pb.attackAnimTime /= (1 - amount);
+        }
+    }
 
     private void CheckBasic()
     {

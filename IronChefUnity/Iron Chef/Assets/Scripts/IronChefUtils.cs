@@ -122,6 +122,48 @@ public static class IronChefUtils
             player.Modifiers.Add(slow);
         }
     }
+    public static void AddSpeedUp(PlayerSpeedController player, float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        bool alreadyThere = false;
+        foreach (var speedMod in player.Modifiers)
+        {
+            if (speedMod.effectName == effectName)
+            {
+                alreadyThere = true;
+                if (duration > speedMod.duration)
+                {
+                    speedMod.duration = duration;
+                    break;
+                }
+            }
+        }
+        if (!alreadyThere)
+        {
+            var speed = MakeSpeedEffector(amount, duration, effectName);
+            player.Modifiers.Add(speed);
+        }
+    }
+    public static void AddSpeedUp(EnemySpeedController player, float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        bool alreadyThere = false;
+        foreach (var speedMod in player.Modifiers)
+        {
+            if (speedMod.effectName == effectName)
+            {
+                alreadyThere = true;
+                if (duration > speedMod.duration)
+                {
+                    speedMod.duration = duration;
+                    break;
+                }
+            }
+        }
+        if (!alreadyThere)
+        {
+            var speed = MakeSpeedEffector(amount, duration, effectName);
+            player.Modifiers.Add(speed);
+        }
+    }
 
     public static SpeedEffector MakeSlowEffector(float amount, float duration, SpeedEffector.EffectorName effectName)
     {
@@ -131,7 +173,14 @@ public static class IronChefUtils
         slow.effectName = effectName;
         return slow;
     }
-
+    public static SpeedEffector MakeSpeedEffector(float amount, float duration, SpeedEffector.EffectorName effectName)
+    {
+        SpeedEffector slow = new SpeedEffector();
+        slow.duration = duration;
+        slow.percentAmount = amount;
+        slow.effectName = effectName;
+        return slow;
+    }
     public static List<GameObject> GetCastHits(float width, float height, float depth, Vector3 location, Quaternion rotation, string Layer = "Hitbox")
     {
         var newGO = GameObject.Instantiate(new GameObject(), location, rotation);

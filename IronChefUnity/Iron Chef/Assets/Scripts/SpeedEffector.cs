@@ -16,5 +16,6 @@ public class SpeedEffector
     {
         Fridge,
         BenedictSpeed,
+        SugarRush
     }
 }
