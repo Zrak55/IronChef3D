@@ -85,5 +85,19 @@ public class PlayerHitpoints : MonoBehaviour
         return isIFrames;
     }
 
+    public float GetMax()
+    {
+        return playerStats.MaximumHP;
+    }
+    public void SetMax(float hp)
+    {
+        playerStats.MaximumHP = hp;
+    }
+    public void SetCurrent(float hp)
+    {
+        playerStats.CurrentHP = hp;
+    }
+    
+
     
 }

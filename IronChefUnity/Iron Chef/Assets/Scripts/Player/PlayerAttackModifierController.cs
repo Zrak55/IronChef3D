@@ -45,5 +45,17 @@ public class PlayerAttackModifierController : MonoBehaviour
         RemoveHitModifiers.Clear();
     }
 
+    public void RemoveHitModifier(PlayerAttackHitModifier.PlayerHitModName mod)
+    {
+        for (int i = 0; i < HitModifiers.Count; i++)
+        {
+            if (HitModifiers[i].modName == mod)
+            {
+                HitModifiers.RemoveAt(i);
+                break;
+            }
+        }
+    }
+
 
 }

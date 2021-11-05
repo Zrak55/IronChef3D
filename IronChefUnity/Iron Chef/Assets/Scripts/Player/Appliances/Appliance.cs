@@ -27,6 +27,11 @@ public class Appliance : MonoBehaviour
 
     }
 
+    public virtual void RemoveEffects()
+    {
+
+    }
+
     public virtual void SetScriptableData(PlayerApplianceScriptable appliance)
     {
         applianceScriptable = appliance;

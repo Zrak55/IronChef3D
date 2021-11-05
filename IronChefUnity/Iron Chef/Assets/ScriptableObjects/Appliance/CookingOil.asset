@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
-  m_Name: Fridge
+  m_Name: CookingOil
   m_EditorClassIdentifier: 
-  applianceName: 0
-  description: Your basic attacks slow the enemy's movement speed by 30%
+  applianceName: 1
+  description: Your basic attakcs deal 20% more damage
   values:
-  - 0.3
-  - 5
+  - 0.2
   valueDescriptions:
-  - Slow Amount
-  - Slow Duration
+  - Dmg Increase

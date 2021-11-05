@@ -103,4 +103,17 @@ public class EnemyHitpoints : MonoBehaviour
 
 
     }
+
+    public float GetMax()
+    {
+        return MaxHP;
+    }
+    public void SetMax(float hp)
+    {
+        MaxHP = hp;
+    }
+    public void SetCurrent(float hp)
+    {
+        currentHP = MaxHP;
+    }
 }

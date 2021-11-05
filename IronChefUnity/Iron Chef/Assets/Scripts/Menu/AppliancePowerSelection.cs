@@ -109,6 +109,7 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         if (player.GetComponent<Appliance>() != null)
         {
+            player.GetComponent<Appliance>().RemoveEffects();
             Destroy(player.GetComponent<Appliance>());
         }
 
@@ -118,6 +119,21 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             case PlayerApplianceScriptable.ApplianceName.Fridge:
                 appliance = player.AddComponent<Fridge>();
+                break;
+            case PlayerApplianceScriptable.ApplianceName.CookingOil:
+                appliance = player.AddComponent<CookingOil>();
+                break;
+            case PlayerApplianceScriptable.ApplianceName.CheeseGrater:
+                appliance = player.AddComponent<CheeseGrater>();
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Stove:
+                appliance = player.AddComponent<Stove>();
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Grill:
+                appliance = player.AddComponent<Grill>();
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Blender:
+                appliance = player.AddComponent<Blender>();
                 break;
             default:
                 break;

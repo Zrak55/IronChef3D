@@ -2,19 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fridge : Appliance
+public class Blender : Appliance
 {
     protected override void ApplyEffects()
     {
         base.ApplyEffects();
 
         PlayerAttackHitModifier mod = new PlayerAttackHitModifier();
-        mod.damageIncrease = 0;
-        mod.slowAmount = applianceScriptable.values[0];
-        mod.slowDuration = applianceScriptable.values[1];
-        mod.slowName = SpeedEffector.EffectorName.Fridge;
+        mod.critPercent = applianceScriptable.values[0];
         mod.duration = IronChefUtils.InfiniteDuration;
-        mod.modName = PlayerAttackHitModifier.PlayerHitModName.Fridge;
+        mod.modName = PlayerAttackHitModifier.PlayerHitModName.Blender;
 
         GetComponent<PlayerAttackModifierController>().HitModifiers.Add(mod);
 

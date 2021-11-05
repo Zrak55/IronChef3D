@@ -93,6 +93,30 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         }
                         dmgToDeal = damage * (1 + dmgMod);
 
+
+
+                        bool hasCrit = false;
+                        foreach (var h in modifier.HitModifiers)
+                        {
+                            if(h.critPercent > 0)
+                            {
+                                if (Random.Range(0f, 1f) <= h.critPercent)
+                                {
+                                    hasCrit = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(hasCrit)
+                        {
+                            dmgToDeal *= 2;
+                        }
+
+
+                        pcam.ShakeCam(dmgToDeal/10f , dmgToDeal * 0.4f / 10f);
+                        enemy.TakeDamage(dmgToDeal);
+
+
                         if (!hasPlayedSound)
                         {
                             hasPlayedSound = true;
@@ -102,9 +126,6 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             }
                             sfx.MakeSoundEffect(transform.position, soundEffect);
                         }
-
-                        pcam.ShakeCam(dmgToDeal/10f , dmgToDeal * 0.4f / 10f);
-                        enemy.TakeDamage(dmgToDeal);
                     }
                 }
             }

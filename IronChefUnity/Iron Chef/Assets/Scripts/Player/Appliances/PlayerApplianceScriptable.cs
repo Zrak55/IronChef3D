@@ -8,6 +8,8 @@ public class PlayerApplianceScriptable : ScriptableObject
     public string description;
 
     public float[] values;
+    [Tooltip("No real effect, readability only")]
+    public string[] valueDescriptions;
 
     
 
@@ -15,6 +17,11 @@ public class PlayerApplianceScriptable : ScriptableObject
 
     public enum ApplianceName
     {
-        Fridge
+        Fridge,
+        CookingOil,
+        CheeseGrater,
+        Stove,
+        Grill,
+        Blender
     }
 }
