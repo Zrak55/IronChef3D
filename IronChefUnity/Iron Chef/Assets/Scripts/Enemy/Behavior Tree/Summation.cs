@@ -35,15 +35,12 @@ public class Summation : Node
         Node.STATUS childStatus;
 
         //If any children are running skip to those.
-        if (this.status == STATUS.RUNNING)
+        foreach (Node child in children)
         {
-            foreach (Node child in children)
+            if (child.status == STATUS.RUNNING)
             {
-                if (child.status == STATUS.RUNNING)
-                {
-                    status = child.proccess();
-                    return status;
-                }
+                status = child.proccess();
+                return status;
             }
         }
 

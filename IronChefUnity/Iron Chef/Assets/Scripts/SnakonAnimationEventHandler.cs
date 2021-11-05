@@ -18,6 +18,8 @@ public class SnakonAnimationEventHandler : MonoBehaviour
 
     public void AttackWindupSoundEffect()
     {
-        GetComponentInParent<SnakonBehavior>().AttackWindupSoundEffect();
+        GetComponentInParent<EnemyBehaviorTree>().playAttackSound();
+        //Uncomment this line and remove the line above, this is for testing purposes
+        //GetComponentInParent<SnakonBehavior>().playAttackSound();
     }
 }
