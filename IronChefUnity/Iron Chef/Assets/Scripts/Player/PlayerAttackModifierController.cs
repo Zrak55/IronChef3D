@@ -29,6 +29,7 @@ public class PlayerAttackModifierController : MonoBehaviour
     {
         foreach (var mod in HitModifiers)
         {
+            mod.SpecialTickAction();
             if (mod.duration != IronChefUtils.InfiniteDuration)
             {
                 mod.duration -= Time.deltaTime;

@@ -112,6 +112,11 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             dmgToDeal *= 2;
                         }
 
+                        foreach(var h in modifier.HitModifiers)
+                        {
+                            h.DoSpecialModifier(enemy, dmgToDeal);
+                        }
+
 
                         pcam.ShakeCam(dmgToDeal/10f , dmgToDeal * 0.4f / 10f);
                         enemy.TakeDamage(dmgToDeal);

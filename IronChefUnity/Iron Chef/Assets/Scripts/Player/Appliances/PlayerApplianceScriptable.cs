@@ -22,6 +22,7 @@ public class PlayerApplianceScriptable : ScriptableObject
         CheeseGrater,
         Stove,
         Grill,
-        Blender
+        Blender,
+        Freezer
     }
 }

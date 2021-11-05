@@ -135,6 +135,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerApplianceScriptable.ApplianceName.Blender:
                 appliance = player.AddComponent<Blender>();
                 break;
+            case PlayerApplianceScriptable.ApplianceName.Freezer:
+                appliance = player.AddComponent<Freezer>();
+                break;
             default:
                 break;
         }

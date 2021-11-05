@@ -22,12 +22,18 @@ public class PlayerAttackHitModifier
         Fridge,
         CookingOil,
         Grill,
-        Blender
+        Blender,
+        Freezer
     }
 
-    public virtual void DoSpecialModifier(EnemyHitpoints enemyHP)
+    public virtual void DoSpecialModifier(EnemyHitpoints enemyHP, float damage)
     {
         
+    }
+
+    public virtual void SpecialTickAction()
+    {
+
     }
 }
 
