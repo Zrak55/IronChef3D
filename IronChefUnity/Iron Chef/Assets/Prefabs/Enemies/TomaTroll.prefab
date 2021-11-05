@@ -60,7 +60,7 @@ MonoBehaviour:
   attackbox: {fileID: 4667792668927420243}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 24
   damage: 25
 --- !u!1 &803959768638595401
 GameObject:
@@ -214,7 +214,7 @@ MonoBehaviour:
   attackbox: {fileID: 2489587432779347802}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 24
   damage: 20
 --- !u!1 &3856517895618374344
 GameObject:
@@ -781,7 +781,7 @@ MonoBehaviour:
   attackbox: {fileID: 2972844479702839696}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 24
   damage: 10
 --- !u!1 &7786948733493607019
 GameObject:
@@ -1144,7 +1144,7 @@ MonoBehaviour:
   attackbox: {fileID: 6377710268919181855}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 24
   damage: 20
 --- !u!1001 &2136637989906970704
 PrefabInstance:

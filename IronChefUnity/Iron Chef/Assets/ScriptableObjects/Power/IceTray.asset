@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: IceTray
+  m_EditorClassIdentifier: 
+  powerName: 7
+  description: Throw several cubes in a forward arc, stunning enemies they hit.. 
+    Stun increases on an enemy for each projectile that hits it.
+  cooldown: 10
+  animationNumber: 1
+  values:
+  - 0.5
+  - 10
+  - 25
+  - 15
+  - 120
+  valueDescriptions:
+  - Stun
+  - Projectile Count
+  - Launch Force
+  - Launch Angle
+  - Spread Cone
+  prefabs:
+  - {fileID: 7219546348998335166, guid: 0319ce652fe3b644f80c8ecae37b8ca9, type: 3}

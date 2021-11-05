@@ -25,6 +25,7 @@ public class PlayerPowerScriptable : ScriptableObject
         PortableLunch,
         Ham_mer,
         _50CheeseStrike,
-        Catapasta
+        Catapasta,
+        IceTray
     }
 }

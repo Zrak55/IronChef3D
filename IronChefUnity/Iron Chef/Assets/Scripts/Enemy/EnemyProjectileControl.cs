@@ -10,6 +10,8 @@ public class EnemyProjectileControl : MonoBehaviour
     [SerializeField] private float speed;
     private Vector3 currentPosition;
     private PlayerHitpoints playerHitpoints;
+    [Tooltip("Audio to play on hit")]
+    [SerializeField] private SoundEffectSpawner.SoundEffect sound;
 
     private void Update()
     {
@@ -27,6 +29,7 @@ public class EnemyProjectileControl : MonoBehaviour
 
             //TODO: Check for status effects for on hit things
             playerHitpoints.TakeDamage(damage);
+
             Destroy(gameObject);
         }
 

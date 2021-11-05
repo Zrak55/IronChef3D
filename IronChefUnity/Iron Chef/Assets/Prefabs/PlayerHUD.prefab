@@ -3091,6 +3091,7 @@ MonoBehaviour:
   HamMerImage: {fileID: 21300000, guid: 4bbf93270b9124286876611d9950e2fd, type: 3}
   _50CheeseImage: {fileID: 21300000, guid: 3ba5a88a0508a488a85c30169a8e18de, type: 3}
   CatapastaImage: {fileID: 21300000, guid: ebd945b58fdc7476586c1bbb3fe5bc4b, type: 3}
+  IceTrayImage: {fileID: 21300000, guid: df40d3e5dec72471d973a4a020ddad98, type: 3}
   FryingPanCD: {fileID: 4637321172747905478}
   PowerCD: {fileID: 2186335998541098982}
   BossHP: {fileID: 3279070991662583522}

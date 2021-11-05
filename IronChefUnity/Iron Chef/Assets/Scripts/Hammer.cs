@@ -37,9 +37,9 @@ public class Hammer : PlayerPower
         var hits = IronChefUtils.GetCastHits(aBox);
         foreach(var h in hits)
         {
-            if(h.GetComponent<EnemyStunHandler>() != null)
+            if(h.GetComponentInParent<EnemyStunHandler>() != null)
             {
-                h.GetComponent<EnemyStunHandler>().Stun(stunTime);
+                h.GetComponentInParent<EnemyStunHandler>().Stun(stunTime);
                 break;
             }
         }

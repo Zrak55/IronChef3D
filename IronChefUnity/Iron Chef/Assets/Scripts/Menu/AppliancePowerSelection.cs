@@ -84,6 +84,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Catapasta:
                 power = player.AddComponent<Catapasta>();
                 break;
+            case PlayerPowerScriptable.PowerName.IceTray:
+                power = player.AddComponent<IceTray>();
+                break;
             default:
                 break;
         }

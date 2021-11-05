@@ -55,6 +55,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite HamMerImage;
     public Sprite _50CheeseImage;
     public Sprite CatapastaImage;
+    public Sprite IceTrayImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -416,12 +417,14 @@ public class PlayerHUDManager : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Ham_mer:
                 powerImage.sprite = HamMerImage;
                 break;
-
             case PlayerPowerScriptable.PowerName._50CheeseStrike:
                 powerImage.sprite = _50CheeseImage;
                 break;
             case PlayerPowerScriptable.PowerName.Catapasta:
                 powerImage.sprite = CatapastaImage;
+                break;
+            case PlayerPowerScriptable.PowerName.IceTray:
+                powerImage.sprite = IceTrayImage;
                 break;
         }
     }
