@@ -338,6 +338,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ce350a1f1424aa34a9361492967eb856, type: 3}
   - {fileID: 8300000, guid: e6b26e39803503242ab0777565eedb26, type: 3}
   - {fileID: 8300000, guid: badf6f428508e3249ae5ec045979e6d9, type: 3}
+  - {fileID: 8300000, guid: e2bdff87c2ade9b4e99f9f07440e60bb, type: 3}
   FryingPanFly: {fileID: 8300000, guid: b6665942f8146ce4188c4019a113b7e4, type: 3}
   FryingPanHit: {fileID: 8300000, guid: 1569c3b0fb8469e489da0bf05da6b221, type: 3}
   FondemonEffects:
@@ -356,6 +357,21 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c1ebba9f03e374448082c346ed6c9c6, type: 3}
   - {fileID: 8300000, guid: e88e58378bf5a92449c9432a13208bac, type: 3}
   - {fileID: 8300000, guid: bad927267d501c64fbd9bdc87eb0b6ff, type: 3}
+  monsterDeathEffects:
+  - {fileID: 8300000, guid: 0f40904905eac3b49a0b1ede08bf2e4b, type: 3}
+  - {fileID: 8300000, guid: ce67d67ede4c0dd4eb7b651d5e21397d, type: 3}
+  - {fileID: 8300000, guid: d2cafb1e77076454c87801bc894debe3, type: 3}
+  - {fileID: 8300000, guid: 509c8d0281012964188c64a4d8efb010, type: 3}
+  - {fileID: 8300000, guid: 4578669f1d5981444ad4fd5444fd2e42, type: 3}
+  - {fileID: 8300000, guid: 4163adbdeb11f184d9602d601ee7271d, type: 3}
+  freezerEffect: {fileID: 8300000, guid: 1af5ecabf2d8d494a871f8e345863143, type: 3}
+  xpEffects:
+  - {fileID: 8300000, guid: 5188d4a489c3c5d48a9658256a1fbfcf, type: 3}
+  - {fileID: 8300000, guid: a864829596fa2ec4baabf94fefc6b069, type: 3}
+  - {fileID: 8300000, guid: ecb62fecae2db6a48942eb6f79ba91e5, type: 3}
+  - {fileID: 8300000, guid: b4b9bdf784bd8e348ad25bc6623d28d9, type: 3}
+  - {fileID: 8300000, guid: ccc2f2de59fb84048911a9d6ce0150fe, type: 3}
+  - {fileID: 8300000, guid: e80ae0303bb1fb6479c8b6e55fe474a5, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0

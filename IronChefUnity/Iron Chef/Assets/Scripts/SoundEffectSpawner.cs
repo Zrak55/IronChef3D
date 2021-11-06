@@ -34,6 +34,9 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip BaconIdle;
     public AudioClip AbilityRecharge;
     public AudioClip[] PlayerArmorHitEffects;
+    public AudioClip[] monsterDeathEffects;
+    public AudioClip freezerEffect;
+    public AudioClip[] xpEffects;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -171,6 +174,17 @@ public class SoundEffectSpawner : MonoBehaviour
                 index = Random.Range(0, PlayerArmorHitEffects.Length);
                 clipToPlay = PlayerArmorHitEffects[index];
                 break;
+            case SoundEffect.XpPickup:
+                index = Random.Range(0, xpEffects.Length);
+                clipToPlay = xpEffects[index];
+                break;
+            case SoundEffect.MonsterDeath:
+                index = Random.Range(0, monsterDeathEffects.Length);
+                clipToPlay = monsterDeathEffects[index];
+                break;
+            case SoundEffect.Freezer:
+                clipToPlay = freezerEffect;
+                break;
         }
         if (clipToPlay != null)
         {
@@ -213,7 +227,10 @@ public class SoundEffectSpawner : MonoBehaviour
         BaconBite,
         BaconIdle,
         AbilityRecharge,
-        PlayerArmorHit
+        PlayerArmorHit,
+        Freezer,
+        XpPickup,
+        MonsterDeath
     }
 }
 
