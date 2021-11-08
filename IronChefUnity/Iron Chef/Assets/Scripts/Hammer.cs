@@ -16,7 +16,6 @@ public class Hammer : PlayerPower
 
     PlayerAttackController pattack;
 
-    BoxCollider aBox;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +33,7 @@ public class Hammer : PlayerPower
     {
         base.DoPowerEffects();
 
-        var hits = IronChefUtils.GetCastHits(aBox);
+        var hits = IronChefUtils.GetCastHits(width, height, depth, transform.position, GetComponent<CharacterMover>().model.transform.rotation);
         foreach(var h in hits)
         {
             if(h.GetComponentInParent<EnemyStunHandler>() != null)
@@ -59,10 +58,6 @@ public class Hammer : PlayerPower
         animTime = power.values[4];
 
         meatMallet = Instantiate(power.prefabs[0], pattack.throwPoint.parent);
-        aBox = meatMallet.AddComponent<BoxCollider>();
-        aBox.size = new Vector3(width, height, depth);
-        aBox.center = Vector3.zero;
-        aBox.isTrigger = true;
         meatMallet.SetActive(false);
     }
 

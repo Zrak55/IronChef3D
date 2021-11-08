@@ -23,6 +23,7 @@ public class PlayerApplianceScriptable : ScriptableObject
         Stove,
         Grill,
         Blender,
-        Freezer
+        Freezer,
+        WardenGamseysHarshInstructions
     }
 }

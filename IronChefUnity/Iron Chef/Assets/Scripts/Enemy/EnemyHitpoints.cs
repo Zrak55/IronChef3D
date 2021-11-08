@@ -27,6 +27,9 @@ public class EnemyHitpoints : MonoBehaviour
     public void TakeDamage(float amount)
     {
         float dmgNumAmount = amount;
+
+        mods.DoModifierSpecials(amount);
+
         amount = Mathf.Max(amount * mods.getMultiplier(), 0);
         if (amount > dmgNumAmount)
             dmgNumAmount = amount;

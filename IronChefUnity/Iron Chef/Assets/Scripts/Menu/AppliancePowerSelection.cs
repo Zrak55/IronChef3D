@@ -138,6 +138,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerApplianceScriptable.ApplianceName.Freezer:
                 appliance = player.AddComponent<Freezer>();
                 break;
+            case PlayerApplianceScriptable.ApplianceName.WardenGamseysHarshInstructions:
+                appliance = player.AddComponent<WardenGamseysHarshInstructions>();
+                break;
             default:
                 break;
         }

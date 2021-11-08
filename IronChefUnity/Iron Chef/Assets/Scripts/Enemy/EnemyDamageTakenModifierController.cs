@@ -73,7 +73,13 @@ public class EnemyDamageTakenModifierController : MonoBehaviour
         }
         return amount;
     }
+    public void DoModifierSpecials(float originalDamageTaken)
+    {
+        foreach (var mod in modifiers)
+        {
+            mod.SpecialTakeDamageEffect(originalDamageTaken);
+        }
+    }
 
 
-    
 }

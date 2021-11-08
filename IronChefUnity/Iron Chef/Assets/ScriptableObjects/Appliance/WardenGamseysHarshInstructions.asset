@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
+  m_Name: WardenGamseysHarshInstructions
+  m_EditorClassIdentifier: 
+  applianceName: 7
+  description: Your attacks have a chance to invoke Warden Gamsey's wrath, stunning
+    an opponent.  The chance to stun is greater for slower attacks.
+  values:
+  - 1
+  - 0.015
+  valueDescriptions:
+  - Stun Time
+  - Stun Chance per damage

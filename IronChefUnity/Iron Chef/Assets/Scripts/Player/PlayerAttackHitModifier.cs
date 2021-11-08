@@ -6,15 +6,15 @@ public class PlayerAttackHitModifier
 {
     public PlayerHitModName modName;
 
-    public float damageIncrease;
+    public float damageIncrease = 0f;
 
-    public float slowAmount;
-    public float slowDuration;
+    public float slowAmount = 0f;
+    public float slowDuration = 0f;
     public SpeedEffector.EffectorName slowName;
     
     public float duration;
 
-    public float critPercent = 0f;
+    public float critPercent = -1f;
 
 
     public enum PlayerHitModName
@@ -23,7 +23,8 @@ public class PlayerAttackHitModifier
         CookingOil,
         Grill,
         Blender,
-        Freezer
+        Freezer,
+        WardenGamsey
     }
 
     public virtual void DoSpecialModifier(EnemyHitpoints enemyHP, float damage)

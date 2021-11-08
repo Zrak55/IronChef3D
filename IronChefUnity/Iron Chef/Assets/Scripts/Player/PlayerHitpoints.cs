@@ -13,6 +13,7 @@ public class PlayerHitpoints : MonoBehaviour
     private bool isIFrames = false;
     PlayerCamControl pcam;
     SoundEffectSpawner sounds;
+    PlayerDamageTakenModifierController mods;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class PlayerHitpoints : MonoBehaviour
         anim = gameObject.GetComponentInChildren<Animator>();
         sounds = FindObjectOfType<SoundEffectSpawner>();
         pcam = FindObjectOfType<PlayerCamControl>();
+        mods = GetComponent<PlayerDamageTakenModifierController>();
     }
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver)
@@ -33,6 +35,10 @@ public class PlayerHitpoints : MonoBehaviour
             //will include knockback or not so I won't include it yet.
 
             InvincibilityFrame(IFramesAmount);
+
+            //Get Modifier effects
+            mods.DoModifierSpecials(amount);
+            amount = amount * mods.getMultiplier();
 
             playerStats.CurrentHP -= amount;
 

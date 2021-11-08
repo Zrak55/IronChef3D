@@ -23,7 +23,7 @@ public class Blender : Appliance
     public override void RemoveEffects()
     {
         base.RemoveEffects();
-        GetComponent<PlayerAttackModifierController>().RemoveHitModifier(PlayerAttackHitModifier.PlayerHitModName.Fridge);
+        GetComponent<PlayerAttackModifierController>().RemoveHitModifier(PlayerAttackHitModifier.PlayerHitModName.Blender);
 
     }
 }
