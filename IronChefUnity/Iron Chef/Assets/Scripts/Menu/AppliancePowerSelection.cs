@@ -141,6 +141,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerApplianceScriptable.ApplianceName.WardenGamseysHarshInstructions:
                 appliance = player.AddComponent<WardenGamseysHarshInstructions>();
                 break;
+            case PlayerApplianceScriptable.ApplianceName.Microwave:
+                appliance = player.AddComponent<Microwave>();
+                break;
             default:
                 break;
         }

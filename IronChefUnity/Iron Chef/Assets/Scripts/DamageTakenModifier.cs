@@ -12,7 +12,8 @@ public class DamageTakenModifier
     public enum ModifierName
     {
         BenedictImmunity,
-        BenedictDouble
+        BenedictDouble,
+        Microwave
     }
 
     public virtual void SpecialTakeDamageEffect(float OriginalDamageTaken)

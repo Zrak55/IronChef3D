@@ -28,6 +28,11 @@ public class PlayerDamageTakenModifierController : MonoBehaviour
         modifiers.Add(newMod);
     }
 
+    public void AddMod(DamageTakenModifier mod)
+    {
+        modifiers.Add(mod);
+    }
+
 
     private void tickMods()
     {

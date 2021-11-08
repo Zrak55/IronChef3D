@@ -24,6 +24,7 @@ public class PlayerApplianceScriptable : ScriptableObject
         Grill,
         Blender,
         Freezer,
-        WardenGamseysHarshInstructions
+        WardenGamseysHarshInstructions,
+        Microwave
     }
 }
