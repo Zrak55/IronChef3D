@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Outdated script. Attackbox controller now contains all functionality
 public class SnakonAnimationEventHandler : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -18,8 +19,6 @@ public class SnakonAnimationEventHandler : MonoBehaviour
 
     public void AttackWindupSoundEffect()
     {
-        GetComponentInParent<EnemyBehaviorTree>().playAttackSound();
-        //Uncomment this line and remove the line above, this is for testing purposes
-        //GetComponentInParent<SnakonBehavior>().playAttackSound();
+        GetComponentInParent<EnemyBehaviorTree>().playSound(0);
     }
 }

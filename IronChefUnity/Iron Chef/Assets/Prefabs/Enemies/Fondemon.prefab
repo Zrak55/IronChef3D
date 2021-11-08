@@ -617,8 +617,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e43dabc53fc8b1c40ae4a0458c8a9e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointsTransforms: []
+  aggroRange: 50
+  spawnRange: 50
   attackRange: 50
-  attackTime: 3
+  attackCD: 2
+  attackAngle: 0
+  idleSoundEffect: 15
+  attackSoundEffect: 15
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,25 +60,32 @@ ModelImporter:
       curves: []
       events:
       - time: 0.3654915
-        functionName: SnapOpenSound
+        functionName: PlayAttackSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.51339155
-        functionName: RightClawOn
+      - time: 0.48818898
+        functionName: PlayAttackSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
         messageOptions: 0
-      - time: 0.5624061
-        functionName: RightClawOff
+      - time: 0.51628125
+        functionName: HitOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.6823236
+        functionName: HitOff
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
         messageOptions: 0
       transformMask: []
       maskType: 3

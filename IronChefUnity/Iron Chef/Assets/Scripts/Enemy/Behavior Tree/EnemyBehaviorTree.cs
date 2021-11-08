@@ -19,9 +19,9 @@ public class EnemyBehaviorTree : MonoBehaviour
     [Tooltip("Float for the maximum angle the enemy can attack at.")]
     [SerializeField] protected float attackAngle;
     [Tooltip("Enum representing the SoundEffect the enemy makes when idle.")]
-    [SerializeField] protected SoundEffectSpawner.SoundEffect idleSoundEffect;
+    [SerializeField] protected List<SoundEffectSpawner.SoundEffect> idleSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
-    [SerializeField] protected SoundEffectSpawner.SoundEffect attackSoundEffect;
+    [SerializeField] protected List<SoundEffectSpawner.SoundEffect> attackSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     protected Transform player;
     //The spawn location of the enemy is automatically set based on scene placement.
     protected Vector3 startPosition;
@@ -33,9 +33,10 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected SoundEffectSpawner soundEffectSpawner;
     protected NavMeshAgent agent;
     protected EnemyHitpoints enemyHitpoints;
+    protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node CheckPlayer, CheckHurt, CheckAttack, MoveReset, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, Attack;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackTwo, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod;
@@ -68,7 +69,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         //Animation
         animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
 
-        return MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
+        return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS moveReset()
@@ -88,7 +89,7 @@ public class EnemyBehaviorTree : MonoBehaviour
             musicManager.combatCount--;
         aggrod = false;
         if (idleSound == null)
-            idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect);
+            idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         //Movement
         if (Vector3.Distance(transform.position, currentWaypoint) < .2)
@@ -104,50 +105,94 @@ public class EnemyBehaviorTree : MonoBehaviour
     public Node.STATUS attackBasic()
     {
         //If we aren't already attack and the cd is done, then attack.
-        if (!isAttackCD && Attack.status != Node.STATUS.RUNNING)
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
         {
             animator.SetTrigger("Attack");
-            Attack.status = Node.STATUS.RUNNING;
+            AttackBasic.status = Node.STATUS.RUNNING;
         }
         //When the attack animation has finished this will play.
         //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
             StartCoroutine("atttackCDEnd");
-            Attack.status = Node.STATUS.SUCCESS;
+            AttackBasic.status = Node.STATUS.SUCCESS;
             //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
         }
-        return Attack.status;
+        return AttackBasic.status;
+    }
+
+    public Node.STATUS attackTwo()
+    {
+        //If we aren't already attack and the cd is done, then attack.
+        if (!isAttackCD && AttackTwo.status != Node.STATUS.RUNNING)
+        {
+            animator.SetInteger("AttackNum", Random.Range(0, 2));
+            animator.SetTrigger("Attack");
+            AttackTwo.status = Node.STATUS.RUNNING;
+        }
+        //When the attack animation has finished this will play.
+        //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            StartCoroutine("atttackCDEnd");
+            AttackTwo.status = Node.STATUS.SUCCESS;
+            //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
+        }
+        return AttackTwo.status;
+    }
+
+    public Node.STATUS attackProjectile()
+    {
+        transform.LookAt(player);
+        transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+        if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Attack");
+            AttackProjectile.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            StartCoroutine("atttackCDEnd");
+            AttackProjectile.status = Node.STATUS.SUCCESS;
+        }
+        return AttackProjectile.status;
     }
 
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)
     //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled when moveReset happens
     public Node.STATUS checkEnemyHurt()
     {
-        return EnemyHurt.status = (enemyHitpoints.damaged ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE);
+        return CheckEnemyHurt.status = (enemyHitpoints.damaged ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE);
     }
 
     public Node.STATUS checkAggroRange()
     {
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return PlayerAggroRange.status = (playerDistance < aggroRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+        return CheckAggroRange.status = (playerDistance < aggroRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkSpawnRange()
     {
         //The distance from the enemy to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
         float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);
-        return PlayerSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+        return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkPlayerAttackRange()
+    public Node.STATUS checkAttackRange()
     {
-        //The dstance from the enemy to the player
+        //The distance from the enemy to the player
+        float playerDistance = Vector3.Distance(player.transform.position, transform.position);
+        return CheckAttackRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+    }
+
+    public Node.STATUS checkPlayerAngleRange()
+    {
+        //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         if (Vector3.Angle(transform.forward, player.position - transform.position) > attackAngle)
-            return PlayerAggroRange.status = Node.STATUS.FAILURE;
-        return PlayerAggroRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+            return CheckAngleRange.status = Node.STATUS.FAILURE;
+        return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
     protected IEnumerator atttackCDEnd()
@@ -158,9 +203,9 @@ public class EnemyBehaviorTree : MonoBehaviour
         isAttackCD = false;
     }
 
-    public void playAttackSound()
+    public void playSound(int value)
     {
-        soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect);
+        soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect[value]);
     }
 
     private void attackCDEnd()

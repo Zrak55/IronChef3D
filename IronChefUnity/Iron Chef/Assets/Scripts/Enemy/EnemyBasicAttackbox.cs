@@ -10,13 +10,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
     [HideInInspector] public bool CanHit = false;
     [HideInInspector] public List<PlayerHitpoints> playersHit;
     private EnemyAttackModifierController modifier;
-
-    [SerializeField]
-    public SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver;
-    //No sound yet
-    //public SoundEffectSpawner.SoundEffect soundEffect;
-    //private SoundEffectSpawner sfx;
-
+    [SerializeField] public SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver;
     public float damage;
 
     //bool hasPlayedSound = false;
@@ -24,7 +18,6 @@ public class EnemyBasicAttackbox : MonoBehaviour
     private void Awake()
     {
         playersHit = new List<PlayerHitpoints>();
-        //sfx = FindObjectOfType<SoundEffectSpawner>();
 
     }
     private void Start()
@@ -32,19 +25,9 @@ public class EnemyBasicAttackbox : MonoBehaviour
         modifier = GetComponentInParent<EnemyAttackModifierController>();
     }
 
-    private void Update()
-    {
-        /*if (hasPlayedSound)
-        {
-            hasPlayedSound = CanHit;
-        }*/
-
-
-    }
-
     private void FixedUpdate()
     {
-        if (CanHit)
+        if (CanHit && attackbox != null)
         {
             DoCollisionThings();
         }
@@ -60,8 +43,9 @@ public class EnemyBasicAttackbox : MonoBehaviour
         playersHit.Clear();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void PlayAttackSound(int value)
     {
+        GetComponentInParent<EnemyBehaviorTree>().playSound(value);
     }
 
     private void DoCollisionThings()
@@ -94,18 +78,6 @@ public class EnemyBasicAttackbox : MonoBehaviour
                             }
                         }
                         dmgToDeal = damage * (1 + dmgMod);
-
-                        /*if (!hasPlayedSound)
-                        {
-                            hasPlayedSound = true;
-                            if (sfx == null)
-                            {
-                                sfx = FindObjectOfType<SoundEffectSpawner>();
-                            }
-                            sfx.MakeSoundEffect(transform.position, soundEffect);
-                        }*/
-
-
                         player.TakeDamage(dmgToDeal, sound);
 
                         

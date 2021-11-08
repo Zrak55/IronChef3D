@@ -19,18 +19,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2058372855400865881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702432154798479647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f232a0a5349a3cd4db69cb0c668ff88e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2173555952373706524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,11 +623,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 778f781a3a45024489512716652fe5b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypointsTransforms: []
   aggroRange: 50
   spawnRange: 70
   attackRange: 6
-  attackTime: 2
   attackCD: 1
+  attackAngle: 10
+  idleSoundEffect: 16000000
+  attackSoundEffect: 15000000
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0

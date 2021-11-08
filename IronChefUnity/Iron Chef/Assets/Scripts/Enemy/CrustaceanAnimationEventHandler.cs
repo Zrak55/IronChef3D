@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Dated script. EnemyMultiAttackboxController now contains all functionality.
 public class CrustaceanAnimationEventHandler : MonoBehaviour
 {
     public EnemyMultiAttackboxController behavior;
@@ -22,22 +23,22 @@ public class CrustaceanAnimationEventHandler : MonoBehaviour
 
     public void RightClawOn()
     {
-        behavior.TurnHitboxOn(0);
+        //behavior.TurnHitboxOn(0);
     }
 
     public void LeftClawOn()
     {
-        behavior.TurnHitboxOn(1);
+        //behavior.TurnHitboxOn(1);
 
     }
     public void RightClawOff()
     {
-        behavior.TurnHitboxOff(0);
+        //behavior.TurnHitboxOff(0);
     }
 
     public void LeftClawOff()
     {
-        behavior.TurnHitboxOff(1);
+        //behavior.TurnHitboxOff(1);
 
     }
 

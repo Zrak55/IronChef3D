@@ -18,19 +18,24 @@ public class EnemyMultiAttackboxController : MonoBehaviour
         
     }
 
-    public void TurnHitboxOn(int i)
+    public void HitOn(int i)
     {
         if (i < attacks.Count)
         {
             attacks[i].HitOn();
         }
     }
-    public void TurnHitboxOff(int i)
+    public void HitOff(int i)
     {
         if(i < attacks.Count)
         {
             attacks[i].HitOff();
 
         }
+    }
+
+    public void PlayAttackSound(int value)
+    {
+        GetComponentInParent<EnemyBehaviorTree>().playSound(value);
     }
 }

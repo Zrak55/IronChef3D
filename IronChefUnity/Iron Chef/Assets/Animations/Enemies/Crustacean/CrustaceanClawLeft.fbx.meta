@@ -60,21 +60,28 @@ ModelImporter:
       curves: []
       events:
       - time: 0.19942318
-        functionName: SnapOpenSound
+        functionName: PlayAttackSound
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.51642984
+        functionName: PlayAttackSound
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       - time: 0.524312
-        functionName: LeftClawOn
+        functionName: HitOn
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.61026764
-        functionName: LeftClawOff
+        functionName: HitOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

@@ -20,11 +20,11 @@ public class TomatrollAnimationEventHandler : MonoBehaviour
 
     public void HitOn(int i)
     {
-        attacks.TurnHitboxOn(i);
+        //attacks.TurnHitboxOn(i);
     }
     public void HitOff(int i)
     {
-        attacks.TurnHitboxOff(i);
+        //attacks.TurnHitboxOff(i);
 
     }
 }
