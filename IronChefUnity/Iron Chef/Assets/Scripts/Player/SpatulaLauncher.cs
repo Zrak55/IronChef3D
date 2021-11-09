@@ -8,6 +8,8 @@ public class SpatulaLauncher : MonoBehaviour
     public float time;
     bool launchDelay = false;
     public Animator anim;
+    [Header("Leave as -1 for default height")]
+    public float height = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +27,7 @@ public class SpatulaLauncher : MonoBehaviour
     {
         if(!launchDelay && other.GetComponent<PlayerSpatulaJumper>() != null)
         {
-            other.GetComponent<PlayerSpatulaJumper>().Jump(target.position, time);
+            other.GetComponent<PlayerSpatulaJumper>().Jump(target.position, time, height);
             FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SpatulaLaunch);
             FindObjectOfType<SoundEffectSpawner>().MakeFollowingSoundEffect(other.transform, SoundEffectSpawner.SoundEffect.SpatulaAir, 1, time);
             anim.SetTrigger("Launch");

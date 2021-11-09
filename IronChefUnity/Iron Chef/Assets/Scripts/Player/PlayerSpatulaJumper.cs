@@ -18,16 +18,18 @@ public class PlayerSpatulaJumper : MonoBehaviour
     }
 
 
-    public void Jump(Vector3 target, float time)
+    public void Jump(Vector3 target, float time, float jumpHeight = -1)
     {
-        StartCoroutine(jumpTick(target, time));
+        StartCoroutine(jumpTick(target, time, jumpHeight));
     }
 
-    private IEnumerator jumpTick(Vector3 target, float time)
+    private IEnumerator jumpTick(Vector3 target, float time, float jumpHeight)
     {
+        if (jumpHeight < 1)
+            jumpHeight = maxJumpHeight;
         GetComponent<CharacterMover>().enabled = false;
         float cTime = 0;
-        float yOffset = -4 * maxJumpHeight / Mathf.Pow(time, 2);
+        float yOffset = -4 * jumpHeight / Mathf.Pow(time, 2);
         Vector3 startPos = transform.position;
         while (cTime < time)
         {
