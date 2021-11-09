@@ -458,7 +458,7 @@ public class BenedictBehavior : EnemyBehaviorTree
                 fast.duration = IronChefUtils.InfiniteDuration;
                 GetComponent<EnemySpeedController>().Modifiers.Add(fast);
                 
-                rollBehavior.rollSpeed *= 1.25f;
+                //rollBehavior.rollSpeed *= 1.25f;
                 jumpTime *= 0.75f;
 
                 Phase3Tip();
