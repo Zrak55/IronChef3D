@@ -12,10 +12,12 @@ public class PlayerAttackHitModifier
     public float slowDuration = 0f;
     public SpeedEffector.EffectorName slowName;
     
-    public float duration;
+    public float duration = IronChefUtils.InfiniteDuration;
 
     public float critPercent = -1f;
 
+    public SoundEffectSpawner.SoundEffect soundEffect;
+    public bool shouldPlaySound = false;
 
     public enum PlayerHitModName
     {
@@ -25,6 +27,12 @@ public class PlayerAttackHitModifier
         Blender,
         Freezer,
         WardenGamsey
+    }
+
+    public void playSound(Vector3 position)
+    {
+        if (shouldPlaySound)
+            GameObject.FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(position, soundEffect);
     }
 
     public virtual void DoSpecialModifier(EnemyHitpoints enemyHP, float damage)

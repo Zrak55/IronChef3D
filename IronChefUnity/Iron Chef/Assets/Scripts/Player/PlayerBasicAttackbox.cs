@@ -90,6 +90,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
 
                             }
+
+                            mod.playSound(transform.position);
                         }
                         dmgToDeal = damage * (1 + dmgMod);
 

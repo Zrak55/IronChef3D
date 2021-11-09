@@ -14,6 +14,9 @@ public class EnemyHitpoints : MonoBehaviour
     bool isInvoking = false;
     EnemyCanvas floatingDmg;
 
+    public SoundEffectSpawner.SoundEffect deathSound;
+    
+    [Space]
     public GameObject DeathParticleSystem;
     public GameObject DeathParticle;
 
@@ -79,6 +82,8 @@ public class EnemyHitpoints : MonoBehaviour
             {
                 FindObjectOfType<MusicManager>().combatCount--;
             }
+
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, deathSound);
 
             //TODO: Play death animation before deletion
 

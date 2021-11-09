@@ -7,6 +7,7 @@ public class FreezerHitModifier : PlayerAttackHitModifier
     public int limit;
     public float stunDelay;
     public float stunTime;
+    SoundEffectSpawner sounds;
 
     List<Mark> allMarks = new List<Mark>();
     public override void SpecialTickAction()
@@ -55,6 +56,11 @@ public class FreezerHitModifier : PlayerAttackHitModifier
                             tmp.numMarks = 0;
                             tmp.delay = stunDelay;
                             tmp.enemy.Stun(stunTime);
+                            if(sounds == null)
+                            {
+                                sounds = GameObject.FindObjectOfType<SoundEffectSpawner>();
+                            }
+                            sounds.MakeSoundEffect(tmp.enemy.transform.position, SoundEffectSpawner.SoundEffect.Freezer);
                         }
                         allMarks[i] = tmp;
                     }

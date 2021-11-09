@@ -11,6 +11,7 @@ public class Freezer : Appliance
         mod.stunTime = applianceScriptable.values[0];
         mod.stunDelay = applianceScriptable.values[1];
         mod.limit = (int)applianceScriptable.values[2];
+        mod.duration = IronChefUtils.InfiniteDuration;
         mod.modName = PlayerAttackHitModifier.PlayerHitModName.Freezer;
 
         GetComponent<PlayerAttackModifierController>().HitModifiers.Add(mod);

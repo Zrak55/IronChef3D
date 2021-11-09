@@ -15,6 +15,8 @@ public class Fridge : Appliance
         mod.slowName = SpeedEffector.EffectorName.Fridge;
         mod.duration = IronChefUtils.InfiniteDuration;
         mod.modName = PlayerAttackHitModifier.PlayerHitModName.Fridge;
+        mod.soundEffect = SoundEffectSpawner.SoundEffect.FridgeSlow;
+        mod.shouldPlaySound = true;
 
         GetComponent<PlayerAttackModifierController>().HitModifiers.Add(mod);
 
