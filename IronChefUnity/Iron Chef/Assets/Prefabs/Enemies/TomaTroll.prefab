@@ -142,7 +142,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &610412468023208236
+--- !u!114 &6402502327498209038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,9 +151,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254170305951122689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21619f812cdad1d4e9a0690c1f40181e, type: 3}
+  m_Script: {fileID: 11500000, guid: 32304624fa267904582ef96adf58e249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attacks:
+  - {fileID: 6756127918601584968}
+  - {fileID: 1609249735737966303}
+  - {fileID: 3455330500867566786}
+  - {fileID: 3471940557902311021}
 --- !u!1 &3206158230927137142
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,9 +239,8 @@ GameObject:
   - component: {fileID: 5797179273293598612}
   - component: {fileID: 7289240000212708208}
   - component: {fileID: 3656894710659469105}
-  - component: {fileID: 6952594615532671011}
-  - component: {fileID: 3161209950716049598}
   - component: {fileID: 3720668813627299871}
+  - component: {fileID: 6952594615532671011}
   m_Layer: 9
   m_Name: TomaTroll
   m_TagString: Untagged
@@ -389,6 +393,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3720668813627299871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856517895618374344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df4dd2d1d3109d040adac4802ed76669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6952594615532671011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,48 +420,11 @@ MonoBehaviour:
   waypointsTransforms: []
   aggroRange: 40
   spawnRange: 50
-  attackRange: 12
+  attackRange: 8
   attackCD: 3
-  attackAngle: 0
-  idleSoundEffect: 
-  attackSoundEffect: 
-  aggroRange: 40
-  spawnRange: 50
-  attackRange: 12
-  attackOneTime: 6
-  attackTwoTime: 5
-  attackThreeTime: 2
-  attackFourTime: 5
-  attackCD: 3
---- !u!114 &3161209950716049598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856517895618374344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32304624fa267904582ef96adf58e249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attacks:
-  - {fileID: 6756127918601584968}
-  - {fileID: 1609249735737966303}
-  - {fileID: 3455330500867566786}
-  - {fileID: 3471940557902311021}
---- !u!114 &3720668813627299871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856517895618374344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4dd2d1d3109d040adac4802ed76669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  attackAngle: 30
+  idleSoundEffect: 0c000000
+  attackSoundEffect: 0c000000
 --- !u!1 &4445358600935164395
 GameObject:
   m_ObjectHideFlags: 0

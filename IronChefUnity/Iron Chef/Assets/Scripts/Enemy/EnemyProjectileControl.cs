@@ -25,8 +25,6 @@ public class EnemyProjectileControl : MonoBehaviour
         playerHitpoints = other.gameObject.GetComponentInParent<PlayerHitpoints>();
         if (playerHitpoints != null)
         {
-            Debug.Log("Hurt!");
-
             //TODO: Check for status effects for on hit things
             playerHitpoints.TakeDamage(damage);
 

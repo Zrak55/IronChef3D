@@ -7,10 +7,6 @@ public class BenedictBehavior : EnemyBehaviorTree
 {
     //This is a test class and not meant for actual use
     BehaviorTree genericBehaviorTree;
-    [Tooltip("Float for the maximum disatnce the enemy will begin to follow the player from.")]
-    [SerializeField] private float aggroRange;
-    [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
-    [SerializeField] private float spawnRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
     [SerializeField] private float biteRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
@@ -35,15 +31,9 @@ public class BenedictBehavior : EnemyBehaviorTree
     [SerializeField] private float YolkCD;
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float JumpCD;
-    private Transform player;
-    public Animator animator;
-    private NavMeshAgent agent;
-    private EnemyHitpoints enemyHitpoints;
-    private EnemyBasicAttackbox enemyBasicAttackbox;
     //Nodes for the behavior tree. Will be adding more later.
     private Node CheckPlayer, CheckHurt, CheckAttack, CheckYolk, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, BiteAttack, JumpAttack, RollAttack, YolkAttack;
     //The spawn location of the enemy is automatically set based on scene placement.
-    private Vector3 startPosition;
 
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
     private bool isAttacking = false;
@@ -89,7 +79,7 @@ public class BenedictBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyBasicAttackbox = GetComponent<EnemyBasicAttackbox>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        //animator = GetComponentInChildren<Animator>();
+        animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         rollBehavior = GetComponent<BenedictRoll>();
         jumpBehavior = GetComponent<BenedictJump>();

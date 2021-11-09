@@ -50,7 +50,6 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     private void DoCollisionThings()
     {
-        Debug.Log(gameObject.name);
         var hits = IronChefUtils.GetCastHits(attackbox);
         foreach (var hit in hits)
         {
@@ -61,7 +60,6 @@ public class EnemyBasicAttackbox : MonoBehaviour
                 {
                     if (playersHit.Count < 1)
                     {
-                        Debug.Log("Hit!");
                         playersHit.Add(player);
 
                         var dmgMod = 0f;

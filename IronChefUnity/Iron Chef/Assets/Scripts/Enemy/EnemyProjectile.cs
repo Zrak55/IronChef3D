@@ -22,19 +22,8 @@ public class EnemyProjectile : MonoBehaviour
             isAggro = true;
     }
 
-    private void Update()
-    {
-        //Later on, add logic here for when enemy attacks. Different enemies will attack at different times in different ways.
-        if (isAggro || enemyMove.isAggro)
-        {
-            //Invoke("projectileAttack", 2f);
-            //this.enabled = false;
-        }
-    }
-
     public void projectileAttack()
     {
-        Debug.Log("test");
         if (!isAggro)
             anim.SetTrigger("Projectile");
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);

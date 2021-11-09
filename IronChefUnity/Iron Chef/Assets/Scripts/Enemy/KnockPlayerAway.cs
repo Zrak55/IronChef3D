@@ -74,7 +74,6 @@ public class KnockPlayerAway : MonoBehaviour
                 {
                     if (IsCleave || playersHit.Count < 1)
                     {
-                        Debug.Log("Hit!");
                         playersHit.Add(player);
 
                         Vector3 dir = player.transform.position - transform.position;

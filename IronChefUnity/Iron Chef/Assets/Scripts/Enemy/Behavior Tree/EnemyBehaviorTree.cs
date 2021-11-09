@@ -8,7 +8,7 @@ public class EnemyBehaviorTree : MonoBehaviour
 {
     [Tooltip("List holding transform values for all the waypoints")]
     [SerializeField] protected List<Transform> waypointsTransforms = new List<Transform>();
-    [Tooltip("Float for the maximum disatnce the enemy will begin to follow the player from.")]
+    [Tooltip("Float for the maximum distance the enemy will begin to follow the player from.")]
     [SerializeField] protected float aggroRange;
     [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
     [SerializeField] protected float spawnRange;
@@ -36,7 +36,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, AttackBasic, AttackTwo, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod;
@@ -88,7 +88,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (aggrod)
             musicManager.combatCount--;
         aggrod = false;
-        if (idleSound == null)
+        if (idleSound == null && idleSoundEffect != null)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         //Movement
@@ -141,6 +141,27 @@ public class EnemyBehaviorTree : MonoBehaviour
         return AttackTwo.status;
     }
 
+    public Node.STATUS attackFour()
+    {
+        //If we aren't already attack and the cd is done, then attack.
+        if (!isAttackCD && AttackFour.status != Node.STATUS.RUNNING)
+        {
+            animator.SetInteger("AttackNum", Random.Range(0, 4));
+            animator.SetTrigger("Attack");
+            //Comment out this line for fun :)
+            AttackFour.status = Node.STATUS.RUNNING;
+        }
+        //When the attack animation has finished this will play.
+        //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            StartCoroutine("atttackCDEnd");
+            AttackFour.status = Node.STATUS.SUCCESS;
+            //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
+        }
+        return AttackFour.status;
+    }
+
     public Node.STATUS attackProjectile()
     {
         transform.LookAt(player);
@@ -159,7 +180,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     }
 
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)
-    //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled when moveReset happens
+    //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled on MoveReset success and everything else false (Try running)
     public Node.STATUS checkEnemyHurt()
     {
         return CheckEnemyHurt.status = (enemyHitpoints.damaged ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE);

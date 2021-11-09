@@ -75,7 +75,6 @@ public class PlayerBasicAttackbox : MonoBehaviour
                 {
                     if (IsCleave || enemiesHit.Count < 1)
                     {
-                        Debug.Log("Hit!");
                         enemiesHit.Add(enemy);
 
                         var dmgMod = 0f;
