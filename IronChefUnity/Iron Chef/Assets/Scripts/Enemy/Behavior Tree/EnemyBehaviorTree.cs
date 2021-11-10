@@ -36,7 +36,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
+    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod;
@@ -102,6 +102,27 @@ public class EnemyBehaviorTree : MonoBehaviour
         return MoveReset.status = Node.STATUS.SUCCESS;
     }
 
+    public Node.STATUS stillReset()
+    {
+        //Before anything else, check if stunned
+        if (enemyStunHandler.IsStunned())
+        {
+            //There isn't really an animation state for this
+            animator.Play("Base Layer.Idle", 0, 0);
+            return MoveReset.status = Node.STATUS.RUNNING;
+        }
+
+        //Music and sound effects
+        if (aggrod)
+            musicManager.combatCount--;
+        aggrod = false;
+        //There isn't an idle sound effect for fondemon yet. Fondemon is the only thing that uses this so it's safe to comment out.
+        //if (idleSound == null && idleSoundEffect != null)
+        //    idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
+
+        return StillReset.status = Node.STATUS.SUCCESS;
+    }
+
     public Node.STATUS attackBasic()
     {
         //If we aren't already attack and the cd is done, then attack.
@@ -164,8 +185,15 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public Node.STATUS attackProjectile()
     {
+        //Music
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Rotation
         transform.LookAt(player);
         transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+
         if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
         {
             animator.SetTrigger("Attack");

@@ -11,18 +11,20 @@ public class FondemonBehavior : EnemyBehaviorTree
     {
         enemyProjectile = GetComponent<EnemyProjectile>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
+        enemyStunHandler = GetComponent<EnemyStunHandler>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
         soundEffectSpawner = FindObjectOfType<SoundEffectSpawner>();
 
         //Setup leaf nodes (Note: the fondemon must have attackAngle set to 0)
+        StillReset = new Leaf("Don't move", stillReset);
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
         CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectile);
-        CheckPlayer = new Sequence("Blank Sequence", CheckAttack);
+        CheckPlayer = new Sequence("Still Sequence", StillReset, CheckAttack);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
     }
 
