@@ -109,7 +109,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         {
             //There isn't really an animation state for this
             animator.Play("Base Layer.Idle", 0, 0);
-            return MoveReset.status = Node.STATUS.RUNNING;
+            return StillReset.status = Node.STATUS.RUNNING;
         }
 
         //Music and sound effects
