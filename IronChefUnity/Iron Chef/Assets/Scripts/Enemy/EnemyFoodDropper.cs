@@ -38,6 +38,9 @@ public class EnemyFoodDropper : MonoBehaviour
         Tomato,
         Egg,
         Grits,
-        Bacon
+        Bacon,
+        Meat,
+        Beans,
+        Potato
     }
 }

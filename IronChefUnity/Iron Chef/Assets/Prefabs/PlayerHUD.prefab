@@ -3105,6 +3105,8 @@ MonoBehaviour:
   tomato: {fileID: 21300000, guid: bb7faf4c850ef48cdb33c2bd17737619, type: 3}
   bacon: {fileID: 21300000, guid: 6296e4b1e1bac418193950916fde7248, type: 3}
   bread: {fileID: 21300000, guid: d0f2ca00017af45a59e0ccc1e81d226f, type: 3}
+  potato: {fileID: 21300000, guid: 44994881295ab4b1084896d685432eff, type: 3}
+  meat: {fileID: 21300000, guid: af603204026e2456a94a095e52c55613, type: 3}
 --- !u!1 &4575196374771884225
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,8 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite tomato;
     public Sprite bacon;
     public Sprite bread;
+    public Sprite potato;
+    public Sprite meat;
 
 
     private void Awake()
@@ -188,6 +190,12 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case EnemyFoodDropper.FoodType.Tomato:
                 i.sprite = tomato;
+                break;
+            case EnemyFoodDropper.FoodType.Potato:
+                i.sprite = potato;
+                break;
+            case EnemyFoodDropper.FoodType.Meat:
+                i.sprite = meat;
                 break;
             default:
                 break;

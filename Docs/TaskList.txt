@@ -1,24 +1,24 @@
 Task List:
 
 Alex:
-Improve Crustacean
-Tutorial improvements
-Player/Camera Improvements
-Continue to smooth lvl 1
-Setup for multi-level
+Finish build out level 2
+bug fixes
+Put lvl 1 and lvl 2 together
 
 Spencer:
-Improve AI Behavior
-Improve Snakon attacks
+Isobean AI
+Start Potatogre AI
 
 Wiliiam:
 Modeling monsters for next levels
-Improve Tomatroll kick attack
+	Potatogre rig by wednesday
 
 Zach:
-Find asset store needs (food models, water texture, etc)
-Create sample maps for level 2, 3, 4
+Keep finding Terrain Materials 
+Playtesting (emphasis on making sure it doesnt break)
+Maps (finish them)
+Odd Jobs
 
 Kris:
-Sound rolloff curve
+Research WYs
 More SFX
