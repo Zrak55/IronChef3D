@@ -25,7 +25,7 @@ public class GenericEnemyBehavior : EnemyBehaviorTree
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
-        CheckAngleRange = new Leaf("Player in Attack Range?", checkPlayerAngleRange);
+        CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackBasic = new Leaf("Attack", attackBasic);

@@ -36,7 +36,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
+    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod;
@@ -92,7 +92,9 @@ public class EnemyBehaviorTree : MonoBehaviour
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         //Movement
-        if (Vector3.Distance(transform.position, currentWaypoint) < .2)
+        Vector3 distance = transform.position - currentWaypoint;
+        distance.y = 0;
+        if (distance.magnitude < 1)
             currentWaypoint = (waypointsVectors.IndexOf(currentWaypoint) + 1 >= waypointsVectors.Count) ? waypointsVectors[0] : waypointsVectors[waypointsVectors.IndexOf(currentWaypoint) + 1];
         agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? currentWaypoint : transform.position;
 
@@ -207,6 +209,26 @@ public class EnemyBehaviorTree : MonoBehaviour
         return AttackProjectile.status;
     }
 
+    public Node.STATUS attackProjectileStill()
+    {
+        //Music
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Attack");
+            AttackProjectile.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            StartCoroutine("atttackCDEnd");
+            AttackProjectile.status = Node.STATUS.SUCCESS;
+        }
+        return AttackProjectile.status;
+    }
+
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)
     //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled on MoveReset success and everything else false (Try running)
     public Node.STATUS checkEnemyHurt()
@@ -235,7 +257,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckAttackRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkPlayerAngleRange()
+    public Node.STATUS checkAngleRange()
     {
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);

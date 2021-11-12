@@ -8,16 +8,21 @@ public class EnemyProjectileControl : MonoBehaviour
     [SerializeField] private float damage;
     [Tooltip("Float for how fast the projectile moves.")]
     [SerializeField] private float speed;
-    private Vector3 currentPosition;
-    private PlayerHitpoints playerHitpoints;
     [Tooltip("Audio to play on hit")]
     [SerializeField] private SoundEffectSpawner.SoundEffect sound;
+    [Tooltip("Bool representing whether the projectile is angled or not")]
+    [SerializeField] private bool isArc;
+    private Vector3 currentPosition;
+    private PlayerHitpoints playerHitpoints;
+
 
     private void Update()
     {
         currentPosition = gameObject.transform.position;
-        gameObject.transform.position += transform.forward * speed * Time.deltaTime;
-
+        if (!isArc)
+            gameObject.transform.position += transform.forward * speed * Time.deltaTime;
+        else
+            GetComponent<ProjectileLaunch>().Launch(speed, GameObject.Find("Player").transform.position - transform.position, 45);
     }
 
     private void OnTriggerEnter(Collider other)
