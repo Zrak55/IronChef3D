@@ -7,9 +7,10 @@ public class IsobeanBehavior : EnemyBehaviorTree
 {
     BehaviorTree isobeanBehaviorTree;
     private Node CheckPlayer, CheckHurt, CheckAttack;
+    //Isobean is mostly done. Next step is adding attack animation to animator, and a projectileAttack to that. That should also fix the music.
     private void Start()
     {
-        setupWaypoints();
+        randomizeWayponts(15);
 
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();

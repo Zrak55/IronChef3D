@@ -69,7 +69,7 @@ RectTransform:
   - {fileID: 8631543737705109393}
   - {fileID: 2331997068289906432}
   m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -270,6 +270,25 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!95 &5766195354118801945
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3409066118137364903}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46eb4e113e8d49a4b986ceaba3c06241, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &2363873306028584448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,51 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 89cb4dcfe16a0be4691c94456f6b9c22, type: 3}
-  spawn: {x: 0, y: 0, z: 0}
---- !u!1 &3587781569024699532
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3587781569024699533}
-  - component: {fileID: 3587781569024699538}
-  m_Layer: 8
-  m_Name: Attackbox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 8
-  m_IsActive: 1
---- !u!4 &3587781569024699533
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587781569024699532}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.15, y: 0.68, z: 3.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3587781569024699538
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587781569024699532}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 3}
-  m_Center: {x: 0, y: 0.6, z: 0}
+  spawn: {x: 0, y: 2, z: 3}
 --- !u!1 &6299350652460505818
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +506,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3587781569024699533}
   - {fileID: 2342973415078283714}
   - {fileID: 7115274123795762935}
   - {fileID: 2595409558580337437}
@@ -577,7 +551,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 4
-  m_Speed: 2
+  m_Speed: 5
   m_Acceleration: 1
   avoidancePriority: 50
   m_AngularSpeed: 6
@@ -601,9 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e272daa8c8e35694a89b03651a8b5568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsTransforms:
-  - {fileID: 0}
-  - {fileID: 0}
+  waypointsTransforms: []
   aggroRange: 0
   spawnRange: 0
   attackRange: 0
@@ -837,11 +809,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8676638101516692847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.32, y: 0, z: 0.67}
+  m_LocalScale: {x: 3.3431, y: 1, z: 1.3269}
   m_Children: []
   m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9210668598408575498
 BoxCollider:
@@ -940,7 +912,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8d9624296e92155479fb5488d017d97f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d9624296e92155479fb5488d017d97f, type: 3}
       propertyPath: m_LocalScale.x

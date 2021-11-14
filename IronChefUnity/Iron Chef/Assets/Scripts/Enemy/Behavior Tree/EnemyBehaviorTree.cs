@@ -41,6 +41,18 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected bool isAttackCD = false;
     protected bool aggrod;
 
+    protected void randomizeWayponts(int range)
+    {
+        //Will run setupWaypoints and then add 2 new randomized waypoints (This is a test function, will not work because wayponts can spawn in unobtainable walls)
+        //If there already are assigned waypoints, don't do this
+        setupWaypoints();
+        if (waypointsVectors.Count <= 1)
+        {
+            waypointsVectors.Add(new Vector3(Random.Range(startPosition.x - range, startPosition.x + range), startPosition.y, Random.Range(startPosition.z - range, startPosition.z + range)));
+            waypointsVectors.Add(new Vector3(Random.Range(startPosition.x - range, startPosition.x + range), startPosition.y, Random.Range(startPosition.z - range, startPosition.z + range)));
+        }
+    }
+
     protected void setupWaypoints()
     {
         //Waypoints and positioning

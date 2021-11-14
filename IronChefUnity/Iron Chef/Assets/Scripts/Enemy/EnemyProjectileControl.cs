@@ -22,7 +22,11 @@ public class EnemyProjectileControl : MonoBehaviour
         if (!isArc)
             gameObject.transform.position += transform.forward * speed * Time.deltaTime;
         else
-            GetComponent<ProjectileLaunch>().Launch(speed, GameObject.Find("Player").transform.position - transform.position, 45);
+        {
+            Vector3 player = GameObject.Find("Player").transform.position;
+            GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
+            this.enabled = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
