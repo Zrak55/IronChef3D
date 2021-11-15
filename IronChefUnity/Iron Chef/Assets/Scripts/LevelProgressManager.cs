@@ -86,10 +86,15 @@ public class LevelProgressManager : MonoBehaviour
 
         GetMaxes();
 
+        DisplayDish();
 
         CompleteSetup();
     }
 
+    private void DisplayDish()
+    {
+
+    }
 
     private void SetInformation()
     {

@@ -35,6 +35,7 @@ public class ChapterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentLevel = LevelToStartAt;
         progressManager = FindObjectOfType<LevelProgressManager>();
         selector = FindObjectOfType<AppliancePowerSelection>();
         StartLevel(LevelToStartAt);
@@ -51,7 +52,7 @@ public class ChapterManager : MonoBehaviour
         for(int j = 0; j < LevelSpecificThings.Length; j++)
         {
             bool activate = i == j;
-            foreach (var go in LevelSpecificThings[i].things)
+            foreach (var go in LevelSpecificThings[j].things)
             {
                 if(go != null)
                     go.SetActive(activate);
