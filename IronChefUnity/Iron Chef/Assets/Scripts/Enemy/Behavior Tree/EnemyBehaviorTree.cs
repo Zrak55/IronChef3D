@@ -183,7 +183,6 @@ public class EnemyBehaviorTree : MonoBehaviour
         {
             animator.SetInteger("AttackNum", Random.Range(0, 4));
             animator.SetTrigger("Attack");
-            //Comment out this line for fun :)
             AttackFour.status = Node.STATUS.RUNNING;
         }
         //When the attack animation has finished this will play.

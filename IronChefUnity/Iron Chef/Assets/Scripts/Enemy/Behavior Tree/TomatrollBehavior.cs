@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class TomatrollBehavior : EnemyBehaviorTree
 {
-    //This is a test class and not meant for actual use
     BehaviorTree tomatrollBehaviorTree;
     private Node CheckPlayer, CheckHurt, CheckAttack;
 
@@ -37,7 +36,6 @@ public class TomatrollBehavior : EnemyBehaviorTree
         tomatrollBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
-    //TODO: Fix multiple things same frame.
     private void Update()
     {
         tomatrollBehaviorTree.behavior();
