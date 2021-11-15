@@ -14,6 +14,8 @@ public class ChapterManager : MonoBehaviour
 
     [SerializeField]
     public LevelSpecifics[] LevelSpecificThings;
+    [SerializeField]
+    private GameObject[] Gates;
 
 
     public LevelScriptable[] levels;
@@ -57,6 +59,7 @@ public class ChapterManager : MonoBehaviour
                 if(go != null)
                     go.SetActive(activate);
             }
+            Gates[j].SetActive(!activate);
         }
 
         progressManager.DoAllSetup(levels[i]);
