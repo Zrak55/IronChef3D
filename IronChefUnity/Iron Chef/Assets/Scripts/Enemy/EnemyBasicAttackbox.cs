@@ -35,6 +35,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     public void HitOn()
     {
+        Debug.Log("hi");
         CanHit = true;
     }
     public void HitOff()
