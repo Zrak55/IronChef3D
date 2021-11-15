@@ -135,6 +135,7 @@ public class PlayerHUDManager : MonoBehaviour
             food4requiredbar.gameObject.SetActive(false);
             badfoodbar.transform.position = food4bar.transform.position;
         }
+
         food3bar.maxValue = foodInfo.ingredientThreeMaximum;
         food3bar.value = foodInfo.ingredientThreeRequired;
         food3requiredbar.transform.position = food3bar.handleRect.transform.position;

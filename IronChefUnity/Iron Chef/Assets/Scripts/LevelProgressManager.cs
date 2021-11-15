@@ -80,11 +80,11 @@ public class LevelProgressManager : MonoBehaviour
     {
         level = newLevel;
 
-
         SetInformation();
 
-
         GetMaxes();
+
+
 
         DisplayDish();
 
@@ -114,8 +114,15 @@ public class LevelProgressManager : MonoBehaviour
 
     private void GetMaxes()
     {
+        badIngredientsMaximum = 0;
+        ingredientFiveMaximum = 0;
+        ingredientFourMaximum = 0;
+        ingredientThreeMaximum = 0;
+        ingredientTwoMaximum = 0;
+        ingredientOneMaximum = 0;
         foreach(var m in FindObjectsOfType<EnemyFoodDropper>())
         {
+            Debug.Log(m.food.ToString());
             if (m.food == ingredientOneType)
                 ingredientOneMaximum++;
             else if (m.food == ingredientTwoType)
