@@ -36,7 +36,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
+    protected Node MoveTowards, MoveReset, MoveWaypoint, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod;
@@ -114,6 +114,36 @@ public class EnemyBehaviorTree : MonoBehaviour
         animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
 
         return MoveReset.status = Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS moveWaypoint()
+    {
+        //Before anything else, check if stunned
+        if (enemyStunHandler.IsStunned())
+        {
+            agent.destination = transform.position;
+            //Maybe there will be another animation state for stunning later
+            animator.SetBool("isMoving", false);
+            animator.Play("Base Layer.Idle", 0, 0);
+            return MoveWaypoint.status = Node.STATUS.RUNNING;
+        }
+
+        //Music and sound effects
+        if (aggrod)
+            musicManager.combatCount--;
+        aggrod = false;
+
+        //Movement
+        Vector3 distance = transform.position - currentWaypoint;
+        distance.y = 0;
+        if (distance.magnitude < 1)
+            currentWaypoint = (waypointsVectors.IndexOf(currentWaypoint) + 1 >= waypointsVectors.Count) ? waypointsVectors[0] : waypointsVectors[waypointsVectors.IndexOf(currentWaypoint) + 1];
+        agent.destination = currentWaypoint;
+
+        //Animation
+        animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
+
+        return MoveWaypoint.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS stillReset()
@@ -227,17 +257,17 @@ public class EnemyBehaviorTree : MonoBehaviour
             musicManager.combatCount++;
         aggrod = true;
 
-        if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
+        if (!isAttackCD && AttackProjectileStill.status != Node.STATUS.RUNNING)
         {
             animator.SetTrigger("Attack");
-            AttackProjectile.status = Node.STATUS.RUNNING;
+            AttackProjectileStill.status = Node.STATUS.RUNNING;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
             StartCoroutine("atttackCDEnd");
-            AttackProjectile.status = Node.STATUS.SUCCESS;
+            AttackProjectileStill.status = Node.STATUS.SUCCESS;
         }
-        return AttackProjectile.status;
+        return AttackProjectileStill.status;
     }
 
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)

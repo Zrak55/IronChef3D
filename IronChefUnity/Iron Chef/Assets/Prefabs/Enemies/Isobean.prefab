@@ -578,8 +578,8 @@ MonoBehaviour:
   waypointsTransforms: []
   aggroRange: 0
   spawnRange: 0
-  attackRange: 0
-  attackCD: 1
+  attackRange: 50
+  attackCD: 2
   attackAngle: 0
   idleSoundEffect: 0f000000
   attackSoundEffect: 0f000000
@@ -928,7 +928,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d9624296e92155479fb5488d017d97f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8d9624296e92155479fb5488d017d97f, type: 3}
       propertyPath: m_LocalPosition.y

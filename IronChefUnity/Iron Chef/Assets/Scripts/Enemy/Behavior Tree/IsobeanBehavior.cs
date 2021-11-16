@@ -10,7 +10,7 @@ public class IsobeanBehavior : EnemyBehaviorTree
     //Isobean is mostly done. Next step is adding attack animation to animator, and a projectileAttack to that. That should also fix the music.
     private void Start()
     {
-        randomizeWayponts(15);
+        setupWaypoints();
 
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
@@ -22,12 +22,12 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
         //Setup leaf nodes
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
-        MoveReset = new Leaf("Reset Move", moveReset);
+        MoveWaypoint = new Leaf("Reset Move", moveWaypoint);
         AttackProjectileStill = new Leaf("Attack", attackProjectileStill);
 
         //Setup sequence nodes and root
         CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectileStill);
-        CheckPlayer = new Sequence("Move Sequence", MoveReset, CheckAttack);
+        CheckPlayer = new Sequence("Move Sequence", MoveWaypoint, CheckAttack);
         isobeanBehaviorTree = new BehaviorTree(CheckPlayer);
     }
 
