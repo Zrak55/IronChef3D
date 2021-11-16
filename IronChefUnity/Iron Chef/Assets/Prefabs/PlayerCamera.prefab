@@ -135,7 +135,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 6000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -1041,6 +1041,7 @@ MonoBehaviour:
   cam: {fileID: 719636532}
   cinemachine: {fileID: 493559123}
   playerView: {fileID: 0}
+  obscureTheseObjects: []
   clipPlayerDistance: 4.25
   frequencyAcceleration: 1.25
   intensityAcceleration: 0.5

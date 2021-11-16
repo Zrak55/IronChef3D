@@ -94,7 +94,7 @@ public class BenedictRoll : MonoBehaviour
 
 
             //Move
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * speed.GetMod()  * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * speed.GetMod()  * Time.fixedDeltaTime);
             transform.LookAt(transform.position + targetFacing);
 
             RollCollider.playersHit.Clear();

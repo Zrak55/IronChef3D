@@ -24,15 +24,15 @@ public class PlayerHitpoints : MonoBehaviour
         mods = GetComponent<PlayerDamageTakenModifierController>();
     }
 
-    public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver)
+    public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver, bool IgnoresIframes = false)
     {
-        //TODO: Check player powers/status effects for taking damage
-        if (isIFrames == false)
+        if (isIFrames == false || IgnoresIframes)
         {
             //TODO: Play animation of getting hit here. I'm not sure yet if the animation
             //will include knockback or not so I won't include it yet.
 
-            InvincibilityFrame(IFramesAmount);
+            if(!IgnoresIframes)
+                InvincibilityFrame(IFramesAmount);
 
             //Get Modifier effects
             mods.DoModifierSpecials(amount);

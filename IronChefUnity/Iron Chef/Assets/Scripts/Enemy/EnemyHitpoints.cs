@@ -105,10 +105,8 @@ public class EnemyHitpoints : MonoBehaviour
 
     private void CheckDeadBoss()
     {
-        GetComponent<BenedictBehavior>()?.bossWall.SetActive(false);
-        GetComponent<BenedictBehavior>()?.postBossPortal.SetActive(true);
         GetComponent<BenedictBehavior>()?.BossOver();
-
+        GetComponent<MeatosaurusBehavior>()?.BossOver();
 
     }
 

@@ -476,6 +476,8 @@ public class BenedictBehavior : EnemyBehaviorTree
 
     public void BossOver()
     {
+        bossWall.SetActive(false);
+        postBossPortal.SetActive(true);
         FindObjectOfType<PlayerHUDManager>().BossOver();
     }
 
