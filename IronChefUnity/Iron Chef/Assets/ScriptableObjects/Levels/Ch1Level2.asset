@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d634c6043bd55945839e87ea6ab7e87, type: 3}
   m_Name: Ch1Level2
   m_EditorClassIdentifier: 
-  dish: 
+  dish: Burger and Fries
   ingredientOneRequired: 4
   ingredientTwoRequired: 10
   ingredientThreeRequired: 4

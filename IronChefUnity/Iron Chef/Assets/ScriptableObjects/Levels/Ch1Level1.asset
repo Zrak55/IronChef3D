@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d634c6043bd55945839e87ea6ab7e87, type: 3}
   m_Name: Ch1Level1
   m_EditorClassIdentifier: 
-  dish: 
+  dish: Breakfast Sandwich
   ingredientOneRequired: 2
   ingredientTwoRequired: 9
   ingredientThreeRequired: 1

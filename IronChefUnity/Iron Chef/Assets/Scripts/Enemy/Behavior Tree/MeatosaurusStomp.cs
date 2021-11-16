@@ -16,6 +16,8 @@ public class MeatosaurusStomp : MonoBehaviour
     private float force;
     [SerializeField]
     private float rockDamage;
+    public float rockFallAnimTime;
+    PlayerCamControl pcam;
 
     [SerializeField]
     private EnemyBasicAttackbox hitbox;
@@ -25,6 +27,7 @@ public class MeatosaurusStomp : MonoBehaviour
         chosenPoints = new List<Transform>();
         currentRocks = new List<GameObject>();
         player = FindObjectOfType<CharacterMover>();
+        pcam = FindObjectOfType<PlayerCamControl>();
 
         ResetStomp();
     }
@@ -36,6 +39,7 @@ public class MeatosaurusStomp : MonoBehaviour
 
     public void DoStomp()
     {
+        pcam.ShakeCam(5, 2);
         hitbox.DoCollisionThings();
         for(int i = 0; i < rocksPerStomp; i++)
         {
@@ -68,11 +72,13 @@ public class MeatosaurusStomp : MonoBehaviour
         var newGo = Instantiate(rockPrefab, target.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
         currentRocks.Add(newGo);
 
-        if(Vector3.Distance(target.position, player.transform.position) <= 4)
+        yield return new WaitForSeconds(rockFallAnimTime);
+
+        if(Vector3.Distance(target.position, player.transform.position) <= 6)
         {
 
             Vector3 dir = (player.transform.position - newGo.transform.position).normalized;
-            float force = 20;
+            float force = 50;
             player.ForceDirection((dir * force));
             player.GetComponent<PlayerHitpoints>().TakeDamage(rockDamage, SoundEffectSpawner.SoundEffect.Cleaver);
         }

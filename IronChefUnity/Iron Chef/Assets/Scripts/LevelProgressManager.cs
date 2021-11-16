@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 
 public class LevelProgressManager : MonoBehaviour
 {
+    public Image startBackground;
+    public Text startText;
+
+
     float score;
 
     public LevelScriptable level;
@@ -93,7 +97,24 @@ public class LevelProgressManager : MonoBehaviour
 
     private void DisplayDish()
     {
-
+        startText.text = "Your next dish..." + level.dish + ".";
+        StartCoroutine(fadeStartThings());
+    }
+    IEnumerator fadeStartThings()
+    {
+        while(startBackground.color.a != 1)
+        {
+            startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, Mathf.Min(startBackground.color.a + (0.5f * Time.deltaTime), 1));
+            startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
+            yield return null;
+        }
+        yield return new WaitForSeconds(3f);
+        while (startBackground.color.a != 0)
+        {
+            startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, Mathf.Max(startBackground.color.a - (0.5f * Time.deltaTime), 0));
+            startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
+            yield return null;
+        }
     }
 
     private void SetInformation()

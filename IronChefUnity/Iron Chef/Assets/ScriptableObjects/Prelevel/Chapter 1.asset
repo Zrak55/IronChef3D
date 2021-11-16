@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06417372b9902034a95cb4002be8deb3, type: 3}
   m_Name: Chapter 1
   m_EditorClassIdentifier: 
-  LevelName: Level1
+  LevelName: Chapter1

@@ -363,7 +363,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 shouldRoar = true;
                 isAttacking = true;
                 animator.SetTrigger("Breath");
-
+                agent.enabled = false;
 
                 Invoke("attackEnd", breathTime);
                 Invoke("breathEnd", breathTime);
@@ -405,6 +405,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 isAttacking = true;
                 animator.SetTrigger("Roar");
 
+                agent.enabled = false;
 
                 Invoke("attackEnd", roarTime);
                 Invoke("roarEnd", roarTime);
@@ -450,7 +451,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
         ChargeOnCD = false;
     }
 
-    private void TailDEnd()
+    private void TailCDEnd()
     {
         TailOnCD = false;
     }
@@ -559,9 +560,9 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
 
 
 
-    void Tip()
+    public void Tip(string s)
     {
-        FindObjectOfType<PlayerHUDManager>().SetBossTip(" ");
+        FindObjectOfType<PlayerHUDManager>().SetBossTip(s);
 
     }
     public void BossOver()

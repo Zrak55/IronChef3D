@@ -195,4 +195,9 @@ public class PlayerFoodEater : MonoBehaviour
         }
         
     }
+
+    public void resetEat()
+    {
+        amountEaten = 0;
+    }
 }

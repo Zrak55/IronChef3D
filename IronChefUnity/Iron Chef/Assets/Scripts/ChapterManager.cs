@@ -51,6 +51,8 @@ public class ChapterManager : MonoBehaviour
 
     public void StartLevel(int i)
     {
+        FindObjectOfType<PlayerHitpoints>().RestoreHP(FindObjectOfType<PlayerHitpoints>().GetMax());
+        FindObjectOfType<PlayerFoodEater>().resetEat();
         for(int j = 0; j < LevelSpecificThings.Length; j++)
         {
             bool activate = i == j;
