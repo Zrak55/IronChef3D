@@ -41,8 +41,8 @@ public class AppliancePowerSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PowerName.text = player.GetComponent<PlayerPower>().powerInformation.powerName.ToString();
-        ApplianceName.text = player.GetComponent<Appliance>().applianceScriptable.applianceName.ToString();
+        PowerName.text = player.GetComponent<PlayerPower>().powerInformation.DisplayName;
+        ApplianceName.text = player.GetComponent<Appliance>().applianceScriptable.DisplayName;
         PowerDesc.text = player.GetComponent<PlayerPower>().powerInformation.description;
         ApplianceDesc.text = player.GetComponent<Appliance>().applianceScriptable.description;
     }

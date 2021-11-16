@@ -444,7 +444,7 @@ public class BenedictBehavior : EnemyBehaviorTree
 
                 SpeedEffector fast = new SpeedEffector();
                 fast.effectName = SpeedEffector.EffectorName.BenedictSpeed;
-                fast.percentAmount = 1;
+                fast.percentAmount = 0.5f;
                 fast.duration = IronChefUtils.InfiniteDuration;
                 GetComponent<EnemySpeedController>().Modifiers.Add(fast);
                 

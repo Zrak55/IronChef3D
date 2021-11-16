@@ -115,7 +115,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 0
-  damage: 20
+  damage: 10
 --- !u!1 &3856517895618374344
 GameObject:
   m_ObjectHideFlags: 0

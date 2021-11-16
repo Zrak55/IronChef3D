@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: Glockamole
   m_EditorClassIdentifier: 
+  DisplayName: Glockamole
   powerName: 9
   description: Fire a shot from the mighty Glock(amole)
+  briefDescription: Powerful ranged attack.
   cooldown: 20
   animationNumber: 6
   values:

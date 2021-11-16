@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
   m_Name: Blender
   m_EditorClassIdentifier: 
+  DisplayName: Blender
   applianceName: 5
-  description: Your basic attakcks have a 20% chance to deal 2x damage.
+  description: Your basic attacks have a 20% chance to deal 2x damage.
+  briefDescription: Gain crit chance.
   values:
   - 0.2
   valueDescriptions:

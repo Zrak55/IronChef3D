@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
   m_Name: Fridge
   m_EditorClassIdentifier: 
+  DisplayName: Fridge
   applianceName: 0
   description: Your basic attacks slow the enemy's movement speed by 30%
+  briefDescription: Slow enemies.
   values:
   - 0.3
   - 5

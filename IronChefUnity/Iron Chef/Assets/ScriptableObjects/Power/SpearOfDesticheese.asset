@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: SpearOfDesticheese
   m_EditorClassIdentifier: 
+  DisplayName: Spear of Desticheese
   powerName: 2
   description: Throw a mighty spear forward
+  briefDescription: Powerful ranged attack
   cooldown: 10
   animationNumber: 1
   values:

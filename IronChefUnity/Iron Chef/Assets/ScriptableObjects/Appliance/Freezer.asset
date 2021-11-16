@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
   m_Name: Freezer
   m_EditorClassIdentifier: 
+  DisplayName: Freezer
   applianceName: 6
   description: After 3 hits with basic attacks, stun an opponent for 1s.  This has
     a delay of 5s after stunning an opponent.
+  briefDescription: Stun enemies after consecutive hits.
   values:
   - 1
   - 5

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: 50CheeseStrike
   m_EditorClassIdentifier: 
+  DisplayName: 50 Cheese Strike
   powerName: 5
   description: Unleash the fury of all 50 cheese flavors on enemies in front of you.
+  briefDescription: Deal powerful area damage in melee.
   cooldown: 15
   animationNumber: 5
   values:

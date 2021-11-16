@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: Molapeno
   m_EditorClassIdentifier: 
+  DisplayName: Molapeno
   powerName: 0
   description: Throw a projectile that leaves a damaging zone for 3s.
+  briefDescription: Deal strong area damage
   cooldown: 10
   animationNumber: 1
   values:

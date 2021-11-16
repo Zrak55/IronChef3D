@@ -15,6 +15,7 @@ public class PlayGameButton : MonoBehaviour
         
         preLevelWindow.gameObject.SetActive(true);
         preLevelWindow.levelName = chapterInfo.LevelName;
+        EventSystem.current.SetSelectedGameObject(preLevelWindow.GetComponentInChildren<Button>().gameObject);
         
         
 

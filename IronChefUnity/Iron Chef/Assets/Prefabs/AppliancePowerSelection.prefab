@@ -357,7 +357,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -537,7 +537,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 4479788190440777684}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -632,6 +632,7 @@ RectTransform:
   - {fileID: 4733651925699181622}
   - {fileID: 2714817569109369330}
   - {fileID: 2490123811996798252}
+  - {fileID: 4751628706200184519}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -927,8 +928,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1084,6 +1085,7 @@ GameObject:
   - component: {fileID: 172127739606567636}
   - component: {fileID: 172127739606567635}
   - component: {fileID: 172127739606567634}
+  - component: {fileID: 3164527071398572375}
   m_Layer: 5
   m_Name: Molapeno
   m_TagString: Untagged
@@ -1180,10 +1182,10 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 2771733014536530292}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 0.60727984, b: 0, a: 1}
     m_HighlightedColor: {r: 1, g: 0.6303571, b: 0.21226418, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 1, g: 0.4768409, b: 0, a: 1}
@@ -1218,6 +1220,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3164527071398572375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172127739606567632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b38d2b48c30da4fbb346f922ce4c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &172127739777072707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1618,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 7912026170698008868}
     m_SelectOnDown: {fileID: 3222485867586779754}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -1725,7 +1739,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -1735,6 +1749,85 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 50 Cheese Strike
+--- !u!1 &1330428455522725778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4751628706200184519}
+  - component: {fileID: 3945354469500859337}
+  - component: {fileID: 6577934575644797781}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4751628706200184519
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330428455522725778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 172127739076343045}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1.172, y: 373.95}
+  m_SizeDelta: {x: 951.98, y: 150.22}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3945354469500859337
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330428455522725778}
+  m_CullTransparentMesh: 1
+--- !u!114 &6577934575644797781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330428455522725778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Dev Note: Select Molapeno and Fridge for a quick loadout'
 --- !u!1 &1722970132219070246
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,7 +1923,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 4479788190440777684}
     m_SelectOnDown: {fileID: 896559448590524878}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -2030,8 +2123,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -2269,7 +2362,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 2574241974297684081}
     m_SelectOnDown: {fileID: 4472344805279292012}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -2430,7 +2523,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 7070706921845502605}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2737,7 +2830,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 3215937205164574549}
     m_SelectOnDown: {fileID: 5916873674549183156}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2844,7 +2937,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -3136,8 +3229,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3215,7 +3308,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -3334,7 +3427,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 5916873674549183156}
     m_SelectOnDown: {fileID: 2821299061386744927}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -3441,7 +3534,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -3520,8 +3613,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 35
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 3
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -3758,7 +3851,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -3877,7 +3970,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 5121969883845255276}
     m_SelectOnDown: {fileID: 5716417768844014026}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 5716417768844014026}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4010,7 +4103,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 896559448590524878}
     m_SelectOnDown: {fileID: 3222485867586779754}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -4246,7 +4339,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 4626726179690747798}
     m_SelectOnDown: {fileID: 5716417768844014026}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 5716417768844014026}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4379,7 +4472,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 7573779681727909972}
     m_SelectOnDown: {fileID: 2255194918543924744}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -4600,8 +4693,8 @@ MonoBehaviour:
     m_Mode: 4
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 3222485867586779754}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnDown: {fileID: 7573779681727909972}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -4762,7 +4855,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 2415869707885420032}
     m_SelectOnDown: {fileID: 2764254173618123901}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -4869,8 +4962,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -5049,7 +5142,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 172127738918501066}
     m_SelectOnDown: {fileID: 2574241974297684081}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -5249,7 +5342,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -5328,7 +5421,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -5447,7 +5540,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 2771733014536530292}
     m_SelectOnDown: {fileID: 4626726179690747798}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5594,7 +5687,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 172127739606567634}
     m_SelectOnDown: {fileID: 2415869707885420032}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -5701,7 +5794,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -5859,7 +5952,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
@@ -5938,8 +6031,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -6017,8 +6110,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -6122,7 +6215,7 @@ MonoBehaviour:
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 717347376542102298}
     m_SelectOnDown: {fileID: 7912026170698008868}
-    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnLeft: {fileID: 172127739777072709}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
@@ -6687,7 +6780,7 @@ MonoBehaviour:
     m_SelectOnUp: {fileID: 7070706921845502605}
     m_SelectOnDown: {fileID: 5121969883845255276}
     m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
+    m_SelectOnRight: {fileID: 172127739777072709}
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6794,8 +6887,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -7029,8 +7122,8 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
+    m_BestFit: 1
+    m_MinSize: 10
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0

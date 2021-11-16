@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: SugarRush
   m_EditorClassIdentifier: 
+  DisplayName: Sugar Rush
   powerName: 8
   description: Increase your attack and move speeds by 50% for 5s
+  briefDescription: Stim move/attack speed.
   cooldown: 12
   animationNumber: 3
   values:

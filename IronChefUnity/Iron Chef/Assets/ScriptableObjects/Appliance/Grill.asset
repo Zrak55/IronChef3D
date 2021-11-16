@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34811fb00018fb1428fbc1e1b61d9b1b, type: 3}
   m_Name: Grill
   m_EditorClassIdentifier: 
+  DisplayName: Grill
   applianceName: 4
   description: Gain 40% basic attack damage, but lose 20% HP
+  briefDescription: Deal more weapon damage, but lose hp.
   values:
   - 0.4
   - 0.2

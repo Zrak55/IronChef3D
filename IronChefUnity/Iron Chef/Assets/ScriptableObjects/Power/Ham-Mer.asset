@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: Ham-Mer
   m_EditorClassIdentifier: 
+  DisplayName: Ham-Mer
   powerName: 4
   description: Stun an enemy in front of you.
+  briefDescription: Stun an enemy in melee
   cooldown: 15
   animationNumber: 4
   values:

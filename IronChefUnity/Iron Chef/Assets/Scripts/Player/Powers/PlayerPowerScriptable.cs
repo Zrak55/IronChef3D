@@ -3,9 +3,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPower", menuName = "Player Powers/New Player Power", order = 1)]
 public class PlayerPowerScriptable : ScriptableObject
 {
+    public string DisplayName;
+
     public PowerName powerName;
 
     public string description;
+    public string briefDescription;
 
     public float cooldown;
     public int animationNumber;

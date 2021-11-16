@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: IceTray
   m_EditorClassIdentifier: 
+  DisplayName: Ice Tray
   powerName: 7
   description: Throw several cubes in a forward arc, stunning enemies they hit.. 
     Stun increases on an enemy for each projectile that hits it.
+  briefDescription: Throw stunning projectiles.
   cooldown: 10
   animationNumber: 1
   values:

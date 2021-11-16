@@ -187,7 +187,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         targetOverrideWeight = 1;
         attacking = true;
-        animator.SetBool("BasicAttack", true);
+        animator.SetTrigger("BasicAttack");
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
 
         Invoke("DoneAttacking", PlayerBasics[currentPlayerBasic].attackAnimTime);
@@ -197,10 +197,12 @@ public class PlayerAttackController : MonoBehaviour
 
     private void EmergencyShutoff()
     {
+        /*
         if(!attacking && animator.GetBool("BasicAttack"))
         {
             animator.SetBool("BasicAttack", false);
         }
+        */
     }
 
     public void BasicHitOn()
@@ -216,7 +218,7 @@ public class PlayerAttackController : MonoBehaviour
     public void DoneAttacking()
     {
         attacking = false;
-        animator.SetBool("BasicAttack", false);
+        //animator.SetBool("BasicAttack", false);
         targetOverrideWeight = 0;
     }
 

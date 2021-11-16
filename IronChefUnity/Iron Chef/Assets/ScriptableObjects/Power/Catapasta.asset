@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: Catapasta
   m_EditorClassIdentifier: 
+  DisplayName: Catapasta
   powerName: 6
   description: Mark a location to be bombarded by your Catapastas!
+  briefDescription: Deal massive damage after a delay.
   cooldown: 25
   animationNumber: 1
   values:

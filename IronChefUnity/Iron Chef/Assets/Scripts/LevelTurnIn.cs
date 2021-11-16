@@ -40,9 +40,8 @@ public class LevelTurnIn : MonoBehaviour
     void TurnOffDelay()
     {
         delay = true;
-        Invoke("TurnOffTurnOffDelay", 100f);
     }
-    void TurnOffTurnOffDelay()
+    public void TurnOffTurnOffDelay()
     {
         delay = false;
     }

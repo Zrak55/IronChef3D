@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
   m_Name: PortableLunch
   m_EditorClassIdentifier: 
+  DisplayName: Portable Lunch
   powerName: 3
   description: Take a bite to eat, restoring health without requiring any ingredients
+  briefDescription: Heal yourself
   cooldown: 10
   animationNumber: 3
   values:
