@@ -10,7 +10,7 @@ public class MeatosaurusBreath : MonoBehaviour
     public Transform player;
     float playerHeightRaise;
 
-    float DamagePerSecond;
+    public float DamagePerSecond;
     // Start is called before the first frame update
     void Start()
     {

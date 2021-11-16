@@ -11,6 +11,8 @@ public class MeatosaurusCharge : MonoBehaviour
     public KnockPlayerAway ChargeKnockbox;
     private MeatosaurusBehavior behavior;
     EnemySpeedController speed;
+    [SerializeField]
+    private Animator animator;
 
 
     bool chargeing = false;
@@ -24,7 +26,7 @@ public class MeatosaurusCharge : MonoBehaviour
     {
         behavior = GetComponent<MeatosaurusBehavior>();
         speed = GetComponent<EnemySpeedController>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -36,10 +38,13 @@ public class MeatosaurusCharge : MonoBehaviour
 
     public void StartCharge()
     {
-        charging = true;
-        targetFacing = transform.forward;
-        ChargeCollider.HitOn();
-        ChargeKnockbox.HitOn();
+        if(!charging)
+        {
+            charging = true;
+            targetFacing = transform.forward;
+            ChargeCollider.HitOn();
+            ChargeKnockbox.HitOn();
+        }
     }
 
     void DoChargeThings()
@@ -53,15 +58,17 @@ public class MeatosaurusCharge : MonoBehaviour
 
             }
 
-            //Move
-            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), chargeSpeed * speed.GetMod() * Time.deltaTime);
 
         }
+
+        //Move
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), chargeSpeed * speed.GetMod() * Time.deltaTime);
 
 
     }
     void StopCharge()
     {
+        animator.SetBool("Charge", false);   
         ChargeCollider.HitOff();
         ChargeKnockbox.HitOff();
         behavior.attackEnd();

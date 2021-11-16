@@ -48,7 +48,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
         GetComponentInParent<EnemyBehaviorTree>().playSound(value);
     }
 
-    private void DoCollisionThings()
+    public void DoCollisionThings()
     {
         var hits = IronChefUtils.GetCastHits(attackbox);
         foreach (var hit in hits)

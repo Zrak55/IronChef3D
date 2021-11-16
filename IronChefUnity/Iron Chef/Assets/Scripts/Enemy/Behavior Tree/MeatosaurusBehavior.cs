@@ -266,7 +266,9 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
             {
                 ChargeOnCD = true;
                 isAttacking = true;
-                animator.SetTrigger("Charge");
+                animator.SetBool("Charge", true);
+                animator.SetTrigger("ChargeTrigger");
+                
 
                 agent.enabled = false;
                 transform.LookAt(player);

@@ -7,14 +7,25 @@ public class MeatosaurusStomp : MonoBehaviour
     public List<Transform> rockPoints;
     public float fallDelay;
     public GameObject rockPrefab;
+    public GameObject targeterPrefab;
     public int rocksPerStomp;
     List<Transform> chosenPoints;
     List<GameObject> currentRocks;
+    CharacterMover player;
+    [SerializeField]
+    private float force;
+    [SerializeField]
+    private float rockDamage;
+
+    [SerializeField]
+    private EnemyBasicAttackbox hitbox;
 
     private void Start()
     {
         chosenPoints = new List<Transform>();
         currentRocks = new List<GameObject>();
+        player = FindObjectOfType<CharacterMover>();
+
         ResetStomp();
     }
 
@@ -25,6 +36,7 @@ public class MeatosaurusStomp : MonoBehaviour
 
     public void DoStomp()
     {
+        hitbox.DoCollisionThings();
         for(int i = 0; i < rocksPerStomp; i++)
         {
             int rand = 0;
@@ -44,6 +56,7 @@ public class MeatosaurusStomp : MonoBehaviour
                 attempts++;
             }
             chosenPoints.Add(rockPoints[rand]);
+            Destroy(Instantiate(targeterPrefab, rockPoints[rand].position, Quaternion.identity), fallDelay);
             StartCoroutine(SpawnStomp(fallDelay, rockPoints[rand]));
         }
         
@@ -52,7 +65,17 @@ public class MeatosaurusStomp : MonoBehaviour
     IEnumerator SpawnStomp(float t, Transform target)
     {
         yield return new WaitForSeconds(t);
-        currentRocks.Add(Instantiate(rockPrefab, target.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0))));
+        var newGo = Instantiate(rockPrefab, target.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
+        currentRocks.Add(newGo);
+
+        if(Vector3.Distance(target.position, player.transform.position) <= 4)
+        {
+
+            Vector3 dir = (player.transform.position - newGo.transform.position).normalized;
+            float force = 20;
+            player.ForceDirection((dir * force));
+            player.GetComponent<PlayerHitpoints>().TakeDamage(rockDamage, SoundEffectSpawner.SoundEffect.Cleaver);
+        }
 
     }
 
