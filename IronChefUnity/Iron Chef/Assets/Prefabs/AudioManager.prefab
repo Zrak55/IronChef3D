@@ -372,6 +372,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b4b9bdf784bd8e348ad25bc6623d28d9, type: 3}
   - {fileID: 8300000, guid: ccc2f2de59fb84048911a9d6ce0150fe, type: 3}
   - {fileID: 8300000, guid: e80ae0303bb1fb6479c8b6e55fe474a5, type: 3}
+  SpearHit: {fileID: 8300000, guid: 0d0dee172d9d02d42a141b5d1dc42ef2, type: 3}
+  SpearThrow: {fileID: 8300000, guid: c49ffad80f483254c987b79d493c963c, type: 3}
+  FiftyPunchEffects:
+  - {fileID: 8300000, guid: f4e50f84cd5e7bf4d98e449b74c6a7d5, type: 3}
+  - {fileID: 8300000, guid: 194df0e8c4a0320408e6c64a093c5f05, type: 3}
+  - {fileID: 8300000, guid: 335b16fe669bc2340b8a8f4ea15e7c4f, type: 3}
+  - {fileID: 8300000, guid: cc1e5f6a593104b4dacc23fbdf86f763, type: 3}
+  PortableLunch: {fileID: 8300000, guid: b83e92e6090377e40ac60de12180d348, type: 3}
+  Glockamole: {fileID: 8300000, guid: e0111414a8b0b7341a1fe725bd5176ae, type: 3}
+  BreadTrap: {fileID: 8300000, guid: a6f710aaeebff6a45881991cf14043d2, type: 3}
+  Hammer: {fileID: 8300000, guid: d94f0a5a09156dd429551e52f6ca72cd, type: 3}
+  CatapastaFly: {fileID: 8300000, guid: 42cc58f027771674c8087398c7adceda, type: 3}
+  CatapastaHitEffects:
+  - {fileID: 8300000, guid: 2a9bd5b4a52f28b4dbfca74f7b00e49b, type: 3}
+  - {fileID: 8300000, guid: 92f3a6c6caf7d694187f83731984ea25, type: 3}
+  - {fileID: 8300000, guid: bfee5b93ac73e534d979647aae323c3d, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0

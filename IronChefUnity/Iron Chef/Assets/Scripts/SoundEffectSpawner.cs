@@ -37,6 +37,15 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] monsterDeathEffects;
     public AudioClip freezerEffect;
     public AudioClip[] xpEffects;
+    public AudioClip SpearHit;
+    public AudioClip SpearThrow;
+    public AudioClip[] FiftyPunchEffects;
+    public AudioClip PortableLunch;
+    public AudioClip Glockamole;
+    public AudioClip BreadTrap;
+    public AudioClip Hammer;
+    public AudioClip CatapastaFly;
+    public AudioClip[] CatapastaHitEffects;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -185,6 +194,38 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.Freezer:
                 clipToPlay = freezerEffect;
                 break;
+            case SoundEffect.SpearHit:
+                clipToPlay = SpearHit;
+                break;
+            case SoundEffect.SpearThrow:
+                clipToPlay = SpearThrow;
+                break;
+            case SoundEffect.BreadTrap:
+                clipToPlay = BreadTrap;
+                break;
+            case SoundEffect.Glockamole:
+                clipToPlay = Glockamole;
+                break;
+            case SoundEffect.Hammer:
+                clipToPlay = Hammer;
+                break;
+            case SoundEffect.FiftyPunches:
+                index = Random.Range(0, FiftyPunchEffects.Length -1);
+                clipToPlay = FiftyPunchEffects[index];
+                break;
+            case SoundEffect.PunchMiss:
+                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length];
+                break;
+            case SoundEffect.PortableLunch:
+                clipToPlay = PortableLunch;
+                break;
+            case SoundEffect.CatapastaFly:
+                clipToPlay = CatapastaFly;
+                break;
+            case SoundEffect.CatapastaHit:
+                index = Random.Range(0, CatapastaHitEffects.Length);
+                clipToPlay = CatapastaHitEffects[index];
+                break;
         }
         if (clipToPlay != null)
         {
@@ -230,7 +271,17 @@ public class SoundEffectSpawner : MonoBehaviour
         PlayerArmorHit,
         Freezer,
         XpPickup,
-        MonsterDeath
+        MonsterDeath,
+        SpearHit,
+        SpearThrow,
+        Hammer,
+        Glockamole,
+        BreadTrap,
+        FiftyPunches,
+        PunchMiss,
+        PortableLunch,
+        CatapastaFly,
+        CatapastaHit
     }
 }
 
