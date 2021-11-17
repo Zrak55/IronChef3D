@@ -77,7 +77,7 @@ public class KnockPlayerAway : MonoBehaviour
                         playersHit.Add(player);
 
                         Vector3 dir = player.transform.position - transform.position;
-                        
+                        dir.y = 0;
                         player.ForceDirection((dir * force));
 
                         

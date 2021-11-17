@@ -943,8 +943,6 @@ MonoBehaviour:
   attackAngle: 0
   idleSoundEffect: 
   attackSoundEffect: 
-  aggroRange: 70
-  spawnRange: 100
   biteRange: 12
   rollRange: 100
   jumpRange: 100
@@ -957,7 +955,6 @@ MonoBehaviour:
   RollCD: 10
   YolkCD: 0.25
   JumpCD: 8
-  animator: {fileID: 7047592814056382529}
   DoneRolling: 0
   yolkBomb: {fileID: 4088226268673702336, guid: fb412c7ffd3a47246931b63eeb7ac598, type: 3}
   BombSpawnPoint: {fileID: 9181710798279154573}
@@ -1196,7 +1193,7 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 157670040086219631}
   IsCleave: 1
-  force: 10
+  force: 20
 --- !u!1001 &3505069324512370128
 PrefabInstance:
   m_ObjectHideFlags: 0

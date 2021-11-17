@@ -77,7 +77,9 @@ public class MeatosaurusStomp : MonoBehaviour
         if(Vector3.Distance(target.position, player.transform.position) <= 6)
         {
 
-            Vector3 dir = (player.transform.position - newGo.transform.position).normalized;
+            Vector3 dir = (player.transform.position - newGo.transform.position);
+            dir.y = 0;
+            dir = dir.normalized;
             float force = 50;
             player.ForceDirection((dir * force));
             player.GetComponent<PlayerHitpoints>().TakeDamage(rockDamage, SoundEffectSpawner.SoundEffect.Cleaver);
