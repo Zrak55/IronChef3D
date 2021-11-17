@@ -53,7 +53,7 @@ public class SoundEffectSpawner : MonoBehaviour
     }
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect, float volume, float overrideTimeAlive)
     {
-        var x = MakeSoundEffect(transform.position, volume, effect, overrideTimeAlive);
+        var x = MakeSoundEffect(follow.position, volume, effect, overrideTimeAlive);
         x.transform.SetParent(follow);
         return x;
     }
@@ -214,7 +214,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = FiftyPunchEffects[index];
                 break;
             case SoundEffect.PunchMiss:
-                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length];
+                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length - 1];
                 break;
             case SoundEffect.PortableLunch:
                 clipToPlay = PortableLunch;

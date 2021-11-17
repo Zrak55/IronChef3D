@@ -68,26 +68,32 @@ public class _50CheeseStrike : PlayerPower
 
 
             Instantiate(particle, model.transform.position + offset, model.rotation);
-
+            bool hitSomething = false;
             var hits = IronChefUtils.GetCastHits(Width, Height, Depth, transform.position, model.rotation);
             foreach (var h in hits)
             {
                 var hp = h.GetComponentInParent<EnemyHitpoints>();
                 if (hp != null && allhits.Contains(hp) == false)
                 {
+                    hitSomething = true;
                     hp.TakeDamage(SinglePunchDamage);
                     allhits.Add(hp);
                 }
             }
-            if(hits.Count > 0)
+            
+            if(numPunches % 5 == 0)
             {
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
-            }
-            else
-            {
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
+                if (hitSomething)
+                {
+                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
+                }
+                else
+                {
+                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
 
+                }
             }
+            
 
 
             yield return new WaitForSeconds(tickRate);

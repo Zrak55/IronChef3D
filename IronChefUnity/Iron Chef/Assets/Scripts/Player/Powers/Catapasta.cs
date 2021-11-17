@@ -32,15 +32,19 @@ public class Catapasta : PlayerPower
     {
         if(spawnedProjectile != null)
         {
-            if(shouldMove && spawnedProjectile.transform.position != spawnedTargeter.transform.position)
+            if (shouldMove && spawnedProjectile.transform.position != spawnedTargeter.transform.position)
             {
                 spawnedProjectile.transform.position = Vector3.MoveTowards(spawnedProjectile.transform.position, spawnedTargeter.transform.position, goSpeed * Time.deltaTime);
             }
             else
             {
-                if (spawnedProjectile.GetComponentInChildren<AudioSource>() != null)
-                    spawnedProjectile.GetComponentInChildren<AudioSource>().enabled = false;
-                shouldMove = false;
+                if (spawnedTargeter.GetComponentInChildren<AudioSource>() != null)
+                    spawnedTargeter.GetComponentInChildren<AudioSource>().enabled = false;
+                if (shouldMove)
+                {
+                    shouldMove = false;
+                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(spawnedTargeter.transform.position, SoundEffectSpawner.SoundEffect.CatapastaHit);
+                }
                 if (remainTime >= 1f)
                 {
                     Destroy(spawnedProjectile);
@@ -63,6 +67,7 @@ public class Catapasta : PlayerPower
         goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
         spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, GetComponent<CharacterMover>().model.transform.forward, 45);
         remainTime = 0;
+        FindObjectOfType<SoundEffectSpawner>().MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
         shouldMove = true;
     }
 
