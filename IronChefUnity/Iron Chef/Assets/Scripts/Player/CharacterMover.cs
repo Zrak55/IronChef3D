@@ -155,7 +155,19 @@ public class CharacterMover : MonoBehaviour
         {
             if(!AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
             {
-                Debug.Log("Found Illegal material! " + hit.collider.gameObject.GetComponent<MeshRenderer>().material.name);
+                //This solution looks bad ingame. Perhaps there's a better answer that involves a coroutine where transform is changed every update to look more natural
+                Collider[] enemy;
+                Vector3 movement;
+                do
+                {
+                    enemy = Physics.OverlapSphere(oldPos, 1, 1 << LayerMask.NameToLayer("Enemy"));
+                    if (enemy == null || enemy.Length == 0)
+                        return;
+                    movement = Vector3.Cross(enemy[0].bounds.center, oldPos).normalized;
+                    movement.y = 0;
+                    Debug.Log(movement);
+                    oldPos += movement;
+                } while (enemy == null || enemy.Length == 0);
                 transform.position = oldPos;
             }
         }
