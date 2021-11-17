@@ -23,6 +23,7 @@ public class PortableLunch : PlayerPower
     {
         base.DoPowerEffects();
         hp.RestoreHP(healing);
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PortableLunch);
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)

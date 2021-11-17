@@ -407,5 +407,6 @@ MonoBehaviour:
   speed: 75
   maxAllowedDistance: 150
   damage: 30
-  HitSound: 13
+  multiHit: 0
+  HitSound: 28
   FlightSound: 14

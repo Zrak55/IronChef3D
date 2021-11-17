@@ -79,6 +79,15 @@ public class _50CheeseStrike : PlayerPower
                     allhits.Add(hp);
                 }
             }
+            if(hits.Count > 0)
+            {
+                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
+            }
+            else
+            {
+                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
+
+            }
 
 
             yield return new WaitForSeconds(tickRate);

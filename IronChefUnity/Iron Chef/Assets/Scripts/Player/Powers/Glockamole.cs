@@ -32,6 +32,7 @@ public class Glockamole : PlayerPower
         fp.GetComponent<PlayerProjectile>().speed = speed;
         fp.GetComponent<PlayerProjectile>().maxAllowedDistance = distance;
         fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + fp.transform.forward);
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Glockamole);
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)

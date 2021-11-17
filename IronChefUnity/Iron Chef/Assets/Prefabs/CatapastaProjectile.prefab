@@ -113,8 +113,8 @@ MonoBehaviour:
   maxAllowedDistance: 75
   damage: 10
   multiHit: 1
-  HitSound: 7
-  FlightSound: 17
+  HitSound: 37
+  FlightSound: 36
 --- !u!95 &8174659304051913914
 Animator:
   serializedVersion: 3
@@ -125,7 +125,7 @@ Animator:
   m_GameObject: {fileID: 4312367088962146410}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bf470dee097de134f89207760f24700a, type: 2}
+  m_Controller: {fileID: 9100000, guid: b1449d5b4e5d344468f5a9df4ee4536e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

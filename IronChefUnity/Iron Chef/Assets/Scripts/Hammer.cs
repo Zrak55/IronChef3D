@@ -42,6 +42,8 @@ public class Hammer : PlayerPower
                 break;
             }
         }
+        if (hits.Count > 0)
+            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Hammer);
 
     }
 

@@ -17,6 +17,8 @@ public class Catapasta : PlayerPower
 
     Transform throwPoint;
 
+    bool shouldMove = false;
+
 
 
     // Start is called before the first frame update
@@ -30,12 +32,15 @@ public class Catapasta : PlayerPower
     {
         if(spawnedProjectile != null)
         {
-            if(spawnedProjectile.transform.position != spawnedTargeter.transform.position)
+            if(shouldMove && spawnedProjectile.transform.position != spawnedTargeter.transform.position)
             {
                 spawnedProjectile.transform.position = Vector3.MoveTowards(spawnedProjectile.transform.position, spawnedTargeter.transform.position, goSpeed * Time.deltaTime);
             }
             else
             {
+                if (spawnedProjectile.GetComponentInChildren<AudioSource>() != null)
+                    spawnedProjectile.GetComponentInChildren<AudioSource>().enabled = false;
+                shouldMove = false;
                 if (remainTime >= 1f)
                 {
                     Destroy(spawnedProjectile);
@@ -58,6 +63,7 @@ public class Catapasta : PlayerPower
         goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
         spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, GetComponent<CharacterMover>().model.transform.forward, 45);
         remainTime = 0;
+        shouldMove = true;
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)
