@@ -6467,7 +6467,7 @@ MonoBehaviour:
   breathPoint: {fileID: 7799281280168251530}
   player: {fileID: 0}
   breathEffect: {fileID: 5094545519435287598}
-  DamagePerSecond: 10
+  DamagePerSecond: 17.5
 --- !u!114 &3190458747244206121
 MonoBehaviour:
   m_ObjectHideFlags: 0
