@@ -149,26 +149,36 @@ public class CharacterMover : MonoBehaviour
     public void TryMove()
     {
         var oldPos = transform.position;
+
+
+
         controller.Move(currentMove * Time.deltaTime);
+
+
+        /*
+        //This solution looks bad ingame. Perhaps there's a better answer that involves a coroutine where transform is changed every update to look more natural
+        Collider[] enemy;
+        Vector3 movement;
+        do
+        {
+            enemy = Physics.OverlapSphere(transform.position, 1, 1 << LayerMask.NameToLayer("Enemy"));
+            if (enemy == null || enemy.Length == 0)
+                break;
+            movement = Vector3.Cross(enemy[0].bounds.center, transform.position).normalized;
+            movement.y = 0;
+            Debug.Log(movement);
+            controller.Move(movement);
+        } while (enemy == null || enemy.Length == 0);
+        */
+
+
+        //Check illegal area to walk on
         RaycastHit hit;
         if(Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
         {
             if(!AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
             {
-                //This solution looks bad ingame. Perhaps there's a better answer that involves a coroutine where transform is changed every update to look more natural
-                Collider[] enemy;
-                Vector3 movement;
-                do
-                {
-                    enemy = Physics.OverlapSphere(oldPos, 1, 1 << LayerMask.NameToLayer("Enemy"));
-                    if (enemy == null || enemy.Length == 0)
-                        return;
-                    movement = Vector3.Cross(enemy[0].bounds.center, oldPos).normalized;
-                    movement.y = 0;
-                    Debug.Log(movement);
-                    oldPos += movement;
-                } while (enemy == null || enemy.Length == 0);
-                transform.position = oldPos;
+                controller.Move(oldPos - transform.position);
             }
         }
     }
