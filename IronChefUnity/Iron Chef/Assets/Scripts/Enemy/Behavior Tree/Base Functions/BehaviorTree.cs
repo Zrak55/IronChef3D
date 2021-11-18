@@ -32,8 +32,7 @@ public class BehaviorTree
         Debug.Log(root.printName(1));
     }
 
-    //TODO: check if this works. this function may not even be neccessary
-    //Changes the status of every node in the tree to Start. Used when the enemy needs to be reset, or when the tree reaches the end (most trees will never have an "end").
+    //Changes all the nodes back to start. Honestly not really needed/useful, maybe there will be a use someday.
     public void resetTree()
     {
         root.reset();
