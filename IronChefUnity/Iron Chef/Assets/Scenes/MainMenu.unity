@@ -1844,6 +1844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5481649660214377181, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
+      propertyPath: SugarRush
+      value: 
+      objectReference: {fileID: 8300000, guid: fc3e56bd6dc3cfd4da61197609217dc0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
 --- !u!1 &821262159
