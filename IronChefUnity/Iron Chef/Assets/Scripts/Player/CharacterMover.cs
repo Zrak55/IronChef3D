@@ -102,7 +102,7 @@ public class CharacterMover : MonoBehaviour
         }
         direction = direction.normalized * speed;
         targetMoveSpeed = direction;
-        targetMoveSpeed.y = -144f;
+        targetMoveSpeed.y = 0f;
 
 
         TryRoll();
@@ -111,13 +111,15 @@ public class CharacterMover : MonoBehaviour
 
 
         currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
+        currentMove.y = -144f;
         var currentHorizontalMove = currentMove;
         currentHorizontalMove.y = 0;
 
         animator.SetFloat("Speed", currentHorizontalMove.magnitude);
 
-
         TryMove();
+
+        currentMove = currentHorizontalMove;
 
 
         //Rotation of model
