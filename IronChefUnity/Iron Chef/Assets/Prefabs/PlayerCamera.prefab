@@ -63,7 +63,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 6000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -149,7 +149,7 @@ MonoBehaviour:
     Value: 0.34511873
     m_SpeedMode: 0
     m_MaxSpeed: 1.25
-    m_AccelTime: 2
+    m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
     m_InputAxisValue: 22
@@ -282,8 +282,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719636529}
-  m_LocalRotation: {x: 0.14029205, y: 0.000000012567027, z: -0.0000000017806651, w: 0.99011016}
-  m_LocalPosition: {x: 0, y: 4.1, z: -8.51}
+  m_LocalRotation: {x: -0.14029208, y: -0.000000007450581, z: 0.0000000018626451, w: -0.9901102}
+  m_LocalPosition: {x: 0.00015902519, y: 4.1000977, z: -8.510004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3109323825666893895}
@@ -313,7 +313,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 5000
+  far clip plane: 6000
   field of view: 40
   orthographic: 0
   orthographic size: 5
@@ -749,7 +749,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 6000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:
@@ -967,7 +967,7 @@ MonoBehaviour:
     FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
-    FarClipPlane: 5000
+    FarClipPlane: 6000
     Dutch: 0
     LensShift: {x: 0, y: 0}
   m_Transitions:

@@ -276,22 +276,66 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""ae4391be-054d-40cf-867e-82d8bf3c0ad7"",
-                    ""path"": ""<Mouse>/delta"",
+                    ""name"": ""Stick"",
+                    ""id"": ""c7e81bcc-257b-4693-a3e7-c1152a2b697b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a3bfa3d5-cab8-49cb-8208-23e396cbb086"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0b857524-1319-4149-aa5b-313a6b716183"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": ""StickDeadzone(min=0.1,max=1)"",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fa4df51c-ff67-4438-a80d-73410623afe0"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RotateCamera"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""50f5592e-3ab1-4130-ade3-29ed8ba5fc2d"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a469766a-8b92-4e61-99b0-dbd3225acfb5"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""id"": ""2aa2aa59-b11d-4612-82a8-ac96d93100f5"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.2)"",
                     ""groups"": """",
                     ""action"": ""RotateCamera"",
                     ""isComposite"": false,
