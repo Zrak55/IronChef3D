@@ -46,6 +46,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip Hammer;
     public AudioClip CatapastaFly;
     public AudioClip[] CatapastaHitEffects;
+    public AudioClip SugarRush;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
@@ -226,6 +227,9 @@ public class SoundEffectSpawner : MonoBehaviour
                 index = Random.Range(0, CatapastaHitEffects.Length);
                 clipToPlay = CatapastaHitEffects[index];
                 break;
+            case SoundEffect.SugarRush:
+                clipToPlay = SugarRush;
+                break;
         }
         if (clipToPlay != null)
         {
@@ -281,7 +285,8 @@ public class SoundEffectSpawner : MonoBehaviour
         PunchMiss,
         PortableLunch,
         CatapastaFly,
-        CatapastaHit
+        CatapastaHit,
+        SugarRush
     }
 }
 

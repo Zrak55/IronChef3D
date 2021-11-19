@@ -40,6 +40,11 @@ public class KnockPlayerAway : MonoBehaviour
 
     }
 
+    public void PlayAttackSound(int value)
+    {
+        GetComponent<EnemyBehaviorTree>().playSound(value);
+    }
+
     private void FixedUpdate()
     {
         if (CanHit)
