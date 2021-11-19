@@ -399,7 +399,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""408e93c2-7461-48f6-b493-45576f170fe6"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
