@@ -24,6 +24,8 @@ public class PlayerCamControl : MonoBehaviour
 
     bool canMove;
 
+    Vector3 currentSnapRotation;
+
 
     private void Awake()
     {
@@ -37,6 +39,7 @@ public class PlayerCamControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
@@ -89,6 +92,12 @@ public class PlayerCamControl : MonoBehaviour
         if (oldVert != verticalMult)
             SetCamSensitivity();
 
+
+
+        if(InputControls.controls.Gameplay.SnapCameraToBack.triggered)
+        {
+            SnapCamToBack();
+        }
     }
 
     void SetCamSensitivity()
@@ -161,6 +170,19 @@ public class PlayerCamControl : MonoBehaviour
         public float obscureDistance;
         public float objectRadius;
     }
+
+
+    public void SnapCamToBack()
+    {
+        cinemachine.m_RecenterToTargetHeading.m_enabled = true;
+        Invoke("Uncenter", 1f);
+    }
+
+    void Uncenter()
+    {
+        cinemachine.m_RecenterToTargetHeading.m_enabled = false;
+    }
+
 }
 
 

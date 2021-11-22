@@ -37,6 +37,8 @@ public class PlayerAttackController : MonoBehaviour
 
     float targetOverrideWeight = 0;
 
+    public TrailRenderer[] BasicTrails;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -79,6 +81,20 @@ public class PlayerAttackController : MonoBehaviour
 
             EmergencyShutoff();
         }
+    }
+
+
+
+
+    public void TurnBasicAttackTrailOn()
+    {
+        BasicTrails[currentPlayerBasic].enabled = true;
+    }
+
+    public void TurnBasicAttackTrailOff()
+    {
+        BasicTrails[currentPlayerBasic].enabled = false;
+
     }
 
     private void CheckAttackingStuck()

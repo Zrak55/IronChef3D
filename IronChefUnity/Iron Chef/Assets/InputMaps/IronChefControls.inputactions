@@ -116,6 +116,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SnapCameraToBack",
+                    "type": "Button",
+                    "id": "af6a7a8d-1e60-447c-9fe9-9e3e922b676a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -644,6 +652,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "RotateCameraControllerCheck",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7bebbbb-e6a2-4a1a-8048-8a98c4d2a849",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SnapCameraToBack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3fd85dd8-0379-4429-a10c-897a58b4a6cd",
+                    "path": "<Gamepad>/rightStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SnapCameraToBack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -129,6 +129,14 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SnapCameraToBack"",
+                    ""type"": ""Button"",
+                    ""id"": ""af6a7a8d-1e60-447c-9fe9-9e3e922b676a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -659,6 +667,28 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""RotateCameraControllerCheck"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e7bebbbb-e6a2-4a1a-8048-8a98c4d2a849"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SnapCameraToBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fd85dd8-0379-4429-a10c-897a58b4a6cd"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SnapCameraToBack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -681,6 +711,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_Eat = m_Gameplay.FindAction("Eat", throwIfNotFound: true);
         m_Gameplay_ChangeEat = m_Gameplay.FindAction("ChangeEat", throwIfNotFound: true);
         m_Gameplay_ChangeEatTrigger = m_Gameplay.FindAction("ChangeEatTrigger", throwIfNotFound: true);
+        m_Gameplay_SnapCameraToBack = m_Gameplay.FindAction("SnapCameraToBack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -744,6 +775,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Eat;
     private readonly InputAction m_Gameplay_ChangeEat;
     private readonly InputAction m_Gameplay_ChangeEatTrigger;
+    private readonly InputAction m_Gameplay_SnapCameraToBack;
     public struct GameplayActions
     {
         private @IronChefControls m_Wrapper;
@@ -762,6 +794,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @Eat => m_Wrapper.m_Gameplay_Eat;
         public InputAction @ChangeEat => m_Wrapper.m_Gameplay_ChangeEat;
         public InputAction @ChangeEatTrigger => m_Wrapper.m_Gameplay_ChangeEatTrigger;
+        public InputAction @SnapCameraToBack => m_Wrapper.m_Gameplay_SnapCameraToBack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -813,6 +846,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @ChangeEatTrigger.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
                 @ChangeEatTrigger.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
                 @ChangeEatTrigger.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnChangeEatTrigger;
+                @SnapCameraToBack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSnapCameraToBack;
+                @SnapCameraToBack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSnapCameraToBack;
+                @SnapCameraToBack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSnapCameraToBack;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -859,6 +895,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @ChangeEatTrigger.started += instance.OnChangeEatTrigger;
                 @ChangeEatTrigger.performed += instance.OnChangeEatTrigger;
                 @ChangeEatTrigger.canceled += instance.OnChangeEatTrigger;
+                @SnapCameraToBack.started += instance.OnSnapCameraToBack;
+                @SnapCameraToBack.performed += instance.OnSnapCameraToBack;
+                @SnapCameraToBack.canceled += instance.OnSnapCameraToBack;
             }
         }
     }
@@ -879,5 +918,6 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnEat(InputAction.CallbackContext context);
         void OnChangeEat(InputAction.CallbackContext context);
         void OnChangeEatTrigger(InputAction.CallbackContext context);
+        void OnSnapCameraToBack(InputAction.CallbackContext context);
     }
 }
