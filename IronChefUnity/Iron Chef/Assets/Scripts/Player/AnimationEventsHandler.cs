@@ -56,6 +56,15 @@ public class AnimationEventsHandler : MonoBehaviour
             Invoke("UndoFPPrevent", 0.5f);
         }
     }
+
+    public void TurnBasicAttackTrailOn()
+    {
+        playerAttacks.TurnBasicAttackTrailOn();
+    }
+    public void TurnBasicAttackTrailOff()
+    {
+        playerAttacks.TurnBasicAttackTrailOff();
+    }
     void UndoFPPrevent()
     {
         doubleFPPrevent = false;
