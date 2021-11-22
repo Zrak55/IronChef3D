@@ -90,12 +90,11 @@ public class PlayerAttackController : MonoBehaviour
     {
         foreach(var ps in BasicTrails[currentPlayerBasic].GetComponentsInChildren<ParticleSystem>())
         {
-            if (ps.isEmitting)
-                ps.Stop();
+            ps.Play();
         }
         foreach (var tr in BasicTrails[currentPlayerBasic].GetComponentsInChildren<TrailRenderer>())
         {
-            tr.emitting = false;
+            tr.emitting = true;
         }
     }
 
@@ -103,11 +102,11 @@ public class PlayerAttackController : MonoBehaviour
     {
         foreach (var ps in BasicTrails[currentPlayerBasic].GetComponentsInChildren<ParticleSystem>())
         {
-            ps.Play();
+            ps.Stop();
         }
         foreach (var tr in BasicTrails[currentPlayerBasic].GetComponentsInChildren<TrailRenderer>())
         {
-            tr.emitting = true;
+            tr.emitting = false;
         }
 
     }
