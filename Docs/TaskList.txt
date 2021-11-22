@@ -16,7 +16,9 @@ Weight Paint Meatosaurus
 Model/Rig Hydra-violi Head
 
 Zach:
-
+Basic Attack VFX
+Footstep VFX
+Playtesting
 
 Kris:
 Sounds for Potatogre

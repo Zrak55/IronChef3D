@@ -80,6 +80,9 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite meat;
 
 
+    [Header("Location Name")]
+    public Text locName;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -102,6 +105,31 @@ public class PlayerHUDManager : MonoBehaviour
     {
         UpdateBars();
     }
+
+    public void DisplayLocationName(string lName)
+    {
+        if(locName.text != lName)
+        {
+            locName.text = lName;
+            StartCoroutine(FadeLocName());
+        }
+    }
+    IEnumerator FadeLocName()
+    {
+        while(locName.color.a < 1)
+        {
+            locName.color = new Color(locName.color.r, locName.color.g, locName.color.b, Mathf.Min(1, locName.color.a + (Time.deltaTime / 2)));
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        while (locName.color.a > 0)
+        {
+            locName.color = new Color(locName.color.r, locName.color.g, locName.color.b, Mathf.Max(0, locName.color.a - (Time.deltaTime / 2)));
+            yield return null;
+        }
+    }
+
+
     public void SetHungryBar()
     {
         hungryMeter.value = 0;
@@ -278,7 +306,6 @@ public class PlayerHUDManager : MonoBehaviour
         if(foodInfo.ingredientOneCurrent > foodInfo.ingredientOneRequired)
         {
             targetcolor = Color.red;
-            
         }
         else if (foodInfo.ingredientOneCurrent == foodInfo.ingredientOneRequired)
         {
@@ -288,6 +315,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             targetcolor = Color.blue;
         }
+        targetcolor.a = (200f / 255f);
         foreach (var i in food1bar.GetComponentsInChildren<Image>())
         {
             if (i.gameObject.name == "Fill")
@@ -309,6 +337,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             targetcolor = Color.blue;
         }
+        targetcolor.a = (200f / 255f);
         foreach (var i in food2bar.GetComponentsInChildren<Image>())
         {
             if (i.gameObject.name == "Fill")
@@ -329,6 +358,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             targetcolor = Color.blue;
         }
+        targetcolor.a = (200f / 255f);
         foreach (var i in food3bar.GetComponentsInChildren<Image>())
         {
             if (i.gameObject.name == "Fill")
@@ -349,6 +379,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             targetcolor = Color.blue;
         }
+        targetcolor.a = (200f / 255f);
         foreach (var i in food4bar.GetComponentsInChildren<Image>())
         {
             if (i.gameObject.name == "Fill")
@@ -369,6 +400,7 @@ public class PlayerHUDManager : MonoBehaviour
         {
             targetcolor = Color.blue;
         }
+        targetcolor.a = (200f / 255f);
         foreach (var i in food5bar.GetComponentsInChildren<Image>())
         {
             if (i.gameObject.name == "Fill")
