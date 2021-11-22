@@ -88,12 +88,27 @@ public class PlayerAttackController : MonoBehaviour
 
     public void TurnBasicAttackTrailOn()
     {
-        BasicTrails[currentPlayerBasic].SetActive(true);
+        foreach(var ps in BasicTrails[currentPlayerBasic].GetComponentsInChildren<ParticleSystem>())
+        {
+            if (ps.isEmitting)
+                ps.Stop();
+        }
+        foreach (var tr in BasicTrails[currentPlayerBasic].GetComponentsInChildren<TrailRenderer>())
+        {
+            tr.emitting = false;
+        }
     }
 
     public void TurnBasicAttackTrailOff()
     {
-        BasicTrails[currentPlayerBasic].SetActive(false);
+        foreach (var ps in BasicTrails[currentPlayerBasic].GetComponentsInChildren<ParticleSystem>())
+        {
+            ps.Play();
+        }
+        foreach (var tr in BasicTrails[currentPlayerBasic].GetComponentsInChildren<TrailRenderer>())
+        {
+            tr.emitting = true;
+        }
 
     }
 
