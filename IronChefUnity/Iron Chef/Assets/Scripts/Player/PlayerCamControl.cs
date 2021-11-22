@@ -42,7 +42,8 @@ public class PlayerCamControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+
 
         if (Vector3.Distance(cam.transform.position, playerView.transform.position) < clipPlayerDistance)
         {
@@ -77,12 +78,12 @@ public class PlayerCamControl : MonoBehaviour
         if (InputControls.controls.Gameplay.RotateCameraControllerCheck.ReadValue<Vector2>() != Vector2.zero)
         {
 
-            verticalMult = 1f;
+            verticalMult = 0.5f;
             
         }
         else
         {
-            verticalMult = 0.35f;
+            verticalMult = 0.5f;
         }
 
         if (oldVert != verticalMult)

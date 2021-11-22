@@ -388,6 +388,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2a9bd5b4a52f28b4dbfca74f7b00e49b, type: 3}
   - {fileID: 8300000, guid: 92f3a6c6caf7d694187f83731984ea25, type: 3}
   - {fileID: 8300000, guid: bfee5b93ac73e534d979647aae323c3d, type: 3}
+  SugarRush: {fileID: 8300000, guid: fc3e56bd6dc3cfd4da61197609217dc0, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
