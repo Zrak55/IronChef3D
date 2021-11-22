@@ -48,6 +48,7 @@ public class SugarRush : PlayerPower
         IronChefUtils.AddSpeedUp(speed, moveSpeedStim, duration, SpeedEffector.EffectorName.SugarRush);
         pattacks.AddAttackSpeed(attackSpeedStim);
 
+        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SugarRush);
 
         Invoke("UnPower", duration);
     }

@@ -12,8 +12,8 @@ Meatosaurus "Meatlings"
 Animating Potatogre
 
 Wiliiam:
-Finish Modeling meatosaurus
-Rig Meatosaurus
+Weight Paint Meatosaurus
+Model/Rig Hydra-violi Head
 
 Zach:
 
