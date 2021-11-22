@@ -37,7 +37,7 @@ public class PlayerAttackController : MonoBehaviour
 
     float targetOverrideWeight = 0;
 
-    public TrailRenderer[] BasicTrails;
+    public GameObject[] BasicTrails;
 
     private void Awake()
     {
@@ -88,12 +88,12 @@ public class PlayerAttackController : MonoBehaviour
 
     public void TurnBasicAttackTrailOn()
     {
-        BasicTrails[currentPlayerBasic].enabled = true;
+        BasicTrails[currentPlayerBasic].SetActive(true);
     }
 
     public void TurnBasicAttackTrailOff()
     {
-        BasicTrails[currentPlayerBasic].enabled = false;
+        BasicTrails[currentPlayerBasic].SetActive(false);
 
     }
 
