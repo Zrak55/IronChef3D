@@ -1,24 +1,26 @@
 Task List:
 
 Alex:
-Finish build out level 2
-bug fixes
-Put lvl 1 and lvl 2 together
+Begin building lvl 3
+General fixes from Friday's build (controls, camera, etc)
+Animate Isobean
+Enter location names
 
 Spencer:
-Isobean AI
-Start Potatogre AI
+Potatogre AI
+Meatosaurus "Meatlings"
+Animating Potatogre
 
 Wiliiam:
-Modeling monsters for next levels
-	Potatogre rig by wednesday
+Finish Modeling meatosaurus
+Rig Meatosaurus
 
 Zach:
-Keep finding Terrain Materials 
-Playtesting (emphasis on making sure it doesnt break)
-Maps (finish them)
-Odd Jobs
+
 
 Kris:
-Research WYs
-More SFX
+Sounds for Potatogre
+Sounds for Isobean
+Sounds for Meatosaurus
+Mess with curve
+Implement missing sounds (play game and listen)
