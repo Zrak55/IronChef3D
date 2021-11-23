@@ -19,10 +19,12 @@ public class ReadmeEditor : Editor {
 		EditorApplication.delayCall += SelectReadmeAutomatically;
 	}
 	
+	
 	static void SelectReadmeAutomatically()
 	{
 		if (!SessionState.GetBool(kShowedReadmeSessionStateName, false ))
 		{
+			/*
 			var readme = SelectReadme();
 			SessionState.SetBool(kShowedReadmeSessionStateName, true);
 			
@@ -31,6 +33,7 @@ public class ReadmeEditor : Editor {
 				LoadLayout();
 				readme.loadedLayout = true;
 			}
+			*/
 		} 
 	}
 	
@@ -41,7 +44,7 @@ public class ReadmeEditor : Editor {
 		var method = windowLayoutType.GetMethod("LoadWindowLayout", BindingFlags.Public | BindingFlags.Static);
 		method.Invoke(null, new object[]{Path.Combine(Application.dataPath, "IgniteCoders/Simple Water Shader/Info/Layout.wlt"), false});
 	}
-	
+	/*
 	[MenuItem("Documentation/Simple Water Shader")]
 	static Readme SelectReadme() 
 	{
@@ -60,7 +63,7 @@ public class ReadmeEditor : Editor {
 			return null;
 		}
 	}
-	
+	*/
 	protected override void OnHeaderGUI()
 	{
 		var readme = (Readme)target;
