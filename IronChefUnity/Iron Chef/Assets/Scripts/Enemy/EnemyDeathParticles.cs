@@ -22,6 +22,8 @@ public class EnemyDeathParticles : MonoBehaviour
 
     void MoveParticles()
     {
+        foreach (var go in rbs)
+            go.GetComponent<DeadEnemyParticle>().chasing = true;
         StartCoroutine(GetMoving());
     }
 
@@ -44,7 +46,7 @@ public class EnemyDeathParticles : MonoBehaviour
                 if(rb != null)
                 {
                     movedSomething = true;
-                    rb.transform.position = Vector3.MoveTowards(rb.transform.position, character.position, t * 3);
+                    rb.transform.position = Vector3.MoveTowards(rb.transform.position, character.position + Vector3.up, t * 3);
                 }
             }
             yield return null;

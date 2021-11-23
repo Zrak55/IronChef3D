@@ -8,6 +8,7 @@ public class DeadEnemyParticle : MonoBehaviour
 
     Vector3 spin;
     public float spinRateDegrees = 180f;
+    public bool chasing = false;
     
     void Start()
     {
@@ -22,10 +23,14 @@ public class DeadEnemyParticle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (chasing)
         {
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.XpPickup);
-            Destroy(gameObject);
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
+            {
+                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.XpPickup);
+                Destroy(gameObject);
+            }
         }
     }
 }
