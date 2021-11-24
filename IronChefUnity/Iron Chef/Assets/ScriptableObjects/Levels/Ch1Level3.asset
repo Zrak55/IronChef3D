@@ -23,3 +23,8 @@ MonoBehaviour:
   ingredientThreeType: 2
   ingredientFourType: 0
   ingredientFiveType: 0
+  completionPowerUnlock: 5
+  perfectionPowerUnlock: 6
+  completionApplianceUnlock: 5
+  perfectionApplianceUnlock: 8
+  IsTutorial: 0

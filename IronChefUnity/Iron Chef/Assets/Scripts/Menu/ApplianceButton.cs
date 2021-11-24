@@ -8,8 +8,14 @@ public class ApplianceButton : MonoBehaviour
 {
     public PlayerApplianceScriptable appliance;
     Text text;
+    bool isLocked;
 
-
+    private void Awake()
+    {
+        if (appliance.applianceName == PlayerApplianceScriptable.ApplianceName.Fridge)
+            UnlocksManager.UnlockAppliance(PlayerApplianceScriptable.ApplianceName.Fridge.ToString());
+        CheckIfUnlocked();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,21 +25,38 @@ public class ApplianceButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EventSystem.current.currentSelectedGameObject == this.gameObject)
-        {
-            text.text = appliance.briefDescription;
-        }
+        if (isLocked)
+            text.text = "Locked!";
         else
         {
-            text.text = appliance.DisplayName;
+
+
+            if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+            {
+                text.text = appliance.briefDescription;
+            }
+            else
+            {
+                text.text = appliance.DisplayName;
+            }
         }
     }
 
     public void SelectAppliance()
     {
-        GetComponentInParent<AppliancePowerSelection>().SelectAppliance(appliance);
+        if (isLocked)
+        {
+
+        }
+        else
+        {
+
+            GetComponentInParent<AppliancePowerSelection>().SelectAppliance(appliance);
+        }
     }
 
-    
-    
+    public void CheckIfUnlocked()
+    {
+        isLocked = !UnlocksManager.HasAppliance(appliance.applianceName.ToString());
+    }
 }

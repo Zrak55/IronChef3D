@@ -9,6 +9,9 @@ public class ChapterManager : MonoBehaviour
 {
     public static int LevelToStartAt = 0;
 
+    [Tooltip("For Unlock purposes")]
+    public int ChapterNumber;
+
     float totalScore = 0;
 
 
@@ -75,16 +78,23 @@ public class ChapterManager : MonoBehaviour
         totalScore += score;
         if(currentLevel >= levels.Length)
         {
-            totalScore /= (levels.Length - LevelToStartAt); 
+            totalScore /= (levels.Length - LevelToStartAt);
+            UnlocksManager.UnlockChapter("Chapter" + (ChapterNumber + 1).ToString());
+            UnlocksManager.UnlockLevel((ChapterNumber+1).ToString() + "-0");
             ShowWinScreen(totalScore);
         }
         else
         {
+            UnlocksManager.UnlockLevel(ChapterNumber.ToString() + "-" + currentLevel.ToString());
+            DisplayLevelScore();
             StartLevel(currentLevel);
         }
     }
 
-    
+    public void DisplayLevelScore()
+    {
+
+    }
 
 
 

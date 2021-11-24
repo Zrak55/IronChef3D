@@ -7,7 +7,7 @@ using UnityEngine;
 public class PreLevelScriptable : ScriptableObject
 {
     public string LevelName;
-
+    public int ChapterNumber;
 
     // Start is called before the first frame update
     void Start()

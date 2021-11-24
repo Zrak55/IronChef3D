@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d634c6043bd55945839e87ea6ab7e87, type: 3}
   m_Name: Tutorial
   m_EditorClassIdentifier: 
-  dish: 
+  dish: Grilled Cheese
   ingredientOneRequired: 2
   ingredientTwoRequired: 2
   ingredientThreeRequired: 1
@@ -23,3 +23,8 @@ MonoBehaviour:
   ingredientThreeType: 3
   ingredientFourType: 0
   ingredientFiveType: 0
+  completionPowerUnlock: 0
+  perfectionPowerUnlock: 0
+  completionApplianceUnlock: 0
+  perfectionApplianceUnlock: 0
+  IsTutorial: 1

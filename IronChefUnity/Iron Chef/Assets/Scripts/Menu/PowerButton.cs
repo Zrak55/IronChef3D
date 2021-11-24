@@ -9,6 +9,14 @@ public class PowerButton : MonoBehaviour
     public PlayerPowerScriptable power;
     Text text;
 
+    public bool isLocked;
+
+    private void Awake()
+    {
+        if (power.powerName == PlayerPowerScriptable.PowerName.Molapeno)
+            UnlocksManager.UnlockPower(power.powerName.ToString());
+        CheckIfUnlocked();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,18 +26,40 @@ public class PowerButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+        if (isLocked)
         {
-            text.text = power.briefDescription;
+            text.text = "Power locked!";
         }
         else
         {
-            text.text = power.DisplayName;
+
+
+            if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+            {
+                text.text = power.briefDescription;
+            }
+            else
+            {
+                text.text = power.DisplayName;
+            }
         }
     }
 
     public void SelectPower()
     {
-        GetComponentInParent<AppliancePowerSelection>().SelectPower(power);
+        if(isLocked)
+        {
+
+        }
+        else
+        {
+            GetComponentInParent<AppliancePowerSelection>().SelectPower(power);
+
+        }
+    }
+
+    public void CheckIfUnlocked()
+    {
+        isLocked = !UnlocksManager.HasPower(power.powerName.ToString());
     }
 }

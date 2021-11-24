@@ -247,6 +247,19 @@ public class LevelProgressManager : MonoBehaviour
 
         Debug.Log("Score: " + score + "/100");
 
+        if(!level.IsTutorial)
+        if(score >= 50)
+        {
+            UnlocksManager.UnlockAppliance(level.completionApplianceUnlock.ToString());
+            UnlocksManager.UnlockPower(level.completionPowerUnlock.ToString());
+        }
+        if(score >= 90)
+        {
+
+            UnlocksManager.UnlockAppliance(level.perfectionApplianceUnlock.ToString());
+            UnlocksManager.UnlockPower(level.perfectionPowerUnlock.ToString());
+        }
+        
         continueOn();
         
     

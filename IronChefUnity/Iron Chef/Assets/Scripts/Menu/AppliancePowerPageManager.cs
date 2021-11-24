@@ -63,4 +63,27 @@ public class AppliancePowerPageManager : MonoBehaviour
         leftButton.navigation = nav;
 
     }
+
+    public void DEBUG_UnlockAllPowersAndApplianes()
+    {
+        foreach(var t in FindObjectsOfType<AppliancePowerPageManager>())
+        {
+
+            foreach (var p in t.pages)
+                p.gameObject.SetActive(true);
+            foreach (var b in FindObjectsOfType<PowerButton>())
+            {
+                UnlocksManager.UnlockPower(b.power.powerName.ToString());
+                b.CheckIfUnlocked();
+            }
+            foreach (var b in FindObjectsOfType<ApplianceButton>())
+            {
+                UnlocksManager.UnlockAppliance(b.appliance.applianceName.ToString());
+                b.CheckIfUnlocked();
+            }
+
+            t.TurnOffAllPages();
+            t.TurnOnCurrentPage();
+        }
+    }
 }

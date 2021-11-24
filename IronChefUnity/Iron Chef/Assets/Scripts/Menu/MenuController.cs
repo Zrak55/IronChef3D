@@ -122,4 +122,20 @@ public class MenuController : MonoBehaviour
         Settings.InvertVerticalCam = invertVerticalCam.isOn;
     }
 
+    public void DEBUG_ClearAllUnlocks()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
+    public void DEBUG_UnlockAllLevels()
+    {
+        for(int i = 0; i < 1000; i++)
+        {
+            UnlocksManager.UnlockChapter("Chapter" + i.ToString());
+            for(int j = 0; j < 4; j++)
+            {
+                UnlocksManager.UnlockLevel(i.ToString() + "-" + j.ToString());
+            }
+        }
+    }
 }
