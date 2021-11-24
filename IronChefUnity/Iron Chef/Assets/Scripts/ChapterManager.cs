@@ -37,6 +37,10 @@ public class ChapterManager : MonoBehaviour
     public GameObject firstWinSelectButton;
     public GameObject firstLoseSelectButton;
 
+    [Header("Level to Level score")]
+    public Text scoreText;
+    public Image scoreBackground;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -86,14 +90,32 @@ public class ChapterManager : MonoBehaviour
         else
         {
             UnlocksManager.UnlockLevel(ChapterNumber.ToString() + "-" + currentLevel.ToString());
-            DisplayLevelScore();
+            DisplayLevelScore(score);
             StartLevel(currentLevel);
         }
     }
 
-    public void DisplayLevelScore()
+    public void DisplayLevelScore(float score)
     {
+        StartCoroutine(fadeScoreIn(score));
+    }
 
+    IEnumerator fadeScoreIn(float score)
+    {
+        scoreText.text = score.ToString("0.00") + "/100";
+        while (scoreBackground.color.a != 1)
+        {
+            scoreBackground.color = new Color(scoreBackground.color.r, scoreBackground.color.g, scoreBackground.color.b, Mathf.Min(scoreBackground.color.a + (2f * Time.deltaTime), 1));
+            scoreText.color = new Color(scoreText.color.r, scoreText.color.g, scoreText.color.b, scoreBackground.color.a);
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        while (scoreBackground.color.a != 0)
+        {
+            scoreBackground.color = new Color(scoreBackground.color.r, scoreBackground.color.g, scoreBackground.color.b, Mathf.Max(scoreBackground.color.a - (2f * Time.deltaTime), 0));
+            scoreText.color = new Color(scoreText.color.r, scoreText.color.g, scoreText.color.b, scoreBackground.color.a);
+            yield return null;
+        }
     }
 
 
