@@ -15,12 +15,15 @@ public class EnemyProjectileControl : MonoBehaviour
     private Vector3 currentPosition;
     private PlayerHitpoints playerHitpoints;
 
+
+
     private void Awake()
     {
         if(isArc)
         {
             Vector3 player = GameObject.Find("Player").transform.position;
             GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
+            
         }
     }
 

@@ -76,7 +76,7 @@ public class EnemyHitpoints : MonoBehaviour
         {
             imDead = true;
 
-            GetComponent<EnemyFoodDropper>().GiveFood();
+            GetComponent<EnemyFoodDropper>()?.GiveFood();
 
             if(GetComponent<EnemyBehaviorTree>().isAggrod())
             {
@@ -87,8 +87,11 @@ public class EnemyHitpoints : MonoBehaviour
 
             //TODO: Play death animation before deletion
 
-            var dp = Instantiate(DeathParticleSystem, transform.position, Quaternion.identity);
-            dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
+            if(DeathParticleSystem != null)
+            {
+                var dp = Instantiate(DeathParticleSystem, transform.position, Quaternion.identity);
+                dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
+            }
 
             CheckDeadBoss();
 
@@ -107,7 +110,7 @@ public class EnemyHitpoints : MonoBehaviour
     {
         GetComponent<BenedictBehavior>()?.BossOver();
         GetComponent<MeatosaurusBehavior>()?.BossOver();
-
+        GetComponent<HydravioliHeadBehavior>()?.OnDeath();
     }
 
     public float GetMax()
@@ -121,5 +124,9 @@ public class EnemyHitpoints : MonoBehaviour
     public void SetCurrent(float hp)
     {
         currentHP = MaxHP;
+    }
+    public float GetCurrentHP()
+    {
+        return currentHP;
     }
 }
