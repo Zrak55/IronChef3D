@@ -15,18 +15,24 @@ public class EnemyProjectileControl : MonoBehaviour
     private Vector3 currentPosition;
     private PlayerHitpoints playerHitpoints;
 
-
-    private void Update()
+    private void Awake()
     {
-        currentPosition = gameObject.transform.position;
-        if (!isArc)
-            gameObject.transform.position += transform.forward * speed * Time.deltaTime;
-        else
+        if(isArc)
         {
             Vector3 player = GameObject.Find("Player").transform.position;
             GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
-            this.enabled = false;
         }
+    }
+
+    private void Update()
+    {
+        if (!isArc)
+        {
+            currentPosition = gameObject.transform.position;
+
+            gameObject.transform.position += transform.forward * speed * Time.deltaTime;
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)

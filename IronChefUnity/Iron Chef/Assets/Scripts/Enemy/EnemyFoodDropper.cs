@@ -41,6 +41,7 @@ public class EnemyFoodDropper : MonoBehaviour
         Bacon,
         Meat,
         Beans,
-        Potato
+        Potato,
+        Chips
     }
 }
