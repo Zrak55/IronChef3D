@@ -977,7 +977,7 @@ MonoBehaviour:
   damaged: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: 3c18762edebd504479ee962277136d62, type: 3}
+  DeathParticle: {fileID: 169342410966150083, guid: bc35b88b2d817a044a8abc31376bd1eb, type: 3}
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,7 +1014,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b0f868f63c024cbab26895b51cf94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  food: 1
+  food: 7
 --- !u!114 &7963021607274575102
 MonoBehaviour:
   m_ObjectHideFlags: 0
