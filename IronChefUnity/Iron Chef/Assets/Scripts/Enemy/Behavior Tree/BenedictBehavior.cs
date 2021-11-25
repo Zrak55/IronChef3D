@@ -107,6 +107,9 @@ public class BenedictBehavior : EnemyBehaviorTree
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictImmunity, -10000, IronChefUtils.InfiniteDuration);
 
         music = FindObjectOfType<MusicManager>();
+
+        GetComponent<EnemyHitpoints>().DeathEvents += BossOver;
+
     }
 
     //TODO: Fix multiple things same frame.

@@ -15,7 +15,9 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
     EnemyHitpoints myHP;
     List<GameObject> currentHeads;
     int currentHeadPlace = 0;
+    bool alreadySetUp = false;
 
+    public List<GameObject> BossWalls;
 
     private void Start()
     {
@@ -48,6 +50,9 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
 
         currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+
+        myHP = GetComponent<EnemyHitpoints>();
+        myHP.DeathEvents += BossOver;
     }
 
     private void Update()
@@ -71,19 +76,41 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
             Invoke("TwoNewHeads", 2f);
         else
             foreach (var head in currentHeads)
-                head.GetComponent<HydravioliHeadBehavior>().DeathNoNewHead();
+                if(head != null)
+                    head.GetComponent<HydravioliHeadBehavior>().DeathNoNewHead();
 
         myHP.TakeDamage(1);
     }
 
     public void TwoNewHeads()
     {
-        if (myHP.GetCurrentHP() > 1)
+        if (myHP.GetCurrentHP() > 0)
         {
             currentHeadPlace++;
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
             currentHeadPlace++;
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
         }
+    }
+
+
+    public void CheckAggrod()
+    {
+        if (!alreadySetUp && aggrod)
+        {
+
+            alreadySetUp = true;
+            foreach (var go in BossWalls)
+                go.SetActive(true);
+
+            FindObjectOfType<PlayerHUDManager>().BossInfoOn("Italernean, The Hydra-violi", GetComponent<EnemyHitpoints>(), "");
+        }
+    }
+
+    public void BossOver()
+    {
+        foreach (var go in BossWalls)
+            go.SetActive(false);
+        FindObjectOfType<PlayerHUDManager>().BossOver();
     }
 }

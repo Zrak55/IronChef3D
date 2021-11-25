@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,11 +21,17 @@ public class EnemyHitpoints : MonoBehaviour
     public GameObject DeathParticleSystem;
     public GameObject DeathParticle;
 
+
+    public delegate void SpecialDeathActions();
+    public event SpecialDeathActions DeathEvents;
+
     private void Awake()
     {
+
         currentHP = MaxHP;
         mods = GetComponent<EnemyDamageTakenModifierController>();
         floatingDmg = GetComponentInChildren<EnemyCanvas>();
+
     }
 
     public void TakeDamage(float amount)
@@ -93,7 +100,10 @@ public class EnemyHitpoints : MonoBehaviour
                 dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
             }
 
-            CheckDeadBoss();
+            //CheckDeadBoss();
+
+
+            DeathEvents?.Invoke();
 
             Destroy(gameObject);
         }
@@ -111,7 +121,9 @@ public class EnemyHitpoints : MonoBehaviour
         GetComponent<BenedictBehavior>()?.BossOver();
         GetComponent<MeatosaurusBehavior>()?.BossOver();
         GetComponent<HydravioliHeadBehavior>()?.OnDeath();
+        GetComponent<HydravioliMainBehavior>()?.BossOver();
     }
+
 
     public float GetMax()
     {

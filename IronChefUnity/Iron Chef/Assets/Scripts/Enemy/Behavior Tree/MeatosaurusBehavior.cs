@@ -113,6 +113,9 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
 
 
         music = FindObjectOfType<MusicManager>();
+
+
+        GetComponent<EnemyHitpoints>().DeathEvents += BossOver;
     }
 
     //TODO: Fix multiple things same frame.
