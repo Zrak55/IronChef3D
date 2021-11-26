@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class HydravioliMainBehavior : EnemyBehaviorTree
 {
     BehaviorTree hydravioliBehaviorTree;
-    private Node CheckPlayer, CheckHurt, CheckAttack;
+    private Node CheckPlayer, CheckHurt, ImAggrod;
 
 
     [Header("Hydravioli Things")]
@@ -15,7 +15,6 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
     EnemyHitpoints myHP;
     List<GameObject> currentHeads;
     int currentHeadPlace = 0;
-    bool alreadySetUp = false;
 
     public List<GameObject> BossWalls;
 
@@ -38,18 +37,15 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
-        MoveTowards = new Leaf("Move towards player", overrideMoveTowards);
-        MoveReset = new Leaf("Reset Move", moveReset);
-        AttackTwo = new Leaf("Attack", attackTwo);
+        ImAggrod = new Leaf("Become Aggrod", aggro);
+
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange);
-        hydravioliBehaviorTree = new BehaviorTree(CheckPlayer, CheckHurt, CheckAttack);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, ImAggrod);
+        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, ImAggrod);
+        hydravioliBehaviorTree = new BehaviorTree(CheckPlayer, CheckHurt);
 
 
-        currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
 
         myHP = GetComponent<EnemyHitpoints>();
         myHP.DeathEvents += BossOver;
@@ -66,7 +62,25 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         return Node.STATUS.SUCCESS;
     }
 
+    Node.STATUS aggro()
+    {
+        if (!aggrod)
+        {
+            foreach (var go in BossWalls)
+                go.SetActive(true);
 
+            FindObjectOfType<PlayerHUDManager>().BossInfoOn("Italernean, The Hydra-violi", GetComponent<EnemyHitpoints>(), "");
+
+
+            currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+
+
+            musicManager.combatCount++;
+        }
+        aggrod = true;
+        ImAggrod.status = Node.STATUS.SUCCESS;
+        return ImAggrod.status;
+    }
 
     public void OnHeadKilled()
     {
@@ -93,19 +107,6 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         }
     }
 
-
-    public void CheckAggrod()
-    {
-        if (!alreadySetUp && aggrod)
-        {
-
-            alreadySetUp = true;
-            foreach (var go in BossWalls)
-                go.SetActive(true);
-
-            FindObjectOfType<PlayerHUDManager>().BossInfoOn("Italernean, The Hydra-violi", GetComponent<EnemyHitpoints>(), "");
-        }
-    }
 
     public void BossOver()
     {
