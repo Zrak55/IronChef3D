@@ -96,6 +96,12 @@ public class PlayerAttackController : MonoBehaviour
         {
             tr.emitting = true;
         }
+        var psbt = BasicTrails[currentPlayerBasic].GetComponent<ParticleSystem>();
+        var trbt = BasicTrails[currentPlayerBasic].GetComponent<TrailRenderer>();
+        if (psbt != null)
+            psbt.Play();
+        if (trbt != null)
+            trbt.emitting = true;
     }
 
     public void TurnBasicAttackTrailOff()
@@ -108,6 +114,12 @@ public class PlayerAttackController : MonoBehaviour
         {
             tr.emitting = false;
         }
+        var psbt = BasicTrails[currentPlayerBasic].GetComponent<ParticleSystem>();
+        var trbt = BasicTrails[currentPlayerBasic].GetComponent<TrailRenderer>();
+        if (psbt != null)
+            psbt.Stop();
+        if (trbt != null)
+            trbt.emitting = false;
 
     }
 

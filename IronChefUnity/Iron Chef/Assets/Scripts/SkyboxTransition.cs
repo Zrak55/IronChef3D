@@ -14,13 +14,21 @@ public class SkyboxTransition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SwapSkyboxes();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            SwapSkyboxes();
+        }
     }
 
     public void SwapSkyboxes()
