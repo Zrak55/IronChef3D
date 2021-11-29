@@ -939,8 +939,8 @@ MonoBehaviour:
   manager: {fileID: 0}
   BasicTrails:
   - {fileID: 2152394535256591182}
-  - {fileID: 1524460744892199940}
   - {fileID: 6379935338738016092}
+  - {fileID: 1524460744892199940}
 --- !u!114 &2978522925722276990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1117,7 +1117,7 @@ GameObject:
   - component: {fileID: 5289156474182712628}
   - component: {fileID: 8359421962016827230}
   - component: {fileID: 169882982714765646}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1852,7 +1852,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 2
       mode: 0
       spread: 0
       speed:
@@ -6056,7 +6056,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.9433962, g: 0.7149744, b: 0.28924885, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
