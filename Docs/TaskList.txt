@@ -1,10 +1,8 @@
 Task List:
 
 Alex:
-Begin building lvl 3
-General fixes from Friday's build (controls, camera, etc)
-Animate Isobean
-Enter location names
+Tweak level 3
+Animate Meatosaurus
 
 Spencer:
 Potatogre AI
@@ -12,11 +10,11 @@ Meatosaurus "Meatlings"
 Animating Potatogre
 
 Wiliiam:
-Weight Paint Meatosaurus
 Model/Rig Hydra-violi Head
 
 Zach:
 Basic Attack VFX
+On Hit
 Footstep VFX
 Playtesting
 
