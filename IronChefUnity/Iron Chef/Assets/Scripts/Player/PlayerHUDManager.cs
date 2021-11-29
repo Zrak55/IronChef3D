@@ -78,6 +78,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite bread;
     public Sprite potato;
     public Sprite meat;
+    public Sprite ravioli;
 
 
     [Header("Location Name")]
@@ -225,6 +226,9 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case EnemyFoodDropper.FoodType.Meat:
                 i.sprite = meat;
+                break;
+            case EnemyFoodDropper.FoodType.Ravioli:
+                i.sprite = ravioli;
                 break;
             default:
                 break;

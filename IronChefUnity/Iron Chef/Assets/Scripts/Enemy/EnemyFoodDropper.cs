@@ -42,6 +42,7 @@ public class EnemyFoodDropper : MonoBehaviour
         Meat,
         Beans,
         Potato,
-        Chips
+        Chips,
+        Ravioli
     }
 }

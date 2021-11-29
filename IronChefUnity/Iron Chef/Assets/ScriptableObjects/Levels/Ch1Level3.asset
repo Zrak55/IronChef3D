@@ -16,12 +16,12 @@ MonoBehaviour:
   ingredientOneRequired: 4
   ingredientTwoRequired: 7
   ingredientThreeRequired: 7
-  ingredientFourRequired: 0
+  ingredientFourRequired: 1
   ingredientFiveRequired: 0
   ingredientOneType: 3
   ingredientTwoType: 7
   ingredientThreeType: 2
-  ingredientFourType: 0
+  ingredientFourType: 11
   ingredientFiveType: 0
   completionPowerUnlock: 5
   perfectionPowerUnlock: 6

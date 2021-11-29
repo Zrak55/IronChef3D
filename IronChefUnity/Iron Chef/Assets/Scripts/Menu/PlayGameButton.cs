@@ -37,6 +37,13 @@ public class PlayGameButton : MonoBehaviour
         //EventSystem.current.SetSelectedGameObject(preLevelWindow.GetComponentInChildren<Button>().gameObject);
     }
 
+    public void PlayTutorial()
+    {
+        preLevelWindow.levelName = chapterInfo.LevelName;
+        preLevelWindow.chapterNum = chapterInfo.ChapterNumber;
+        preLevelWindow.Play(0);
+    }
+
 
 
 
