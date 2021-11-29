@@ -116,6 +116,20 @@ MonoBehaviour:
   playersHit: []
   sound: 0
   damage: 10
+--- !u!114 &1205820490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590949495102505679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034968287a4286e44b0a08795c5e1fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
+  spawn: {x: -2, y: 5, z: 3}
 --- !u!1 &3856517895618374344
 GameObject:
   m_ObjectHideFlags: 0

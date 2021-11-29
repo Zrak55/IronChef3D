@@ -36,10 +36,10 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, MoveWaypoint, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange;
+    protected Node MoveTowards, MoveReset, MoveWaypoint, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
-    protected bool aggrod;
+    protected bool aggrod, simpleFlag = true;
 
     protected void randomizeWayponts(int range)
     {
@@ -239,7 +239,7 @@ public class EnemyBehaviorTree : MonoBehaviour
 
         if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
         {
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Projectile");
             AttackProjectile.status = Node.STATUS.RUNNING;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
@@ -259,7 +259,7 @@ public class EnemyBehaviorTree : MonoBehaviour
 
         if (!isAttackCD && AttackProjectileStill.status != Node.STATUS.RUNNING)
         {
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Projectile");
             AttackProjectileStill.status = Node.STATUS.RUNNING;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
@@ -307,9 +307,20 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
+    //Meant to go with a Selector node
+    public Node.STATUS runOnce()
+    {
+        Debug.Log(simpleFlag);
+        if (simpleFlag)
+        {
+            simpleFlag = false;
+            return RunOnce.status = Node.STATUS.FAILURE;
+        }
+        return RunOnce.status = Node.STATUS.SUCCESS;
+    }
+
     protected IEnumerator atttackCDEnd()
     {
-        animator.ResetTrigger("Attack");
         isAttackCD = true;
         yield return new WaitForSeconds(attackCD);
         isAttackCD = false;
@@ -318,11 +329,6 @@ public class EnemyBehaviorTree : MonoBehaviour
     public void playSound(int value)
     {
         soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect[value]);
-    }
-
-    private void attackCDEnd()
-    {
-        isAttackCD = false;
     }
 
     public bool isAggrod()

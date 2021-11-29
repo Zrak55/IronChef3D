@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class PotatogreBehavior : EnemyBehaviorTree
 {
-    BehaviorTree tomatrollBehaviorTree;
-    private Node CheckPlayer, CheckHurt, CheckAttack;
+    BehaviorTree potatogreBehaviorTree;
+    private Node CheckPlayer, CheckHurt, CheckAttack, CheckProjectile;
 
     private void Start()
     {
@@ -28,16 +28,19 @@ public class PotatogreBehavior : EnemyBehaviorTree
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackBasic = new Leaf("Attack", attackBasic);
+        AttackProjectile = new Leaf("Projectile", attackProjectile);
+        RunOnce = new Leaf("Once", runOnce);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
+        CheckProjectile = new Selector("Projectile Selector", RunOnce, AttackProjectile);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards, CheckProjectile);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackBasic);
-        tomatrollBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+        potatogreBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
     private void Update()
     {
-        tomatrollBehaviorTree.behavior();
+        potatogreBehaviorTree.behavior();
     }
 }
