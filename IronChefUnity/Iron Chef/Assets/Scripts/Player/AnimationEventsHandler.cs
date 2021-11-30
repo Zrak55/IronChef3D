@@ -78,4 +78,9 @@ public class AnimationEventsHandler : MonoBehaviour
     {
         audioEvent.MakeFootstepSound();
     }
+
+    public void MakeFootstepEffect(bool isLeftFoot)
+    {
+        characterMover.MakeFootstepEffect(isLeftFoot);
+    }
 }

@@ -59,6 +59,9 @@ public class CharacterMover : MonoBehaviour
 
     [Space]
     public List<Material> AllowedWalkMaterials;
+    [Header("Effects")]
+    public ParticleSystem LeftFootEffect;
+    public ParticleSystem RightFootEffect;
 
     private void Awake()
     {
@@ -333,6 +336,25 @@ public class CharacterMover : MonoBehaviour
     void RemoveKnockbackIframe()
     {
         knockbackIframe = false;
+    }
+
+    public void MakeFootstepEffect(bool isLeftFoot)
+    {
+        ParticleSystem effect;
+        if(isLeftFoot)
+        {
+            effect = LeftFootEffect;
+        }
+        else
+        {
+            effect = RightFootEffect;
+        }
+
+        //TODO: Determine what material I am walking on here
+
+        if (effect.isPlaying)
+            effect.Stop();
+        effect.Play();
     }
 
 }

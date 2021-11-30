@@ -5671,6 +5671,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 136c51b4e5579c64db16d88a8a00fe66, type: 2}
   - {fileID: 2100000, guid: b46e4afb96d437043869553601ce0837, type: 2}
   - {fileID: 2100000, guid: a5c26bcf1d3205a43a2104a0cb397781, type: 2}
+  - {fileID: 2100000, guid: 1f6cc0d27d0324f43a896b6dacc57fd3, type: 2}
+  LeftFootEffect: {fileID: 5935895157566253689}
+  RightFootEffect: {fileID: 6867471970117559848}
 --- !u!114 &2978522925722276978
 MonoBehaviour:
   m_ObjectHideFlags: 0
