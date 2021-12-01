@@ -97,6 +97,9 @@ public class LevelProgressManager : MonoBehaviour
 
     private void DisplayDish()
     {
+        startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, 1);
+        startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
+        StopCoroutine(fadeStartThings());
         startText.text = "Your next dish..." + level.dish + ".";
         StartCoroutine(fadeStartThings());
     }
