@@ -750,9 +750,9 @@ GameObject:
   - component: {fileID: 3244397501475929103}
   - component: {fileID: 4306623042804806687}
   - component: {fileID: 8637874127979021576}
-  - component: {fileID: 4535639727752920370}
   - component: {fileID: 5715269651436247314}
   - component: {fileID: 7934550063062263255}
+  - component: {fileID: -1615202842317950161}
   m_Layer: 9
   m_Name: Meatling
   m_TagString: Untagged
@@ -845,7 +845,7 @@ MonoBehaviour:
   damaged: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: c23f005938ad18343b490f6bec6bde28, type: 3}
+  DeathParticle: {fileID: 7803086111016615533}
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,26 +882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4535639727752920370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d265c63dfff5bc5448f789ea1a9032ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypointsTransforms: []
-  aggroRange: 150
-  spawnRange: 160
-  attackRange: 0
-  attackCD: 0
-  attackAngle: 0
-  idleSoundEffect: 07000000
-  attackSoundEffect: 07000000
 --- !u!114 &5715269651436247314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,6 +911,26 @@ MonoBehaviour:
   myCollider: {fileID: 5421851910887691809}
   IsCleave: 1
   force: 5
+--- !u!114 &-1615202842317950161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 874a9e9516ffdd246abcb1f5c79a699d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypointsTransforms: []
+  aggroRange: 150
+  spawnRange: 160
+  attackRange: 0
+  attackCD: 0
+  attackAngle: 0
+  idleSoundEffect: 07000000
+  attackSoundEffect: 07000000
 --- !u!1 &8042634753427596190
 GameObject:
   m_ObjectHideFlags: 0

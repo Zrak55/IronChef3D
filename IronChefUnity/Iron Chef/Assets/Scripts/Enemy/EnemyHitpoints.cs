@@ -69,6 +69,11 @@ public class EnemyHitpoints : MonoBehaviour
         }
     }
 
+    public void Heal(float amount)
+    {
+        currentHP += amount;
+    }
+
     void SmallDmgDisplay()
     {
         floatingDmg.MakeDamageNumber(smallDmg);
@@ -91,8 +96,6 @@ public class EnemyHitpoints : MonoBehaviour
             }
 
             FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, deathSound);
-
-            //TODO: Play death animation before deletion
 
             if(DeathParticleSystem != null)
             {

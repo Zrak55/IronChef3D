@@ -23,6 +23,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> attackSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     protected Transform player;
+    protected GameObject boss;
     //The spawn location of the enemy is automatically set based on scene placement.
     protected Vector3 startPosition;
     protected Vector3 currentWaypoint;
@@ -36,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, MoveWaypoint, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool isAttackCD = false;
     protected bool aggrod, simpleFlag = true;
@@ -144,6 +145,25 @@ public class EnemyBehaviorTree : MonoBehaviour
         animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
 
         return MoveWaypoint.status = Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS moveBoss()
+    {
+        //Music and sound effects
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
+        Vector3 midpoint = boss.transform.position - transform.position;
+        if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, boss.transform.position - transform.position) < attackAngle)
+            midpoint = Vector3.zero;
+        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
+
+        //Animation
+        animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
+
+        return MoveBoss.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS stillReset()
