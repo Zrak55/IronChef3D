@@ -190,7 +190,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 animator.SetTrigger("Bite");
                 Invoke("attackEnd", biteTime);
 
-                agent.destination = transform.position;
+                agent.enabled = false;
 
 
                 BiteAttack.status = Node.STATUS.RUNNING;
@@ -232,7 +232,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 animator.SetTrigger("Tail");
                 Invoke("attackEnd", tailTime);
 
-                agent.destination = transform.position;
+                agent.enabled = false;
 
 
                 TailAttack.status = Node.STATUS.RUNNING;
