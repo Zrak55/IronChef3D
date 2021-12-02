@@ -10,7 +10,8 @@ public class EnemyHitpoints : MonoBehaviour
     [HideInInspector] public bool damaged = false;
     private EnemyDamageTakenModifierController mods;
     private float currentHP;
-    bool imDead = false;
+    [HideInInspector]
+    public bool imDead = false;
     float smallDmg = 0;
     bool isInvoking = false;
     EnemyCanvas floatingDmg;
@@ -71,7 +72,7 @@ public class EnemyHitpoints : MonoBehaviour
 
     public void Heal(float amount)
     {
-        currentHP += amount;
+        currentHP = Mathf.Min(currentHP + amount, MaxHP);
     }
 
     void SmallDmgDisplay()

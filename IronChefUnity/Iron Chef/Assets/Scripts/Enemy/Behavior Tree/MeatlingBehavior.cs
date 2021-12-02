@@ -43,9 +43,12 @@ public class MeatlingBehavior : EnemyBehaviorTree
     {
         if (Vector3.Distance(transform.position, boss.transform.position) < 10)
         {
-            EnemyHitpoints bossHitpoints = boss.GetComponent<EnemyHitpoints>();
-            bossHitpoints.Heal(50);
-            enemyHitpoints.Die();
+            if(enemyHitpoints.imDead == false)
+            {
+                EnemyHitpoints bossHitpoints = boss.GetComponent<EnemyHitpoints>();
+                bossHitpoints.Heal(50);
+                enemyHitpoints.Die();
+            }
         }
     }
 }
