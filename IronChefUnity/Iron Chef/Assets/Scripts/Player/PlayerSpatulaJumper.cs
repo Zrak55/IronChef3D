@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerSpatulaJumper : MonoBehaviour
 {
     public float maxJumpHeight;
+    public GameObject spatulaJumpEffects;
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        spatulaJumpEffects.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,12 +27,15 @@ public class PlayerSpatulaJumper : MonoBehaviour
 
     private IEnumerator jumpTick(Vector3 target, float time, float jumpHeight)
     {
+        spatulaJumpEffects.SetActive(true);
+        GetComponentInChildren<Animator>().SetBool("SpatulaJumping", true);
         if (jumpHeight < 1)
             jumpHeight = maxJumpHeight;
         GetComponent<CharacterMover>().enabled = false;
         float cTime = 0;
         float yOffset = -4 * jumpHeight / Mathf.Pow(time, 2);
         Vector3 startPos = transform.position;
+        cTime += Time.deltaTime;
         while (cTime < time)
         {
 
@@ -45,5 +50,8 @@ public class PlayerSpatulaJumper : MonoBehaviour
         transform.position = target;
         GetComponent<CharacterMover>().enabled = true;
 
+        GetComponentInChildren<Animator>().SetBool("SpatulaJumping", false);
+
+        spatulaJumpEffects.SetActive(false);
     }
 }
