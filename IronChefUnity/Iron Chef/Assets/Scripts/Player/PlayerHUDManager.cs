@@ -84,6 +84,11 @@ public class PlayerHUDManager : MonoBehaviour
     [Header("Location Name")]
     public Text locName;
 
+    [Space]
+    float unlockTimer = 0;
+    public GameObject unlockNotification;
+    public Text unlockText;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -105,6 +110,18 @@ public class PlayerHUDManager : MonoBehaviour
     void Update()
     {
         UpdateBars();
+
+        if(unlockTimer > 0)
+        {
+
+            unlockTimer -= Time.deltaTime;
+            if(unlockTimer <= 0)
+            {
+                unlockText.text = "";
+                unlockNotification.SetActive(false);
+            }
+
+        }
     }
 
     public void DisplayLocationName(string lName)
@@ -531,5 +548,12 @@ public class PlayerHUDManager : MonoBehaviour
     {
         hungryMeter.GetComponent<Animator>().SetTrigger("Full");
         
+    }
+
+    public void UnlockNotification(string name)
+    {
+        unlockNotification.SetActive(true);
+        unlockTimer = 3f;
+        unlockText.text += name + " unlocked!\n";
     }
 }

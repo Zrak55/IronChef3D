@@ -251,17 +251,25 @@ public class LevelProgressManager : MonoBehaviour
         Debug.Log("Score: " + score + "/100");
 
         if(!level.IsTutorial)
-        if(score >= 50)
         {
-            UnlocksManager.UnlockAppliance(level.completionApplianceUnlock.ToString());
-            UnlocksManager.UnlockPower(level.completionPowerUnlock.ToString());
-        }
-        if(score >= 90)
-        {
+            var hud = FindObjectOfType<PlayerHUDManager>();
+            if (score >= 50)
+            {
+                UnlocksManager.UnlockAppliance(level.completionApplianceUnlock.ToString());
+                UnlocksManager.UnlockPower(level.completionPowerUnlock.ToString());
+                hud.UnlockNotification(level.completionApplianceUnlock.ToString());
+                hud.UnlockNotification(level.completionPowerUnlock.ToString());
+            }
+            if (score >= 90)
+            {
 
-            UnlocksManager.UnlockAppliance(level.perfectionApplianceUnlock.ToString());
-            UnlocksManager.UnlockPower(level.perfectionPowerUnlock.ToString());
+                UnlocksManager.UnlockAppliance(level.perfectionApplianceUnlock.ToString());
+                UnlocksManager.UnlockPower(level.perfectionPowerUnlock.ToString());
+                hud.UnlockNotification(level.perfectionApplianceUnlock.ToString());
+                hud.UnlockNotification(level.perfectionPowerUnlock.ToString());
+            }
         }
+        
         
         continueOn();
         
