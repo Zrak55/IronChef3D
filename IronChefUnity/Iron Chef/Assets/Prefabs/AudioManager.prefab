@@ -389,6 +389,29 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 92f3a6c6caf7d694187f83731984ea25, type: 3}
   - {fileID: 8300000, guid: bfee5b93ac73e534d979647aae323c3d, type: 3}
   SugarRush: {fileID: 8300000, guid: fc3e56bd6dc3cfd4da61197609217dc0, type: 3}
+  TrexStep:
+  - {fileID: 8300000, guid: fbbc281e5801b8b4bb99b7e4ecee7e96, type: 3}
+  - {fileID: 8300000, guid: 0c57b0a588caeba45a3c0860d723a193, type: 3}
+  - {fileID: 8300000, guid: 73ee0065816962e4fbe94c9f7eb39422, type: 3}
+  - {fileID: 8300000, guid: cb9f80fd3337c66459d49a0c2f17ff59, type: 3}
+  - {fileID: 8300000, guid: 906982b8bde177f4f8a24a7a5ef8b59a, type: 3}
+  TrexBite:
+  - {fileID: 8300000, guid: d6aab84e6cd70c341a9eacac9c659d67, type: 3}
+  - {fileID: 8300000, guid: 8a7382cdba130f54b9565f143b38d216, type: 3}
+  TrexWallHit: {fileID: 8300000, guid: 21ba3444520978241b5dbe670003753d, type: 3}
+  TrexStomp: {fileID: 8300000, guid: de59571d9702ba74990374eeb1d88270, type: 3}
+  TrexFireBreathWindUp: {fileID: 8300000, guid: 7ecfa251d975cd84a87de5370a2ad70b, type: 3}
+  TrexFireBreath: {fileID: 8300000, guid: fa64d96c3d9220d4a8a2601835faa68a, type: 3}
+  TrexRoar: {fileID: 8300000, guid: b6e8fcd90ae1460499a61f6635463331, type: 3}
+  IsopodMove: {fileID: 8300000, guid: 59870405087863a409c39800d939b8c1, type: 3}
+  IsopodAttack: {fileID: 8300000, guid: 017273a967b94c641bf2479800085db3, type: 3}
+  OgreIdle:
+  - {fileID: 8300000, guid: d095b8a369803b544a8afd5b1f6b84f3, type: 3}
+  - {fileID: 8300000, guid: cbcd8c7b456f4b142824ac6610b26578, type: 3}
+  - {fileID: 8300000, guid: e2d5444eeb56e2b41a046c6c2e8d5898, type: 3}
+  OgreAttack:
+  - {fileID: 0}
+  OgreStep: {fileID: 8300000, guid: 14985a8632a7f5b46b0912ea658140a0, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
