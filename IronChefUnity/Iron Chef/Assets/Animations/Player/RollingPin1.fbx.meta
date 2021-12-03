@@ -59,7 +59,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.32777777
+      - time: 0.4244545
         functionName: TurnBasicAttackTrailOn
         data: 
         objectReferenceParameter: {instanceID: 0}
@@ -73,7 +73,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.587037
+      - time: 0.5598467
         functionName: TurnBasicAttackTrailOff
         data: 
         objectReferenceParameter: {instanceID: 0}
