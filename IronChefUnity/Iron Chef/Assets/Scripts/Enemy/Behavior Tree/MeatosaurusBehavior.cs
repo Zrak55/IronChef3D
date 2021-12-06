@@ -372,6 +372,9 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 Invoke("breathEnd", breathTime);
 
                 BreathAttack.status = Node.STATUS.RUNNING;
+
+                if(breathBehavior.firstBreath)
+                    Tip("Take cover behind the rocks!");
             }
 
 

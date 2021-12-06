@@ -16,6 +16,8 @@ public class MeatosaurusBreath : MonoBehaviour
 
     public float DamagePerSecond;
 
+    [HideInInspector]
+    public bool firstBreath;
 
 
     // Start is called before the first frame update
@@ -24,6 +26,7 @@ public class MeatosaurusBreath : MonoBehaviour
         playerHeightRaise = player.GetComponent<CapsuleCollider>().height / 2;
         php = FindObjectOfType<PlayerHitpoints>();
         behavior = GetComponent<MeatosaurusBehavior>();
+        firstBreath = true;
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class MeatosaurusBreath : MonoBehaviour
 
     public void StopBreathing()
     {
+        firstBreath = false;
         haventTipped = false;
         breathing = false;
         GetComponent<MeatosaurusStomp>().DestroyAllRocks();
@@ -65,7 +69,8 @@ public class MeatosaurusBreath : MonoBehaviour
             php.TakeDamage(DamagePerSecond * Time.deltaTime, SoundEffectSpawner.SoundEffect.Cleaver, true);
             if(haventTipped)
             {
-                behavior.Tip("Take cover behind the rocks to avoid his fiery breath!");
+                if(!firstBreath)
+                    behavior.Tip("Take cover behind the rocks to avoid his fiery breath!");
             }
         }
     }
