@@ -15,11 +15,13 @@ public class PlayerHitpoints : MonoBehaviour
     SoundEffectSpawner sounds;
     PlayerDamageTakenModifierController mods;
 
+    bool isGetHitSoundDelay = false;
+
     private void Awake()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
         anim = gameObject.GetComponentInChildren<Animator>();
-        sounds = FindObjectOfType<SoundEffectSpawner>();
+        sounds = SoundEffectSpawner.soundEffectSpawner;
         pcam = FindObjectOfType<PlayerCamControl>();
         mods = GetComponent<PlayerDamageTakenModifierController>();
     }
@@ -42,7 +44,12 @@ public class PlayerHitpoints : MonoBehaviour
 
             pcam.ShakeCam(amount / 5f, amount * 0.4f / 5f);
 
-            sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
+            if(!isGetHitSoundDelay)
+            {
+                sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
+                isGetHitSoundDelay = true;
+                Invoke("UndoHitSoundDelay", IFramesAmount);
+            }
 
             if (playerStats.CurrentHP <= 0)
             {
@@ -51,13 +58,17 @@ public class PlayerHitpoints : MonoBehaviour
 
             if(sound != SoundEffectSpawner.SoundEffect.Cleaver)
             {
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, sound);
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
             }
 
             
         }
     }
 
+    public void UndoHitSoundDelay()
+    {
+        isGetHitSoundDelay = false;
+    }
 
     public void InvincibilityFrame(float time)
     {

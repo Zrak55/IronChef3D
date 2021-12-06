@@ -23,4 +23,9 @@ public class MeatosaurusRoar : MonoBehaviour
             Instantiate(Meatling, vector3, new Quaternion());
         }
     }
+
+    public void MakeRoarSound()
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexRoar);
+    }
 }

@@ -15,6 +15,9 @@ public class MeatosaurusBreath : MonoBehaviour
     public GameObject breathEffect;
 
     public float DamagePerSecond;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,16 @@ public class MeatosaurusBreath : MonoBehaviour
                 behavior.Tip("Take cover behind the rocks to avoid his fiery breath!");
             }
         }
+    }
+
+    public void MakeWindupSound()
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexFireBreathWindUp);
+    }
+
+    public void MakeBreathSound()
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexFireBreath);
     }
 
 }

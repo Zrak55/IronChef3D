@@ -22,7 +22,7 @@ public class KnockPlayerAway : MonoBehaviour
     private void Awake()
     {
         playersHit = new List<CharacterMover>();
-        //sfx = FindObjectOfType<SoundEffectSpawner>();
+        //sfx = SoundEffectSpawner.soundEffectSpawner;
 
     }
     private void Start()

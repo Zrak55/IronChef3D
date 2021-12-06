@@ -96,7 +96,7 @@ public class EnemyHitpoints : MonoBehaviour
                 FindObjectOfType<MusicManager>().combatCount--;
             }
 
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, deathSound);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, deathSound);
 
             if(DeathParticleSystem != null)
             {

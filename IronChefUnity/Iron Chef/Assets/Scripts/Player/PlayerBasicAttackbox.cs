@@ -22,7 +22,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
-        sfx = FindObjectOfType<SoundEffectSpawner>();
+        sfx = SoundEffectSpawner.soundEffectSpawner;
         pcam = FindObjectOfType<PlayerCamControl>();
 
     }
@@ -128,7 +128,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             hasPlayedSound = true;
                             if (sfx == null)
                             {
-                                sfx = FindObjectOfType<SoundEffectSpawner>();
+                                sfx = SoundEffectSpawner.soundEffectSpawner;
                             }
                             sfx.MakeSoundEffect(transform.position, soundEffect);
                         }
@@ -173,7 +173,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                             hasPlayedSound = true;
                             if(sfx == null)
                             {
-                                sfx = FindObjectOfType<SoundEffectSpawner>();
+                                sfx = SoundEffectSpawner.soundEffectSpawner;
                             }
                             sfx.MakeSoundEffect(transform.position, soundEffect);
                         }

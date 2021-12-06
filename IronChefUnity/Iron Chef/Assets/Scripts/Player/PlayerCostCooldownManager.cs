@@ -31,7 +31,7 @@ public class PlayerCostCooldownManager : MonoBehaviour
     {
         currentFryingPanCooldown = 0;
         currentPowerCooldown = 0;
-        sounds = FindObjectOfType<SoundEffectSpawner>();
+        sounds = SoundEffectSpawner.soundEffectSpawner;
     }
 
     // Update is called once per frame

@@ -32,7 +32,7 @@ public class PlayerAttackHitModifier
     public void playSound(Vector3 position)
     {
         if (shouldPlaySound)
-            GameObject.FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(position, soundEffect);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(position, soundEffect);
     }
 
     public virtual void DoSpecialModifier(EnemyHitpoints enemyHP, float damage)

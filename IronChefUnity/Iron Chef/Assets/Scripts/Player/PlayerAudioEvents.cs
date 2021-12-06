@@ -6,7 +6,7 @@ public class PlayerAudioEvents : MonoBehaviour
 
     private void Awake()
     {
-        sfx = FindObjectOfType<SoundEffectSpawner>();
+        sfx = SoundEffectSpawner.soundEffectSpawner;
     }
     // Start is called before the first frame update
     void Start()

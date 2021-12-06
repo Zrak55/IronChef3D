@@ -28,8 +28,8 @@ public class SpatulaLauncher : MonoBehaviour
         if(!launchDelay && other.GetComponent<PlayerSpatulaJumper>() != null)
         {
             other.GetComponent<PlayerSpatulaJumper>().Jump(target.position, time, height);
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SpatulaLaunch);
-            FindObjectOfType<SoundEffectSpawner>().MakeFollowingSoundEffect(other.transform, SoundEffectSpawner.SoundEffect.SpatulaAir, 1, time);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SpatulaLaunch);
+            SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(other.transform, SoundEffectSpawner.SoundEffect.SpatulaAir, 1, time);
             anim.SetTrigger("Launch");
             launchDelay = true;
             Invoke("UnDelay", 1f);

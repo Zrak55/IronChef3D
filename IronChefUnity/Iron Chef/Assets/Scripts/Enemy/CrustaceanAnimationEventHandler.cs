@@ -12,7 +12,7 @@ public class CrustaceanAnimationEventHandler : MonoBehaviour
     void Start()
     {
         behavior = GetComponentInParent<EnemyMultiAttackboxController>();
-        sounds = FindObjectOfType<SoundEffectSpawner>();
+        sounds = SoundEffectSpawner.soundEffectSpawner;
     }
 
     // Update is called once per frame

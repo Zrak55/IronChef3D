@@ -419,7 +419,7 @@ public class BenedictBehavior : EnemyBehaviorTree
         {
             Debug.Log("Phased!!!!!");
 
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggCrack);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggCrack);
 
             currentPhase++;
             phaseDelay = true;

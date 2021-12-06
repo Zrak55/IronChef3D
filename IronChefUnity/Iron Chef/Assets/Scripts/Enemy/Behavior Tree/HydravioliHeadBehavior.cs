@@ -39,7 +39,7 @@ public class HydravioliHeadBehavior : EnemyBehaviorTree
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
-        soundEffectSpawner = FindObjectOfType<SoundEffectSpawner>();
+        soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         BubbleSpit = new Leaf("Bubble", bubbleSpit);
         Sweep = new Leaf("Sweep", sweep);

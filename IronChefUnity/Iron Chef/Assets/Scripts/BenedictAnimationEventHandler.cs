@@ -27,6 +27,6 @@ public class BenedictAnimationEventHandler : MonoBehaviour
 
     public void EggRollSound()
     {
-        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggRoll);
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggRoll);
     }
 }

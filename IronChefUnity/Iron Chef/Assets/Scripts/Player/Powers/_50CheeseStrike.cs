@@ -85,11 +85,11 @@ public class _50CheeseStrike : PlayerPower
             {
                 if (hitSomething)
                 {
-                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
                 }
                 else
                 {
-                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
 
                 }
             }

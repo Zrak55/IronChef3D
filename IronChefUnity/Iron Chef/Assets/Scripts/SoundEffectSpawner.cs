@@ -6,6 +6,9 @@ using UnityEngine.Audio;
 public class SoundEffectSpawner : MonoBehaviour
 {
     public GameObject audioSource;
+    public GameObject bossAudioSource;
+
+    public static SoundEffectSpawner soundEffectSpawner;
 
     public AudioMixer mixer;
 
@@ -60,6 +63,10 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip OgreAttack;
     public AudioClip OgreStep;
 
+    private void Awake()
+    {
+        soundEffectSpawner = this;
+    }
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {
         return MakeFollowingSoundEffect(follow, effect, 1, -1);
@@ -70,9 +77,13 @@ public class SoundEffectSpawner : MonoBehaviour
         x.transform.SetParent(follow);
         return x;
     }
-    private AudioSource MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch, float overrideTimeAlive = -1)
+    private AudioSource MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch, bool isBossEffect,float overrideTimeAlive = -1)
     {
-        var go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
+        GameObject go;
+        if (!isBossEffect)
+            go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
+        else
+            go = Instantiate(bossAudioSource, location, Quaternion.Euler(Vector3.zero));
         var ac = go.GetComponent<AudioSource>();
 
 
@@ -96,6 +107,8 @@ public class SoundEffectSpawner : MonoBehaviour
         AudioClip clipToPlay = null;
 
         float pitch = Random.Range(0.9333f, 1.0667f);
+
+        bool isBossEffect = false;
 
         int index;
         switch (effect)
@@ -143,9 +156,11 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.EggCrack:
                 index = Random.Range(0, EggCrackEffects.Length);
                 clipToPlay = EggCrackEffects[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.EggRollHit:
                 clipToPlay = EggRollHit;
+                isBossEffect = true;
                 break;
             case SoundEffect.EggRollStart:
                 clipToPlay = EggRollStart;
@@ -153,6 +168,7 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.EggRoll:
                 index = Random.Range(0, EggRoll.Length);
                 clipToPlay = EggRoll[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.Tomatroll:
                 index = Random.Range(0, TomatrollEffects.Length);
@@ -243,27 +259,33 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = SugarRush;
                 break;
             case SoundEffect.TrexStepEffects:
-                index = Random.Range(0, TrexStepEffects.Length);
+                index = Random.Range(0, TrexStep.Length);
                 clipToPlay = TrexStep[index];
                 break;
             case SoundEffect.TrexWallHit:
                 clipToPlay = TrexWallHit;
+                isBossEffect = true;
                 break;
             case SoundEffect.TrexStomp:
                 clipToPlay = TrexStomp;
+                isBossEffect = true;
                 break;
             case SoundEffect.TrexFireBreathWindUp:
-                clipToPlay = TrexFireBreathWindUp
+                clipToPlay = TrexFireBreathWindUp;
+                isBossEffect = true;
                 break;
             case SoundEffect.TrexFireBreath:
                 clipToPlay = TrexFireBreath;
+                isBossEffect = true;
                 break;
             case SoundEffect.TrexRoar:
                 clipToPlay = TrexRoar;
+                isBossEffect = true;
                 break;
             case SoundEffect.TrexBiteEffects:
-                index = Random.Range(0, TrexBiteEffects.Length);
+                index = Random.Range(0, TrexBite.Length);
                 clipToPlay = TrexBite[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.IsopodMove:
                 clipToPlay = IsopodMove;
@@ -285,7 +307,7 @@ public class SoundEffectSpawner : MonoBehaviour
         }
         if (clipToPlay != null)
         {
-            return MakeSoundEffect(location, volume, clipToPlay, pitch, overrideTimeAlive);
+            return MakeSoundEffect(location, volume, clipToPlay, pitch, isBossEffect, overrideTimeAlive);
         }
         else
             return null;
