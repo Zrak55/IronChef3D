@@ -57,7 +57,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip IsopodMove;
     public AudioClip IsopodAttack;
     public AudioClip[] OgreIdle;
-    public AudioClip[] OgreAttack;
+    public AudioClip OgreAttack;
     public AudioClip OgreStep;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
@@ -227,7 +227,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = FiftyPunchEffects[index];
                 break;
             case SoundEffect.PunchMiss:
-                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length - 1];
+                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length];
                 break;
             case SoundEffect.PortableLunch:
                 clipToPlay = PortableLunch;
@@ -242,6 +242,46 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.SugarRush:
                 clipToPlay = SugarRush;
                 break;
+            case SoundEffect.TrexStepEffects:
+                index = Random.Range(0, TrexStepEffects.Length);
+                clipToPlay = TrexStep[index];
+                break;
+            case SoundEffect.TrexWallHit:
+                clipToPlay = TrexWallHit;
+                break;
+            case SoundEffect.TrexStomp:
+                clipToPlay = TrexStomp;
+                break;
+            case SoundEffect.TrexFireBreathWindUp:
+                clipToPlay = TrexFireBreathWindUp
+                break;
+            case SoundEffect.TrexFireBreath:
+                clipToPlay = TrexFireBreath;
+                break;
+            case SoundEffect.TrexRoar:
+                clipToPlay = TrexRoar;
+                break;
+            case SoundEffect.TrexBiteEffects:
+                index = Random.Range(0, TrexBiteEffects.Length);
+                clipToPlay = TrexBite[index];
+                break;
+            case SoundEffect.IsopodMove:
+                clipToPlay = IsopodMove;
+                break;
+            case SoundEffect.IsopodAttack:
+                clipToPlay = IsopodAttack;
+                break;
+            case SoundEffect.OgreStep:
+                clipToPlay = OgreStep;
+                break;
+            case SoundEffect.OgreIdle:
+                index = Random.Range(0, OgreIdle.Length);
+                clipToPlay = OgreIdle[index];
+                break;
+            case SoundEffect.OgreAttack:
+                clipToPlay = OgreAttack;
+                break;
+
         }
         if (clipToPlay != null)
         {
@@ -298,7 +338,19 @@ public class SoundEffectSpawner : MonoBehaviour
         PortableLunch,
         CatapastaFly,
         CatapastaHit,
-        SugarRush
+        SugarRush,
+        TrexStepEffects,
+        TrexBiteEffects,
+        TrexWallHit,
+        TrexStomp,
+        TrexFireBreathWindUp,
+        TrexFireBreath,
+        TrexRoar,
+        IsopodMove,
+        IsopodAttack,
+        OgreStep,
+        OgreIdle,
+        OgreAttack
     }
 }
 
