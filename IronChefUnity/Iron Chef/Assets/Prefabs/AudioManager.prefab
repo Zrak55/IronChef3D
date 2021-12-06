@@ -402,7 +402,7 @@ MonoBehaviour:
   TrexStomp: {fileID: 8300000, guid: de59571d9702ba74990374eeb1d88270, type: 3}
   TrexFireBreathWindUp: {fileID: 8300000, guid: 7ecfa251d975cd84a87de5370a2ad70b, type: 3}
   TrexFireBreath: {fileID: 8300000, guid: fa64d96c3d9220d4a8a2601835faa68a, type: 3}
-  TrexRoar: {fileID: 8300000, guid: b6e8fcd90ae1460499a61f6635463331, type: 3}
+  TrexRoar: {fileID: 8300000, guid: 0dd31bc235b4eaf4fa92ca5368c3b2af, type: 3}
   IsopodMove: {fileID: 8300000, guid: 59870405087863a409c39800d939b8c1, type: 3}
   IsopodAttack: {fileID: 8300000, guid: 017273a967b94c641bf2479800085db3, type: 3}
   OgreIdle:
