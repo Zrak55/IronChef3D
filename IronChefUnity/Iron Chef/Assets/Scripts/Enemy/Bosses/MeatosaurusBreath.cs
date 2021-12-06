@@ -37,6 +37,7 @@ public class MeatosaurusBreath : MonoBehaviour
 
     public void StartBreathing()
     {
+        MakeBreathSound();
         breathing = true;
         haventTipped = true;
         breathEffect.SetActive(true);
