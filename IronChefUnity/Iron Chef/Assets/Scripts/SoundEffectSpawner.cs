@@ -47,6 +47,18 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip CatapastaFly;
     public AudioClip[] CatapastaHitEffects;
     public AudioClip SugarRush;
+    public AudioClip[] TrexStep;
+    public AudioClip[] TrexBite;    
+    public AudioClip TrexWallHit;
+    public AudioClip TrexStomp;
+    public AudioClip TrexFireBreathWindUp;
+    public AudioClip TrexFireBreath;
+    public AudioClip TrexRoar; 
+    public AudioClip IsopodMove;
+    public AudioClip IsopodAttack;
+    public AudioClip[] OgreIdle;
+    public AudioClip[] OgreAttack;
+    public AudioClip OgreStep;
 
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect)
     {

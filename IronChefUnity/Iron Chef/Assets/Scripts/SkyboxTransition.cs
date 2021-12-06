@@ -33,7 +33,8 @@ public class SkyboxTransition : MonoBehaviour
 
     public void SwapSkyboxes()
     {
-        StartCoroutine(swapping()); 
+        if(ICanSwap)
+            StartCoroutine(swapping()); 
     }
 
     IEnumerator swapping()
