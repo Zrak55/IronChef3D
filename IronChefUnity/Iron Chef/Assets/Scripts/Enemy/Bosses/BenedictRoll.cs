@@ -131,7 +131,7 @@ public class BenedictRoll : MonoBehaviour
         animator.speed = 0;
         startingRoll = true;
 
-        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position + ((FindObjectOfType<CharacterMover>().transform.position - transform.position)/2), SoundEffectSpawner.SoundEffect.EggRollStart);
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position + ((FindObjectOfType<CharacterMover>().transform.position - transform.position)/2), SoundEffectSpawner.SoundEffect.EggRollStart);
 
         Invoke("EndRolling", time);
     }

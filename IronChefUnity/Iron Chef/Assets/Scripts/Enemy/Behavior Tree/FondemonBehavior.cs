@@ -15,7 +15,7 @@ public class FondemonBehavior : EnemyBehaviorTree
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
-        soundEffectSpawner = FindObjectOfType<SoundEffectSpawner>();
+        soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes (Note: the fondemon must have attackAngle set to 0)
         StillReset = new Leaf("Don't move", stillReset);

@@ -33,7 +33,7 @@ public class BreadTrapTrigger : MonoBehaviour
             if (collision.gameObject.GetComponentInParent<EnemyStunHandler>() != null)
             {
                 collision.gameObject.GetComponentInParent<EnemyStunHandler>().Stun(stunTime);
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.BreadTrap);
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.BreadTrap);
                 canCollide = false;
                 Destroy(gameObject);
             }
@@ -48,7 +48,7 @@ public class BreadTrapTrigger : MonoBehaviour
             {
                 other.gameObject.GetComponentInParent<EnemyStunHandler>().Stun(stunTime);
                 canCollide = false;
-                FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.BreadTrap);
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.BreadTrap);
                 Destroy(gameObject);
             }
         }

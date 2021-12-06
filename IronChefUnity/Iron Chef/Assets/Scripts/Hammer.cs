@@ -43,7 +43,7 @@ public class Hammer : PlayerPower
             }
         }
         if (hits.Count > 0)
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Hammer);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Hammer);
 
     }
 

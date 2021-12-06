@@ -59,7 +59,7 @@ public class MolapenoProjectile : MonoBehaviour
             area.DoSpawnThings();
             area.DestroySelf(duration);
 
-            FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.MalapenoExplosion);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.MalapenoExplosion);
 
             Destroy(gameObject);
 

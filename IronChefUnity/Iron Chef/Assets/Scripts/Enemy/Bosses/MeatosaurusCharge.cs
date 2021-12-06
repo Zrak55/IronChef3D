@@ -58,6 +58,7 @@ public class MeatosaurusCharge : MonoBehaviour
         {
             if (i.gameObject.name != "Floor")
             {
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
                 pcam.ShakeCam(5, 2);
                 StopCharge();
 

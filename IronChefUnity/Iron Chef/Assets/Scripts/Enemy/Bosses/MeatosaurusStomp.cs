@@ -41,6 +41,7 @@ public class MeatosaurusStomp : MonoBehaviour
     {
         pcam.ShakeCam(5, 2);
         hitbox.DoCollisionThings();
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexStomp);
         for(int i = 0; i < rocksPerStomp; i++)
         {
             int rand = 0;

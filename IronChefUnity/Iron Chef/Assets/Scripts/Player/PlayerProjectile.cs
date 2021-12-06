@@ -67,7 +67,7 @@ public class PlayerProjectile : MonoBehaviour
                 {
                     allhits.Add(enemyHealth);
                     hit = true;
-                    FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, HitSound);
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, HitSound);
                     enemyHealth.TakeDamage(damage);
                     ApplyHitEffects();
                     if (!multiHit)
@@ -95,7 +95,7 @@ public class PlayerProjectile : MonoBehaviour
     public void MakeFlightSound()
     {
 
-        FindObjectOfType<SoundEffectSpawner>().MakeSoundEffect(transform.position, FlightSound);
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, FlightSound);
     }
 
 }

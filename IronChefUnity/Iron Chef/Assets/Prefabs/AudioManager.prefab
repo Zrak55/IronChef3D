@@ -301,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 8163896201982866486, guid: ee24825185791db4c8283060ab92f295, type: 3}
+  bossAudioSource: {fileID: 8163896201982866486, guid: 88f20231fad6a134c9ed5d9eda4800eb, type: 3}
   mixer: {fileID: 24100000, guid: 9075a5d1cc7b75f45958d16d61dd7d15, type: 2}
   CleaverEffects:
   - {fileID: 8300000, guid: 4f70807f5621fea4f837bb64bb8eb829, type: 3}
@@ -394,7 +395,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0c57b0a588caeba45a3c0860d723a193, type: 3}
   - {fileID: 8300000, guid: 73ee0065816962e4fbe94c9f7eb39422, type: 3}
   - {fileID: 8300000, guid: cb9f80fd3337c66459d49a0c2f17ff59, type: 3}
-  - {fileID: 8300000, guid: 906982b8bde177f4f8a24a7a5ef8b59a, type: 3}
   TrexBite:
   - {fileID: 8300000, guid: d6aab84e6cd70c341a9eacac9c659d67, type: 3}
   - {fileID: 8300000, guid: 8a7382cdba130f54b9565f143b38d216, type: 3}
@@ -402,15 +402,14 @@ MonoBehaviour:
   TrexStomp: {fileID: 8300000, guid: de59571d9702ba74990374eeb1d88270, type: 3}
   TrexFireBreathWindUp: {fileID: 8300000, guid: 7ecfa251d975cd84a87de5370a2ad70b, type: 3}
   TrexFireBreath: {fileID: 8300000, guid: fa64d96c3d9220d4a8a2601835faa68a, type: 3}
-  TrexRoar: {fileID: 8300000, guid: b6e8fcd90ae1460499a61f6635463331, type: 3}
+  TrexRoar: {fileID: 8300000, guid: 0dd31bc235b4eaf4fa92ca5368c3b2af, type: 3}
   IsopodMove: {fileID: 8300000, guid: 59870405087863a409c39800d939b8c1, type: 3}
   IsopodAttack: {fileID: 8300000, guid: 017273a967b94c641bf2479800085db3, type: 3}
   OgreIdle:
   - {fileID: 8300000, guid: d095b8a369803b544a8afd5b1f6b84f3, type: 3}
   - {fileID: 8300000, guid: cbcd8c7b456f4b142824ac6610b26578, type: 3}
   - {fileID: 8300000, guid: e2d5444eeb56e2b41a046c6c2e8d5898, type: 3}
-  OgreAttack:
-  - {fileID: 0}
+  OgreAttack: {fileID: 8300000, guid: aff14fc38806ed24e986a9ccdfec2b3f, type: 3}
   OgreStep: {fileID: 8300000, guid: 14985a8632a7f5b46b0912ea658140a0, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:

@@ -58,7 +58,7 @@ public class FreezerHitModifier : PlayerAttackHitModifier
                             tmp.enemy.Stun(stunTime);
                             if(sounds == null)
                             {
-                                sounds = GameObject.FindObjectOfType<SoundEffectSpawner>();
+                                sounds = SoundEffectSpawner.soundEffectSpawner;
                             }
                             sounds.MakeSoundEffect(tmp.enemy.transform.position, SoundEffectSpawner.SoundEffect.Freezer);
                         }

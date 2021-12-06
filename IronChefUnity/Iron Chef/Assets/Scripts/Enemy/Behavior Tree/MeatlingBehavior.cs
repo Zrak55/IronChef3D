@@ -20,7 +20,7 @@ public class MeatlingBehavior : EnemyBehaviorTree
         player = GameObject.Find("Player").transform;
         boss = GameObject.Find("Meatosaurus");
         musicManager = FindObjectOfType<MusicManager>();
-        soundEffectSpawner = FindObjectOfType<SoundEffectSpawner>();
+        soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);

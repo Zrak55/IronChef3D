@@ -38,8 +38,6 @@ public class PlayerSpatulaJumper : MonoBehaviour
         cTime += Time.deltaTime;
         while (cTime < time)
         {
-
-            transform.position = startPos;
             transform.position = Vector3.Lerp(startPos, target, cTime / time);
             float yAmount = yOffset * cTime * (cTime - time);
             transform.position = new Vector3(transform.position.x, transform.position.y + yAmount, transform.position.z);

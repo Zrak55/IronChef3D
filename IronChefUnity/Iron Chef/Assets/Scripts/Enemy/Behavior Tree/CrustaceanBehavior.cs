@@ -18,7 +18,7 @@ public class CrustaceanBehavior : EnemyBehaviorTree
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
-        soundEffectSpawner = FindObjectOfType<SoundEffectSpawner>();
+        soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
