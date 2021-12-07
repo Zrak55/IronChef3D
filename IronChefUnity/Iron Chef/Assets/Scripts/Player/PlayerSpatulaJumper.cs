@@ -20,12 +20,12 @@ public class PlayerSpatulaJumper : MonoBehaviour
     }
 
 
-    public void Jump(Vector3 target, float time, float jumpHeight = -1)
+    public void Jump(Vector3 target, float time, bool specialHoldInPlace, float jumpHeight = -1)
     {
-        StartCoroutine(jumpTick(target, time, jumpHeight));
+        StartCoroutine(jumpTick(target, time, jumpHeight, specialHoldInPlace));
     }
 
-    private IEnumerator jumpTick(Vector3 target, float time, float jumpHeight)
+    private IEnumerator jumpTick(Vector3 target, float time, float jumpHeight, bool specialHoldInPlace)
     {
         spatulaJumpEffects.SetActive(true);
         GetComponentInChildren<Animator>().SetBool("SpatulaJumping", true);
@@ -47,6 +47,15 @@ public class PlayerSpatulaJumper : MonoBehaviour
         }
         transform.position = target;
         GetComponent<CharacterMover>().enabled = true;
+
+        if(specialHoldInPlace)
+        {
+            for(int i = 0; i < 20; i++)
+            {
+                transform.position = target;
+                yield return null;
+            }
+        }
 
         GetComponentInChildren<Animator>().SetBool("SpatulaJumping", false);
 

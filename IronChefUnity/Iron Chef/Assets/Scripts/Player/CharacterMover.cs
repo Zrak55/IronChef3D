@@ -114,7 +114,7 @@ public class CharacterMover : MonoBehaviour
 
 
         currentMove = Vector3.MoveTowards(currentMove, targetMoveSpeed, acceleration * Time.deltaTime);
-        currentMove.y = -144f;
+        currentMove.y = -48f;
         var currentHorizontalMove = currentMove;
         currentHorizontalMove.y = 0;
 
@@ -357,4 +357,8 @@ public class CharacterMover : MonoBehaviour
         effect.Play();
     }
 
+    public CharacterController getController()
+    {
+        return controller;
+    }
 }
