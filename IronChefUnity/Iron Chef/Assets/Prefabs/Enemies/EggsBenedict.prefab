@@ -179,7 +179,8 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 8786063601787335458}
   IsCleave: 1
-  force: 10
+  force: 50
+  onAtAwake: 0
 --- !u!1 &2326482505033596584
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,6 +867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 200
   damaged: 0
+  imDead: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
   DeathParticle: {fileID: 169342410966150083, guid: fac22675fa3bea1478094d92bc4a0fa0, type: 3}
@@ -1193,7 +1195,8 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 157670040086219631}
   IsCleave: 1
-  force: 20
+  force: 50
+  onAtAwake: 0
 --- !u!1001 &3505069324512370128
 PrefabInstance:
   m_ObjectHideFlags: 0

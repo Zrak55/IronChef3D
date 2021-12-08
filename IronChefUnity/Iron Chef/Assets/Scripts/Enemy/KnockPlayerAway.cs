@@ -87,6 +87,11 @@ public class KnockPlayerAway : MonoBehaviour
 
                         Vector3 dir = player.transform.position - transform.position;
                         dir.y = 0;
+                        if(dir.magnitude < 1)
+                        {
+                            dir = player.transform.right;
+                        }
+                        dir = dir.normalized;
                         player.ForceDirection((dir * force));
 
                         

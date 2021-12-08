@@ -270,36 +270,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &5778546809439544242
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1311468117971061452}
-  m_Layer: 9
-  m_Name: Waypoint2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1311468117971061452
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5778546809439544242}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.8, y: 0, z: 12.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6299350652460505818
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,8 +476,6 @@ Transform:
   - {fileID: 2342973415078283714}
   - {fileID: 7115274123795762935}
   - {fileID: 9165689324201345008}
-  - {fileID: 2654324092017743627}
-  - {fileID: 1311468117971061452}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -574,16 +542,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e272daa8c8e35694a89b03651a8b5568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsTransforms:
-  - {fileID: 2654324092017743627}
-  - {fileID: 1311468117971061452}
+  waypointsTransforms: []
   aggroRange: 0
   spawnRange: 0
   attackRange: 50
   attackCD: 2
   attackAngle: 0
-  idleSoundEffect: 0f000000
-  attackSoundEffect: 0f000000
+  idleSoundEffect: 2e000000
+  attackSoundEffect: 2f000000
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +564,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 30
   damaged: 0
+  imDead: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
   DeathParticle: {fileID: 169342410966150083, guid: c23f005938ad18343b490f6bec6bde28, type: 3}
@@ -804,6 +771,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &696751839749426152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8392670439782753610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: 46
 --- !u!114 &1675178771988322174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -818,6 +798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 89cb4dcfe16a0be4691c94456f6b9c22, type: 3}
   spawn: {x: 0, y: 2, z: 3}
+  ProjectileSoundEffect: 47
 --- !u!1 &8676638101516692847
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,36 +918,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &9091693488885970822
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2654324092017743627}
-  m_Layer: 9
-  m_Name: Waypoint1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2654324092017743627
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9091693488885970822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.99, y: 0, z: 12.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &8699169550125570075
 PrefabInstance:
   m_ObjectHideFlags: 0

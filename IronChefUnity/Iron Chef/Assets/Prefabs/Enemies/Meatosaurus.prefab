@@ -222,7 +222,7 @@ MonoBehaviour:
   attackbox: {fileID: 5794194897465758749}
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 53
   damage: 10
 --- !u!1 &3129991381555283289
 GameObject:
@@ -5571,6 +5571,7 @@ MonoBehaviour:
   myCollider: {fileID: 4075816966071029030}
   IsCleave: 1
   force: 20
+  onAtAwake: 0
 --- !u!1 &5748500904435858460
 GameObject:
   m_ObjectHideFlags: 0

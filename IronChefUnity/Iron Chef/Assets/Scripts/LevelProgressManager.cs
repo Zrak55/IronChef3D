@@ -146,7 +146,6 @@ public class LevelProgressManager : MonoBehaviour
         ingredientOneMaximum = 0;
         foreach(var m in FindObjectsOfType<EnemyFoodDropper>())
         {
-            Debug.Log(m.food.ToString());
             if (m.food == ingredientOneType)
                 ingredientOneMaximum++;
             else if (m.food == ingredientTwoType)

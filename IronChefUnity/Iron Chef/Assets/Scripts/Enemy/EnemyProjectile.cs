@@ -14,6 +14,8 @@ public class EnemyProjectile : MonoBehaviour
     //Honestly unsure if enemyMove is required at all, this section of scripts is dated.
     private bool isAggro = false;
 
+    public SoundEffectSpawner.SoundEffect ProjectileSoundEffect;
+
     private void OnEnable()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -24,6 +26,7 @@ public class EnemyProjectile : MonoBehaviour
 
     public void projectileAttack()
     {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, ProjectileSoundEffect);
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
         if (!isAggro)
             anim.SetTrigger("Projectile");

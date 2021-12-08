@@ -110,14 +110,14 @@ public class PlayerFoodEater : MonoBehaviour
             }
             if (currentEatIndex == 6)
             {
-                if (food.badIngredientsCurrent > 0 && (maxAllowedEaten - amountEaten) >= 2)
+                if (food.badIngredientsCurrent > 0 && (maxAllowedEaten - amountEaten) >= 1)
                 {
                     food.badIngredientsCurrent--;
-                    amountEaten += 2;
+                    amountEaten++;
                     ate = true;
                 }
 
-                else if ((maxAllowedEaten - amountEaten) < 2)
+                else if ((maxAllowedEaten - amountEaten) < 1)
                 {
                     full = true;
                 }

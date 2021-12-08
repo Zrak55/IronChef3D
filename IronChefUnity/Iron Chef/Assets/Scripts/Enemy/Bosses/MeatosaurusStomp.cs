@@ -72,6 +72,8 @@ public class MeatosaurusStomp : MonoBehaviour
         yield return new WaitForSeconds(t);
         var newGo = Instantiate(rockPrefab, target.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)));
         currentRocks.Add(newGo);
+        foreach (var col in newGo.GetComponentsInChildren<Collider>())
+            col.enabled = false;
 
         yield return new WaitForSeconds(rockFallAnimTime);
 
@@ -79,12 +81,22 @@ public class MeatosaurusStomp : MonoBehaviour
         {
 
             Vector3 dir = (player.transform.position - newGo.transform.position);
+        
             dir.y = 0;
+
+            if (dir.magnitude < 1)
+                dir = player.transform.right;
+
             dir = dir.normalized;
             float force = 50;
             player.ForceDirection((dir * force));
             player.GetComponent<PlayerHitpoints>().TakeDamage(rockDamage, SoundEffectSpawner.SoundEffect.Cleaver);
         }
+
+        yield return new WaitForSeconds(0.2f);
+
+        foreach (var col in newGo.GetComponentsInChildren<Collider>())
+            col.enabled = true;
 
     }
 
