@@ -62,6 +62,11 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] OgreIdle;
     public AudioClip OgreAttack;
     public AudioClip OgreStep;
+    public AudioClip MenuSwitch;
+    public AudioClip MenuSelect;
+    public AudioClip TrexTailSwipe;
+    public AudioClip HydraIdle;
+    public AudioClip TrollStep;
 
     private void Awake()
     {
@@ -119,6 +124,10 @@ public class SoundEffectSpawner : MonoBehaviour
              case SoundEffect.:
                 index = Random.Range(0, .Length);
                 clipToPlay = [index];
+                break;
+
+             case SoundEffect.:
+                clipToPlay = ;
                 break;
              */
 
@@ -303,6 +312,18 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.OgreAttack:
                 clipToPlay = OgreAttack;
                 break;
+            case SoundEffect.MenuSelect:
+                clipToPlay = MenuSelect;
+                break;
+            case SoundEffect.MenuSwitch:
+                clipToPlay = MenuSwitch;
+                break;
+            case SoundEffect.TrexTailSwipe:
+                clipToPlay = TrexTailSwipe;
+                break;
+            case SoundEffect.TrollStep:
+                clipToPlay = TrollStep;
+                break;
 
         }
         if (clipToPlay != null)
@@ -372,7 +393,12 @@ public class SoundEffectSpawner : MonoBehaviour
         IsopodAttack,
         OgreStep,
         OgreIdle,
-        OgreAttack
+        OgreAttack,
+        MenuSwitch,
+        MenuSelect,
+        TrexTailSwipe,
+        HydraIdle,
+        TrollStep
     }
 }
 

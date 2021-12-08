@@ -412,6 +412,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e2d5444eeb56e2b41a046c6c2e8d5898, type: 3}
   OgreAttack: {fileID: 8300000, guid: aff14fc38806ed24e986a9ccdfec2b3f, type: 3}
   OgreStep: {fileID: 8300000, guid: 14985a8632a7f5b46b0912ea658140a0, type: 3}
+  MenuSwitch: {fileID: 8300000, guid: 809b8102d6d2818448056959c1d79097, type: 3}
+  MenuSelect: {fileID: 8300000, guid: 5e9b1b751e51aa64683ef97327663a85, type: 3}
+  TrexTailSwipe: {fileID: 0}
+  HydraIdle: {fileID: 0}
+  TrollStep: {fileID: 8300000, guid: 50c2e38872763b348af3388f194ef2d8, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
