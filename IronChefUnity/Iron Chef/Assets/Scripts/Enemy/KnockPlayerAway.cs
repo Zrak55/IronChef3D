@@ -17,6 +17,8 @@ public class KnockPlayerAway : MonoBehaviour
 
     public float force;
 
+    public bool onAtAwake = false;
+
     //bool hasPlayedSound = false;
 
     private void Awake()
@@ -24,6 +26,8 @@ public class KnockPlayerAway : MonoBehaviour
         playersHit = new List<CharacterMover>();
         //sfx = SoundEffectSpawner.soundEffectSpawner;
 
+        if (onAtAwake)
+            HitOn();
     }
     private void Start()
     {
