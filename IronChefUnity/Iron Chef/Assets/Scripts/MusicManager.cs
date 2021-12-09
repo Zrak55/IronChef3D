@@ -32,7 +32,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         if(player == null)
-            player = FindObjectOfType<CharacterMover>().gameObject;
+            player = FindObjectOfType<CharacterMover>()?.gameObject;
         updateMusicVolume();
         updateMusicClips();
     }
