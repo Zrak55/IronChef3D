@@ -311,7 +311,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b7061fb358b9cb642a25e04a7ab6978f, type: 3}
   FootstepEffects:
   - {fileID: 8300000, guid: d91cf28dc06e8604187cf0d88ffe5551, type: 3}
-  - {fileID: 8300000, guid: 062ca3543c341e84fa0f982cf097d31f, type: 3}
   FridgeSlow: {fileID: 8300000, guid: 4a59d765f4f80044eac6026538a12269, type: 3}
   MalapenoExplosion: {fileID: 8300000, guid: 040ef1cef1c5ed740bc939cc4b2ee5a2, type: 3}
   GruntEffects:
