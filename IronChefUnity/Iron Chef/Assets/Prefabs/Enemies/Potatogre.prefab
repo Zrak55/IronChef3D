@@ -53,6 +53,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 10
+  swingingSound: 0
 --- !u!114 &7191910004425362323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,8 +331,8 @@ MonoBehaviour:
   attackRange: 8
   attackCD: 3
   attackAngle: 30
-  idleSoundEffect: 31000000
-  attackSoundEffect: 32000000
+  idleSoundEffect: 33000000
+  attackSoundEffect: 34000000
 --- !u!1 &4445358600935164395
 GameObject:
   m_ObjectHideFlags: 0
