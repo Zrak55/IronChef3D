@@ -22,6 +22,9 @@ public static class UnlocksManager
             currentUnlocks += (PowerPrefix + n);
             PlayerPrefs.SetString(PowerUnlockName, currentUnlocks);
             PlayerPrefs.Save();
+
+
+            AppliancePowerSelection.CheckUnlocks();
         }
     }
     public static void UnlockAppliance(string n)
@@ -32,6 +35,8 @@ public static class UnlocksManager
             currentUnlocks += (AppliancePrefix + n);
             PlayerPrefs.SetString(ApplianceUnlockName, currentUnlocks);
             PlayerPrefs.Save();
+
+            AppliancePowerSelection.CheckUnlocks();
         }
     }
     public static void UnlockChapter(string n)
@@ -42,6 +47,8 @@ public static class UnlocksManager
             currentUnlocks += (ChapterPrefix + n);
             PlayerPrefs.SetString(ChapterUnlockName, currentUnlocks);
             PlayerPrefs.Save();
+
+
         }
     }
     public static void UnlockLevel(string n)

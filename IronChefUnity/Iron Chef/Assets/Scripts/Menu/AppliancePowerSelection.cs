@@ -170,4 +170,27 @@ public class AppliancePowerSelection : MonoBehaviour
     }
 
 
+    public static void CheckUnlocks()
+    {
+        foreach (var t in FindObjectsOfType<AppliancePowerPageManager>())
+        {
+
+            foreach (var p in t.pages)
+                p.gameObject.SetActive(true);
+            foreach (var b in FindObjectsOfType<PowerButton>())
+            {
+                b.CheckIfUnlocked();
+            }
+            foreach (var b in FindObjectsOfType<ApplianceButton>())
+            {
+                b.CheckIfUnlocked();
+            }
+
+            t.TurnOffAllPages();
+            t.TurnOnCurrentPage();
+        }
+
+    }
 }
+
+

@@ -62,6 +62,7 @@ MonoBehaviour:
   playersHit: []
   sound: 0
   damage: 10
+  swingingSound: 0
 --- !u!1 &338525863533773113
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,8 +871,9 @@ MonoBehaviour:
   attackbox: {fileID: 5794194897465758749}
   CanHit: 0
   playersHit: []
-  sound: 53
+  sound: 47
   damage: 10
+  swingingSound: 46
 --- !u!1 &2830593956655798752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1179,7 @@ MonoBehaviour:
   playersHit: []
   sound: 40
   damage: 10
+  swingingSound: 0
 --- !u!1 &3167350663545735608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1670,6 +1673,7 @@ MonoBehaviour:
   playersHit: []
   sound: 0
   damage: 10
+  swingingSound: 0
 --- !u!1 &4881925107103849329
 GameObject:
   m_ObjectHideFlags: 0

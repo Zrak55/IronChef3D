@@ -369,8 +369,9 @@ MonoBehaviour:
   attackbox: {fileID: 4899173125895841660}
   CanHit: 0
   playersHit: []
-  sound: 4
+  sound: 60
   damage: 10
+  swingingSound: 0
 --- !u!1 &4899173126106108077
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,8 +432,9 @@ MonoBehaviour:
   attackbox: {fileID: 4899173126106108075}
   CanHit: 0
   playersHit: []
-  sound: 4
+  sound: 59
   damage: 10
+  swingingSound: 0
 --- !u!1 &5967535204024380271
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +899,7 @@ MonoBehaviour:
   attackRange: 1000
   attackCD: 0
   attackAngle: 360
-  idleSoundEffect: 
+  idleSoundEffect: 37000000
   attackSoundEffect: 
   SpawnInTime: 2
   SlamCDTime: 15

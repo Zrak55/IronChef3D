@@ -30,12 +30,12 @@ public class AppliancePowerPageManager : MonoBehaviour
         SetNav();
     }
 
-    void TurnOffAllPages()
+    public void TurnOffAllPages()
     {
         foreach (var p in pages)
             p.gameObject.SetActive(false);
     }
-    void TurnOnCurrentPage()
+    public void TurnOnCurrentPage()
     {
         pages[currentIndex].gameObject.SetActive(true);
     }

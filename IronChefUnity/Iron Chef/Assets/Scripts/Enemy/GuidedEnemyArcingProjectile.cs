@@ -31,11 +31,14 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
             //TODO: Check for status effects for on hit things
             playerHitpoints.TakeDamage(damage);
 
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
+
             Destroy(gameObject);
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
             Destroy(gameObject);
         }
     }

@@ -15,6 +15,9 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     //bool hasPlayedSound = false;
 
+
+    public SoundEffectSpawner.SoundEffect swingingSound = SoundEffectSpawner.SoundEffect.Cleaver;
+
     private void Awake()
     {
         playersHit = new List<PlayerHitpoints>();
@@ -83,5 +86,10 @@ public class EnemyBasicAttackbox : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void PlaySwingSound()
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, swingingSound);
     }
 }
