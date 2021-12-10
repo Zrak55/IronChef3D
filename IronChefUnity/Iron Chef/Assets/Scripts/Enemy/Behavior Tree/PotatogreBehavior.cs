@@ -27,7 +27,7 @@ public class PotatogreBehavior : EnemyBehaviorTree
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
-        AttackBasic = new Leaf("Attack", attackBasic);
+        AttackTwo = new Leaf("Attack", attackTwo);
         AttackProjectile = new Leaf("Projectile", attackProjectile);
         RunOnce = new Leaf("Once", runOnce);
 
@@ -35,7 +35,7 @@ public class PotatogreBehavior : EnemyBehaviorTree
         CheckProjectile = new Selector("Projectile Selector", RunOnce, AttackProjectile);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards, CheckProjectile);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackBasic);
+        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackTwo);
         potatogreBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
