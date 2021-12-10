@@ -416,6 +416,13 @@ MonoBehaviour:
   TrexTailSwipe: {fileID: 0}
   HydraIdle: {fileID: 0}
   TrollStep: {fileID: 8300000, guid: 50c2e38872763b348af3388f194ef2d8, type: 3}
+  HydraSpit: {fileID: 0}
+  HydraSpitLand:
+  - {fileID: 8300000, guid: 23d09c766213306438df4b5bca47871d, type: 3}
+  - {fileID: 8300000, guid: 8dd7c95a5868ab445a5b12a9172829e4, type: 3}
+  - {fileID: 8300000, guid: ba4eb9b7e045c9d4087d10d8974370a8, type: 3}
+  HydraSlam: {fileID: 0}
+  HydraSweep: {fileID: 0}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0

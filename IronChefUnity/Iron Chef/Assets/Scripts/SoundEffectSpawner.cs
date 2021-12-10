@@ -56,7 +56,9 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip TrexStomp;
     public AudioClip TrexFireBreathWindUp;
     public AudioClip TrexFireBreath;
-    public AudioClip TrexRoar; 
+    public AudioClip TrexRoar;
+    public AudioClip TrexTailSwipe;
+    public AudioClip TrexTailSwipeHit;
     public AudioClip IsopodMove;
     public AudioClip IsopodAttack;
     public AudioClip[] OgreIdle;
@@ -64,9 +66,12 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip OgreStep;
     public AudioClip MenuSwitch;
     public AudioClip MenuSelect;
-    public AudioClip TrexTailSwipe;
     public AudioClip HydraIdle;
     public AudioClip TrollStep;
+    public AudioClip HydraSpit;
+    public AudioClip[] HydraSpitLand;
+    public AudioClip HydraSlam;
+    public AudioClip HydraSweep;
 
     private void Awake()
     {
@@ -296,6 +301,12 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = TrexBite[index];
                 isBossEffect = true;
                 break;
+            case SoundEffect.TrexTailSwipe:
+                clipToPlay = TrexTailSwipe;
+                break;
+            case SoundEffect.TrexTailSwipeHit:
+                clipToPlay = TrexTailSwipeHit;
+                break;
             case SoundEffect.IsopodMove:
                 clipToPlay = IsopodMove;
                 break;
@@ -318,11 +329,24 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.MenuSwitch:
                 clipToPlay = MenuSwitch;
                 break;
-            case SoundEffect.TrexTailSwipe:
-                clipToPlay = TrexTailSwipe;
-                break;
             case SoundEffect.TrollStep:
                 clipToPlay = TrollStep;
+                break;
+            case SoundEffect.HydraIdle:
+                clipToPlay = HydraIdle;
+                break;
+            case SoundEffect.HydraSlam:
+                clipToPlay = HydraSlam;
+                break;
+            case SoundEffect.HydraSpit:
+                clipToPlay = HydraSpit;
+                break;
+            case SoundEffect.HydraSpitLand:
+                index = Random.Range(0, HydraSpitLand.Length);
+                clipToPlay = HydraSpitLand[index];
+                break;
+            case SoundEffect.HydraSweep:
+                clipToPlay = HydraSweep;
                 break;
 
         }
@@ -389,6 +413,8 @@ public class SoundEffectSpawner : MonoBehaviour
         TrexFireBreathWindUp,
         TrexFireBreath,
         TrexRoar,
+        TrexTailSwipe,
+        TrexTailSwipeHit,
         IsopodMove,
         IsopodAttack,
         OgreStep,
@@ -396,9 +422,12 @@ public class SoundEffectSpawner : MonoBehaviour
         OgreAttack,
         MenuSwitch,
         MenuSelect,
-        TrexTailSwipe,
         HydraIdle,
-        TrollStep
+        TrollStep,
+        HydraSpit,
+        HydraSpitLand,
+        HydraSlam,
+        HydraSweep
     }
 }
 
