@@ -101,7 +101,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (aggrod)
             musicManager.combatCount--;
         aggrod = false;
-        if (idleSound == null && idleSoundEffect != null)
+        if (agent.velocity.magnitude == 0 && animator.GetCurrentAnimatorStateInfo(0).loop && idleSound == null)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         //Movement
@@ -199,7 +199,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
-            StartCoroutine("atttackCDEnd");
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
             AttackBasic.status = Node.STATUS.SUCCESS;
             //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
         }
@@ -219,7 +220,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
-            StartCoroutine("atttackCDEnd");
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
             AttackTwo.status = Node.STATUS.SUCCESS;
             //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
         }
@@ -239,7 +241,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
-            StartCoroutine("atttackCDEnd");
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
             AttackFour.status = Node.STATUS.SUCCESS;
             //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
         }
@@ -264,7 +267,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
-            StartCoroutine("atttackCDEnd");
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
             AttackProjectile.status = Node.STATUS.SUCCESS;
         }
         return AttackProjectile.status;
@@ -284,7 +288,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
-            StartCoroutine("atttackCDEnd");
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
             AttackProjectileStill.status = Node.STATUS.SUCCESS;
         }
         return AttackProjectileStill.status;

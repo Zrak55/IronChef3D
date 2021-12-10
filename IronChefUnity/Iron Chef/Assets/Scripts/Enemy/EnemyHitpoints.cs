@@ -89,12 +89,12 @@ public class EnemyHitpoints : MonoBehaviour
         {
             imDead = true;
 
-            GetComponent<EnemyFoodDropper>()?.GiveFood();
-
             if(GetComponent<EnemyBehaviorTree>().isAggrod())
             {
                 FindObjectOfType<MusicManager>().combatCount--;
             }
+
+            GetComponent<EnemyFoodDropper>()?.GiveFood();
 
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, deathSound);
 
