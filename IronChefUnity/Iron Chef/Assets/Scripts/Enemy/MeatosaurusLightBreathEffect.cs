@@ -9,6 +9,17 @@ public class MeatosaurusLightBreathEffect : MonoBehaviour
 
     bool stopping = false;
 
+    private void Start()
+    {
+        //StartCoroutine(TestFire());
+    }
+
+    IEnumerator TestFire()
+    {
+        PlayEffect();
+        yield return new WaitForSeconds(7f);
+        StopEffect();
+    }
     public void PlayEffect()
     {
         //RibcageParticles.Play();
@@ -27,32 +38,32 @@ public class MeatosaurusLightBreathEffect : MonoBehaviour
 
         stopping = false;
 
-        float flickerRate = 2f;
-        float percentRandomRange = 0.25f;
+        float flickerRate = 20f;
+        float percentRandomRange = 0.1f;
 
         float[] averageIntensity = new float[TailLights.Length];
         for (int i = 0; i < TailLights.Length; i++)
+        {
             averageIntensity[i] = 0;
+            TailLights[i].transform.rotation = Quaternion.Euler(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+        }
 
-        float growRate = 4f;
-        float maxTarget = 2f;
+        float growRate = 60f;
+        float maxTarget = 120f;
         float maxTime = 3f;
 
-        float turnOnRate = TailLights.Length / maxTime;
 
 
         float cTime = 0;
         while(cTime < maxTime)
         {
             cTime += Time.deltaTime;
-            int numLights = (int)Mathf.Clamp(Mathf.Ceil(cTime * turnOnRate), 1, TailLights.Length);
+            int numLights = TailLights.Length;
             for(int i = 0; i < numLights; i++)
             {
-                averageIntensity[i] += Mathf.Min(growRate * Time.deltaTime, maxTarget);
+                averageIntensity[i] = Mathf.Min(averageIntensity[i] + growRate * Time.deltaTime, maxTarget);
 
-                float randomIntesity = Mathf.Max(averageIntensity[i] + Random.Range(-averageIntensity[i] * percentRandomRange, averageIntensity[i] * percentRandomRange), 0);
-
-                float scale = Mathf.MoveTowards(TailLights[i].transform.localScale.x, randomIntesity, flickerRate * Time.deltaTime);
+                float scale = Mathf.MoveTowards(TailLights[i].transform.localScale.x, averageIntensity[i], growRate * Time.deltaTime);
 
                 TailLights[i].transform.localScale = new Vector3(scale, scale, scale);
 
@@ -65,33 +76,22 @@ public class MeatosaurusLightBreathEffect : MonoBehaviour
         for(int i = 0; i < TailLights.Length; i++)
         {
             averageIntensity[i] = maxTarget;
+
+            float scale = Mathf.MoveTowards(TailLights[i].transform.localScale.x, averageIntensity[i], growRate * Time.deltaTime);
+
+            TailLights[i].transform.localScale = new Vector3(scale, scale, scale);
         }
 
-        while (!stopping)
-        {
-            for (int i = 0; i < TailLights.Length; i++)
-            {
-                float randomIntesity = Mathf.Max(averageIntensity[i] + Random.Range(-averageIntensity[i] * percentRandomRange, averageIntensity[i] * percentRandomRange), 0);
-
-                float scale = Mathf.MoveTowards(TailLights[i].transform.localScale.x, randomIntesity, flickerRate * Time.deltaTime);
-
-                TailLights[i].transform.localScale = new Vector3(scale, scale, scale);
-
-
-            }
-
-
-            yield return null;
-        }
     }
 
     IEnumerator TurnLightsOff()
     {
         stopping = true;
         bool modifiedSomething = true;
-        float rate = 1.5f;
+        float rate = 100f;
         while(modifiedSomething)
         {
+            modifiedSomething = false;
             foreach(var l in TailLights)
             {
                 if(l.transform.localScale.x > 0)

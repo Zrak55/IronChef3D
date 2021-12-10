@@ -16,6 +16,8 @@ public class MeatosaurusBreath : MonoBehaviour
 
     public float DamagePerSecond;
 
+    MeatosaurusLightBreathEffect effect;
+
     [HideInInspector]
     public bool firstBreath;
 
@@ -26,6 +28,7 @@ public class MeatosaurusBreath : MonoBehaviour
         playerHeightRaise = player.GetComponent<CapsuleCollider>().height / 2;
         php = FindObjectOfType<PlayerHitpoints>();
         behavior = GetComponent<MeatosaurusBehavior>();
+        effect = GetComponent<MeatosaurusLightBreathEffect>();
         firstBreath = true;
     }
 
@@ -52,6 +55,7 @@ public class MeatosaurusBreath : MonoBehaviour
         haventTipped = false;
         breathing = false;
         GetComponent<MeatosaurusStomp>().DestroyAllRocks();
+        effect.StopEffect();
         breathEffect.SetActive(false);
     }
 
