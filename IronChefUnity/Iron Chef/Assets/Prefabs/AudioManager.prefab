@@ -351,7 +351,7 @@ MonoBehaviour:
   CrabSnapOpen: {fileID: 8300000, guid: 020cc692f5980174b8d1f84decc4640f, type: 3}
   CrabSnapClose: {fileID: 8300000, guid: 5ec0fc6ce9054bf4aadb4966b8911810, type: 3}
   BaconBite: {fileID: 8300000, guid: 75e61a70dd3aadf419f017a1df390ecc, type: 3}
-  BaconIdle: {fileID: 8300000, guid: bb7c4502bd65e614498f04188c37fa78, type: 3}
+  BaconIdle: {fileID: 8300000, guid: da4a1153425a949419617edf75c2f060, type: 3}
   AbilityRecharge: {fileID: 8300000, guid: 4e475d7bd297f8f488c9cca1d58a5fbd, type: 3}
   PlayerArmorHitEffects:
   - {fileID: 8300000, guid: 4ffabb94c2bdf9e46a5f297dc6b75da5, type: 3}
@@ -403,7 +403,9 @@ MonoBehaviour:
   TrexFireBreathWindUp: {fileID: 8300000, guid: 7ecfa251d975cd84a87de5370a2ad70b, type: 3}
   TrexFireBreath: {fileID: 8300000, guid: fa64d96c3d9220d4a8a2601835faa68a, type: 3}
   TrexRoar: {fileID: 8300000, guid: 0dd31bc235b4eaf4fa92ca5368c3b2af, type: 3}
-  IsopodMove: {fileID: 8300000, guid: 59870405087863a409c39800d939b8c1, type: 3}
+  TrexTailSwipe: {fileID: 8300000, guid: 3319851a617a81a4aade95ca15c40524, type: 3}
+  TrexTailSwipeHit: {fileID: 8300000, guid: 0d1dfdbe4bae6a7499351af06097e509, type: 3}
+  IsopodMove: {fileID: 8300000, guid: 70cdec3127f2a494393f6d960a00474d, type: 3}
   IsopodAttack: {fileID: 8300000, guid: 017273a967b94c641bf2479800085db3, type: 3}
   OgreIdle:
   - {fileID: 8300000, guid: d095b8a369803b544a8afd5b1f6b84f3, type: 3}
@@ -413,14 +415,11 @@ MonoBehaviour:
   OgreStep: {fileID: 8300000, guid: 14985a8632a7f5b46b0912ea658140a0, type: 3}
   MenuSwitch: {fileID: 8300000, guid: 809b8102d6d2818448056959c1d79097, type: 3}
   MenuSelect: {fileID: 8300000, guid: 5e9b1b751e51aa64683ef97327663a85, type: 3}
-  TrexTailSwipe: {fileID: 0}
   HydraIdle: {fileID: 0}
   TrollStep: {fileID: 8300000, guid: 50c2e38872763b348af3388f194ef2d8, type: 3}
-  HydraSpit: {fileID: 0}
+  HydraSpit: {fileID: 8300000, guid: de14252ca07a22d4e981e1ed8a1fe3e8, type: 3}
   HydraSpitLand:
-  - {fileID: 8300000, guid: 23d09c766213306438df4b5bca47871d, type: 3}
-  - {fileID: 8300000, guid: 8dd7c95a5868ab445a5b12a9172829e4, type: 3}
-  - {fileID: 8300000, guid: ba4eb9b7e045c9d4087d10d8974370a8, type: 3}
+  - {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
   HydraSlam: {fileID: 0}
   HydraSweep: {fileID: 0}
 --- !u!114 &2852230320500946064
