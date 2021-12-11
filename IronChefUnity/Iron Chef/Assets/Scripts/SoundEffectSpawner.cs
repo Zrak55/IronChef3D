@@ -66,7 +66,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip OgreStep;
     public AudioClip MenuSwitch;
     public AudioClip MenuSelect;
-    public AudioClip HydraIdle;
+    public AudioClip[] HydraIdle;
     public AudioClip TrollStep;
     public AudioClip HydraSpit;
     public AudioClip[] HydraSpitLand;
@@ -333,7 +333,8 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = TrollStep;
                 break;
             case SoundEffect.HydraIdle:
-                clipToPlay = HydraIdle;
+                index = Random.Range(0, HydraIdle.Length);
+                clipToPlay = HydraIdle[index];
                 break;
             case SoundEffect.HydraSlam:
                 clipToPlay = HydraSlam;
