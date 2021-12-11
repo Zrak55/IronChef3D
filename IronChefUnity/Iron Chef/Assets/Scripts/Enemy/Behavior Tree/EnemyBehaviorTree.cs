@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveClose, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveClose, MoveInto, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, simpleFlag = true, isAttackCD = false;
     [HideInInspector] public bool invincible = false;
@@ -102,6 +102,26 @@ public class EnemyBehaviorTree : MonoBehaviour
         animator.SetBool("isMoving", Vector3.Distance(player.transform.position, currentWaypoint) > spawnRange && transform.position == currentWaypoint ? false : true);
 
         return MoveClose.status = Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS moveInto()
+    {
+        //Music and sound effects
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
+        agent.destination = player.position;
+        if (!simpleFlag && (player.position - transform.position).magnitude < 5)
+        {
+            simpleFlag = true;
+            animator.Play("Attack", 0, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        }
+        else
+            simpleFlag = false;
+
+        return MoveInto.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS moveReset()
