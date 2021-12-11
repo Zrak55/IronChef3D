@@ -11,6 +11,8 @@ public class PreLevelWindow : MonoBehaviour
     public Text descText;
     public GameObject PlayButton;
 
+    public Image fadeToBlack;
+
     private void Awake()
     {
         foreach(var go in GetComponentsInChildren<Button>())
@@ -73,16 +75,24 @@ public class PreLevelWindow : MonoBehaviour
     {
         if (UnlocksManager.HasLevel(chapterNum + "-" + start.ToString()))
         {
-            ChapterManager.LevelToStartAt = start;
-            FindObjectOfType<MenuController>().PlayGame(levelName);
+            StartCoroutine(FadeAndLoad(start));
         }
     }
 
 
-    //IEnumerator FadeAndLoad()
-    //{
-    //   while()
-    //}
+    IEnumerator FadeAndLoad(int start)
+    {
+        foreach (var b in FindObjectsOfType<Button>())
+            b.enabled = false;
+       while(fadeToBlack.color.a != 1)
+        {
+            fadeToBlack.color = new Color(0, 0, 0, Mathf.Clamp(fadeToBlack.color.a + Time.deltaTime, 0, 1));
+            yield return null;
+        }
+
+        ChapterManager.LevelToStartAt = start;
+        FindObjectOfType<MenuController>().PlayGame(levelName);
+    }
 
     // Start is called before the first frame update
     void Start()

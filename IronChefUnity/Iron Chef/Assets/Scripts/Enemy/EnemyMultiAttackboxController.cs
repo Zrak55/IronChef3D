@@ -38,4 +38,9 @@ public class EnemyMultiAttackboxController : MonoBehaviour
     {
         GetComponentInParent<EnemyBehaviorTree>().playSound(value);
     }
+
+    public void PlaySwingSound(int value)
+    {
+        attacks[value].PlaySwingSound();
+    }
 }

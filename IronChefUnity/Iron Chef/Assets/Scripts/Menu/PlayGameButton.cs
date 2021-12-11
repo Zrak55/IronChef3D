@@ -41,6 +41,9 @@ public class PlayGameButton : MonoBehaviour
     {
         preLevelWindow.levelName = chapterInfo.LevelName;
         preLevelWindow.chapterNum = chapterInfo.ChapterNumber;
+        preLevelWindow.gameObject.SetActive(true);
+        foreach (var i in preLevelWindow.GetComponentsInChildren<Image>())
+            i.enabled = false;
         preLevelWindow.Play(0);
     }
 
