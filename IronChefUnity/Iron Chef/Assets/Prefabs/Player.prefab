@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8613754648391211620
 Transform:
   m_ObjectHideFlags: 0
@@ -5003,13 +5003,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524460744892199940}
-  m_LocalRotation: {x: 0.50221354, y: 0.09215614, z: 0.13300803, w: 0.84946907}
-  m_LocalPosition: {x: -0.0237, y: -0.0149, z: 0.0744}
-  m_LocalScale: {x: 3.1646, y: 3, z: 3.1646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0059, y: 0.002, z: -0.0243}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 9194107052209967509}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 55.967, y: 31.229, z: 34.691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!96 &214720973291757657
 TrailRenderer:
   serializedVersion: 2
@@ -5051,7 +5051,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.15
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 10
@@ -5060,13 +5060,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.24869347
-        inSlope: -0.44560173
-        outSlope: -0.44560173
+        value: 0.33332825
+        inSlope: -0.3148058
+        outSlope: -0.3148058
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.15737705
+        outWeight: 0.1849315
       - serializedVersion: 3
         time: 1
         value: 0
@@ -5114,7 +5114,7 @@ TrailRenderer:
     textureMode: 0
     shadowBias: 1
     generateLightingData: 0
-  m_MinVertexDistance: 0.1
+  m_MinVertexDistance: 0.01
   m_Autodestruct: 0
   m_Emitting: 0
 --- !u!1 &1819589345121578511
@@ -5563,7 +5563,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.990566, g: 0.8988571, b: 0.5653702, a: 1}
+      maxColor: {r: 0.9528302, g: 0.8865263, b: 0.6516999, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6703,7 +6703,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.9433962, g: 0.83542144, b: 0.493058, a: 0.019607844}
-        key1: {r: 0.9811321, g: 0.93052393, b: 0.5775721, a: 1}
+        key1: {r: 0.9811321, g: 0.93052393, b: 0.5775721, a: 0.32941177}
         key2: {r: 0, g: 0, b: 0, a: 0.050980393}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -6719,7 +6719,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 29876
+        atime1: 32768
         atime2: 65535
         atime3: 0
         atime4: 0
@@ -20709,7 +20709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5942961158696322701
 Transform:
   m_ObjectHideFlags: 0
@@ -22087,9 +22087,9 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.9433962, g: 0.83542144, b: 0.493058, a: 0.03529412}
-        key1: {r: 0.9811321, g: 0.93052393, b: 0.5775721, a: 1}
+        key1: {r: 0.9811321, g: 0.93052393, b: 0.5775721, a: 0.3764706}
         key2: {r: 0, g: 0, b: 0, a: 0.03529412}
-        key3: {r: 0, g: 0, b: 0, a: 0}
+        key3: {r: 0, g: 0, b: 0, a: 0.03529412}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
@@ -22103,9 +22103,9 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 30840
+        atime1: 31226
         atime2: 65535
-        atime3: 0
+        atime3: 65535
         atime4: 0
         atime5: 0
         atime6: 0
@@ -25743,13 +25743,13 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.42064857
-        inSlope: -0.5424691
-        outSlope: -0.5424691
+        value: 0.6031742
+        inSlope: -0.95181197
+        outSlope: -0.95181197
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.1609589
+        outWeight: 0.19178082
       - serializedVersion: 3
         time: 1
         value: 0
