@@ -45,9 +45,17 @@ public class EnemyHitpoints : MonoBehaviour
         if (amount > dmgNumAmount)
             dmgNumAmount = amount;
 
-        currentHP -= amount;
-        damaged = true;
-        
+        if (GetComponent<EnemyBehaviorTree>().invincible)
+        {
+            GetComponent<EnemyBehaviorTree>().counter();
+            dmgNumAmount = 0;
+            amount = 0;
+        }
+        else
+        {
+            currentHP -= amount;
+            damaged = true;
+        }
 
         if(dmgNumAmount >= 1)
         {

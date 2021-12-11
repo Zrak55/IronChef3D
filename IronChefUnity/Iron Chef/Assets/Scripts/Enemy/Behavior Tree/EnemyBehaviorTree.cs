@@ -37,10 +37,10 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveClose, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
-    protected bool isAttackCD = false;
-    protected bool aggrod, simpleFlag = true;
+    protected bool aggrod, simpleFlag = true, isAttackCD = false;
+    [HideInInspector] public bool invincible = false;
 
     protected void randomizeWayponts(int range)
     {
@@ -83,6 +83,25 @@ public class EnemyBehaviorTree : MonoBehaviour
         animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
 
         return MoveTowards.status = Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS moveClose()
+    {
+        //Music and sound effects
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
+        //transform.LookAt(player);
+        Vector3 midpoint = player.transform.position - transform.position;
+        midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude);
+        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
+        
+        //Animation
+        animator.SetBool("isMoving", Vector3.Distance(player.transform.position, currentWaypoint) > spawnRange && transform.position == currentWaypoint ? false : true);
+
+        return MoveClose.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS moveReset()
@@ -354,6 +373,12 @@ public class EnemyBehaviorTree : MonoBehaviour
     public void playSound(int value)
     {
         soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect[value]);
+    }
+
+    public void counter()
+    {
+        invincible = false;
+        animator.SetTrigger("Counter");
     }
 
     public bool isAggrod()
