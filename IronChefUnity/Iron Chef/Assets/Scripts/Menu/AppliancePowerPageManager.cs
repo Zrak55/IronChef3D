@@ -10,6 +10,10 @@ public class AppliancePowerPageManager : MonoBehaviour
     public Button rightButton;
     public Button leftButton;
 
+    private void OnEnable()
+    {
+        AppliancePowerSelection.CheckUnlocks();
+    }
     private void Start()
     {
         currentIndex = -1;
@@ -21,6 +25,7 @@ public class AppliancePowerPageManager : MonoBehaviour
         TurnOffAllPages();
         TurnOnCurrentPage();
         SetNav();
+
     }
     public void LoadPrevPage()
     {
@@ -28,6 +33,7 @@ public class AppliancePowerPageManager : MonoBehaviour
         TurnOffAllPages();
         TurnOnCurrentPage();
         SetNav();
+        
     }
 
     public void TurnOffAllPages()

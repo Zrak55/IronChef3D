@@ -33,11 +33,12 @@ public class AppliancePowerSelection : MonoBehaviour
         playerCam = FindObjectOfType<PlayerCameraSetup>().gameObject;
         IronChefUtils.TurnOffCharacter();
 
-        CheckUnlocks();
 
 
         firstPowerButton.SelectPower();
         firstApplianceButton.SelectAppliance();
+
+
 
     }
 
