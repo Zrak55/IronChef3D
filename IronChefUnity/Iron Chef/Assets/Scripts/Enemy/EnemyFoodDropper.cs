@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class EnemyFoodDropper : MonoBehaviour
 {
-    private LevelProgressManager levelProgress;
     public FoodType food;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        levelProgress = FindObjectOfType<LevelProgressManager>();
     }
 
     // Update is called once per frame
@@ -23,7 +21,7 @@ public class EnemyFoodDropper : MonoBehaviour
 
     public void GiveFood()
     {
-        levelProgress.AwardFood(food);
+        LevelProgressManager.levelProgressManager.AwardFood(food);
     }
 
 

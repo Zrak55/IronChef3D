@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 
 public class LevelProgressManager : MonoBehaviour
 {
+    public static LevelProgressManager levelProgressManager;
+
+
     public Image startBackground;
     public Text startText;
 
@@ -72,6 +75,7 @@ public class LevelProgressManager : MonoBehaviour
     void Start()
     {
         chapters = FindObjectOfType<ChapterManager>();
+        levelProgressManager = this;
     }
 
     // Update is called once per frame

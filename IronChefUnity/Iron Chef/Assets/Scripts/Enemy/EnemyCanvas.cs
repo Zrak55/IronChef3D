@@ -6,7 +6,6 @@ using TMPro;
 
 public class EnemyCanvas : MonoBehaviour
 {
-    PlayerCameraSetup pcam;
     public EnemyHitpoints hp;
     public Slider hpSlider;
     public GameObject dmgNumber;
@@ -15,7 +14,6 @@ public class EnemyCanvas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pcam = FindObjectOfType<PlayerCameraSetup>();
 
         
     }
@@ -23,7 +21,7 @@ public class EnemyCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(pcam.cam.transform);
+        transform.LookAt(PlayerCameraSetup.pcamSetup.cam.transform);
         IronChefUtils.moveABar(hpSlider, hp.GetPercentHP());
     }
 
