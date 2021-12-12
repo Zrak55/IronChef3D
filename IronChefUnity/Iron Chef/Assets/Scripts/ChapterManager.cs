@@ -73,7 +73,10 @@ public class ChapterManager : MonoBehaviour
 
         progressManager.DoAllSetup(levels[i]);
         if(selector != null)
+        {
             selector.gameObject.SetActive(true);
+            EventSystem.current.SetSelectedGameObject(selector.firstSelectButton);
+        }
     }
 
     public void GoToNextLevel(float score)
