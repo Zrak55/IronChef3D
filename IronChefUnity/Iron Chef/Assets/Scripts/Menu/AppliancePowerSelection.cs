@@ -21,6 +21,12 @@ public class AppliancePowerSelection : MonoBehaviour
     public PowerButton firstPowerButton;
     public ApplianceButton firstApplianceButton;
 
+
+    private void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(firstSelectButton);
+
+    }
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(firstSelectButton);

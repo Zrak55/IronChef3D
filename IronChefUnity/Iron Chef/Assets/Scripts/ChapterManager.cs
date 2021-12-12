@@ -161,7 +161,6 @@ public class ChapterManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(firstWinSelectButton);
         if (firstWinSelectButton.GetComponent<Image>().color != firstWinSelectButton.GetComponent<Button>().colors.selectedColor)
         {
-            firstWinSelectButton.GetComponent<Image>().color = firstWinSelectButton.GetComponent<Button>().colors.selectedColor;
             firstWinSelectButton.gameObject.AddComponent<DeselectColorReset>();
         }
 
