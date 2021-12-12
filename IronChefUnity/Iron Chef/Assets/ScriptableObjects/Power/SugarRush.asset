@@ -28,3 +28,4 @@ MonoBehaviour:
   - Duration
   prefabs:
   - {fileID: 2262031025979508716, guid: 1ed9b52000d071f409d7207ddeaf64e1, type: 3}
+  powerAnimDuration: 2

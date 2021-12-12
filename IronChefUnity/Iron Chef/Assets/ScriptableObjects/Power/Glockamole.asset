@@ -28,3 +28,4 @@ MonoBehaviour:
   - Distance
   prefabs:
   - {fileID: 4312367088962146410, guid: c7d804cc0f9d69242bf7df1b54d2fcc9, type: 3}
+  powerAnimDuration: 0.567

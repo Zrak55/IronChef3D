@@ -72,7 +72,7 @@ public class MenuController : MonoBehaviour
 
     public void PlayGame(string LevelName)
     {
-        SceneManager.LoadSceneAsync(LevelName);
+        SceneManager.LoadScene(LevelName);
     }
 
     public void Quit()

@@ -26,3 +26,4 @@ MonoBehaviour:
   - Trigger Radius
   prefabs:
   - {fileID: 7219546348998335166, guid: 42a20be5d0500ad41a27585be138f10a, type: 3}
+  powerAnimDuration: 1.033

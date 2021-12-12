@@ -23,3 +23,4 @@ MonoBehaviour:
   valueDescriptions:
   - Healing
   prefabs: []
+  powerAnimDuration: 2

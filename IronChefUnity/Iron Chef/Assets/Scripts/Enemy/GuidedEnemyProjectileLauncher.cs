@@ -34,7 +34,7 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
             target += (new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized * randomRadiusFromPlayer);
 
         //Set position to ground;
-        Ray r = new Ray(target + (Vector3.up * 100), Vector3.down);
+        Ray r = new Ray(target + (Vector3.up * 2), Vector3.down);
         RaycastHit hit;
         if (Physics.Raycast(r, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
             target = hit.point;

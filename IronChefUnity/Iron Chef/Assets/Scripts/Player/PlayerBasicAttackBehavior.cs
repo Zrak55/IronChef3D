@@ -16,10 +16,6 @@ public class PlayerBasicAttackBehavior : StateMachineBehaviour
         //player.Invoke("DoneAttacking", stateInfo.length);
 
     }
-    void DoneAttacking()
-    {
-        player.DoneAttacking();
-    }
     
 
 

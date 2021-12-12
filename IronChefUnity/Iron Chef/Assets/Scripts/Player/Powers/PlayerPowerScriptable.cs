@@ -18,7 +18,7 @@ public class PlayerPowerScriptable : ScriptableObject
     public string[] valueDescriptions;
     public GameObject[] prefabs;
 
-
+    public float powerAnimDuration;
 
     public enum PowerName
     {

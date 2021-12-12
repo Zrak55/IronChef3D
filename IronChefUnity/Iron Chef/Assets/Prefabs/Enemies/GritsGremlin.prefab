@@ -506,7 +506,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 4, z: 5}
+  m_Size: {x: 6.5, y: 5, z: 6.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4971240693712191602
 GameObject:
@@ -727,6 +727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 30
   damaged: 0
+  imDead: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
   DeathParticle: {fileID: 169342410966150083, guid: c23f005938ad18343b490f6bec6bde28, type: 3}
@@ -794,11 +795,12 @@ MonoBehaviour:
   waypointsTransforms: []
   aggroRange: 40
   spawnRange: 75
-  attackRange: 0
+  attackRange: 4
   attackCD: 0
-  attackAngle: 0
+  attackAngle: 45
   idleSoundEffect: 07000000
   attackSoundEffect: 07000000
+  invincible: 0
 --- !u!95 &1439458322267130707
 Animator:
   serializedVersion: 3
@@ -846,7 +848,8 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 5421851910887691809}
   IsCleave: 1
-  force: 5
+  force: 10
+  onAtAwake: 0
 --- !u!1 &8042634753427596190
 GameObject:
   m_ObjectHideFlags: 0

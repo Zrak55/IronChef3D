@@ -32,3 +32,4 @@ MonoBehaviour:
   - Launc Force
   prefabs:
   - {fileID: 7219546348998335166, guid: 8daae9b691e2d744ebf1ef7be186a3e8, type: 3}
+  powerAnimDuration: 2.033

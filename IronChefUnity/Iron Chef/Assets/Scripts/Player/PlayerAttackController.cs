@@ -64,7 +64,6 @@ public class PlayerAttackController : MonoBehaviour
             CheckBasic();
             CheckFryingPan();
             CheckPower();
-            CheckAttackingStuck();
 
 
             animator.SetLayerWeight(animator.GetLayerIndex("Mid Layer"), 1f-Mathf.Clamp(animator.GetFloat("Speed"), 0, 1));
@@ -79,7 +78,6 @@ public class PlayerAttackController : MonoBehaviour
                 animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) + tickRate, 0, 1));
             }
 
-            EmergencyShutoff();
         }
     }
 
@@ -123,23 +121,6 @@ public class PlayerAttackController : MonoBehaviour
 
     }
 
-    private void CheckAttackingStuck()
-    {
-        if(canBasicAttack == false || attacking == true)
-        {
-            attackTimer += Time.deltaTime;
-            if(attackTimer >= maxAttackTimer)
-            {
-                canBasicAttack = true;
-                attacking = false;
-                attackTimer = 0;
-            }
-        }
-        else
-        {
-            attackTimer = 0;
-        }
-    }
 
     private void CheckBasicWeaponSwap()
     {
@@ -227,25 +208,16 @@ public class PlayerAttackController : MonoBehaviour
     }
     private void PerformBasic()
     {
-        targetOverrideWeight = 1;
         attacking = true;
+
+        targetOverrideWeight = 1;
         animator.SetTrigger("BasicAttack");
         animator.SetInteger("BasicAttackNum", currentPlayerBasic);
 
         Invoke("DoneAttacking", PlayerBasics[currentPlayerBasic].attackAnimTime);
 
-        Invoke("EmergencyShutoff", 2f);
     }
 
-    private void EmergencyShutoff()
-    {
-        /*
-        if(!attacking && animator.GetBool("BasicAttack"))
-        {
-            animator.SetBool("BasicAttack", false);
-        }
-        */
-    }
 
     public void BasicHitOn()
     {
@@ -259,10 +231,17 @@ public class PlayerAttackController : MonoBehaviour
 
     public void DoneAttacking()
     {
-        attacking = false;
         //animator.SetBool("BasicAttack", false);
-        targetOverrideWeight = 0;
+        Invoke("ResetOverrideWeight", 0.1f);
+        attacking = false;
     }
+
+    public void ResetOverrideWeight()
+    {
+        if (!attacking)
+            targetOverrideWeight = 0;
+    }
+
 
     private void CheckFryingPan()
     {
@@ -300,13 +279,13 @@ public class PlayerAttackController : MonoBehaviour
             animator.SetBool("UsingPower", true);
             targetOverrideWeight = 1;
             GetComponent<PlayerPower>().PerformPower();
+            Invoke("EndPower", GetComponent<PlayerPower>().powerInformation.powerAnimDuration);
         }
     }
     public void EndPower()
     {
-        attacking = false;
+        DoneAttacking();
         animator.SetBool("UsingPower", false);
-        targetOverrideWeight = 0;
         ActivateBasicWeapon();
     }
 }

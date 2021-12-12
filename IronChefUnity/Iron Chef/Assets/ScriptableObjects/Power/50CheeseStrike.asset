@@ -34,3 +34,4 @@ MonoBehaviour:
   - Height
   prefabs:
   - {fileID: 2669251090362438238, guid: 5d3ab3f650f2f5148aefeb3ac1ab0ac7, type: 3}
+  powerAnimDuration: 1.467
