@@ -73,7 +73,7 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 0.2761905
+      - time: 0.25079367
         functionName: TurnBasicAttackTrailOff
         data: 
         objectReferenceParameter: {instanceID: 0}
