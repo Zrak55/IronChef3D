@@ -19,7 +19,7 @@ public class MeatosaurusCharge : MonoBehaviour
     Vector3 targetFacing;
     public float chargeSpeed;
 
-    public Collider collider;
+    public Collider col;
 
 
     void Start()
@@ -47,13 +47,14 @@ public class MeatosaurusCharge : MonoBehaviour
             targetFacing.y = 0;
             ChargeCollider.HitOn();
             ChargeKnockbox.HitOn();
+            col.isTrigger = true;
         }
     }
 
     void DoChargeThings()
     {
         Debug.Log("Charging");
-        var list = IronChefUtils.GetCastHits(collider, "Terrain");
+        var list = IronChefUtils.GetCastHits(col, "Terrain");
         foreach (var i in list)
         {
             if (i.gameObject.name != "Floor")
@@ -71,7 +72,7 @@ public class MeatosaurusCharge : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), chargeSpeed * speed.GetMod() * Time.fixedDeltaTime);
 
         var ray = new Ray(transform.position + (2 * Vector3.up), transform.forward);
-        if(Physics.Raycast(ray, 5 * collider.bounds.size.z * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime, 1 << LayerMask.NameToLayer("Terrain")))
+        if(Physics.Raycast(ray, 5 * col.bounds.size.z * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime, 1 << LayerMask.NameToLayer("Terrain")))
         {
             //StopCharge();
         }
@@ -87,6 +88,7 @@ public class MeatosaurusCharge : MonoBehaviour
             ChargeKnockbox.HitOff();
             behavior.attackEnd();
             behavior.StartChargeCD();
+            col.isTrigger = false;
 
         }
     }
