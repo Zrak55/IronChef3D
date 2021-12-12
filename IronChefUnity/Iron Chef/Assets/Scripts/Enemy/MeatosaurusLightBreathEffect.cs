@@ -24,6 +24,7 @@ public class MeatosaurusLightBreathEffect : MonoBehaviour
     {
         //RibcageParticles.Play();
         StartCoroutine(ManageTailLights());
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexFireBreathWindUp);
     }
 
     public void StopEffect()
