@@ -312,6 +312,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
             {
                 StompOnCD = true;
                 isAttacking = true;
+                agent.enabled = false;
                 animator.SetTrigger("Stomp");
 
 
