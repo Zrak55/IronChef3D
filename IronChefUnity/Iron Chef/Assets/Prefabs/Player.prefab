@@ -10248,7 +10248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9109221223683227776
 Transform:
   m_ObjectHideFlags: 0
@@ -10410,13 +10410,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2967272301398765311}
-  m_LocalRotation: {x: 0.95094913, y: -0, z: -0, w: 0.30934724}
-  m_LocalPosition: {x: -0.11, y: 1.82, z: -0.64}
-  m_LocalScale: {x: 0.27125248, y: 0.39604688, z: 0.39604688}
+  m_LocalRotation: {x: 0.9010412, y: -0, z: -0, w: 0.43373355}
+  m_LocalPosition: {x: 0.133, y: 1.434, z: -1.662}
+  m_LocalScale: {x: 0.33953902, y: 0.33663985, z: 0.33663985}
   m_Children: []
   m_Father: {fileID: 5834767382885468892}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 143.95999, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 128.591, y: 0, z: 0}
 --- !u!198 &4571944506701533961
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -10500,8 +10500,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1.2
-      minScalar: 0.8
+      scalar: 1
+      minScalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -25904,7 +25904,7 @@ Transform:
   m_GameObject: {fileID: 8083969092806925202}
   m_LocalRotation: {x: 0.9108227, y: -0, z: -0, w: 0.4127979}
   m_LocalPosition: {x: 1.43, y: 2.854, z: -0.497}
-  m_LocalScale: {x: 0.44823033, y: 0.3364407, z: 0.39345193}
+  m_LocalScale: {x: 0.5407101, y: 0.2792458, z: 0.3265651}
   m_Children: []
   m_Father: {fileID: 5834767382885468892}
   m_RootOrder: 2
