@@ -8123,7 +8123,7 @@ MonoBehaviour:
   ChargeKnockbox: {fileID: 2305849812563000612}
   animator: {fileID: 7329030326440159370}
   chargeSpeed: 60
-  collider: {fileID: 6479774543020380392}
+  col: {fileID: 6479774543020380392}
 --- !u!114 &312029177409220842
 MonoBehaviour:
   m_ObjectHideFlags: 0
