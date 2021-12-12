@@ -415,12 +415,15 @@ MonoBehaviour:
   OgreStep: {fileID: 8300000, guid: 14985a8632a7f5b46b0912ea658140a0, type: 3}
   MenuSwitch: {fileID: 8300000, guid: 809b8102d6d2818448056959c1d79097, type: 3}
   MenuSelect: {fileID: 8300000, guid: 5e9b1b751e51aa64683ef97327663a85, type: 3}
-  HydraIdle: {fileID: 0}
+  HydraIdle:
+  - {fileID: 8300000, guid: 778c62079860bc74290ff87e44a7f432, type: 3}
+  - {fileID: 8300000, guid: 3207159e1b0faa24f9362a79ffbc118b, type: 3}
+  - {fileID: 8300000, guid: 0b5941ce22750d147b43a3f21c5eb456, type: 3}
   TrollStep: {fileID: 8300000, guid: 50c2e38872763b348af3388f194ef2d8, type: 3}
   HydraSpit: {fileID: 8300000, guid: de14252ca07a22d4e981e1ed8a1fe3e8, type: 3}
   HydraSpitLand:
   - {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
-  HydraSlam: {fileID: 0}
+  HydraSlam: {fileID: 8300000, guid: fd700da3655dae145870255b30052890, type: 3}
   HydraSweep: {fileID: 0}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
