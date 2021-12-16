@@ -4,6 +4,7 @@ Alex
 	Fixing lvl 1 pathing (bushes near glock)
 	Redo Tutorial (bigger, more spread out for tutorialing)
 	Fix lvl 3 ground camera clipping
+	Nec-cream-mancer
 	Make death a score penalty, not a level reset
 		Reset bosses and enemy hp/aggro
 	Animate Meatle (as Lin finishes)
