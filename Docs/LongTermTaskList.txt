@@ -1,0 +1,67 @@
+Alex
+	Model lvl 4
+	General player improvements (stamina regen on spatulas, etc)
+	Fixing lvl 1 pathing (bushes near glock)
+	Redo Tutorial (bigger, more spread out for tutorialing)
+	Fix lvl 3 ground camera clipping
+	Make death a score penalty, not a level reset
+		Reset bosses and enemy hp/aggro
+	Animate Meatle (as Lin finishes)
+	Animate Tomatroll jump
+	Animate Snakon Strip lunge
+	animate other modeled monsters (as Lin finishes)
+	Modify Player anims? (Ask peter first)
+	Number balancing for powers
+	Look into some kind of player progression system
+	Fix up Ham-mer stun
+	
+Spencer
+	Behavior for desert level
+		Sprinkle Sprites
+		Fudge Slime
+		Onion Knight
+		Cookie Wheel
+		Gummy Bear
+			Gummy Bear Spawns (note: remove EnemyFoodDropper script from gummy bear spawns so they dont drop extra food)
+
+	Add some bonus to earlier mobs
+		Add jump attack to Tomatroll (recommendation: Just rip benedict jump code)
+		Add a lunge attack to Snakon Strip
+		Make Fondemon projectiles target player middle, not straight forward
+		Add a projectile attack for Meatle (rolls a meatball, probably good to just make it like a normal projectile)
+Zach
+	VFX for enemies
+		Tomatroll when using vine slam
+		Other basic enemies when applicable
+		Benedict when shell cracks, benedict jump
+		Meatosaurus stomp, tail whip, fire breath, charge, rock fall
+		etc, etc etc.
+		Watery/sludge effects for Hydravioli
+		For bosses, dont be afraid to set up VFX on environment (i.e., dirt/small rocks fall from Meat cave)
+Kris
+	More music tracks
+		Target goal: 5 in combat, 5 out of combat tracks
+	SFX
+		Tomatroll when hitting ground
+		Hydravioli (he needs more)
+		Sprinkle Sprites
+		Fudge Slime
+		Onion Knight
+		Cookie Wheel
+		Gummy Monsters
+		furhter SFX from playthroughs you think we're missing
+
+Lin
+	Modeling/Rigging
+		Finish Meatle
+		Chipanzee
+		Sprinkle Sprites
+		Fudge Slime
+		Onion Knight
+		Cookie Wheel
+		Gummy Bear
+		Gummy Zombies
+		Nec-cream-ancer
+	Texturing (feel free to enlist our guest discord man)
+		Hydravioli
+		All listed above
