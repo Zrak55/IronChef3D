@@ -15,8 +15,15 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
     [SerializeField] private float frostboltTime;
 
+    [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
+    [SerializeField] private float CreamyCometRange;
+    [Tooltip("Float for the time between the enemy's attack")]
+    [SerializeField] private float CreamyCometCD;
+    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [SerializeField] private float CreamyCometTime;
+
     //Nodes for the behavior tree. Will be adding more later.
-    private Node CheckPlayer, CheckHurt, SpecialSequence, CheckAttack, CheckRise, CheckPhylactery, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, FrostboltAttack;
+    private Node CheckPlayer, CheckHurt, SpecialSequence, CheckAttack, CheckRise, CheckPhylactery, ResetMove, MoveTowardsPlayer, PlayerSpawnRange, PlayerAggroRange, EnemyHurt, PlayerAttackRange, FrostboltAttack, CreamyCometAttack;
     //The spawn location of the enemy is automatically set based on scene placement.
 
     //Ensure the enemy doesn't start a new attack in the middle of an old one.
@@ -26,6 +33,8 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     bool genericCD = false;
     private bool InFrostboltRange = false;
 
+    private bool CreamyCometOnCD = false;
+    private bool InCreamyCometRange = false;
 
 
     [Space]
@@ -56,6 +65,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         MoveTowardsPlayer = new Leaf("Move towards player", moveTowards);
         ResetMove = new Leaf("Reset Move", movePause);
         FrostboltAttack = new Leaf("FrostboltAttack", frostboltAttack);
+        CreamyCometAttack = new Leaf("Creamy Comet", creamyComets);
 
         CheckPhylactery = new Leaf("Phylactery", phylcateryCheck);
         CheckRise = new Leaf("Rise", riseCheck);
@@ -63,7 +73,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", PlayerSpawnRange, PlayerAggroRange, MoveTowardsPlayer);
         CheckHurt = new Sequence("Check Hurt Sequence", EnemyHurt, MoveTowardsPlayer);
-        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, FrostboltAttack);
+        CheckAttack = new Sequence("Attack Sequence", PlayerAttackRange, FrostboltAttack, CreamyCometAttack);
         SpecialSequence = new Sequence("Special Abilities", CheckPhylactery, CheckRise);
         genericBehaviorTree = new BehaviorTree(ResetMove, CheckPlayer, CheckHurt, SpecialSequence, CheckAttack);
 
@@ -79,6 +89,12 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     private void Update()
     {
         genericBehaviorTree.behavior();
+
+        if(agent.enabled && isAggrod())
+        {
+            transform.LookAt(player.position);
+            transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        }
     }
 
     //This is intended to be running in the update function through the behavior tree.
@@ -87,15 +103,6 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         animator.SetBool("isMoving", true);
         if(agent.enabled)
         {
-
-            Vector3 midpoint = (player.transform.position - transform.position);
-            if (midpoint.magnitude < (frostboltRange /1.5f))
-                midpoint *= (0.05f / midpoint.magnitude);
-
-
-            Vector3 target = transform.position + midpoint;
-
-            agent.destination = target;
         }
         MoveTowardsPlayer.status = Node.STATUS.SUCCESS;
 
@@ -159,6 +166,45 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         return FrostboltAttack.status;
     }
 
+    public Node.STATUS creamyComets()
+    {
+        if (aggrod && !isAttacking)
+        {
+            //When the attack animation has finished this will play.
+            if (CreamyCometAttack.status == Node.STATUS.RUNNING && !isAttacking)
+            {
+                CreamyCometAttack.status = Node.STATUS.SUCCESS;
+                return CreamyCometAttack.status;
+            }
+            else if (CreamyCometAttack.status == Node.STATUS.RUNNING && isAttacking)
+            {
+                CreamyCometAttack.status = Node.STATUS.RUNNING;
+                return CreamyCometAttack.status;
+            }
+            else if (CreamyCometOnCD || !InCreamyCometRange)
+            {
+                CreamyCometAttack.status = Node.STATUS.SUCCESS;
+                return CreamyCometAttack.status;
+            }
+            else
+            {
+                Invoke("CreamyCometCDEnd", CreamyCometCD + CreamyCometTime);
+                CreamyCometOnCD = true;
+                isAttacking = true;
+                animator.SetTrigger("CreamyComet");
+                Invoke("attackEnd", CreamyCometTime);
+
+
+
+                FrostboltAttack.status = Node.STATUS.RUNNING;
+            }
+
+
+
+        }
+
+        return FrostboltAttack.status;
+    }
 
 
     public void attackEnd()
@@ -181,7 +227,10 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         FrostboltOnCD = false;
     }
 
-
+    private void CreamyCometCDEnd()
+    {
+        CreamyCometOnCD = false;
+    }
     public Node.STATUS checkEnemyHurt()
     {
         if (enemyHitpoints.damaged)
@@ -247,6 +296,10 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         {
             InFrostboltRange = true;
         }
+        if (Vector3.Distance(player.transform.position, transform.position) < CreamyCometRange)
+        {
+            InCreamyCometRange = true;
+        }
         if (genericCD)
         {
             PlayerAttackRange.status = Node.STATUS.FAILURE;
@@ -284,7 +337,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     public void LaunchFrostbolts()
     {
         FB.projectileAttack(transform.rotation.eulerAngles);
-        FB.projectileAttack(transform.rotation.eulerAngles + new Vector3(0, 45, 0));
-        FB.projectileAttack(transform.rotation.eulerAngles + new Vector3(0, -45, 0));
+        FB.projectileAttack(transform.rotation.eulerAngles + new Vector3(0, 20, 0));
+        FB.projectileAttack(transform.rotation.eulerAngles + new Vector3(0, -20, 0));
     }
 }
