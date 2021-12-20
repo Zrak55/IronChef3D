@@ -16,6 +16,7 @@ public class EnemyProjectile : MonoBehaviour
 
     public SoundEffectSpawner.SoundEffect ProjectileSoundEffect;
 
+
     private void OnEnable()
     {
         anim = gameObject.GetComponent<Animator>();
@@ -28,6 +29,14 @@ public class EnemyProjectile : MonoBehaviour
     {
         SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, ProjectileSoundEffect);
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
+        if (!isAggro)
+            anim.SetTrigger("Projectile");
+    }
+
+    public void projectileAttack(Vector3 facing)
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, ProjectileSoundEffect);
+        Instantiate(projectile, gameObject.transform.position + spawn, Quaternion.Euler(facing));
         if (!isAggro)
             anim.SetTrigger("Projectile");
     }

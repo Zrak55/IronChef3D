@@ -17,6 +17,10 @@ Alex
 	Fix up Ham-mer stun
 	Clean up visual on level 3 entrance
 	Remodel Kitchen
+	Fix Isobean Sound Spawning
+	Tech Debt
+		Pool death particles
+		Pool Audio Soures
 	
 Spencer
 	Behavior for desert level
