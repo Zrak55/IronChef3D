@@ -103,9 +103,12 @@ public class EnemyHitpoints : MonoBehaviour
         {
             imDead = true;
 
-            if(GetComponent<EnemyBehaviorTree>().isAggrod())
+            if(GetComponent<EnemyBehaviorTree>() != null)
             {
-                FindObjectOfType<MusicManager>().combatCount--;
+                if (GetComponent<EnemyBehaviorTree>().isAggrod())
+                {
+                    FindObjectOfType<MusicManager>().combatCount--;
+                }
             }
 
             GetComponent<EnemyFoodDropper>()?.GiveFood();

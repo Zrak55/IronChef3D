@@ -978,13 +978,12 @@ MonoBehaviour:
   IceWallCD: 30
   IceWallTime: 3
   bossWallEnter: {fileID: 0}
-  bossWallExit: {fileID: 0}
   FB: {fileID: 5890322910351180840}
   stageCenter: {fileID: 0}
   stageRadius: 100
   RiseMinionsLocations: []
   ZombiePrefab: {fileID: 3856517895618374344, guid: b0b9efb38b687b14a90f6b8d41e35f97, type: 3}
-  PhylacteryTimer: 10
+  PhylacteryTimer: 15
   MyPhylactery: {fileID: 0}
 --- !u!114 &5890322910351180840
 MonoBehaviour:
@@ -1015,7 +1014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CometPrefab: {fileID: 4088226268673702336, guid: 11903fef5335a93459cb29ccf839fdc1, type: 3}
   Warning: {fileID: 6882707936818889616, guid: 8c3a8c87752ece74fbb3dd6c1565f661, type: 3}
-  numComets: 8
+  numComets: 5
   interCometDelay: 0.5
   stageCener: {fileID: 0}
   stageRadius: 100

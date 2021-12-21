@@ -59,7 +59,6 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
 
     [Space]
     public GameObject bossWallEnter;
-    public GameObject bossWallExit;
 
 
     private MusicManager music;
@@ -395,10 +394,8 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
 
                 music.combatCount++;
 
-                if (bossWallEnter.activeSelf == false)
-                    bossWallEnter.SetActive(true);
-                if (bossWallExit.activeSelf == false)
-                    bossWallExit.SetActive(true);
+                if (bossWallEnter.activeSelf == true)
+                    bossWallEnter.SetActive(false);
 
                 FindObjectOfType<PlayerHUDManager>().BossInfoOn("The Ice Nec-Cream-Mancer", GetComponent<EnemyHitpoints>(), "");
 
@@ -470,8 +467,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     }
     public void BossOver()
     {
-        bossWallEnter.SetActive(false);
-        bossWallExit.SetActive(false);
+        bossWallEnter.SetActive(true);
         FindObjectOfType<PlayerHUDManager>().BossOver();
     }
 
@@ -543,6 +539,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         transform.position = new Vector3(10000, 10000, 10000);
         isPhylactery = true;
         GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.NeccreammancerPhylacteryStage, -10000, PhylacteryTimer);
+        Tip("Destroy the phylactery before his body reforms!");
     }
     public void PhylacteryTimerOver()
     {
@@ -556,7 +553,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         transform.position = stageCenter.position;
         agent.enabled = true;
 
-        
+        Tip("You'll have another shot at the phylactery - defeat him again!");
     }
 
 
