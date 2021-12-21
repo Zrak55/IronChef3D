@@ -14,6 +14,10 @@ public class EnemyProjectileControl : MonoBehaviour
     [SerializeField] private bool isArc;
     private Vector3 currentPosition;
     private PlayerHitpoints playerHitpoints;
+    public float timeToLive = 5f;
+
+    public bool DestroyOnTerrainHit = true;
+    public bool DestroyOnPlayerHit = true;
 
 
 
@@ -24,7 +28,7 @@ public class EnemyProjectileControl : MonoBehaviour
             Vector3 player = GameObject.Find("Player").transform.position;
             GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
         }
-        Destroy(gameObject, 5f);
+        Destroy(gameObject, timeToLive);
     }
 
     private void Update()
@@ -46,12 +50,16 @@ public class EnemyProjectileControl : MonoBehaviour
             //TODO: Check for status effects for on hit things
             playerHitpoints.TakeDamage(damage);
 
-            Destroy(gameObject);
+            if(DestroyOnPlayerHit)
+                Destroy(gameObject);
         }
 
-        if(other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if(DestroyOnTerrainHit)
         {
-            Destroy(gameObject);
-        }    
+            if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+            {
+                Destroy(gameObject);
+            }
+        }  
     }
 }

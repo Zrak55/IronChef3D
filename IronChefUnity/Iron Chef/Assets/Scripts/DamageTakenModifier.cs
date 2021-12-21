@@ -13,7 +13,8 @@ public class DamageTakenModifier
     {
         BenedictImmunity,
         BenedictDouble,
-        Microwave
+        Microwave,
+        NeccreammancerPhylacteryStage
     }
 
     public virtual void SpecialTakeDamageEffect(float OriginalDamageTaken)

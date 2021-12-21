@@ -24,7 +24,7 @@ public class CreamyComets : MonoBehaviour
         for(int i = 0; i < numComets; i++)
         {
             Vector3 target = stageCener.position + (Random.Range(0, stageRadius) * new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized);
-            var comet = Instantiate(CometPrefab, target + new Vector3(Random.Range(-60f, 60f), 75, Random.Range(-60f, 60f)), Quaternion.identity);
+            var comet = Instantiate(CometPrefab, target + new Vector3(Random.Range(-100f, 100f), 150, Random.Range(-100f, 100f)), Quaternion.identity);
             comet.transform.LookAt(target);
 
             Destroy(Instantiate(Warning, target, Quaternion.identity), 2f);

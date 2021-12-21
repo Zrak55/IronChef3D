@@ -35,7 +35,7 @@ public class EnemyHitpoints : MonoBehaviour
 
     }
 
-    public void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount)
     {
         float dmgNumAmount = amount;
 
@@ -45,13 +45,19 @@ public class EnemyHitpoints : MonoBehaviour
         if (amount > dmgNumAmount)
             dmgNumAmount = amount;
 
-        if (GetComponent<EnemyBehaviorTree>().invincible)
+        bool didInvincible = false;
+        if(GetComponent<EnemyBehaviorTree>() != null)
         {
-            GetComponent<EnemyBehaviorTree>().counter();
-            dmgNumAmount = 0;
-            amount = 0;
+
+            if (GetComponent<EnemyBehaviorTree>().invincible)
+            {
+                didInvincible = true;
+                GetComponent<EnemyBehaviorTree>().counter();
+                dmgNumAmount = 0;
+                amount = 0;
+            }
         }
-        else
+        if(!didInvincible)
         {
             currentHP -= amount;
             damaged = true;

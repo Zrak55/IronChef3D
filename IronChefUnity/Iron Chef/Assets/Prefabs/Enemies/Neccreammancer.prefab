@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b118117bfac099408386574298c6046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 477952825927109779}
+  hp: {fileID: 1899928756}
   hpSlider: {fileID: 9010058996005919706}
   dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
   animTime: 1
@@ -765,7 +765,6 @@ GameObject:
   - component: {fileID: 436092292271447978}
   - component: {fileID: 8521597711591569850}
   - component: {fileID: 7803086111016615539}
-  - component: {fileID: 477952825927109779}
   - component: {fileID: 3244397501475929103}
   - component: {fileID: 3093980021044873479}
   - component: {fileID: 4867357815208474035}
@@ -776,6 +775,8 @@ GameObject:
   - component: {fileID: 6944602818533929569}
   - component: {fileID: 5890322910351180840}
   - component: {fileID: 6697474145741523647}
+  - component: {fileID: 5829753582127172602}
+  - component: {fileID: 1899928756}
   m_Layer: 9
   m_Name: Neccreammancer
   m_TagString: Untagged
@@ -850,24 +851,6 @@ NavMeshAgent:
   m_BaseOffset: 0.37
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &477952825927109779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7803086111016615533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 350
-  damaged: 0
-  imDead: 0
-  deathSound: 27
-  DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: c23f005938ad18343b490f6bec6bde28, type: 3}
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -974,11 +957,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 0
-  spawnRange: 0
-  attackRange: 0
-  attackCD: 0
-  attackAngle: 0
+  aggroRange: 100
+  spawnRange: 1000
+  attackRange: 30
+  attackCD: 30
+  attackAngle: 30
   idleSoundEffect: 
   attackSoundEffect: 
   invincible: 0
@@ -988,9 +971,21 @@ MonoBehaviour:
   CreamyCometRange: 100
   CreamyCometCD: 15
   CreamyCometTime: 2.5
+  BlinkRange: 1000
+  BlinkCD: 20
+  BlinkTime: 1
+  IceWallRange: 1000
+  IceWallCD: 30
+  IceWallTime: 3
   bossWallEnter: {fileID: 0}
   bossWallExit: {fileID: 0}
   FB: {fileID: 5890322910351180840}
+  stageCenter: {fileID: 0}
+  stageRadius: 100
+  RiseMinionsLocations: []
+  ZombiePrefab: {fileID: 3856517895618374344, guid: b0b9efb38b687b14a90f6b8d41e35f97, type: 3}
+  PhylacteryTimer: 10
+  MyPhylactery: {fileID: 0}
 --- !u!114 &5890322910351180840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,10 +1015,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CometPrefab: {fileID: 4088226268673702336, guid: 11903fef5335a93459cb29ccf839fdc1, type: 3}
   Warning: {fileID: 6882707936818889616, guid: 8c3a8c87752ece74fbb3dd6c1565f661, type: 3}
-  numComets: 20
-  interCometDelay: 0.25
+  numComets: 8
+  interCometDelay: 0.5
   stageCener: {fileID: 0}
   stageRadius: 100
+--- !u!114 &5829753582127172602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81d1233ca560bb40bb872cd80c2e71d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IceWallPrefab: {fileID: 4088226268673702336, guid: fc1d2b566678b284fb08770456979a15, type: 3}
+  SpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &1899928756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e873422850cd2824c8ca9953e98ba03e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 350
+  damaged: 0
+  imDead: 0
+  deathSound: 27
+  DeathParticleSystem: {fileID: 0}
+  DeathParticle: {fileID: 0}
 --- !u!1 &8296825580927094616
 GameObject:
   m_ObjectHideFlags: 0
