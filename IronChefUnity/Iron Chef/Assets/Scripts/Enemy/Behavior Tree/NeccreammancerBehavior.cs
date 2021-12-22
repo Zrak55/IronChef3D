@@ -487,6 +487,13 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
             else if(isRising)
             {
                 CheckRise.status = Node.STATUS.RUNNING;
+
+                if(!CreamyCometOnCD)
+                {
+                    GetComponent<CreamyComets>().DoComets();
+                    CreamyCometOnCD = true;
+                    Invoke("CreamyCometCDEnd", CreamyCometCD / 2f);
+                }
             }
             else
             {
