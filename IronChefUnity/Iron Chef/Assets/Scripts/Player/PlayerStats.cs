@@ -37,7 +37,7 @@ public class PlayerStats : MonoBehaviour
     {
         if(CurrentStamina < MaximumStamina)
         {
-            if(!mover.IsSprinting())
+            if(mover.enabled == false || !mover.IsSprinting())
             {
                 CurrentStamina = Mathf.Clamp(CurrentStamina + (StaminaRegenRate * Time.deltaTime), 0, MaximumStamina);
 
