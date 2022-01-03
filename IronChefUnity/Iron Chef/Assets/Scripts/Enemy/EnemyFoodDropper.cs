@@ -42,6 +42,11 @@ public class EnemyFoodDropper : MonoBehaviour
         Potato,
         Chips,
         Ravioli,
-        IceCream
+        IceCream,
+        Fudge,
+        Sprinkles,
+        Cookies,
+        Onion,
+        Gummy
     }
 }

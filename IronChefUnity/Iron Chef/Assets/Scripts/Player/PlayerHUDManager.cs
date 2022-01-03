@@ -79,6 +79,11 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite potato;
     public Sprite meat;
     public Sprite ravioli;
+    public Sprite icecream;
+    public Sprite sprikle;
+    public Sprite fudge;
+    public Sprite gummy;
+    public Sprite cookie;
 
 
     [Header("Location Name")]
@@ -246,6 +251,21 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case EnemyFoodDropper.FoodType.Ravioli:
                 i.sprite = ravioli;
+                break;
+            case EnemyFoodDropper.FoodType.Gummy:
+                i.sprite = gummy;
+                break;
+            case EnemyFoodDropper.FoodType.IceCream:
+                i.sprite = icecream;
+                break;
+            case EnemyFoodDropper.FoodType.Sprinkles:
+                i.sprite = sprikle;
+                break;
+            case EnemyFoodDropper.FoodType.Cookies:
+                i.sprite = cookie;
+                break;
+            case EnemyFoodDropper.FoodType.Fudge:
+                i.sprite = fudge;
                 break;
             default:
                 break;

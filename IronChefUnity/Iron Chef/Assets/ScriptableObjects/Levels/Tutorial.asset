@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tutorial
   m_EditorClassIdentifier: 
   dish: Grilled Cheese
-  ingredientOneRequired: 2
+  ingredientOneRequired: 5
   ingredientTwoRequired: 2
   ingredientThreeRequired: 1
   ingredientFourRequired: 0
