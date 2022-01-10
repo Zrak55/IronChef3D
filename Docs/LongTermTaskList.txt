@@ -44,6 +44,7 @@ Zach
 		Meatosaurus stomp, tail whip, fire breath, charge, rock fall
 		etc, etc etc.
 		Watery/sludge effects for Hydravioli
+		Water bubbles/Disturbance for before Hydravioli spawns (to show player that he is there and it isn't jsut an empty space)
 		For bosses, dont be afraid to set up VFX on environment (i.e., dirt/small rocks fall from Meat cave)
 Kris
 	More music tracks

@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 5
   damaged: 0
+  imDead: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
   DeathParticle: {fileID: 169342410966150083, guid: 91ed327ad56a10f4380f8e07f2576c57, type: 3}
@@ -307,13 +308,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 0
-  spawnRange: 0
-  attackRange: 0
+  aggroRange: 90
+  spawnRange: 90
+  attackRange: 1000
   attackCD: 0
-  attackAngle: 0
+  attackAngle: 360
   idleSoundEffect: 
   attackSoundEffect: 
+  invincible: 0
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -325,8 +327,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   HeadPrefab: {fileID: 7492154668776910706, guid: 7aa8377b2c9e1eb42b1699e6d1ecf521, type: 3}
-  BossWalls: []
+  BossWalls:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &4919642473228441015
 GameObject:
   m_ObjectHideFlags: 0

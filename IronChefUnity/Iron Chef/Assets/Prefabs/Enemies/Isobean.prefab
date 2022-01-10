@@ -548,8 +548,9 @@ MonoBehaviour:
   attackRange: 50
   attackCD: 2
   attackAngle: 0
-  idleSoundEffect: 2e000000
-  attackSoundEffect: 2f000000
+  idleSoundEffect: 30000000
+  attackSoundEffect: 31000000
+  invincible: 0
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0

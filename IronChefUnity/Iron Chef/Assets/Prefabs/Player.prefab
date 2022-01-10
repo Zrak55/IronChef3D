@@ -15353,7 +15353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseSpeed: 12
   sprintSpeed: 20
-  acceleration: 48
+  acceleration: 80
   jumpSpeed: 13.5
   rollSpeed: 36
   speed: 0
