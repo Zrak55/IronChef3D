@@ -1,26 +1,31 @@
 Task List:
 
 Alex:
-Tweak level 3
-Animate Meatosaurus
+Lvl 2 light rays
+Animate Meatle
+Fix Ham-mer
+Remodel Kitchen
+Set up enemy VFX system
+Some numerical balancing for enemies and powers
 
 Spencer:
-Potatogre AI
-Meatosaurus "Meatlings"
-Animating Potatogre
+Improve AI Ranged Attacks to target player vertically
+Finish Gummy Bear Behaviour
+Tomatroll Jump
 
-Wiliiam:
-Model/Rig Hydra-violi Head
+Wiliam:
+Fudge Slime
+Sprinkle Sprite
+Cookie Wheel
+Start Chipanzee
 
 Zach:
-Basic Attack VFX
-On Hit
-Footstep VFX
-Playtesting
+Tomatroll VFX
+Benedict VFX
 
 Kris:
-Sounds for Potatogre
-Sounds for Isobean
-Sounds for Meatosaurus
-Mess with curve
-Implement missing sounds (play game and listen)
+SFX for...
+	Tomatroll Hit Ground Effect
+	Hydravioli SFX
+	Gummy Bear
+	Gummy Zombie
