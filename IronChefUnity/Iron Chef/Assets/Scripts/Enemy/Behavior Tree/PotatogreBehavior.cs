@@ -43,4 +43,12 @@ public class PotatogreBehavior : EnemyBehaviorTree
     {
         potatogreBehaviorTree.behavior();
     }
+
+    public override Node.STATUS attackProjectile()
+    {
+        //Rotation
+        transform.LookAt(player);
+        transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+        return base.attackProjectile();
+    }
 }

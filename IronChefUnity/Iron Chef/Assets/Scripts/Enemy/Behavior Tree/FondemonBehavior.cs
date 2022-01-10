@@ -32,4 +32,11 @@ public class FondemonBehavior : EnemyBehaviorTree
     {
         fondemonBehaviorTree.behavior();
     }
+
+    public override Node.STATUS attackProjectile()
+    {
+        //Rotation
+        transform.LookAt(player);
+        return base.attackProjectile();
+    }
 }

@@ -22,17 +22,52 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
         //Setup leaf nodes
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
-        MoveWaypoint = new Leaf("Reset Move", moveWaypoint);
-        AttackProjectileStill = new Leaf("Attack", attackProjectileStill);
+        MoveTowards = new Leaf("Reset Move", moveTowards);
+        AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectileStill);
-        CheckPlayer = new Sequence("Move Sequence", MoveWaypoint, CheckAttack);
+        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectile);
+        CheckPlayer = new Sequence("Move Sequence", MoveTowards, CheckAttack);
         isobeanBehaviorTree = new BehaviorTree(CheckPlayer);
     }
 
     private void Update()
     {
         isobeanBehaviorTree.behavior();
+    }
+
+    public override Node.STATUS moveTowards()
+    {
+        //Before anything else, check if stunned
+        if (enemyStunHandler.IsStunned())
+        {
+            agent.destination = transform.position;
+            //Maybe there will be another animation state for stunning later
+            animator.SetBool("isMoving", false);
+            animator.Play("Base Layer.Idle", 0, 0);
+            return MoveTowards.status = Node.STATUS.RUNNING;
+        }
+
+        //Music and sound effects
+        if (aggrod)
+            musicManager.combatCount--;
+        aggrod = false;
+
+        //Movement
+        Vector3 distance = transform.position - currentWaypoint;
+        distance.y = 0;
+        if (distance.magnitude < 1)
+            currentWaypoint = (waypointsVectors.IndexOf(currentWaypoint) + 1 >= waypointsVectors.Count) ? waypointsVectors[0] : waypointsVectors[waypointsVectors.IndexOf(currentWaypoint) + 1];
+        agent.destination = currentWaypoint;
+
+        //Animation
+        animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
+
+        return MoveTowards.status = Node.STATUS.SUCCESS;
+    }
+
+    public override Node.STATUS attackProjectile()
+    {
+        return base.attackProjectile();
     }
 }

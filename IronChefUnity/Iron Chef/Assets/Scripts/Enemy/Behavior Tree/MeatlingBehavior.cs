@@ -23,20 +23,35 @@ public class MeatlingBehavior : EnemyBehaviorTree
         soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes
-        CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
-        CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
-        CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
-        MoveBoss = new Leaf("Move towards boss", moveBoss);
-        MoveReset = new Leaf("Reset Move", moveReset);
+        MoveTowards = new Leaf("Move towards boss", moveTowards);
 
         //Setup sequence nodes and root
-        meatlingBehaviorTree = new BehaviorTree(MoveBoss);
+        meatlingBehaviorTree = new BehaviorTree(MoveTowards);
     }
 
     private void Update()
     {
         meatlingBehaviorTree.behavior();
         BossCollide();
+    }
+
+    public override Node.STATUS moveTowards()
+    {
+        //Music and sound effects
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
+        Vector3 midpoint = boss.transform.position - transform.position;
+        if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, boss.transform.position - transform.position) < attackAngle)
+            midpoint = Vector3.zero;
+        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
+
+        //Animation
+        animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
+
+        return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 
     private void BossCollide()

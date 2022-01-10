@@ -422,7 +422,7 @@ MonoBehaviour:
   attackSoundEffect: 34000000
   invincible: 0
   simpleFlag: 1
-  gummyObjects: {fileID: 7803086111016615533, guid: daa48416c3a165146b6420e6ee290521, type: 3}
+  gummyObjects: {fileID: 3856517895618374344, guid: b0b9efb38b687b14a90f6b8d41e35f97, type: 3}
   gummySpawn1: {fileID: 8455275534703152656}
   gummySpawn2: {fileID: 4320613024576263943}
   gummySpawn3: {fileID: 281342722398460835}

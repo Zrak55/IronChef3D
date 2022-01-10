@@ -24,12 +24,12 @@ public class CookieWheelBehavior : EnemyBehaviorTree
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
-        MoveInto = new Leaf("Move into player", moveInto);
+        MoveTowards = new Leaf("Move into player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveInto);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveInto);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
+        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         cookieWheelBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt);
     }
 
@@ -37,5 +37,24 @@ public class CookieWheelBehavior : EnemyBehaviorTree
     void Update()
     {
         cookieWheelBehaviorTree.behavior();
+    }
+
+    public override Node.STATUS moveTowards()
+    {
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
+        agent.destination = player.position;
+        if (!simpleFlag && (player.position - transform.position).magnitude < 5)
+        {
+            simpleFlag = true;
+            animator.Play("Attack", 0, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        }
+        else
+            simpleFlag = false;
+
+        return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 }

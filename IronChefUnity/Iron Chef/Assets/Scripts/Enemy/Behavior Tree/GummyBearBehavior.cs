@@ -48,7 +48,7 @@ public class GummyBearBehavior : EnemyBehaviorTree
     private void OnDeath()
     {
         Instantiate(gummyObjects, gummySpawn1);
-        //Instantiate(gummyObjects, gummySpawn2);
-        //Instantiate(gummyObjects, gummySpawn3);
+        Instantiate(gummyObjects, gummySpawn2);
+        Instantiate(gummyObjects, gummySpawn3);
     }
 }

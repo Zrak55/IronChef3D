@@ -40,8 +40,6 @@ public class SnakonBehavior : EnemyBehaviorTree
     private void Update()
     {
         snakonBehaviorTree.behavior();
-        if (aggrod)
-            Debug.Log(Vector3.Angle(transform.forward, new Vector3(player.position.x - transform.position.x, 0, player.position.z - transform.position.z)));
     }
 
 

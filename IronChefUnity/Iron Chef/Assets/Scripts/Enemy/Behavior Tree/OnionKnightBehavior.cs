@@ -29,13 +29,13 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
-        MoveClose = new Leaf("Move towards player", moveClose);
+        MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackTwo = new Leaf("Attack", attackTwo);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveClose);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveClose);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
+        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackTwo);
         onionKnightBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
@@ -63,6 +63,24 @@ public class OnionKnightBehavior : EnemyBehaviorTree
             agent.speed = speed;
             agent.acceleration = acceleration;
         }
+    }
+
+    public override Node.STATUS moveTowards()
+    {
+        //Music and sound effects
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
+
+        //Movement calculations
         transform.LookAt(player);
+        Vector3 midpoint = player.transform.position - transform.position;
+        midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude);
+        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
+
+        //Animation
+        animator.SetBool("isMoving", Vector3.Distance(player.transform.position, currentWaypoint) > spawnRange && transform.position == currentWaypoint ? false : true);
+
+        return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 }

@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveClose, MoveInto, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
     [HideInInspector] public bool invincible = false, simpleFlag = true;
@@ -65,8 +65,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         currentWaypoint = waypointsVectors[0];
     }
 
-    //This is intended to be running in the update function through the behavior tree.
-    public Node.STATUS moveTowards()
+    public virtual Node.STATUS moveTowards()
     {
         //Music and sound effects
         if (!aggrod)
@@ -83,45 +82,6 @@ public class EnemyBehaviorTree : MonoBehaviour
         animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
 
         return MoveTowards.status = Node.STATUS.SUCCESS;
-    }
-
-    public Node.STATUS moveClose()
-    {
-        //Music and sound effects
-        if (!aggrod)
-            musicManager.combatCount++;
-        aggrod = true;
-
-        //Movement calculations
-        //transform.LookAt(player);
-        Vector3 midpoint = player.transform.position - transform.position;
-        midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude);
-        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
-        
-        //Animation
-        animator.SetBool("isMoving", Vector3.Distance(player.transform.position, currentWaypoint) > spawnRange && transform.position == currentWaypoint ? false : true);
-
-        return MoveClose.status = Node.STATUS.SUCCESS;
-    }
-
-    public Node.STATUS moveInto()
-    {
-        //Music and sound effects
-        if (!aggrod)
-            musicManager.combatCount++;
-        aggrod = true;
-
-        //Movement calculations
-        agent.destination = player.position;
-        if (!simpleFlag && (player.position - transform.position).magnitude < 5)
-        {
-            simpleFlag = true;
-            animator.Play("Attack", 0, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-        }
-        else
-            simpleFlag = false;
-
-        return MoveInto.status = Node.STATUS.SUCCESS;
     }
 
     public Node.STATUS moveReset()
@@ -156,55 +116,6 @@ public class EnemyBehaviorTree : MonoBehaviour
         return MoveReset.status = Node.STATUS.SUCCESS;
     }
 
-    public Node.STATUS moveWaypoint()
-    {
-        //Before anything else, check if stunned
-        if (enemyStunHandler.IsStunned())
-        {
-            agent.destination = transform.position;
-            //Maybe there will be another animation state for stunning later
-            animator.SetBool("isMoving", false);
-            animator.Play("Base Layer.Idle", 0, 0);
-            return MoveWaypoint.status = Node.STATUS.RUNNING;
-        }
-
-        //Music and sound effects
-        if (aggrod)
-            musicManager.combatCount--;
-        aggrod = false;
-
-        //Movement
-        Vector3 distance = transform.position - currentWaypoint;
-        distance.y = 0;
-        if (distance.magnitude < 1)
-            currentWaypoint = (waypointsVectors.IndexOf(currentWaypoint) + 1 >= waypointsVectors.Count) ? waypointsVectors[0] : waypointsVectors[waypointsVectors.IndexOf(currentWaypoint) + 1];
-        agent.destination = currentWaypoint;
-
-        //Animation
-        animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
-
-        return MoveWaypoint.status = Node.STATUS.SUCCESS;
-    }
-
-    public Node.STATUS moveBoss()
-    {
-        //Music and sound effects
-        if (!aggrod)
-            musicManager.combatCount++;
-        aggrod = true;
-
-        //Movement calculations
-        Vector3 midpoint = boss.transform.position - transform.position;
-        if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, boss.transform.position - transform.position) < attackAngle)
-            midpoint = Vector3.zero;
-        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
-
-        //Animation
-        animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
-
-        return MoveBoss.status = Node.STATUS.SUCCESS;
-    }
-
     public Node.STATUS stillReset()
     {
         //Before anything else, check if stunned
@@ -219,9 +130,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (aggrod)
             musicManager.combatCount--;
         aggrod = false;
-        //There isn't an idle sound effect for fondemon yet. Fondemon is the only thing that uses this so it's safe to comment out.
-        //if (idleSound == null && idleSoundEffect != null)
-        //    idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
+        if (idleSound == null && idleSoundEffect != null)
+            idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         return StillReset.status = Node.STATUS.SUCCESS;
     }
@@ -288,16 +198,12 @@ public class EnemyBehaviorTree : MonoBehaviour
         return AttackFour.status;
     }
 
-    public Node.STATUS attackProjectile()
+    public virtual Node.STATUS attackProjectile()
     {
         //Music
         if (!aggrod)
             musicManager.combatCount++;
         aggrod = true;
-
-        //Rotation
-        transform.LookAt(player);
-        transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
 
         if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
         {
@@ -311,27 +217,6 @@ public class EnemyBehaviorTree : MonoBehaviour
             AttackProjectile.status = Node.STATUS.SUCCESS;
         }
         return AttackProjectile.status;
-    }
-
-    public Node.STATUS attackProjectileStill()
-    {
-        //Music
-        if (!aggrod)
-            musicManager.combatCount++;
-        aggrod = true;
-
-        if (!isAttackCD && AttackProjectileStill.status != Node.STATUS.RUNNING)
-        {
-            animator.SetTrigger("Projectile");
-            AttackProjectileStill.status = Node.STATUS.RUNNING;
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
-        {
-            if (!isAttackCD)
-                StartCoroutine("atttackCDEnd");
-            AttackProjectileStill.status = Node.STATUS.SUCCESS;
-        }
-        return AttackProjectileStill.status;
     }
 
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)
@@ -375,7 +260,6 @@ public class EnemyBehaviorTree : MonoBehaviour
     //Meant to go with a Selector node
     public Node.STATUS runOnce()
     {
-        Debug.Log(simpleFlag);
         if (simpleFlag)
         {
             simpleFlag = false;
