@@ -74,18 +74,18 @@ ModelImporter:
         intParameter: 2
         messageOptions: 0
       - time: 0.3970588
-        functionName: TurnHitOn
+        functionName: StartEffect
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 2
+        intParameter: 0
         messageOptions: 0
       - time: 0.45343137
-        functionName: TurnHitOff
+        functionName: EndEffect
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
-        intParameter: 2
+        intParameter: 0
         messageOptions: 0
       transformMask: []
       maskType: 3

@@ -304,13 +304,6 @@ MonoBehaviour:
     - particle: {fileID: 0}
     - particle: {fileID: 0}
     trails: []
-  - particles:
-    - particle: {fileID: 0}
-    - particle: {fileID: 0}
-    - particle: {fileID: 0}
-    - particle: {fileID: 0}
-    - particle: {fileID: 0}
-    trails: []
 --- !u!1 &4927279764676316077
 GameObject:
   m_ObjectHideFlags: 0
