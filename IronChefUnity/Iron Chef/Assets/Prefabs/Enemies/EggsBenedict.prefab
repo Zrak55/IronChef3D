@@ -163,6 +163,7 @@ MonoBehaviour:
   playersHit: []
   sound: 10
   damage: 10
+  swingingSound: 0
 --- !u!114 &2023216774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +282,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2061fe71d64e142419c27d7c13cd0c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5768049069950038808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352139886382325889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects:
+  - particles: []
+    trails: []
+  - particles:
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    trails: []
+  - particles:
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    - particle: {fileID: 0}
+    trails: []
 --- !u!1 &4927279764676316077
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,6 +918,7 @@ MonoBehaviour:
   playersHit: []
   sound: 9
   damage: 10
+  swingingSound: 0
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,6 +976,8 @@ MonoBehaviour:
   attackAngle: 0
   idleSoundEffect: 
   attackSoundEffect: 
+  invincible: 0
+  simpleFlag: 1
   biteRange: 12
   rollRange: 100
   jumpRange: 100
@@ -1179,6 +1212,7 @@ MonoBehaviour:
   playersHit: []
   sound: 0
   damage: 10
+  swingingSound: 0
 --- !u!114 &1044353528
 MonoBehaviour:
   m_ObjectHideFlags: 0
