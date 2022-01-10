@@ -39,8 +39,8 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyBasicAttackbox enemyBasicAttackbox;
     protected Node MoveTowards, MoveClose, MoveInto, MoveReset, MoveWaypoint, MoveBoss, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, AttackProjectileStill, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
-    protected bool aggrod, simpleFlag = true, isAttackCD = false;
-    [HideInInspector] public bool invincible = false;
+    protected bool aggrod, isAttackCD = false;
+    [HideInInspector] public bool invincible = false, simpleFlag = true;
 
     protected void randomizeWayponts(int range)
     {
