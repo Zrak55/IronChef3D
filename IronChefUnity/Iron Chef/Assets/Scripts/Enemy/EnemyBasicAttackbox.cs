@@ -12,6 +12,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
     private EnemyAttackModifierController modifier;
     [SerializeField] public SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver;
     public float damage;
+    [HideInInspector] private EnemyBehaviorTree enemyBehaviorTree;
 
     //bool hasPlayedSound = false;
 
@@ -21,6 +22,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
     private void Awake()
     {
         playersHit = new List<PlayerHitpoints>();
+        enemyBehaviorTree = GetComponentInParent<EnemyBehaviorTree>();
 
     }
     private void Start()
@@ -48,7 +50,12 @@ public class EnemyBasicAttackbox : MonoBehaviour
 
     public void PlayAttackSound(int value)
     {
-        GetComponentInParent<EnemyBehaviorTree>().playSound(value);
+        enemyBehaviorTree.playSound(value);
+    }
+
+    public void SimpleFlag()
+    {
+        enemyBehaviorTree.simpleFlag = enemyBehaviorTree.simpleFlag ? false : true;
     }
 
     public void DoCollisionThings()

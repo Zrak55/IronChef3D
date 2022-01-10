@@ -7,6 +7,7 @@ public class OnionKnightBehavior : EnemyBehaviorTree
 {
     BehaviorTree onionKnightBehaviorTree;
     private Node CheckPlayer, CheckHurt, CheckAttack;
+    private float speed, acceleration;
 
     private void Start()
     {
@@ -19,6 +20,9 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
         soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
+        //Speed modifier
+        speed = agent.speed;
+        acceleration = agent.acceleration;
 
         //Setup leaf nodes
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
@@ -43,6 +47,22 @@ public class OnionKnightBehavior : EnemyBehaviorTree
             invincible = true;
         else
             invincible = false;
+
+        //Obviously, this code interacts unfavorably with the speed mods. Needs fix at some point.
+        if (simpleFlag == false && aggrod == true)
+        {
+            Vector3 midpoint = player.transform.position - transform.position;
+            if (midpoint.magnitude < 5)
+                midpoint = Vector3.zero;
+            agent.destination = transform.position + midpoint;
+            agent.speed *= 1.5f;
+            agent.acceleration *= 1.5f;
+        }
+        else
+        {
+            agent.speed = speed;
+            agent.acceleration = acceleration;
+        }
         transform.LookAt(player);
     }
 }

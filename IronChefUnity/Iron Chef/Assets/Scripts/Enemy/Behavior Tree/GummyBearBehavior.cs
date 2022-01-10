@@ -7,6 +7,8 @@ public class GummyBearBehavior : EnemyBehaviorTree
 {
     BehaviorTree gummyBearBehaviorTree;
     private Node CheckPlayer, CheckHurt, CheckAttack;
+    public GameObject gummyObjects;
+    public Transform gummySpawn1, gummySpawn2, gummySpawn3;
 
     private void Start()
     {
@@ -14,6 +16,8 @@ public class GummyBearBehavior : EnemyBehaviorTree
 
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
+        //Subscribe to delegate
+        enemyHitpoints.DeathEvents += OnDeath;
         enemyStunHandler = GetComponent<EnemyStunHandler>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
@@ -39,5 +43,12 @@ public class GummyBearBehavior : EnemyBehaviorTree
     private void Update()
     {
         gummyBearBehaviorTree.behavior();
+    }
+
+    private void OnDeath()
+    {
+        Instantiate(gummyObjects, gummySpawn1);
+        //Instantiate(gummyObjects, gummySpawn2);
+        //Instantiate(gummyObjects, gummySpawn3);
     }
 }
