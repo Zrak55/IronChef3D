@@ -424,7 +424,7 @@ MonoBehaviour:
   HydraSpitLand:
   - {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
   HydraSlam: {fileID: 8300000, guid: fd700da3655dae145870255b30052890, type: 3}
-  HydraSweep: {fileID: 0}
+  HydraSweep: {fileID: 8300000, guid: 8c365a8ff086d244b902d246b4198a05, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
