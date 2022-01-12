@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, StillReset, AttackBasic, AttackTwo, AttackFour, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
     [HideInInspector] public bool invincible = false, simpleFlag = true;
@@ -84,7 +84,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 
-    public Node.STATUS moveReset()
+    public virtual Node.STATUS moveReset()
     {
         //Before anything else, check if stunned
         if (enemyStunHandler.IsStunned())
@@ -116,27 +116,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         return MoveReset.status = Node.STATUS.SUCCESS;
     }
 
-    public Node.STATUS stillReset()
-    {
-        //Before anything else, check if stunned
-        if (enemyStunHandler.IsStunned())
-        {
-            //There isn't really an animation state for this
-            animator.Play("Base Layer.Idle", 0, 0);
-            return StillReset.status = Node.STATUS.RUNNING;
-        }
-
-        //Music and sound effects
-        if (aggrod)
-            musicManager.combatCount--;
-        aggrod = false;
-        if (idleSound == null && idleSoundEffect != null)
-            idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
-
-        return StillReset.status = Node.STATUS.SUCCESS;
-    }
-
-    public Node.STATUS attackBasic()
+    public virtual Node.STATUS attackBasic()
     {
         //If we aren't already attack and the cd is done, then attack.
         if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
@@ -156,55 +136,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         return AttackBasic.status;
     }
 
-    public Node.STATUS attackTwo()
-    {
-        //If we aren't already attack and the cd is done, then attack.
-        if (!isAttackCD && AttackTwo.status != Node.STATUS.RUNNING)
-        {
-            animator.SetInteger("AttackNum", Random.Range(0, 2));
-            animator.SetTrigger("Attack");
-            AttackTwo.status = Node.STATUS.RUNNING;
-        }
-        //When the attack animation has finished this will play.
-        //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
-        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
-        {
-            if (!isAttackCD)
-                StartCoroutine("atttackCDEnd");
-            AttackTwo.status = Node.STATUS.SUCCESS;
-            //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
-        }
-        return AttackTwo.status;
-    }
-
-    public Node.STATUS attackFour()
-    {
-        //If we aren't already attack and the cd is done, then attack.
-        if (!isAttackCD && AttackFour.status != Node.STATUS.RUNNING)
-        {
-            animator.SetInteger("AttackNum", Random.Range(0, 4));
-            animator.SetTrigger("Attack");
-            AttackFour.status = Node.STATUS.RUNNING;
-        }
-        //When the attack animation has finished this will play.
-        //This is a nifty little hack, the idle and moving animations will loop but attacks don't (for most things). So it won't work on some enemies (try tags instead?).
-        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
-        {
-            if (!isAttackCD)
-                StartCoroutine("atttackCDEnd");
-            AttackFour.status = Node.STATUS.SUCCESS;
-            //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
-        }
-        return AttackFour.status;
-    }
-
     public virtual Node.STATUS attackProjectile()
     {
-        //Music
-        if (!aggrod)
-            musicManager.combatCount++;
-        aggrod = true;
-
         if (!isAttackCD && AttackProjectile.status != Node.STATUS.RUNNING)
         {
             animator.SetTrigger("Projectile");

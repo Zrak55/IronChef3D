@@ -68,6 +68,10 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
     public override Node.STATUS attackProjectile()
     {
+        //Music
+        if (!aggrod)
+            musicManager.combatCount++;
+        aggrod = true;
         return base.attackProjectile();
     }
 }

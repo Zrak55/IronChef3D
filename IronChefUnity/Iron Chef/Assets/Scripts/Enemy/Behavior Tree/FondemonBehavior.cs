@@ -18,19 +18,39 @@ public class FondemonBehavior : EnemyBehaviorTree
         soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes (Note: the fondemon must have attackAngle set to 0)
-        StillReset = new Leaf("Don't move", stillReset);
+        MoveReset = new Leaf("Don't move", moveReset);
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
         CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectile);
-        CheckPlayer = new Sequence("Still Sequence", StillReset, CheckAttack);
+        CheckPlayer = new Sequence("Still Sequence", MoveReset, CheckAttack);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
     }
 
     private void Update()
     {
         fondemonBehaviorTree.behavior();
+    }
+
+    public override Node.STATUS moveReset()
+    {
+        //Before anything else, check if stunned
+        if (enemyStunHandler.IsStunned())
+        {
+            //There isn't really an animation state for this
+            animator.Play("Base Layer.Idle", 0, 0);
+            return MoveReset.status = Node.STATUS.RUNNING;
+        }
+
+        //Music and sound effects
+        if (aggrod)
+            musicManager.combatCount--;
+        aggrod = false;
+        if (idleSound == null && idleSoundEffect != null && Vector3.Distance(transform.position, player.position) <= 200)
+            idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
+
+        return MoveReset.status = Node.STATUS.SUCCESS;
     }
 
     public override Node.STATUS attackProjectile()

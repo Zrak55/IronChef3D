@@ -31,12 +31,12 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
-        AttackTwo = new Leaf("Attack", attackTwo);
+        AttackBasic = new Leaf("Attack", attackBasic);
 
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackTwo);
+        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackBasic);
         onionKnightBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
@@ -82,5 +82,22 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         animator.SetBool("isMoving", Vector3.Distance(player.transform.position, currentWaypoint) > spawnRange && transform.position == currentWaypoint ? false : true);
 
         return MoveTowards.status = Node.STATUS.SUCCESS;
+    }
+
+    public override Node.STATUS attackBasic()
+    {
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        {
+            animator.SetInteger("AttackNum", Random.Range(0, 2));
+            animator.SetTrigger("Attack");
+            AttackBasic.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
     }
 }

@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class TomatrollBehavior : EnemyBehaviorTree
 {
     BehaviorTree tomatrollBehaviorTree;
+    private EnemyJump enemyJump;
     private Node CheckPlayer, CheckHurt, CheckAttack;
 
     private void Start()
@@ -15,6 +16,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyJump = GetComponent<EnemyJump>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -27,17 +29,37 @@ public class TomatrollBehavior : EnemyBehaviorTree
         CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
-        AttackFour = new Leaf("Attack", attackFour);
+        AttackBasic = new Leaf("Attack", attackBasic);
 
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackFour);
+        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackBasic);
         tomatrollBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
     private void Update()
     {
         tomatrollBehaviorTree.behavior();
+    }
+
+    public override Node.STATUS attackBasic()
+    {
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        {
+            int rand = Random.Range(0, 5);
+            animator.SetInteger("AttackNum", rand);
+            animator.SetTrigger("Attack");
+            if (rand == 5)
+                enemyJump.BeginJumping(enemyJump.time);
+            AttackBasic.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
     }
 }

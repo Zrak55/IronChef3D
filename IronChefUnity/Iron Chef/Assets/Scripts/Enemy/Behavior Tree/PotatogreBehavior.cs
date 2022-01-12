@@ -27,7 +27,7 @@ public class PotatogreBehavior : EnemyBehaviorTree
         CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
-        AttackTwo = new Leaf("Attack", attackTwo);
+        AttackBasic = new Leaf("Attack", attackBasic);
         AttackProjectile = new Leaf("Projectile", attackProjectile);
         RunOnce = new Leaf("Once", runOnce);
 
@@ -35,7 +35,7 @@ public class PotatogreBehavior : EnemyBehaviorTree
         CheckProjectile = new Selector("Projectile Selector", RunOnce, AttackProjectile);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards, CheckProjectile);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
-        CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackTwo);
+        CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         potatogreBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
 
@@ -50,5 +50,22 @@ public class PotatogreBehavior : EnemyBehaviorTree
         transform.LookAt(player);
         transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
         return base.attackProjectile();
+    }
+
+    public override Node.STATUS attackBasic()
+    {
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        {
+            animator.SetInteger("AttackNum", Random.Range(0, 2));
+            animator.SetTrigger("Attack");
+            AttackBasic.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
     }
 }
