@@ -28,6 +28,8 @@ public class HydravioliHeadBehavior : EnemyBehaviorTree
     public float SweepCDTime;
     public float BubbleSpitCDTime;
     public float GenericAttackCDTime;
+    [Space]
+    public Transform headTransform;
 
     private void Start()
     {
@@ -147,7 +149,7 @@ public class HydravioliHeadBehavior : EnemyBehaviorTree
         {
             if (!alreadySweepingCD)
             {
-
+                SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(headTransform, SoundEffectSpawner.SoundEffect.HydraSweep);
                 alreadySweepingCD = true;
                 StartCoroutine("sweepCDEnd");
                 StartCoroutine("genericCDEnd");
