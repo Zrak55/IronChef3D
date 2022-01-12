@@ -422,6 +422,7 @@ public class BenedictBehavior : EnemyBehaviorTree
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EggCrack);
 
             currentPhase++;
+
             phaseDelay = true;
             //TODO: ANIMATIONS FOR PHASING
 
@@ -434,7 +435,8 @@ public class BenedictBehavior : EnemyBehaviorTree
                 BenedictMesh.material = BenedictP2Material;
 
                 GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
-
+                GetComponentInChildren<EnemyVFXController>().StartEffect(0);
+                GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 Phase2Tip();
             }
             else if(currentPhase == 3)
@@ -444,7 +446,8 @@ public class BenedictBehavior : EnemyBehaviorTree
                 BenedictMesh.material = BenedictP3Material;
 
                 GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictDouble, 1, IronChefUtils.InfiniteDuration);
-
+                GetComponentInChildren<EnemyVFXController>().StartEffect(1);
+                GetComponentInChildren<EnemyVFXController>().StartEffect(1);
                 SpeedEffector fast = new SpeedEffector();
                 fast.effectName = SpeedEffector.EffectorName.BenedictSpeed;
                 fast.percentAmount = 0.5f;
