@@ -16,7 +16,7 @@ MonoBehaviour:
   powerName: 4
   description: Stun an enemy in front of you.
   briefDescription: Stun an enemy in melee
-  cooldown: 15
+  cooldown: 8
   animationNumber: 4
   values:
   - 4

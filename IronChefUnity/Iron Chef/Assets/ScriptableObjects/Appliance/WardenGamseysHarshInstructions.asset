@@ -18,8 +18,8 @@ MonoBehaviour:
     an opponent.  The chance to stun is greater for slower attacks.
   briefDescription: Stun on hit.
   values:
-  - 1
-  - 0.015
+  - 2.5
+  - 0.0165
   valueDescriptions:
   - Stun Time
   - Stun Chance per damage

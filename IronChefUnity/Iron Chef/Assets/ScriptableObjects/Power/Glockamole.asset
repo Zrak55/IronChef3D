@@ -16,7 +16,7 @@ MonoBehaviour:
   powerName: 9
   description: Fire a shot from the mighty Glock(amole)
   briefDescription: Powerful ranged attack.
-  cooldown: 20
+  cooldown: 25
   animationNumber: 6
   values:
   - 50

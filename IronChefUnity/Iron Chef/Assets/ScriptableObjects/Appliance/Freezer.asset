@@ -18,8 +18,8 @@ MonoBehaviour:
     a delay of 5s after stunning an opponent.
   briefDescription: Stun enemies after consecutive hits.
   values:
-  - 1
-  - 5
+  - 2
+  - 4
   - 3
   valueDescriptions:
   - Stun

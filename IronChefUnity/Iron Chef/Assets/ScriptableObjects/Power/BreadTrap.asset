@@ -16,7 +16,7 @@ MonoBehaviour:
   powerName: 1
   description: Lay down a permanant bread trap.  Enemies who touch it are stunned.
   briefDescription: Set up a stunning trap.
-  cooldown: 20
+  cooldown: 15
   animationNumber: 2
   values:
   - 8

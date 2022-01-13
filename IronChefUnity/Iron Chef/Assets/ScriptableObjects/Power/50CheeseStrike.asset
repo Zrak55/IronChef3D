@@ -19,12 +19,12 @@ MonoBehaviour:
   cooldown: 15
   animationNumber: 5
   values:
-  - 0.5
+  - 1
   - 50
   - 1
   - 7
   - 14
-  - 5
+  - 8
   valueDescriptions:
   - Punch Damage
   - Number of Punches

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Stove
   applianceName: 3
-  description: Increase your max HP by 20%
+  description: Increase your max HP by 30%
   briefDescription: Increase HP.
   values:
-  - 0.2
+  - 0.3
   valueDescriptions:
   - HP increase

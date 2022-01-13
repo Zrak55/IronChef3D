@@ -21,7 +21,7 @@ MonoBehaviour:
   values:
   - 0.5
   - 0.5
-  - 5
+  - 7
   valueDescriptions:
   - Move Speed
   - Attack Speed
