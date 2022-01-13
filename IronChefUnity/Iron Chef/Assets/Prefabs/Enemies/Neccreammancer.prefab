@@ -965,6 +965,7 @@ MonoBehaviour:
   idleSoundEffect: 
   attackSoundEffect: 
   invincible: 0
+  simpleFlag: 1
   frostboltRange: 100
   frostboltCD: 5
   frostboltTime: 3
@@ -1048,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e873422850cd2824c8ca9953e98ba03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 350
+  MaxHP: 200
   damaged: 0
   imDead: 0
   deathSound: 27

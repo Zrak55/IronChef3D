@@ -36,6 +36,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 5
+  swingingSound: 0
 --- !u!1 &1055999489977174939
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +600,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 4
-  m_Speed: 7
+  m_Speed: 10
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 250
@@ -631,6 +632,8 @@ MonoBehaviour:
   attackAngle: 10
   idleSoundEffect: 16000000
   attackSoundEffect: 15000000
+  invincible: 0
+  simpleFlag: 1
 --- !u!114 &477952825927109779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,8 +646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 30
+  MaxHP: 20
   damaged: 0
+  imDead: 0
   deathSound: 27
   DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
   DeathParticle: {fileID: 169342410966150083, guid: 109caec0bddedcf469ee46f19fff215c, type: 3}

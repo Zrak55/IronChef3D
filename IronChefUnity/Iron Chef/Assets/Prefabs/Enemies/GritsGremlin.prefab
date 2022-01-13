@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 30
+  MaxHP: 20
   damaged: 0
   imDead: 0
   deathSound: 27
@@ -801,6 +801,7 @@ MonoBehaviour:
   idleSoundEffect: 07000000
   attackSoundEffect: 07000000
   invincible: 0
+  simpleFlag: 1
 --- !u!95 &1439458322267130707
 Animator:
   serializedVersion: 3
