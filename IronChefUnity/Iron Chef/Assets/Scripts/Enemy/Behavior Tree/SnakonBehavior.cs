@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class SnakonBehavior : EnemyBehaviorTree
 {
     BehaviorTree snakonBehaviorTree;
+    EnemyJump enemyJump;
     private Node CheckPlayer, CheckHurt, CheckAttack;
 
     private void Start()
@@ -15,6 +16,7 @@ public class SnakonBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyJump = GetComponent<EnemyJump>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -35,14 +37,33 @@ public class SnakonBehavior : EnemyBehaviorTree
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
-
-    //TODO: Fix multiple things same frame.
     private void Update()
     {
         snakonBehaviorTree.behavior();
     }
 
-
-
-
+    public override Node.STATUS attackBasic()
+    {
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Attack");
+            if (simpleFlag)
+                StartCoroutine("Jumping");
+            AttackBasic.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
+    }
+    
+    private IEnumerator Jumping()
+    {
+        yield return new WaitForSeconds(.75f);
+        enemyJump.BeginJumping(enemyJump.time);
+        simpleFlag = false;
+    }
 }

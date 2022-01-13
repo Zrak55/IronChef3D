@@ -18,10 +18,7 @@ public class MeatosaurusRoar : MonoBehaviour
     public void SpawnMeatlings()
     {
         foreach (Vector3 vector3 in MeatlingSpawnV)
-        {
-            Debug.Log(vector3);
             Instantiate(Meatling, vector3, new Quaternion());
-        }
     }
 
     public void MakeRoarSound()

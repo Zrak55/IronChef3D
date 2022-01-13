@@ -10432,7 +10432,7 @@ MonoBehaviour:
   playersHit: []
   myCollider: {fileID: 5732329053148639923}
   IsCleave: 0
-  force: 0
+  force: 5
   onAtAwake: 0
 --- !u!1 &6834882992978179081
 GameObject:

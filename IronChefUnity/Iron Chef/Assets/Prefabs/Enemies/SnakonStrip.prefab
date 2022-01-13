@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &181294164397525007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9151353060188277906}
+  - component: {fileID: 7791869359285775901}
+  m_Layer: 8
+  m_Name: Knockbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!4 &9151353060188277906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181294164397525007}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: -0.15, y: 0.68, z: 3.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7422479558757950679}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7791869359285775901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181294164397525007}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 3}
+  m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!95 &375351863454174881
 Animator:
   serializedVersion: 3
@@ -37,6 +81,24 @@ MonoBehaviour:
   sound: 24
   damage: 5
   swingingSound: 0
+--- !u!114 &4674751781125959614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702432154798479647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5407e8fce7bd5438f579a274e687e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  myCollider: {fileID: 7791869359285775901}
+  IsCleave: 0
+  force: 5
+  onAtAwake: 0
 --- !u!1 &1055999489977174939
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +168,7 @@ RectTransform:
   - {fileID: 8631543737705109393}
   - {fileID: 2331997068289906432}
   m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -536,6 +598,7 @@ GameObject:
   - component: {fileID: 3006323845726260468}
   - component: {fileID: 1029432160560112435}
   - component: {fileID: 258981776975906467}
+  - component: {fileID: 7105602123536610712}
   m_Layer: 9
   m_Name: SnakonStrip
   m_TagString: Untagged
@@ -555,6 +618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3587781569024699533}
+  - {fileID: 9151353060188277906}
   - {fileID: 2342973415078283714}
   - {fileID: 212895129950946213}
   - {fileID: 7115274123795762935}
@@ -631,7 +695,7 @@ MonoBehaviour:
   attackCD: 1
   attackAngle: 10
   idleSoundEffect: 16000000
-  attackSoundEffect: 15000000
+  attackSoundEffect: 150000001500000015000000
   invincible: 0
   simpleFlag: 1
 --- !u!114 &477952825927109779
@@ -725,6 +789,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4dd2d1d3109d040adac4802ed76669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7105602123536610712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c806f9e2db1cfe42981e0776ccbaecd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHitbox: {fileID: 2173555952373706524}
+  jumpKnockbox: {fileID: 4674751781125959614}
+  behavior: {fileID: 1800947723216546153}
+  maxJumpHeight: 1
+  time: 0.7
+  collider: {fileID: 6737522677001501040}
 --- !u!1 &8043967736513652177
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,7 +947,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &9210668598408575498
 BoxCollider:
@@ -962,13 +1044,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7422479558757950679}
     m_Modifications:
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
+    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
     - target: {fileID: -9173379253967607831, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1138,18 +1232,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
-    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bacf6460e69e148458ab053392aa060d, type: 3}
 --- !u!4 &212895129950946213 stripped
