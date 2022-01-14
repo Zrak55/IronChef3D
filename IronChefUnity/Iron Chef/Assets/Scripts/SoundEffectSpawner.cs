@@ -72,7 +72,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] HydraSpitLand;
     public AudioClip HydraSlam;
     public AudioClip HydraSweep;
-
+    public AudioClip TrollSlam;
     private void Awake()
     {
         soundEffectSpawner = this;
@@ -349,6 +349,9 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.HydraSweep:
                 clipToPlay = HydraSweep;
                 break;
+            case SoundEffect.TrollSlam:
+                clipToPlay = TrollSlam;
+                break;
 
         }
         if (clipToPlay != null)
@@ -428,7 +431,8 @@ public class SoundEffectSpawner : MonoBehaviour
         HydraSpit,
         HydraSpitLand,
         HydraSlam,
-        HydraSweep
+        HydraSweep,
+        TrollSlam
     }
 }
 

@@ -319,9 +319,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97a30e135fb29604ca363bf815fc3745, type: 3}
   - {fileID: 8300000, guid: b626bc131dd477245b8e6dabb88b086f, type: 3}
   EggCrackEffects:
-  - {fileID: 8300000, guid: b35427e746dbad34182938714ac1e1a1, type: 3}
-  - {fileID: 8300000, guid: 519d41bfd51b6a147a01fe32e748bce2, type: 3}
-  - {fileID: 8300000, guid: 847b34585ced8144bbbf8b40d43e7cfd, type: 3}
+  - {fileID: 8300000, guid: d88214f7796d40f4c85d37ff119731d1, type: 3}
+  - {fileID: 8300000, guid: 8ad811302d1d1484bb2e6934741ee17f, type: 3}
+  - {fileID: 8300000, guid: 70ec9098562ad084fb22300ba80366c0, type: 3}
   EggRollHit: {fileID: 8300000, guid: 0dfc0d0a8fb8f8c48aabf45dd060c385, type: 3}
   EggRollStart: {fileID: 8300000, guid: fe208d2edf698dd41b8404cb3a8158ee, type: 3}
   SlimeEffects:
@@ -425,6 +425,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
   HydraSlam: {fileID: 8300000, guid: fd700da3655dae145870255b30052890, type: 3}
   HydraSweep: {fileID: 8300000, guid: 8c365a8ff086d244b902d246b4198a05, type: 3}
+  TrollSlam: {fileID: 8300000, guid: 5162ed9a18441294cb75b35b646ab2b6, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
