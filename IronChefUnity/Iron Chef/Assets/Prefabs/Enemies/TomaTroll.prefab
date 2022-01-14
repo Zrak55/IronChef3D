@@ -4947,6 +4947,24 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &1201183073228880918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254170305951122689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5407e8fce7bd5438f579a274e687e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanHit: 0
+  playersHit: []
+  myCollider: {fileID: 5732329053148639923}
+  IsCleave: 0
+  force: 0
+  onAtAwake: 0
 --- !u!114 &6064674844829042774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5256,10 +5274,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHitbox: {fileID: 1609249735737966303}
-  jumpKnockbox: {fileID: 7503530044164971735}
+  jumpKnockbox: {fileID: 1201183073228880918}
   behavior: {fileID: 6952594615532671011}
   maxJumpHeight: 6
   time: 4
+  shake: 1
   collider: {fileID: 7564515248135662135}
 --- !u!114 &6952594615532671011
 MonoBehaviour:
@@ -10381,7 +10400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2637713734187238153}
   - component: {fileID: 5732329053148639923}
-  - component: {fileID: 7503530044164971735}
   m_Layer: 8
   m_Name: KnockBox
   m_TagString: Untagged
@@ -10416,24 +10434,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 12, z: 15}
   m_Center: {x: 0, y: 6, z: 0}
---- !u!114 &7503530044164971735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6810028565726438601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be5407e8fce7bd5438f579a274e687e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CanHit: 0
-  playersHit: []
-  myCollider: {fileID: 5732329053148639923}
-  IsCleave: 0
-  force: 5
-  onAtAwake: 0
 --- !u!1 &6834882992978179081
 GameObject:
   m_ObjectHideFlags: 0

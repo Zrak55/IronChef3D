@@ -689,13 +689,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 50
+  aggroRange: 30
   spawnRange: 70
   attackRange: 6
   attackCD: 1
   attackAngle: 10
   idleSoundEffect: 16000000
-  attackSoundEffect: 150000001500000015000000
+  attackSoundEffect: 1500000015000000
   invincible: 0
   simpleFlag: 1
 --- !u!114 &477952825927109779
@@ -805,7 +805,8 @@ MonoBehaviour:
   jumpKnockbox: {fileID: 4674751781125959614}
   behavior: {fileID: 1800947723216546153}
   maxJumpHeight: 1
-  time: 0.7
+  time: 2
+  shake: 0
   collider: {fileID: 6737522677001501040}
 --- !u!1 &8043967736513652177
 GameObject:
@@ -1044,18 +1045,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7422479558757950679}
     m_Modifications:
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
-    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
     - target: {fileID: -9173379253967607831, guid: bacf6460e69e148458ab053392aa060d, type: 3}
       propertyPath: m_Layer
       value: 9
@@ -1232,6 +1221,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+    - target: {fileID: 5866666021909216657, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 59354b2db23743c468e3ca30c4607424, type: 2}
+    - target: {fileID: 6578613224733765292, guid: b89ba02280ea5ed47b3cb648997218be, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1f6ddd97b5cf64645a0661c52a4cab06, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bacf6460e69e148458ab053392aa060d, type: 3}
 --- !u!4 &212895129950946213 stripped

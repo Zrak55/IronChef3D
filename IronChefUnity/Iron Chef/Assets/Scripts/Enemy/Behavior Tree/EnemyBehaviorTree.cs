@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, AttackBasic, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckAttackRange, CheckAngleRange, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
     [HideInInspector] public bool invincible = false, simpleFlag = true;
@@ -76,7 +76,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         Vector3 midpoint = player.transform.position - transform.position;
         if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, player.position - transform.position) < attackAngle)
             midpoint = Vector3.zero;
-        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
+        if (agent.enabled == true)
+            agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
 
         //Animation
         animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
@@ -108,7 +109,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         distance.y = 0;
         if (distance.magnitude < 1)
             currentWaypoint = (waypointsVectors.IndexOf(currentWaypoint) + 1 >= waypointsVectors.Count) ? waypointsVectors[0] : waypointsVectors[waypointsVectors.IndexOf(currentWaypoint) + 1];
-        agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? currentWaypoint : transform.position;
+        if (agent.enabled == true)
+            agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? currentWaypoint : transform.position;
 
         //Animation
         animator.SetBool("isMoving", (agent.velocity == Vector3.zero) ? false : true);
@@ -134,6 +136,23 @@ public class EnemyBehaviorTree : MonoBehaviour
             //Don't forget to include hitOn and hitOff animator events. Otherwise put them here (and declare attackbox).
         }
         return AttackBasic.status;
+    }
+
+    //In case you need two seperate attack nodes that do different things.
+    public virtual Node.STATUS attackSecondary()
+    {
+        if (!isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Attack");
+            AttackSecondary.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackSecondary.status = Node.STATUS.SUCCESS;
+        }
+        return AttackSecondary.status;
     }
 
     public virtual Node.STATUS attackProjectile()

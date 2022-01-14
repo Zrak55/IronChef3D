@@ -7,7 +7,7 @@ public class SnakonBehavior : EnemyBehaviorTree
 {
     BehaviorTree snakonBehaviorTree;
     EnemyJump enemyJump;
-    private Node CheckPlayer, CheckHurt, CheckAttack;
+    private Node JumpOnce, CheckPlayer, CheckHurt, CheckAttack;
 
     private void Start()
     {
@@ -30,9 +30,12 @@ public class SnakonBehavior : EnemyBehaviorTree
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackBasic = new Leaf("Attack", attackBasic);
+        AttackSecondary = new Leaf("Jump", attackSecondary);
+        RunOnce = new Leaf("Once", runOnce);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
+        JumpOnce = new Selector("Jump on Player Sight", RunOnce, AttackSecondary);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, JumpOnce, MoveTowards);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
@@ -42,28 +45,27 @@ public class SnakonBehavior : EnemyBehaviorTree
         snakonBehaviorTree.behavior();
     }
 
-    public override Node.STATUS attackBasic()
+    public override Node.STATUS attackSecondary()
     {
-        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        if (!isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
         {
+            //Hopefully there will be another animation for this eventually.
             animator.SetTrigger("Attack");
-            if (simpleFlag)
-                StartCoroutine("Jumping");
-            AttackBasic.status = Node.STATUS.RUNNING;
+            StartCoroutine("Jumping");
+            AttackSecondary.status = Node.STATUS.RUNNING;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
             if (!isAttackCD)
                 StartCoroutine("atttackCDEnd");
-            AttackBasic.status = Node.STATUS.SUCCESS;
+            AttackSecondary.status = Node.STATUS.SUCCESS;
         }
-        return AttackBasic.status;
+        return AttackSecondary.status;
     }
     
     private IEnumerator Jumping()
     {
         yield return new WaitForSeconds(.75f);
         enemyJump.BeginJumping(enemyJump.time);
-        simpleFlag = false;
     }
 }

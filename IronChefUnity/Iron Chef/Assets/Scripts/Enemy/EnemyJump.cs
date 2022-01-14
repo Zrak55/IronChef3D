@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyJump : MonoBehaviour
 {
@@ -11,13 +12,17 @@ public class EnemyJump : MonoBehaviour
     [SerializeField] public float maxJumpHeight;
     [Tooltip("Float for how long it will take the enemy to jump")]
     [SerializeField] public float time;
+    [Tooltip("Bool for if the screen will shake upon landing")]
+    [SerializeField] public bool shake;
     public Collider collider;
+    private NavMeshAgent agent;
 
 
     // Start is called before the first frame update
     void Start()
     {
         behavior = GetComponent<EnemyBehaviorTree>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
     public void BeginJumping(float time)
@@ -33,6 +38,8 @@ public class EnemyJump : MonoBehaviour
         {
             Physics.IgnoreCollision(collider, c, true);
         }
+
+        agent.enabled = false;
 
         StartCoroutine(jumpTick(target, time));
     }
@@ -67,7 +74,8 @@ public class EnemyJump : MonoBehaviour
 
     public void DoneJumping()
     {
-        FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
+        if (shake)
+            FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
 
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
@@ -75,6 +83,7 @@ public class EnemyJump : MonoBehaviour
             Physics.IgnoreCollision(collider, c, false);
         }
 
+        agent.enabled = true;
         jumpHitbox.HitOff();
         jumpKnockbox.HitOff();
     }
