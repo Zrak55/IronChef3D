@@ -14,7 +14,7 @@ public class PlayerHitpoints : MonoBehaviour
     PlayerCamControl pcam;
     SoundEffectSpawner sounds;
     PlayerDamageTakenModifierController mods;
-
+    bool isDead = false;
     bool isGetHitSoundDelay = false;
 
     private void Awake()
@@ -24,11 +24,12 @@ public class PlayerHitpoints : MonoBehaviour
         sounds = SoundEffectSpawner.soundEffectSpawner;
         pcam = FindObjectOfType<PlayerCamControl>();
         mods = GetComponent<PlayerDamageTakenModifierController>();
+        isDead = false;
     }
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver, bool IgnoresIframes = false)
     {
-        if (isIFrames == false || IgnoresIframes)
+        if (isIFrames == false || IgnoresIframes || isDead)
         {
             //TODO: Play animation of getting hit here. I'm not sure yet if the animation
             //will include knockback or not so I won't include it yet.
@@ -79,7 +80,7 @@ public class PlayerHitpoints : MonoBehaviour
     public void Die()
     {
         FindObjectOfType<ChapterManager>().ShowLoseScreen();
-
+        ChapterManager.deathsThisLevel++;
         //TODO: Play death animation before deletion
 
     }

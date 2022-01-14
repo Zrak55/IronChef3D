@@ -84,13 +84,15 @@ public class PreLevelWindow : MonoBehaviour
     {
         foreach (var b in FindObjectsOfType<Button>())
             b.enabled = false;
-       while(fadeToBlack.color.a != 1)
+        while (fadeToBlack.color.a != 1)
         {
             fadeToBlack.color = new Color(0, 0, 0, Mathf.Clamp(fadeToBlack.color.a + Time.deltaTime, 0, 1));
             yield return null;
         }
-
+        if (ChapterManager.destroyOnStartEnemies != null)
+            ChapterManager.destroyOnStartEnemies.Clear();
         ChapterManager.LevelToStartAt = start;
+        ChapterManager.deathsThisLevel = 0;
         FindObjectOfType<MenuController>().PlayGame(levelName);
     }
 

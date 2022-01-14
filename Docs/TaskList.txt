@@ -1,31 +1,38 @@
-Task List:
+Task List 01/14 - 01/21
 
 Alex:
-Lvl 2 light rays
-Animate Meatle
-Fix Ham-mer
-Remodel Kitchen
-Set up enemy VFX system
-Some numerical balancing for enemies and powers
+	Save level progress on player death instead of hard reset
+	Animate Fudge Sludge
+	Animate Tomatroll Jump
+	Aniamte Sprinkle Sprite
+	Animate Cookie Wheel
+	Replace Cheese Grater functionality with new appliance
 
 Spencer:
-Improve AI Ranged Attacks to target player vertically
-Finish Gummy Bear Behaviour
-Tomatroll Jump
+	Snakon Jump Animate
+	Improve Cookie Wheel AI
+	Improve Sprinkle Sprite AI
 
 Wiliam:
-Fudge Slime
-Sprinkle Sprite
-Cookie Wheel
-Start Chipanzee
+Chipanzee - model/rig
+Gummy bear - model/rig
 
 Zach:
-Tomatroll VFX
-Benedict VFX
+Hyrdavioli VFX
+Generic Enemy Hit Something effect
+Enemy death VFX
+
 
 Kris:
 SFX for...
-	Tomatroll Hit Ground Effect
-	Hydravioli SFX
+	Hydavioli
 	Gummy Bear
 	Gummy Zombie
+	Chipanzee
+	Meatle
+
+From last week that was missed
+Kris
+	Hydravioli SFX - miss
+	Gummy Bear -     miss
+	Gummy Zombie -   miss

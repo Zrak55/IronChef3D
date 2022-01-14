@@ -15370,6 +15370,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a5c26bcf1d3205a43a2104a0cb397781, type: 2}
   - {fileID: 2100000, guid: 1f6cc0d27d0324f43a896b6dacc57fd3, type: 2}
   - {fileID: 2100000, guid: e2782bd09fb749e4f8c457cb9c8cc6cd, type: 2}
+  - {fileID: 2100000, guid: ec4da56c3fc965a4b8160dcbfa5af167, type: 2}
   LeftFootEffect: {fileID: 8894751804524196821}
   RightFootEffect: {fileID: 6867471970117559848}
 --- !u!114 &2978522925722276978

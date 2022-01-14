@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class ChapterManager : MonoBehaviour
 {
     public static int LevelToStartAt = 0;
+    public static List<int> destroyOnStartEnemies;
+    public static int deathsThisLevel;
 
     [Tooltip("For Unlock purposes")]
     public int ChapterNumber;
@@ -48,12 +50,39 @@ public class ChapterManager : MonoBehaviour
         progressManager = FindObjectOfType<LevelProgressManager>();
         selector = FindObjectOfType<AppliancePowerSelection>();
         StartLevel(LevelToStartAt);
+
+
+        StartCoroutine(destroyRestartDelay());
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    IEnumerator destroyRestartDelay()
+    {
+        yield return new WaitForSeconds(1);
+        DestroyRestartedEnemies();
+    }
+    public void DestroyRestartedEnemies()
+    {
+        if (destroyOnStartEnemies != null)
+        {
+            foreach (var enumber in destroyOnStartEnemies)
+            {
+                var e = LevelSpecificThings[currentLevel].things[enumber];
+                if (e != null)
+                {
+                    var hp = e.GetComponent<EnemyHitpoints>();
+                    if (hp != null)
+                    {
+                        hp.Die(false);
+                    }
+                }
+            }
+        }
     }
 
     public void StartLevel(int i)
@@ -83,6 +112,12 @@ public class ChapterManager : MonoBehaviour
     {
         currentLevel++;
         totalScore += score;
+        if(destroyOnStartEnemies != null)
+        {
+            destroyOnStartEnemies.Clear();
+        }
+        deathsThisLevel = 0;
+
         if(currentLevel >= levels.Length)
         {
             totalScore /= (levels.Length - LevelToStartAt);
@@ -133,11 +168,30 @@ public class ChapterManager : MonoBehaviour
     }
     public void RestartLevel()
     {
+        if(destroyOnStartEnemies == null)
+        {
+            destroyOnStartEnemies = new List<int>();
+        }
+        destroyOnStartEnemies.Clear();
+        for( int i = 0; i < LevelSpecificThings[currentLevel].things.Length; i++)
+        {
+            var thing = LevelSpecificThings[currentLevel].things[i];
+            if (thing == null)
+            {
+                destroyOnStartEnemies.Add(i);
+            }
+        }
+
         LevelToStartAt = currentLevel;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void RestartChapter()
     {
+        deathsThisLevel = 0;
+        if(destroyOnStartEnemies != null)
+        {
+            destroyOnStartEnemies.Clear();
+        }
         LevelToStartAt = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -153,6 +207,8 @@ public class ChapterManager : MonoBehaviour
             firstLoseSelectButton.GetComponent<Image>().color = firstLoseSelectButton.GetComponent<Button>().colors.selectedColor;
             firstLoseSelectButton.gameObject.AddComponent<DeselectColorReset>();
         }
+
+
     }
     public void ShowWinScreen(float score)
     {

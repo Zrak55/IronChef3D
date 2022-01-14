@@ -97,7 +97,7 @@ public class EnemyHitpoints : MonoBehaviour
         isInvoking = false;
     }
 
-    public void Die()
+    public void Die(bool spawnDeathParticles = true)
     {
         if(!imDead)
         {
@@ -115,7 +115,7 @@ public class EnemyHitpoints : MonoBehaviour
 
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, deathSound);
 
-            if(DeathParticleSystem != null)
+            if(DeathParticleSystem != null && spawnDeathParticles)
             {
                 var dp = Instantiate(DeathParticleSystem, transform.position, Quaternion.identity);
                 dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
