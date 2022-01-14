@@ -8,6 +8,9 @@ public class CookieWheelBehavior : EnemyBehaviorTree
     BehaviorTree cookieWheelBehaviorTree;
     private Node CheckPlayer, CheckHurt;
 
+    [Header("Cookie Wheel Thing")]
+    public Transform cookie;
+
     void Start()
     {
         setupWaypoints();
@@ -37,6 +40,7 @@ public class CookieWheelBehavior : EnemyBehaviorTree
     void Update()
     {
         cookieWheelBehaviorTree.behavior();
+        cookie.Rotate(new Vector3(agent.velocity.magnitude * 60 * Time.deltaTime, 0, 0));
     }
 
     public override Node.STATUS moveTowards()
