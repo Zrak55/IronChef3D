@@ -50,7 +50,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
             int rand = Random.Range(0, 5);
             animator.SetInteger("AttackNum", rand);
             animator.SetTrigger("Attack");
-            if (rand == 5)
+            if (rand == 0)
                 enemyJump.BeginJumping(enemyJump.time);
             AttackBasic.status = Node.STATUS.RUNNING;
         }
