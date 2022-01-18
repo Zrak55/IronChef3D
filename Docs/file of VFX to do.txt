@@ -1,10 +1,10 @@
 Tomatroll when using vine slam-done
 		Other basic enemies when applicable
-		Benedict when shell cracks, benedict jump-WIP
+		Benedict when shell cracks, benedict jump-done
 		Meatosaurus stomp, tail whip, fire breath, charge, rock fall
 		etc, etc etc.
 		Watery/sludge effects for Hydravioli
 		For bosses, dont be afraid to set up VFX on environment (i.e., dirt/small rocks fall from Meat cave)
-water effect for hydravioli
+water effect for hydravioli-WIP
 poof for enemy death
 stun VFX(stars/swirly thing?)
