@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 70b2748244d8d0c42be981cb28824bad, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 6f488adecbb156641919f400cf445519, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -72,7 +72,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: b491708809727094e8ba8c658e83e338, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 12a8381d8310fba40ae979af8d43da41, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -84,7 +84,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Sprinkle Sprites
+  m_Name: Sprinkle Sprites NoEvents
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isMoving
