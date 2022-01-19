@@ -425,6 +425,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
   HydraSlam: {fileID: 8300000, guid: fd700da3655dae145870255b30052890, type: 3}
   HydraSweep: {fileID: 8300000, guid: 8c365a8ff086d244b902d246b4198a05, type: 3}
+  HydraSpawn:
+  - {fileID: 8300000, guid: e94cb8733e684d143beb8e3b878d8d86, type: 3}
+  - {fileID: 8300000, guid: a6a9cc2f66f93f944a4351b512cdb80b, type: 3}
+  - {fileID: 8300000, guid: 1f053b36a758eb74ba7dada2e0f7f747, type: 3}
+  - {fileID: 8300000, guid: 13c21a30e527290499bc15638bd4911f, type: 3}
   TrollSlam: {fileID: 8300000, guid: 5162ed9a18441294cb75b35b646ab2b6, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:

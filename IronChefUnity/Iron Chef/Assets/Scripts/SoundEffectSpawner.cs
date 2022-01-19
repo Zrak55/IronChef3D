@@ -72,6 +72,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] HydraSpitLand;
     public AudioClip HydraSlam;
     public AudioClip HydraSweep;
+    public AudioClip[] HydraSpawn;
     public AudioClip TrollSlam;
     private void Awake()
     {
@@ -349,10 +350,27 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.HydraSweep:
                 clipToPlay = HydraSweep;
                 break;
+            case SoundEffect.HydraSpawnEffects:
+                index = Random.Range(0, HydraSpawn.Length);
+                clipToPlay = HydraSpawn[index];
+                break;
             case SoundEffect.TrollSlam:
                 clipToPlay = TrollSlam;
                 break;
 
+
+
+             /*
+             * BLANK CASE STATEMENT:             
+             case SoundEffect.:
+                index = Random.Range(0, .Length);
+                clipToPlay = [index];
+                break;
+
+             case SoundEffect.:
+                clipToPlay = ;
+                break;
+             */
         }
         if (clipToPlay != null)
         {
@@ -432,7 +450,13 @@ public class SoundEffectSpawner : MonoBehaviour
         HydraSpitLand,
         HydraSlam,
         HydraSweep,
-        TrollSlam
+        HydraSpawnEffects,
+        TrollSlam,
+        GummyBearAttack,
+        GummyBearIdle,
+        GummyBearZombieIdle,
+        GummyBearDeath,
+        
     }
 }
 
