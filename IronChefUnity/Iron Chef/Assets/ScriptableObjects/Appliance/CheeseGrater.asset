@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Cheese Grater
   applianceName: 2
-  description: Recues all enemy HP by 10%
-  briefDescription: Reduce enemy HP
+  description: Increase your speed by 20%, but lose 20% max HP.
+  briefDescription: Gain speed at the cost of health.
   values:
-  - 0.1
+  - 0.2
+  - 0.2
   valueDescriptions:
-  - Reduction
+  - Speed Gain
+  - HP Loss

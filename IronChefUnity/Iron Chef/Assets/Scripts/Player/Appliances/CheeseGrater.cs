@@ -7,20 +7,23 @@ public class CheeseGrater : Appliance
     protected override void ApplyEffects()
     {
         base.ApplyEffects();
-        foreach(var hp in FindObjectsOfType<EnemyHitpoints>())
-        {
-            hp.SetMax(hp.GetMax() * (1 - applianceScriptable.values[0]));
-            hp.SetCurrent(hp.GetMax());
-        }
+
+        var php = FindObjectOfType<PlayerHitpoints>();
+        var pspeed = FindObjectOfType<PlayerSpeedController>();
+
+        IronChefUtils.AddSpeedUp(pspeed, applianceScriptable.values[0], IronChefUtils.InfiniteDuration, SpeedEffector.EffectorName.CheeseGrater);
+        php.SetMax(php.GetMax() * (1 - applianceScriptable.values[1]));
+        php.SetCurrent(php.GetMax());
     }
 
     public override void RemoveEffects()
     {
-        base.RemoveEffects(); 
-        foreach (var hp in FindObjectsOfType<EnemyHitpoints>())
-        {
-            hp.SetMax(hp.GetMax() / (1 - applianceScriptable.values[0]));
-            hp.SetCurrent(hp.GetMax());
-        }
+        base.RemoveEffects();
+        var php = FindObjectOfType<PlayerHitpoints>();
+        var pspeed = FindObjectOfType<PlayerSpeedController>();
+
+        pspeed.RemoveSpeedEffector(SpeedEffector.EffectorName.CheeseGrater);
+        php.SetMax(php.GetMax() / (1 - applianceScriptable.values[1]));
+        php.SetCurrent(php.GetMax());
     }
 }

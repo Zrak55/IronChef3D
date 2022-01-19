@@ -40,4 +40,20 @@ public class PlayerSpeedController : MonoBehaviour
 
         mover.speed = mover.GetBaseSpeed() * totalMod;
     }
+
+    public void RemoveSpeedEffector(SpeedEffector.EffectorName speedName)
+    {
+        var rl = new List<SpeedEffector>();
+        foreach(var s in Modifiers)
+        {
+            if (s.effectName == speedName)
+            {
+                rl.Add(s);
+            }
+        }
+        foreach(var rs in rl)
+        {
+            Modifiers.Remove(rs);
+        }
+    }
 }

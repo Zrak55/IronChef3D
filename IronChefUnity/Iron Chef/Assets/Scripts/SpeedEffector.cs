@@ -17,6 +17,7 @@ public class SpeedEffector
         Fridge,
         BenedictSpeed,
         SugarRush,
-        OnionKnight
+        OnionKnight,
+        CheeseGrater
     }
 }
