@@ -13,8 +13,10 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
         setupWaypoints();
 
         agent = GetComponent<NavMeshAgent>();
+        agent.radius = .1f;
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -50,10 +52,13 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
         if (!simpleFlag && (player.position - transform.position).magnitude < 5)
         {
             simpleFlag = true;
-            animator.Play("Attack", 0, animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+            enemyBasicAttackbox.HitOn();
         }
         else
+        {
             simpleFlag = false;
+            enemyBasicAttackbox.HitOff();
+        }
 
         return MoveTowards.status = Node.STATUS.SUCCESS;
     }
