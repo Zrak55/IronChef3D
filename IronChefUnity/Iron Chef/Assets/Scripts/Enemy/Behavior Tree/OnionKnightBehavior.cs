@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class OnionKnightBehavior : EnemyBehaviorTree
 {
     BehaviorTree onionKnightBehaviorTree;
+    EnemySpeed enemySpeed;
+    EnemySpeedController enemySpeedController;
     private Node CheckPlayer, CheckHurt, CheckAttack;
     private float speed, acceleration;
 
@@ -16,6 +18,8 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemySpeed = GetComponent<EnemySpeed>();
+        enemySpeedController = GetComponent<EnemySpeedController>();
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -43,6 +47,7 @@ public class OnionKnightBehavior : EnemyBehaviorTree
     private void Update()
     {
         onionKnightBehaviorTree.behavior();
+        transform.LookAt(player);
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Parry"))
             invincible = true;
         else
@@ -51,15 +56,19 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         //Obviously, this code interacts unfavorably with the speed mods. Needs fix at some point.
         if (simpleFlag == false && aggrod == true)
         {
+            enemySpeed.enabled = false;
+            enemySpeedController.enabled = false;
             Vector3 midpoint = player.transform.position - transform.position;
             if (midpoint.magnitude < 5)
                 midpoint = Vector3.zero;
             agent.destination = transform.position + midpoint;
-            agent.speed *= 1.5f;
-            agent.acceleration *= 1.5f;
+            agent.speed = speed * 25;
+            agent.acceleration = acceleration * 25;
         }
         else
         {
+            enemySpeed.enabled = true;
+            enemySpeedController.enabled = true;
             agent.speed = speed;
             agent.acceleration = acceleration;
         }
@@ -73,7 +82,6 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         aggrod = true;
 
         //Movement calculations
-        transform.LookAt(player);
         Vector3 midpoint = player.transform.position - transform.position;
         midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude);
         agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
