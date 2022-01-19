@@ -52,13 +52,10 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
         if (!simpleFlag && (player.position - transform.position).magnitude < 5)
         {
             simpleFlag = true;
-            enemyBasicAttackbox.HitOn();
+            animator.SetTrigger("Attack");
         }
         else
-        {
             simpleFlag = false;
-            enemyBasicAttackbox.HitOff();
-        }
 
         return MoveTowards.status = Node.STATUS.SUCCESS;
     }
