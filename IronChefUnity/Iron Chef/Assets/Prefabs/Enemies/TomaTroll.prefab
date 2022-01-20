@@ -5015,6 +5015,18 @@ MonoBehaviour:
   - {fileID: 1609249735737966303}
   - {fileID: 3455330500867566786}
   - {fileID: 3471940557902311021}
+--- !u!114 &5069658016265969053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254170305951122689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c265aefd5e2d3c44aad7522b0af67aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3206158230927137142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5303,7 +5315,7 @@ MonoBehaviour:
   attackCD: 3
   attackAngle: 30
   idleSoundEffect: 0c000000
-  attackSoundEffect: 0c000000
+  attackSoundEffect: 0c0000003e000000
   invincible: 0
   simpleFlag: 1
 --- !u!1 &4174869950698739817
