@@ -59,6 +59,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
 
     [Space]
     public GameObject bossWallEnter;
+    public GameObject bossWallFog;
 
 
     private MusicManager music;
@@ -394,8 +395,8 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
 
                 music.combatCount++;
 
-                if (bossWallEnter.activeSelf == true)
-                    bossWallEnter.SetActive(false);
+                bossWallEnter.SetActive(false);
+                bossWallFog.SetActive(true);
 
                 FindObjectOfType<PlayerHUDManager>().BossInfoOn("The Ice Nec-Cream-Mancer", GetComponent<EnemyHitpoints>(), "");
 
@@ -468,6 +469,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     public void BossOver()
     {
         bossWallEnter.SetActive(true);
+        bossWallFog.SetActive(false);
         FindObjectOfType<PlayerHUDManager>().BossOver();
     }
 
