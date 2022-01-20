@@ -14,8 +14,11 @@ public class EnemyBasicAttackbox : MonoBehaviour
     public float damage;
     [HideInInspector] private EnemyBehaviorTree enemyBehaviorTree;
 
+    EnemyVFXController vfx;
+
     //bool hasPlayedSound = false;
 
+    public int vfxHitNumber = -1;
 
     public SoundEffectSpawner.SoundEffect swingingSound = SoundEffectSpawner.SoundEffect.Cleaver;
 
@@ -23,6 +26,15 @@ public class EnemyBasicAttackbox : MonoBehaviour
     {
         playersHit = new List<PlayerHitpoints>();
         enemyBehaviorTree = GetComponentInParent<EnemyBehaviorTree>();
+        vfx = GetComponent<EnemyVFXController>();
+        if(vfx == null)
+        {
+            vfx = GetComponentInParent<EnemyVFXController>();
+        }
+        if(vfx == null)
+        {
+            vfx = GetComponentInChildren<EnemyVFXController>();
+        }
 
     }
     private void Start()
@@ -88,7 +100,11 @@ public class EnemyBasicAttackbox : MonoBehaviour
                         dmgToDeal = damage * (1 + dmgMod);
                         player.TakeDamage(dmgToDeal, sound);
 
-                        
+                        if(vfxHitNumber != -1)
+                        {
+
+                            vfx.SpawnDynamicEffect(vfxHitNumber, hit.GetComponent<Collider>().ClosestPoint(transform.position));
+                        }
                     }
                 }
             }

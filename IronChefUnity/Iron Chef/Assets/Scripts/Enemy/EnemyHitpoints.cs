@@ -26,12 +26,20 @@ public class EnemyHitpoints : MonoBehaviour
     public delegate void SpecialDeathActions();
     public event SpecialDeathActions DeathEvents;
 
+    EnemyVFXController vfx;
+
     private void Awake()
     {
 
         currentHP = MaxHP;
         mods = GetComponent<EnemyDamageTakenModifierController>();
         floatingDmg = GetComponentInChildren<EnemyCanvas>();
+
+        vfx = GetComponent<EnemyVFXController>();
+        if(vfx == null)
+        {
+            vfx = GetComponentInChildren<EnemyVFXController>();
+        }
 
     }
 
@@ -122,6 +130,8 @@ public class EnemyHitpoints : MonoBehaviour
             }
 
             //CheckDeadBoss();
+
+            vfx.SpawnDynamicEffect(0, transform.position);
 
 
             DeathEvents?.Invoke();

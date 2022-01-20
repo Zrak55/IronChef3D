@@ -62,6 +62,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 25
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &803959768638595401
 GameObject:
@@ -4995,6 +4996,8 @@ MonoBehaviour:
     - particle: {fileID: 9222900515948516897}
     - particle: {fileID: 7435119535996395336}
     trails: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!114 &6402502327498209038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5074,6 +5077,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 20
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &3856517895618374344
 GameObject:
@@ -10496,6 +10500,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &7786948733493607019
 GameObject:
@@ -10860,6 +10865,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 20
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1001 &2136637989906970704
 PrefabInstance:
