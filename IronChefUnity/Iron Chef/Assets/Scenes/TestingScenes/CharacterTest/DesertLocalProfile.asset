@@ -24,7 +24,7 @@ MonoBehaviour:
     max: 100
   colorFilter:
     m_OverrideState: 0
-    m_Value: {r: 0.31038624, g: 0.7075472, b: 0.33607325, a: 1}
+    m_Value: {r: 0.13389996, g: 0.18481968, b: 0.5566038, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: 0.20300096}
+    m_Value: {x: 0.5923551, y: 0.5964313, z: 1, w: 0.20300096}
   midtones:
     m_OverrideState: 0
     m_Value: {x: 1, y: 1, z: 1, w: 0}
