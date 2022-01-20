@@ -6,10 +6,23 @@ public class EnemyVFXController : MonoBehaviour
 {
     [SerializeField]
     public List<VisualEffect> effects;
+    [SerializeField]
+    public List<GameObject> DynamicSpawnEffects;
+
+
+    public void SpawnDynamicEffect(int i, Vector3 pos)
+    {
+        if (i >= 0 && i < effects.Count)
+        {
+            var go = Instantiate(DynamicSpawnEffects[i], pos, Quaternion.identity);
+            Destroy(go, 10f);
+        }
+    }
+
 
     public void StartEffect(int i)
     {
-        if(i >= 0 && i <= effects.Count)
+        if(i >= 0 && i < effects.Count)
         {
             effects[i].StartEffect();
         }
@@ -17,7 +30,7 @@ public class EnemyVFXController : MonoBehaviour
 
     public void EndEffect(int i)
     {
-        if (i >= 0 && i <= effects.Count)
+        if (i >= 0 && i < effects.Count)
         {
             effects[i].EndEffect();
         }
