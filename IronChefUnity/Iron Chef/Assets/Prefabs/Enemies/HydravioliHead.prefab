@@ -114,6 +114,20 @@ MonoBehaviour:
   attacks:
   - {fileID: 4899173126106108072}
   - {fileID: 4899173125895841661}
+--- !u!114 &5506100305920112086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784614210913752677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects: []
 --- !u!1 &3871515484915398219
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +385,7 @@ MonoBehaviour:
   playersHit: []
   sound: 24
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &4899173126106108077
 GameObject:
@@ -434,6 +449,7 @@ MonoBehaviour:
   playersHit: []
   sound: 59
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &5967535204024380271
 GameObject:
@@ -1391,9 +1407,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1140318698308966202, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
   m_PrefabInstance: {fileID: 1442648292506594100}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &6245052970032805333 stripped
+--- !u!4 &1409601978649054431 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -4418116531815162143, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
   m_PrefabInstance: {fileID: 1442648292506594100}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7334666016770843296 stripped
@@ -1401,9 +1417,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8200112756635765140, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
   m_PrefabInstance: {fileID: 1442648292506594100}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1409601978649054431 stripped
+--- !u!4 &6245052970032805333 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
+  m_CorrespondingSourceObject: {fileID: -4418116531815162143, guid: dd3692166cac6d141b82124c0c850a82, type: 3}
   m_PrefabInstance: {fileID: 1442648292506594100}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1784614210913752677 stripped

@@ -632,6 +632,7 @@ GameObject:
   - component: {fileID: 3548918240961340227}
   - component: {fileID: 1931766485267432077}
   - component: {fileID: 812309903337234171}
+  - component: {fileID: 7018171786391125060}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -734,6 +735,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7018171786391125060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238300743323481301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects: []
 --- !u!1 &7803086111016615533
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +949,7 @@ MonoBehaviour:
   idleSoundEffect: 07000000
   attackSoundEffect: 07000000
   invincible: 0
+  simpleFlag: 1
 --- !u!1 &8042634753427596190
 GameObject:
   m_ObjectHideFlags: 0

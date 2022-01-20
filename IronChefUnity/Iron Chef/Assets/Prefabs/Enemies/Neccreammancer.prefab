@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 6697474145741523647}
   - component: {fileID: 5829753582127172602}
   - component: {fileID: 1899928756}
+  - component: {fileID: 3016073574888721067}
   m_Layer: 9
   m_Name: Neccreammancer
   m_TagString: Untagged
@@ -979,6 +980,7 @@ MonoBehaviour:
   IceWallCD: 30
   IceWallTime: 3
   bossWallEnter: {fileID: 0}
+  bossWallFog: {fileID: 0}
   FB: {fileID: 5890322910351180840}
   stageCenter: {fileID: 0}
   stageRadius: 100
@@ -1055,6 +1057,20 @@ MonoBehaviour:
   deathSound: 27
   DeathParticleSystem: {fileID: 0}
   DeathParticle: {fileID: 0}
+--- !u!114 &3016073574888721067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7803086111016615533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects: []
 --- !u!1 &8296825580927094616
 GameObject:
   m_ObjectHideFlags: 0

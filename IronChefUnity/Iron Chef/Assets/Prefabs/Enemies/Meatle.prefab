@@ -142,7 +142,22 @@ MonoBehaviour:
   playersHit: []
   sound: 20
   damage: 8
+  vfxHitNumber: -1
   swingingSound: 0
+--- !u!114 &1707063743981039347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469183541461553907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects: []
 --- !u!1 &4470167129770485588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,6 +1019,7 @@ MonoBehaviour:
   playersHit: []
   sound: 20
   damage: 8
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &9139872486678876944
 GameObject:
@@ -1144,5 +1160,10 @@ PrefabInstance:
 --- !u!4 &3841124544457132105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6853be734ec2b1d4daa0ce26c26b9a7d, type: 3}
+  m_PrefabInstance: {fileID: 3658280869260144546}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4469183541461553907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6853be734ec2b1d4daa0ce26c26b9a7d, type: 3}
   m_PrefabInstance: {fileID: 3658280869260144546}
   m_PrefabAsset: {fileID: 0}

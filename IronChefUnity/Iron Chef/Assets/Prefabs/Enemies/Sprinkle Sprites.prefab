@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 758585307435685994}
   - component: {fileID: 5251160022812159295}
   - component: {fileID: 3808036943765549107}
+  - component: {fileID: 5861323746066728124}
   m_Layer: 0
   m_Name: Sprinkle Sprites
   m_TagString: Untagged
@@ -203,7 +204,22 @@ MonoBehaviour:
   playersHit: []
   sound: 52
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 52
+--- !u!114 &5861323746066728124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594611590468753562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects: []
 --- !u!95 &5183862437098623559
 Animator:
   serializedVersion: 3
