@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 602369011043138945}
   - component: {fileID: 5251160022812159295}
   - component: {fileID: 3808036943765549107}
+  - component: {fileID: 3050934555646326811}
   m_Layer: 0
   m_Name: Gummy Zomb
   m_TagString: Untagged
@@ -151,7 +152,23 @@ MonoBehaviour:
   playersHit: []
   sound: 52
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 52
+--- !u!114 &3050934555646326811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2594611590468753562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &3856517895618374344
 GameObject:
   m_ObjectHideFlags: 0

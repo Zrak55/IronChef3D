@@ -556,6 +556,7 @@ GameObject:
   - component: {fileID: 9032254296700890017}
   - component: {fileID: 2340483007335584718}
   - component: {fileID: 2751482169882803472}
+  - component: {fileID: 246159754802723395}
   m_Layer: 9
   m_Name: NeccreammancerPhylactery
   m_TagString: Untagged
@@ -700,6 +701,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 2787400746575847172}
+--- !u!114 &246159754802723395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5260180766749263140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &5522298444547610844
 GameObject:
   m_ObjectHideFlags: 0

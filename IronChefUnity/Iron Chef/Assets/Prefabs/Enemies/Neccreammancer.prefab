@@ -1070,7 +1070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effects: []
-  DynamicSpawnEffects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &8296825580927094616
 GameObject:
   m_ObjectHideFlags: 0

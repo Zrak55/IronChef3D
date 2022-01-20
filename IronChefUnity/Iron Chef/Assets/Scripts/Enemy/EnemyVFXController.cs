@@ -12,7 +12,7 @@ public class EnemyVFXController : MonoBehaviour
 
     public void SpawnDynamicEffect(int i, Vector3 pos)
     {
-        if (i >= 0 && i < effects.Count)
+        if (i >= 0 && i < DynamicSpawnEffects.Count)
         {
             var go = Instantiate(DynamicSpawnEffects[i], pos, Quaternion.identity);
             Destroy(go, 10f);

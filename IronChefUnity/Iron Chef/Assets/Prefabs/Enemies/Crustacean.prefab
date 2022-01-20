@@ -142,6 +142,7 @@ MonoBehaviour:
   playersHit: []
   sound: 20
   damage: 8
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &4470167129770485588
 GameObject:
@@ -404,6 +405,21 @@ MonoBehaviour:
   attacks:
   - {fileID: 1808279117068605294}
   - {fileID: 1860166208745294777}
+--- !u!114 &2697853090203779683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5595282285353666033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &6028585377191098066
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,6 +1035,7 @@ MonoBehaviour:
   playersHit: []
   sound: 20
   damage: 8
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &9139872486678876944
 GameObject:
@@ -2236,13 +2253,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aaf9e8a9d9182044bbefe2f97c498c3, type: 3}
---- !u!4 &5110951414242926411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3aaf9e8a9d9182044bbefe2f97c498c3, type: 3}
-  m_PrefabInstance: {fileID: 4712742432927103136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5595282285353666033 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3aaf9e8a9d9182044bbefe2f97c498c3, type: 3}
+  m_PrefabInstance: {fileID: 4712742432927103136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5110951414242926411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3aaf9e8a9d9182044bbefe2f97c498c3, type: 3}
   m_PrefabInstance: {fileID: 4712742432927103136}
   m_PrefabAsset: {fileID: 0}

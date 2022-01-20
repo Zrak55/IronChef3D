@@ -9887,6 +9887,7 @@ MonoBehaviour:
   playersHit: []
   sound: 10
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!114 &2023216774
 MonoBehaviour:
@@ -25147,6 +25148,7 @@ MonoBehaviour:
   playersHit: []
   sound: 9
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!114 &3244397501475929103
 MonoBehaviour:
@@ -25327,6 +25329,8 @@ MonoBehaviour:
   - particles:
     - particle: {fileID: 7499002919881530356}
     trails: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &8296825580927094616
 GameObject:
   m_ObjectHideFlags: 0
@@ -25465,6 +25469,7 @@ MonoBehaviour:
   playersHit: []
   sound: 0
   damage: 10
+  vfxHitNumber: -1
   swingingSound: 0
 --- !u!114 &1044353528
 MonoBehaviour:

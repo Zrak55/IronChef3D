@@ -99,6 +99,21 @@ MonoBehaviour:
   time: 3
   ShouldShowWarning: 1
   PlayerWarningPrefab: {fileID: 6882707936818889616, guid: c38edcc31c8377b4ea5aef82e2d20951, type: 3}
+--- !u!114 &5506100305920112086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784614210913752677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!114 &8611669399324542797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,20 +129,6 @@ MonoBehaviour:
   attacks:
   - {fileID: 4899173126106108072}
   - {fileID: 4899173125895841661}
---- !u!114 &5506100305920112086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784614210913752677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  DynamicSpawnEffects: []
 --- !u!1 &3871515484915398219
 GameObject:
   m_ObjectHideFlags: 0
