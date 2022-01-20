@@ -806,7 +806,7 @@ MonoBehaviour:
   jumpKnockbox: {fileID: 4674751781125959614}
   behavior: {fileID: 1800947723216546153}
   maxJumpHeight: 1
-  time: 2
+  time: 1
   shake: 0
   collider: {fileID: 6737522677001501040}
 --- !u!1 &8043967736513652177

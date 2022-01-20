@@ -50,7 +50,7 @@ public class SnakonBehavior : EnemyBehaviorTree
         if (!isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
         {
             //Hopefully there will be another animation for this eventually.
-            animator.SetTrigger("Attack");
+            animator.SetTrigger("Jump");
             StartCoroutine("Jumping");
             AttackSecondary.status = Node.STATUS.RUNNING;
         }
