@@ -1,38 +1,31 @@
 Task List 01/14 - 01/21
 
 Alex:
-	Save level progress on player death instead of hard reset
-	Animate Fudge Sludge
-	Animate Tomatroll Jump
-	Aniamte Sprinkle Sprite
-	Animate Cookie Wheel
-	Replace Cheese Grater functionality with new appliance
+Integrate Level 4
+Transition to lvl 4
+Fix up some sounds
 
 Spencer:
-	Snakon Jump Animate
-	Improve Cookie Wheel AI
-	Improve Sprinkle Sprite AI
+Tomatroll jump improvement
+Onion Knight improvement
 
 Wiliam:
-Chipanzee - model/rig
-Gummy bear - model/rig
+Chipanzee - rig
+Gummy bear - rig
+Begin modeling Gummy Zombie
 
 Zach:
-Hyrdavioli VFX
-Generic Enemy Hit Something effect
-Enemy death VFX
-
+Death Poof vfx
 
 Kris:
-SFX for...
-	Hydavioli
-	Gummy Bear
-	Gummy Zombie
-	Chipanzee
-	Meatle
+Hydravioli Spawn Bubble
+
 
 From last week that was missed
-Kris
-	Hydravioli SFX - miss
-	Gummy Bear -     miss
-	Gummy Zombie -   miss
+Zach - Hydravioli VFX
+	death poof needs improvement
+	(Alex fault, overassigned for proficiency level)
+
+Kris - Chipanzee, Meatle sound effects
+	Gummy effects not implemented
+	(he is now switching to VFX)

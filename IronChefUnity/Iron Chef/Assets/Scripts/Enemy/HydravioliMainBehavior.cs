@@ -72,6 +72,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
 
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
 
 
             musicManager.combatCount++;
@@ -101,8 +102,10 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         {
             currentHeadPlace++;
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
             currentHeadPlace++;
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
         }
     }
 

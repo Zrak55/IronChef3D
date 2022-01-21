@@ -14,6 +14,8 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
     public bool ShouldShowWarning;
     public GameObject PlayerWarningPrefab;
 
+    public SoundEffectSpawner.SoundEffect sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
     public void LaunchProjectile()
     {
         var proj = Instantiate(projectile, launchPoint.position, Quaternion.identity).GetComponent<GuidedEnemyArcingProjectile>();
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(launchPoint.position, sound);
         Vector3 target = FindObjectOfType<CharacterMover>().transform.position;
         if (randomRadiusFromPlayer > 0)
             target += (new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized * randomRadiusFromPlayer);
