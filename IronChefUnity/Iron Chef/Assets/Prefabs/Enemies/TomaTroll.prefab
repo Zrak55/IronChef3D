@@ -4966,6 +4966,18 @@ MonoBehaviour:
   IsCleave: 0
   force: 0
   onAtAwake: 0
+--- !u!114 &5069658016265969053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254170305951122689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c265aefd5e2d3c44aad7522b0af67aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6064674844829042774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,18 +5027,6 @@ MonoBehaviour:
   - {fileID: 1609249735737966303}
   - {fileID: 3455330500867566786}
   - {fileID: 3471940557902311021}
---- !u!114 &5069658016265969053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254170305951122689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c265aefd5e2d3c44aad7522b0af67aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3206158230927137142
 GameObject:
   m_ObjectHideFlags: 0
@@ -5309,8 +5309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 40
-  spawnRange: 50
+  aggroRange: 30
+  spawnRange: 70
   attackRange: 8
   attackCD: 3
   attackAngle: 30

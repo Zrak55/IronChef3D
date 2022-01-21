@@ -36,7 +36,6 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
-        CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
         ImAggrod = new Leaf("Become Aggrod", aggro);
 
 

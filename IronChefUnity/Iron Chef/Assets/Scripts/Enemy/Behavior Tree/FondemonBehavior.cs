@@ -19,11 +19,11 @@ public class FondemonBehavior : EnemyBehaviorTree
 
         //Setup leaf nodes (Note: the fondemon must have attackAngle set to 0)
         MoveReset = new Leaf("Don't move", moveReset);
-        CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
+        CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
         AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectile);
+        CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackProjectile);
         CheckPlayer = new Sequence("Still Sequence", MoveReset, CheckAttack);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
     }

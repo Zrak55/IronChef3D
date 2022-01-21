@@ -638,7 +638,7 @@ MonoBehaviour:
   spawnRange: 50
   attackRange: 50
   attackCD: 2
-  attackAngle: 0
+  attackAngle: 20
   idleSoundEffect: 0f000000
   attackSoundEffect: 0e000000
   invincible: 0

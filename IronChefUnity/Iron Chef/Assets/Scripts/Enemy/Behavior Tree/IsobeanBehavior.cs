@@ -21,12 +21,12 @@ public class IsobeanBehavior : EnemyBehaviorTree
         soundEffectSpawner = SoundEffectSpawner.soundEffectSpawner;
 
         //Setup leaf nodes
-        CheckAttackRange = new Leaf("Player in Attack Range?", checkAttackRange);
+        CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
         MoveTowards = new Leaf("Reset Move", moveTowards);
         AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
-        CheckAttack = new Sequence("Attack Sequence", CheckAttackRange, AttackProjectile);
+        CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackProjectile);
         CheckPlayer = new Sequence("Move Sequence", MoveTowards, CheckAttack);
         isobeanBehaviorTree = new BehaviorTree(CheckPlayer);
     }
