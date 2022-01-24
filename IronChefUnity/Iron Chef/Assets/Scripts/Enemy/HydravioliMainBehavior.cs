@@ -18,6 +18,8 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
     public List<GameObject> BossWalls;
 
+    public List<GameObject> spawningBubbles;
+
     private void Start()
     {
         currentHeads = new List<GameObject>();
@@ -70,6 +72,10 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
             FindObjectOfType<PlayerHUDManager>().BossInfoOn("Italernean, The Hydra-violi", GetComponent<EnemyHitpoints>(), "");
 
+            foreach(var b in spawningBubbles)
+            {
+                b.SetActive(false);
+            }
 
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
@@ -115,5 +121,8 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         foreach (var go in BossWalls)
             go.SetActive(false);
         FindObjectOfType<PlayerHUDManager>().BossOver();
+
+        foreach (var b in spawningBubbles)
+            Destroy(b);
     }
 }
