@@ -14,6 +14,8 @@ public class EnemyJump : MonoBehaviour
     [SerializeField] public float time;
     [Tooltip("Bool for if the screen will shake upon landing")]
     [SerializeField] public bool shake;
+    [Tooltip("Bool that represents the hitbox, if it is off then you can use the built-in hitboes")]
+    [SerializeField] public bool hitOn = false;
     public Collider collider;
     private NavMeshAgent agent;
 
@@ -27,7 +29,6 @@ public class EnemyJump : MonoBehaviour
 
     public void BeginJumping(float time)
     {
-        //TODO: Delay
         LaunchJump(FindObjectOfType<CharacterMover>().transform.position, time);
     }
 
@@ -45,7 +46,6 @@ public class EnemyJump : MonoBehaviour
     }
     private IEnumerator jumpTick(Vector3 target, float time)
     {
-        bool hitOn = false;
         float cTime = 0;
         float yOffset = -4 * maxJumpHeight / Mathf.Pow(time, 2);
         Vector3 startPos = transform.position;

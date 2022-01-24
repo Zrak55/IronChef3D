@@ -66,6 +66,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     private IEnumerator Jumping()
     {
         yield return new WaitForSeconds(1.5f);
+        transform.LookAt(player);
         enemyJump.BeginJumping(enemyJump.time);
     }
 }

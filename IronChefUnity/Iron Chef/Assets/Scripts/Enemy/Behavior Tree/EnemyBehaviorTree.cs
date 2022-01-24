@@ -192,11 +192,11 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkAttackRange()
+    public Node.STATUS checkDoubleRange()
     {
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return CheckDoubleRange.status = (playerDistance < attackRange * 2) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+        return CheckDoubleRange.status = (playerDistance < attackRange * 2) && (playerDistance > attackRange * 1.5) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkAngleRange()
