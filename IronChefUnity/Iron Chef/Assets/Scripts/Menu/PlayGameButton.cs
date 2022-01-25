@@ -44,6 +44,8 @@ public class PlayGameButton : MonoBehaviour
         preLevelWindow.gameObject.SetActive(true);
         foreach (var i in preLevelWindow.GetComponentsInChildren<Image>())
             i.enabled = false;
+        foreach (var i in preLevelWindow.GetComponentsInChildren<Text>())
+            i.enabled = false;
         preLevelWindow.Play(0);
     }
 
