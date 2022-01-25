@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 3656894710659469105}
   - component: {fileID: 3720668813627299871}
   - component: {fileID: 4658627295896999401}
+  - component: {fileID: 4282671173526933761}
   m_Layer: 9
   m_Name: Gummy Bear
   m_TagString: Untagged
@@ -443,6 +444,19 @@ MonoBehaviour:
   gummySpawn1: {fileID: 8455275534703152656}
   gummySpawn2: {fileID: 4320613024576263943}
   gummySpawn3: {fileID: 281342722398460835}
+--- !u!114 &4282671173526933761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3856517895618374344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 118b0f868f63c024cbab26895b51cf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  food: 17
 --- !u!1 &4445358600935164395
 GameObject:
   m_ObjectHideFlags: 0
