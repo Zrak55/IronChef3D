@@ -43,12 +43,21 @@ public class ManualPostProcessBlend : MonoBehaviour
         //This may work, but might have some issues with the tangentss
         Keyframe redKey = new Keyframe(1, Mathf.Lerp(red.baseValue, red.targetValue, dist), Mathf.Lerp(red.baseInTan, red.targetInTan, dist), Mathf.Lerp(red.baseOutTan, red.TargetOutTan, dist));
         ccc.red.value.MoveKey(1, redKey);
+        var zeroKeyRed = ccc.red.value[0];
+        zeroKeyRed = new Keyframe(0, 0, Mathf.Lerp(red.baseOutTan, red.TargetOutTan, dist), Mathf.Lerp(red.baseOutTan, red.TargetOutTan, dist));
+        ccc.red.value.MoveKey(0, zeroKeyRed);
 
         Keyframe blueKey = new Keyframe(1, Mathf.Lerp(blue.baseValue, blue.targetValue, dist), Mathf.Lerp(blue.baseInTan, blue.targetInTan, dist), Mathf.Lerp(blue.baseOutTan, blue.TargetOutTan, dist));
         ccc.blue.value.MoveKey(1, blueKey);
+        var zeroKeyBlue = ccc.blue.value[0];
+        zeroKeyBlue = new Keyframe(0, 0, Mathf.Lerp(blue.baseOutTan, blue.TargetOutTan, dist), Mathf.Lerp(blue.baseOutTan, blue.TargetOutTan, dist));
+        ccc.blue.value.MoveKey(0, zeroKeyBlue);
 
         Keyframe greenKey = new Keyframe(1, Mathf.Lerp(green.baseValue, green.targetValue, dist), Mathf.Lerp(green.baseInTan, green.targetInTan, dist), Mathf.Lerp(green.baseOutTan, green.TargetOutTan, dist));
         ccc.green.value.MoveKey(1, greenKey);
+        var zeroKeyGreen = ccc.green.value[0];
+        zeroKeyGreen = new Keyframe(0, 0, Mathf.Lerp(green.baseOutTan, green.TargetOutTan, dist), Mathf.Lerp(green.baseOutTan, green.TargetOutTan, dist));
+        ccc.green.value.MoveKey(0, zeroKeyGreen);
 
 
 

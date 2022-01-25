@@ -336,23 +336,29 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.HydraIdle:
                 index = Random.Range(0, HydraIdle.Length);
                 clipToPlay = HydraIdle[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.HydraSlam:
                 clipToPlay = HydraSlam;
+                isBossEffect = true;
                 break;
             case SoundEffect.HydraSpit:
                 clipToPlay = HydraSpit;
+                isBossEffect = true;
                 break;
             case SoundEffect.HydraSpitLand:
                 index = Random.Range(0, HydraSpitLand.Length);
                 clipToPlay = HydraSpitLand[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.HydraSweep:
                 clipToPlay = HydraSweep;
+                isBossEffect = true;
                 break;
             case SoundEffect.HydraSpawnEffects:
                 index = Random.Range(0, HydraSpawn.Length);
                 clipToPlay = HydraSpawn[index];
+                isBossEffect = true;
                 break;
             case SoundEffect.TrollSlam:
                 clipToPlay = TrollSlam;
