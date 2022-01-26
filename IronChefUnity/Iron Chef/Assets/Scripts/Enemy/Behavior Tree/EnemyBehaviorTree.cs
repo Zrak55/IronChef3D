@@ -76,7 +76,6 @@ public class EnemyBehaviorTree : MonoBehaviour
         Vector3 midpoint = player.transform.position - transform.position;
         if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, player.position - transform.position) < attackAngle)
             midpoint = Vector3.zero;
-        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).loop);
         if (agent.enabled == true)
             agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
 
