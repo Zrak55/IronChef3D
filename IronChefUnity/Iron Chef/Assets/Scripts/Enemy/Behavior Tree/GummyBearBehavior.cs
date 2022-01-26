@@ -45,6 +45,24 @@ public class GummyBearBehavior : EnemyBehaviorTree
         gummyBearBehaviorTree.behavior();
     }
 
+
+    public override Node.STATUS attackBasic()
+    {
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
+        {
+            animator.SetInteger("AttackNum", Random.Range(1, 3));
+            animator.SetTrigger("Attack");
+            AttackBasic.status = Node.STATUS.RUNNING;
+        }
+        else if (animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isAttackCD)
+                StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
+    }
+
     private void OnDeath()
     {
         Instantiate(gummyObjects, gummySpawn1.position, new Quaternion());

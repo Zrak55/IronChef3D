@@ -181,7 +181,6 @@ GameObject:
   - component: {fileID: 6169838172869069892}
   - component: {fileID: 2975613776621865444}
   - component: {fileID: 5233306392324482707}
-  - component: {fileID: 3922989576534129727}
   - component: {fileID: 8716006692842500576}
   m_Layer: 0
   m_Name: Sword
@@ -253,19 +252,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3922989576534129727
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2531507508880578683}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8716006692842500576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1380,8 +1366,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8665300036915358873}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.5910673, y: 10.253039, z: 4.276395}
+  m_LocalPosition: {x: 0, y: 0, z: 3.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6003410970990459403}
   m_RootOrder: 3
@@ -1397,5 +1383,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.7}
-  m_Center: {x: 0, y: 0, z: 1.4}
+  m_Size: {x: 6.591067, y: 10.25304, z: 4.276395}
+  m_Center: {x: 0, y: 0, z: 0}
