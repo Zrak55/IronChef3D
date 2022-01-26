@@ -14,10 +14,11 @@ public class EnemyJump : MonoBehaviour
     [SerializeField] public float time;
     [Tooltip("Bool for if the screen will shake upon landing")]
     [SerializeField] public bool shake;
-    [Tooltip("Bool that represents the hitbox, if it is off then you can use the built-in hitboes")]
-    [SerializeField] public bool hitOn = false;
+    [Tooltip("Bool that represents the hitbox, if it is off then the hitboxes will appear halfway through the jump")]
+    [SerializeField] public bool animHit = false;
     public Collider collider;
     private NavMeshAgent agent;
+    private bool hitOn = false;
 
 
     // Start is called before the first frame update
@@ -51,7 +52,7 @@ public class EnemyJump : MonoBehaviour
         Vector3 startPos = transform.position;
         while (cTime < time)
         {
-            if (cTime >= time / 2 && hitOn == false)
+            if (cTime >= time / 2 && hitOn == false && animHit == false)
             {
 
                 jumpHitbox.HitOn();
@@ -84,7 +85,11 @@ public class EnemyJump : MonoBehaviour
         }
 
         agent.enabled = true;
-        jumpHitbox.HitOff();
-        jumpKnockbox.HitOff();
+        if (animHit == false)
+        {
+            jumpHitbox.HitOff();
+            jumpKnockbox.HitOff();
+            hitOn = false;
+        }
     }
 }

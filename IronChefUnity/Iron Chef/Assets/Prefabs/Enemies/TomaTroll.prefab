@@ -5295,7 +5295,7 @@ MonoBehaviour:
   maxJumpHeight: 6
   time: 4
   shake: 1
-  hitOn: 0
+  animHit: 1
   collider: {fileID: 7564515248135662135}
 --- !u!114 &6952594615532671011
 MonoBehaviour:
