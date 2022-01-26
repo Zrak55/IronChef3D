@@ -1,9 +1,10 @@
 //Maya ASCII 2022 scene
-//Name: chipanzee_rig.ma
-//Last modified: Tue, Jan 25, 2022 05:36:32 PM
+//Name: chipanzee_rig2.ma
+//Last modified: Wed, Jan 26, 2022 08:49:11 AM
 //Codeset: 1252
 requires maya "2022";
 requires "stereoCamera" "10.0";
+requires "mtoa" "4.2.1";
 requires "mtoa" "4.2.1";
 requires "stereoCamera" "10.0";
 currentUnit -l meter -a degree -t film;
@@ -12,12 +13,12 @@ fileInfo "product" "Maya 2022";
 fileInfo "version" "2022";
 fileInfo "cutIdentifier" "202102181415-29bfc1879c";
 fileInfo "osv" "Windows 10 Pro v2009 (Build: 19042)";
-fileInfo "UUID" "DAF8CC7C-4187-ECFD-0A41-D59C40CB2F8A";
+fileInfo "UUID" "4C6FEE35-4178-C82D-1A30-599E7BFFD5A1";
 createNode transform -s -n "persp";
 	rename -uid "1B90C71B-40C4-2C99-58A5-BD8D1D7B45B0";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.5536919524204427 3.1018284303409791 18.642405891295557 ;
-	setAttr ".r" -type "double3" -3.9383527296024639 -7.8 0 ;
+	setAttr ".t" -type "double3" 5.9318282814023222 0.6519344058158566 7.7789610101494855 ;
+	setAttr ".r" -type "double3" 11.661647270397616 39.799999999999898 1.0349547347400395e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "3400232E-4240-77FD-A211-E3BD6472782B";
 	setAttr -k off ".v" no;
@@ -25,7 +26,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.001;
 	setAttr ".fcp" 100;
 	setAttr ".fd" 0.05;
-	setAttr ".coi" 18.86103897457906;
+	setAttr ".coi" 10.553454036793122;
 	setAttr ".ow" 0.1;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -444,61 +445,7 @@ createNode nurbsCurve -n "pasted__chip_neck_CTRLShape" -p "pasted__chip_neck_CTR
 		-1.6154024826103222e-16 3.1193204489097703 -0.14475800636580446
 		-0.31965277369257766 3.0537061068214455 -0.03111063216362105
 		;
-createNode transform -n "pasted__chip_wrist_R_grp" -p "pasted__chip_torso_CTRL";
-	rename -uid "101F5DAF-48B6-8536-42C5-0785482985C9";
-createNode transform -n "pasted__chip_wrist_R_CTRL" -p "pasted__chip_wrist_R_grp";
-	rename -uid "FA718196-42D6-1935-B137-FAAA49BDB777";
-	setAttr ".rp" -type "double3" -1.52 2.5389999389648437 -0.059703949311845 ;
-	setAttr ".sp" -type "double3" -1.52 2.5389999389648437 -0.059703949311845 ;
-createNode nurbsCurve -n "pasted__chip_wrist_R_CTRLShape" -p "pasted__chip_wrist_R_CTRL";
-	rename -uid "42E039AC-4A69-6AE1-4C07-EC846871B70A";
-	setAttr -k off ".v";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 6;
-	setAttr ".cc" -type "nurbsCurve" 
-		3 8 2 no 3
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		11
-		-1.52 2.296895373512541 -0.30180851476414772
-		-1.52 2.5389999389648437 -0.40209150928693604
-		-1.52 2.7811045044171467 -0.30180851476414761
-		-1.5199999999999998 2.8813874989399348 -0.059703949311845021
-		-1.52 2.7811045044171467 0.18240061614045763
-		-1.52 2.5389999389648437 0.28268361066324615
-		-1.52 2.296895373512541 0.18240061614045761
-		-1.5200000000000002 2.1966123789897529 -0.059703949311844959
-		-1.52 2.296895373512541 -0.30180851476414772
-		-1.52 2.5389999389648437 -0.40209150928693604
-		-1.52 2.7811045044171467 -0.30180851476414761
-		;
-createNode transform -n "pasted__chip_poleVector_arm_R_grp" -p "pasted__chip_wrist_R_grp";
-	rename -uid "81DC32A1-4D7B-FA1A-6E19-E4826F9EE3BF";
-createNode transform -n "pasted__chip_poleVector_arm_R_CTRL" -p "pasted__chip_poleVector_arm_R_grp";
-	rename -uid "4B975F87-411A-07A0-9830-5E874B0E7AA6";
-	setAttr ".rp" -type "double3" -0.98662498474121096 2.54781005859375 -0.903 ;
-	setAttr ".sp" -type "double3" -0.98662498474121096 2.54781005859375 -0.903 ;
-createNode nurbsCurve -n "pasted__chip_poleVector_arm_R_CTRLShape" -p "pasted__chip_poleVector_arm_R_CTRL";
-	rename -uid "1303C112-4FE0-A3A3-ED91-78AB60CFC245";
-	setAttr -k off ".v";
-	setAttr ".ove" yes;
-	setAttr ".ovc" 9;
-	setAttr ".cc" -type "nurbsCurve" 
-		3 8 2 no 3
-		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
-		11
-		-0.8207285994807535 2.3918040437060624 -0.89801505937727666
-		-0.97957521410493098 2.3201378431378199 -0.90300000000000002
-		-1.1425514887562218 2.3818389386081318 -0.90798494062272339
-		-1.2141881320889421 2.5407636652037668 -0.9100497706362799
-		-1.1525213700016683 2.703816073481438 -0.90798494062272328
-		-0.99367475537749106 2.7754822740496805 -0.90300000000000002
-		-0.83069848072620023 2.7137811785793677 -0.89801505937727655
-		-0.75906183739347999 2.5548564519837336 -0.89595022936372004
-		-0.8207285994807535 2.3918040437060624 -0.89801505937727666
-		-0.97957521410493098 2.3201378431378199 -0.90300000000000002
-		-1.1425514887562218 2.3818389386081318 -0.90798494062272339
-		;
-createNode transform -n "pasted__chip_wrist_L_grp" -p "pasted__chip_torso_CTRL";
+createNode transform -n "pasted__chip_wrist_L_grp" -p "pasted__chip_hip_CTRL";
 	rename -uid "F52F7685-48AA-AFF6-35AE-FCA742A14ABE";
 createNode transform -n "pasted__chip_wrist_L_CTRL" -p "pasted__chip_wrist_L_grp";
 	rename -uid "0FEAF0FC-4011-C013-98BE-7782F8A9585E";
@@ -556,6 +503,60 @@ createNode nurbsCurve -n "pasted__chip_poleVector_arm_L_CTRLShape" -p "pasted__c
 		1.1526267319401451 2.4006730622607497 -0.89836728684346512
 		0.99378011731596749 2.3290068616925073 -0.90335222746618837
 		0.83080384266467677 2.3907079571628191 -0.90833716808891185
+		;
+createNode transform -n "pasted__chip_wrist_R_grp" -p "pasted__chip_hip_CTRL";
+	rename -uid "101F5DAF-48B6-8536-42C5-0785482985C9";
+createNode transform -n "pasted__chip_wrist_R_CTRL" -p "pasted__chip_wrist_R_grp";
+	rename -uid "FA718196-42D6-1935-B137-FAAA49BDB777";
+	setAttr ".rp" -type "double3" -1.52 2.5389999389648437 -0.059703949311845 ;
+	setAttr ".sp" -type "double3" -1.52 2.5389999389648437 -0.059703949311845 ;
+createNode nurbsCurve -n "pasted__chip_wrist_R_CTRLShape" -p "pasted__chip_wrist_R_CTRL";
+	rename -uid "42E039AC-4A69-6AE1-4C07-EC846871B70A";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 6;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-1.52 2.296895373512541 -0.30180851476414772
+		-1.52 2.5389999389648437 -0.40209150928693604
+		-1.52 2.7811045044171467 -0.30180851476414761
+		-1.5199999999999998 2.8813874989399348 -0.059703949311845021
+		-1.52 2.7811045044171467 0.18240061614045763
+		-1.52 2.5389999389648437 0.28268361066324615
+		-1.52 2.296895373512541 0.18240061614045761
+		-1.5200000000000002 2.1966123789897529 -0.059703949311844959
+		-1.52 2.296895373512541 -0.30180851476414772
+		-1.52 2.5389999389648437 -0.40209150928693604
+		-1.52 2.7811045044171467 -0.30180851476414761
+		;
+createNode transform -n "pasted__chip_poleVector_arm_R_grp" -p "pasted__chip_wrist_R_grp";
+	rename -uid "81DC32A1-4D7B-FA1A-6E19-E4826F9EE3BF";
+createNode transform -n "pasted__chip_poleVector_arm_R_CTRL" -p "pasted__chip_poleVector_arm_R_grp";
+	rename -uid "4B975F87-411A-07A0-9830-5E874B0E7AA6";
+	setAttr ".rp" -type "double3" -0.98662498474121096 2.54781005859375 -0.903 ;
+	setAttr ".sp" -type "double3" -0.98662498474121096 2.54781005859375 -0.903 ;
+createNode nurbsCurve -n "pasted__chip_poleVector_arm_R_CTRLShape" -p "pasted__chip_poleVector_arm_R_CTRL";
+	rename -uid "1303C112-4FE0-A3A3-ED91-78AB60CFC245";
+	setAttr -k off ".v";
+	setAttr ".ove" yes;
+	setAttr ".ovc" 9;
+	setAttr ".cc" -type "nurbsCurve" 
+		3 8 2 no 3
+		13 -2 -1 0 1 2 3 4 5 6 7 8 9 10
+		11
+		-0.8207285994807535 2.3918040437060624 -0.89801505937727666
+		-0.97957521410493098 2.3201378431378199 -0.90300000000000002
+		-1.1425514887562218 2.3818389386081318 -0.90798494062272339
+		-1.2141881320889421 2.5407636652037668 -0.9100497706362799
+		-1.1525213700016683 2.703816073481438 -0.90798494062272328
+		-0.99367475537749106 2.7754822740496805 -0.90300000000000002
+		-0.83069848072620023 2.7137811785793677 -0.89801505937727655
+		-0.75906183739347999 2.5548564519837336 -0.89595022936372004
+		-0.8207285994807535 2.3918040437060624 -0.89801505937727666
+		-0.97957521410493098 2.3201378431378199 -0.90300000000000002
+		-1.1425514887562218 2.3818389386081318 -0.90798494062272339
 		;
 createNode transform -n "pasted__chip_rig_grp" -p "pasted__chip_grp";
 	rename -uid "CC15B537-425E-E571-4207-7DAFEB00B52B";
@@ -33638,21 +33639,21 @@ createNode mesh -n "pasted__chip_anzeeMeshShapeOrig" -p "pasted__chip_anzeeMesh"
 	setAttr ".vcs" 2;
 	setAttr ".ai_translator" -type "string" "polymesh";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "6E672FB7-44F0-3DF7-D283-2286595E4FA0";
+	rename -uid "CA126789-4FCE-B3B2-2EE3-0F99EF5BEC04";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "12232634-4E87-19EB-C7D5-4481CBB2141C";
+	rename -uid "5EF91D2A-4341-B910-9E6B-C38B97D96AEC";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "3F8D5D79-4DE7-7433-CE1E-5996F1F46B21";
+	rename -uid "5939FF4A-4B98-3544-B8F9-9787D89F2BC4";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "B25DCEFD-4E57-97AD-8387-4C8D7431CEBB";
+	rename -uid "BF3B586B-452A-4617-DF1D-3E953DCB3013";
 	setAttr -s 2 ".dli[1]"  8;
 	setAttr -s 2 ".dli";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "C40636E0-4A6F-CD71-8036-3A9D6069C3AE";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "3CD997B7-4420-847A-6BC4-D4BB956D0A54";
+	rename -uid "9F28869B-48AB-76C6-824B-7DBBA885C5FE";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "90180B6E-44EE-2E66-92CD-898D6DED1C28";
 	setAttr ".g" yes;
@@ -56073,7 +56074,7 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
-	setAttr -s 5 ".sol";
+	setAttr -s 4 ".sol";
 connectAttr "pasted__chip_root_jnt.s" "pasted__chip_hip_jnt.is";
 connectAttr "pasted__chip_hip_jnt_parentConstraint1.ctx" "pasted__chip_hip_jnt.tx"
 		;
@@ -56860,4 +56861,4 @@ connectAttr "pasted__chip_anzeeMeshShape.iog.og[0]" ":initialShadingGroup.dsm" -
 		;
 connectAttr "pasted__groupId739.msg" ":initialShadingGroup.gn" -na;
 connectAttr "pasted__ikRPsolver.msg" ":ikSystem.sol" -na;
-// End of chipanzee_rig.ma
+// End of chipanzee_rig2.ma
