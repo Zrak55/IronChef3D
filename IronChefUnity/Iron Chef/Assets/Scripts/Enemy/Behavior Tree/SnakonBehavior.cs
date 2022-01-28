@@ -7,7 +7,8 @@ public class SnakonBehavior : EnemyBehaviorTree
 {
     BehaviorTree snakonBehaviorTree;
     EnemyJump enemyJump;
-    private Node JumpOnce, CheckPlayer, CheckHurt, CheckAttack;
+    private Node CheckPlayer, CheckHurt, CheckAttack, CheckJump;
+    private bool isJumpCD = false;
 
     private void Start()
     {
@@ -27,37 +28,54 @@ public class SnakonBehavior : EnemyBehaviorTree
         CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
         CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
+        CheckDoubleRange = new Leaf("Player in Double Range?", checkDoubleRange);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackBasic = new Leaf("Attack", attackBasic);
         AttackSecondary = new Leaf("Jump", attackSecondary);
-        RunOnce = new Leaf("Once", runOnce);
 
         //Setup sequence nodes and root
-        JumpOnce = new Selector("Jump on Player Sight", RunOnce, AttackSecondary);
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, JumpOnce, MoveTowards);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
-        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+        CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
+        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckJump, CheckAttack);
     }
     private void Update()
     {
         snakonBehaviorTree.behavior();
     }
 
-    public override Node.STATUS attackSecondary()
+    public override Node.STATUS attackBasic()
     {
-        if (!isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
+        if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
         {
-            //Hopefully there will be another animation for this eventually.
-            animator.SetTrigger("Jump");
-            StartCoroutine("Jumping");
-            AttackSecondary.status = Node.STATUS.RUNNING;
+            animator.SetTrigger("Attack");
+            StopCoroutine("Jumping");
+            AttackBasic.status = Node.STATUS.RUNNING;
         }
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
             if (!isAttackCD)
                 StartCoroutine("atttackCDEnd");
+            AttackBasic.status = Node.STATUS.SUCCESS;
+        }
+        return AttackBasic.status;
+    }
+
+    public override Node.STATUS attackSecondary()
+    {
+        if (!isJumpCD && !isAttackCD && animator.GetCurrentAnimatorStateInfo(0).loop && AttackSecondary.status != Node.STATUS.RUNNING)
+        {
+            simpleFlag = false;
+            animator.SetTrigger("Jump");
+            StartCoroutine("Jumping");
+            AttackSecondary.status = Node.STATUS.RUNNING;
+        }
+        else if (simpleFlag == true && animator.GetCurrentAnimatorStateInfo(0).loop)
+        {
+            if (!isJumpCD)
+                StartCoroutine("jumpCDEnd");
             AttackSecondary.status = Node.STATUS.SUCCESS;
         }
         return AttackSecondary.status;
@@ -65,8 +83,17 @@ public class SnakonBehavior : EnemyBehaviorTree
     
     private IEnumerator Jumping()
     {
+        agent.destination = transform.position;
         yield return new WaitForSeconds(1.5f);
+        simpleFlag = true;
         transform.LookAt(player);
         enemyJump.BeginJumping(enemyJump.time);
+    }
+
+    protected IEnumerator jumpCDEnd()
+    {
+        isJumpCD = true;
+        yield return new WaitForSeconds(attackCD * 2);
+        isJumpCD = false;
     }
 }
