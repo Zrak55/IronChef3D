@@ -431,6 +431,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1f053b36a758eb74ba7dada2e0f7f747, type: 3}
   - {fileID: 8300000, guid: 13c21a30e527290499bc15638bd4911f, type: 3}
   TrollSlam: {fileID: 8300000, guid: 5162ed9a18441294cb75b35b646ab2b6, type: 3}
+  BenedictLaugh:
+  - {fileID: 8300000, guid: 3e6089bfa3361184c9886f28133ad428, type: 3}
+  - {fileID: 8300000, guid: 9ff767d614e4490439e2c9ea7f695fe5, type: 3}
+  - {fileID: 8300000, guid: 611fe09b0366d3f44b9d9b4e3cdecb98, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0

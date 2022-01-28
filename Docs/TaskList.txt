@@ -1,31 +1,27 @@
 Task List 01/14 - 01/21
 
 Alex:
-Integrate Level 4
-Transition to lvl 4
-Fix up some sounds
+Add some screen shake here and there
+Add some benedict supporting sounds
+Splash Screen menu video
+"Ready" animation for gummy bear
+Start process of additive loading
 
 Spencer:
-Tomatroll jump improvement
-Onion Knight improvement
+Swapping to new team (see Mason)
 
 Wiliam:
-Chipanzee - rig
-Gummy bear - rig
-Begin modeling Gummy Zombie
+finish rig Gummy Zombie
+Begin Onion Knight Model/Rig
 
 Zach:
-Death Poof vfx
+Wrap up death poof from feedback
+Benedict egg shell crack VFX
 
 Kris:
-Hydravioli Spawn Bubble
+Hydravioli Spawn Bubbles
+Tomatroll slam
 
 
 From last week that was missed
-Zach - Hydravioli VFX
-	death poof needs improvement
-	(Alex fault, overassigned for proficiency level)
-
-Kris - Chipanzee, Meatle sound effects
-	Gummy effects not implemented
-	(he is now switching to VFX)
+Kris - Bubble vfx behind schedule

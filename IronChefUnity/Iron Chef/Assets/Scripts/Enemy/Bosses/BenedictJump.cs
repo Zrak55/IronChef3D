@@ -36,6 +36,7 @@ public class BenedictJump : MonoBehaviour
     {
         //TODO: Delay
         LaunchJump(FindObjectOfType<CharacterMover>().transform.position, time);
+
     }
 
     private void LaunchJump(Vector3 target, float time)
@@ -45,7 +46,7 @@ public class BenedictJump : MonoBehaviour
         {
             Physics.IgnoreCollision(collider, c, true);
         }
-
+        behavior.Laugh();
         StartCoroutine(jumpTick(target, time));
     }
     private IEnumerator jumpTick(Vector3 target, float time)

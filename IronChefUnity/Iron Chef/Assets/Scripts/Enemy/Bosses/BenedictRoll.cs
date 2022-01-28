@@ -24,10 +24,13 @@ public class BenedictRoll : MonoBehaviour
 
     public float rollSpeed;
 
+    PlayerCamControl cam;
+
     void Start()
     {
         behavior = GetComponent<BenedictBehavior>();
         speed = GetComponent<EnemySpeedController>();
+        cam = FindObjectOfType<PlayerCamControl>();
         //animator = GetComponent<Animator>();
     }
 
@@ -60,11 +63,13 @@ public class BenedictRoll : MonoBehaviour
                 {
                     if(i.gameObject.name != "Floor")
                     {
+                        behavior.Laugh();
+
                         if (recentTerrainHit)
                         {
                             targetFacing = (RoomCenter.position - transform.position).normalized;
                             targetFacing.y = 0;
-                            FindObjectOfType<PlayerCamControl>().ShakeCam(2.5f, 0.75f);
+                            cam.ShakeCam(2.5f, 0.75f);
                         }
                         else
                         {
@@ -74,7 +79,7 @@ public class BenedictRoll : MonoBehaviour
 
                             targetFacing = FindObjectOfType<CharacterMover>().transform.position - transform.position;
                             targetFacing.y = 0;
-                            FindObjectOfType<PlayerCamControl>().ShakeCam(2.5f, 0.75f);
+                            cam.ShakeCam(2.5f, 0.75f);
                         }
 
                         recentHit = true;
@@ -96,6 +101,7 @@ public class BenedictRoll : MonoBehaviour
             //Move
             transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), rollSpeed * speed.GetMod()  * Time.fixedDeltaTime);
             transform.LookAt(transform.position + targetFacing);
+            cam.ShakeCam(0.75f, 0.75f);
 
             RollCollider.playersHit.Clear();
             RollKnockbox.playersHit.Clear();
@@ -130,6 +136,8 @@ public class BenedictRoll : MonoBehaviour
     {
         animator.speed = 0;
         startingRoll = true;
+
+        behavior.Laugh();
 
         SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position + ((FindObjectOfType<CharacterMover>().transform.position - transform.position)/2), SoundEffectSpawner.SoundEffect.EggRollStart);
 

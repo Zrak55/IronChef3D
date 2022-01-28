@@ -74,6 +74,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip HydraSweep;
     public AudioClip[] HydraSpawn;
     public AudioClip TrollSlam;
+    public AudioClip[] BenedictLaugh;
     private void Awake()
     {
         soundEffectSpawner = this;
@@ -363,6 +364,10 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.TrollSlam:
                 clipToPlay = TrollSlam;
                 break;
+            case SoundEffect.BenedictLaugh:
+                clipToPlay = BenedictLaugh[Random.Range(0, BenedictLaugh.Length)];
+                isBossEffect = true;
+                break;
 
 
 
@@ -462,6 +467,7 @@ public class SoundEffectSpawner : MonoBehaviour
         GummyBearIdle,
         GummyBearZombieIdle,
         GummyBearDeath,
+        BenedictLaugh
         
     }
 }

@@ -86,7 +86,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
     protected IEnumerator jumpCDEnd()
     {
         isJumpCD = true;
-        yield return new WaitForSeconds(attackCD * 2);
+        yield return new WaitForSeconds(attackCD * 2 + enemyJump.time);
         isJumpCD = false;
     }
 }

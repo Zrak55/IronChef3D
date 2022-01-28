@@ -4991,6 +4991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: 56
+  CamShakeAmount: 0.75
 --- !u!114 &6067058761951689773
 MonoBehaviour:
   m_ObjectHideFlags: 0

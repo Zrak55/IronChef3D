@@ -31,7 +31,7 @@ public class PlayerCamControl : MonoBehaviour
     {
         playerView = FindObjectOfType<CharacterMover>().model.GetComponentInChildren<SkinnedMeshRenderer>();
 
-        ShakeCam(0, 0);   
+        ShakeCam(0, 0, true);   
     }
 
 
@@ -148,19 +148,30 @@ public class PlayerCamControl : MonoBehaviour
             shouldChange = true;
 
         }
+        else
+        {
+            currentShakeFrequency = 0;
+        }
         if (currentShakeFrequency != 0)
         {
             currentShakeFrequency = Mathf.Max(currentShakeFrequency + (Time.deltaTime * -1f * frequencyAcceleration), 0);
             shouldChange = true;
         }
+        else
+        {
+            currentShakeIntensity = 0;
+        }
 
     }
 
-    public void ShakeCam(float intensity, float frequency)
+    public void ShakeCam(float intensity, float frequency, bool overrideAmount = false)
     {
-        currentShakeIntensity = intensity;
-        currentShakeFrequency = frequency;
-        shouldChange = true;
+        if (overrideAmount || (intensity > currentShakeIntensity && frequency > currentShakeFrequency))
+        {
+            currentShakeIntensity = intensity;
+            currentShakeFrequency = frequency;
+            shouldChange = true;
+        }
     }
 
     [Serializable]

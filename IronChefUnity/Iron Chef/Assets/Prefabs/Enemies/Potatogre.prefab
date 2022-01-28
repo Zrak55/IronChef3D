@@ -697,7 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: 48
+  soundName: 50
+  CamShakeAmount: 1
 --- !u!1 &7786948733493607019
 GameObject:
   m_ObjectHideFlags: 0

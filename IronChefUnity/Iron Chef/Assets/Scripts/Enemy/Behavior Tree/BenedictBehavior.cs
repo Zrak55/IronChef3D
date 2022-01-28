@@ -69,6 +69,8 @@ public class BenedictBehavior : EnemyBehaviorTree
 
     private MusicManager music;
 
+    private AudioSource laugh;
+
     private void Start()
     {
         currentPhase = 1;
@@ -117,6 +119,13 @@ public class BenedictBehavior : EnemyBehaviorTree
     {
         genericBehaviorTree.behavior();
         StopEscaping();
+    }
+
+    public void Laugh()
+    {
+        if(laugh == null)
+            laugh = SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(player, SoundEffectSpawner.SoundEffect.BenedictLaugh);
+
     }
 
     //This is intended to be running in the update function through the behavior tree.
