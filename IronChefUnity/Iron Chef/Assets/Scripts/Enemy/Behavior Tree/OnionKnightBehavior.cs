@@ -83,7 +83,7 @@ public class OnionKnightBehavior : EnemyBehaviorTree
 
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;
-        midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude);
+        midpoint = midpoint.normalized * -(attackRange - midpoint.magnitude - .5f);
         agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
 
         //Animation
