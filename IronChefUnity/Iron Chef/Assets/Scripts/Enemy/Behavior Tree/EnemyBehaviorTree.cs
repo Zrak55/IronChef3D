@@ -71,6 +71,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (!aggrod)
             musicManager.combatCount++;
         aggrod = true;
+        animator.SetBool("IsAggrod", true);
 
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;
@@ -101,6 +102,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (aggrod)
             musicManager.combatCount--;
         aggrod = false;
+        animator.SetBool("IsAggrod", false);
         if (agent.velocity.magnitude == 0 && animator.GetCurrentAnimatorStateInfo(0).loop && idleSound == null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
