@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 7289240000212708208}
   - component: {fileID: 3656894710659469105}
   - component: {fileID: 3720668813627299871}
-  - component: {fileID: 5116183347178017064}
   - component: {fileID: 2501354377478932999}
   m_Layer: 9
   m_Name: SpawnedGummyZombie
@@ -252,19 +251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4dd2d1d3109d040adac4802ed76669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5116183347178017064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3856517895618374344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 118b0f868f63c024cbab26895b51cf94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  food: 17
 --- !u!114 &2501354377478932999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +407,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2395305917242478983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5384414536199535101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!114 &2949997752768415059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,21 +441,6 @@ MonoBehaviour:
   damage: 10
   vfxHitNumber: -1
   swingingSound: 52
---- !u!114 &2395305917242478983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5384414536199535101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  DynamicSpawnEffects:
-  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!1 &5996602253192707847
 GameObject:
   m_ObjectHideFlags: 0
