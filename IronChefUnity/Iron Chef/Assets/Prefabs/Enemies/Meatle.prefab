@@ -1260,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeatleRig
       objectReference: {fileID: 0}
+    - target: {fileID: 3853522789298787177, guid: 6853be734ec2b1d4daa0ce26c26b9a7d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2fb4c685da16c574a8097781190b0535, type: 2}
     - target: {fileID: 4777653829516537002, guid: 6853be734ec2b1d4daa0ce26c26b9a7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -0.13301855
