@@ -44,7 +44,6 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
     public void ImBossZombie()
     {
         enemyHitpoints = GetComponent<EnemyHitpoints>();
-        GetComponent<EnemyFoodDropper>().enabled = false;
         enemyHitpoints.DeathEvents += NeccreammancerDeathEvent;
     }
 
