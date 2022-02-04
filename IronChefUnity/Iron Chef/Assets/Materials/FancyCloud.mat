@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-447100947271432618
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 4
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SkyTransitionToDesert
-  m_Shader: {fileID: -6465566751694194690, guid: 8d03ce846637eaa499b4e757422a8f19, type: 3}
+  m_Name: FancyCloud
+  m_Shader: {fileID: -6465566751694194690, guid: f3c8bfa35cf057248a3931f26bf6c90a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -72,14 +59,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Sky_A:
-        m_Texture: {fileID: 8900000, guid: 24941804827e1524eb70477f7f68a111, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Sky_B:
-        m_Texture: {fileID: 8900000, guid: df8d1504e61fa6046bbb3b99bf96da1a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,8 +76,20 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_07d11da887b547b489b2fd4b3cdbf4a5: 0
+    - Vector1_25e368dde2df492f9353ea99fc7e7a39: 1
+    - Vector1_39e11bbc55944e4ab987096b3ed9ae6f: 1
+    - Vector1_51cec7f6c7f844d48c406d77aaee1508: 1
+    - Vector1_5c6e9e64aa1d4bdba9ba886ba1b29ddf: 5
+    - Vector1_9635ae37d4414ae2a8548b7f6e2e1724: 10
+    - Vector1_9dcd1876fc4d498d89d10004704438e5: 1
+    - Vector1_b9012729556c47c3b0d9a5713307135d: 1
+    - Vector1_c9eb80f501264c20ae5fcb52e9e3041d: 0.25
+    - Vector1_d9b789fb7fb9402c9629ae9d33ccd2cc: 1
+    - Vector1_db328e4736c749438549b55c4718f0c5: 1
+    - Vector1_dcb707215d2b4e61b0d3db9c7074b45c: 1
     - _AlphaClip: 0
-    - _Blend: 0.1373261
+    - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -116,7 +107,6 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Rotation: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -125,8 +115,25 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_0d6af5affe364d3f94f862c934574eb6: {r: 0, g: 0.6250105, b: 1, a: 0}
+    - Color_eb65880ff8dc458ea2496561ef964f70: {r: 0, g: 0.17089081, b: 1, a: 0}
+    - Vector4_4976aa80498d43a4b9baa71557f45322: {r: 0, g: 1, b: -1, a: 1}
+    - Vector4_68b95fa1cbd24cf2b4bd53861e186d07: {r: 1, g: 0, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &8727309884433322324
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4

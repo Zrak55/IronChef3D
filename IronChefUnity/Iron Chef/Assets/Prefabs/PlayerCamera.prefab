@@ -1042,6 +1042,6 @@ MonoBehaviour:
   cinemachine: {fileID: 493559123}
   playerView: {fileID: 0}
   obscureTheseObjects: []
-  clipPlayerDistance: 4.25
+  clipPlayerDistance: 6
   frequencyAcceleration: 1.25
   intensityAcceleration: 0.5

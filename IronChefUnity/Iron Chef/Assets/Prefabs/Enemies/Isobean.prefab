@@ -1002,7 +1002,7 @@ PrefabInstance:
     - target: {fileID: -4934369568997636088, guid: ea21f01bf34d671439366cbe80d7d8a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: af0de848d7baf9748930aaf69620da01, type: 2}
+      objectReference: {fileID: 2100000, guid: eb507bcd2c098194da47949621bacbaa, type: 2}
     - target: {fileID: 919132149155446097, guid: ea21f01bf34d671439366cbe80d7d8a3, type: 3}
       propertyPath: m_Name
       value: IsobeanRig
