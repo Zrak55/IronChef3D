@@ -10,6 +10,8 @@ public class AppliancePowerPageManager : MonoBehaviour
     public Button rightButton;
     public Button leftButton;
 
+    public bool autoSelect = true;
+
     private void OnEnable()
     {
         AppliancePowerSelection.CheckUnlocks();
@@ -18,6 +20,7 @@ public class AppliancePowerPageManager : MonoBehaviour
     {
         currentIndex = -1;
         LoadNextPage();
+        autoSelect = true;
     }
     public void LoadNextPage()
     {
@@ -44,6 +47,13 @@ public class AppliancePowerPageManager : MonoBehaviour
     public void TurnOnCurrentPage()
     {
         pages[currentIndex].gameObject.SetActive(true);
+        if (autoSelect)
+        {
+            pages[currentIndex].lastButton.GetComponent<ApplianceButton>()?.AwakeSelf();
+            pages[currentIndex].lastButton.GetComponent<ApplianceButton>()?.SelectAppliance();
+            pages[currentIndex].lastButton.GetComponent<PowerButton>()?.AwakeSelf();
+            pages[currentIndex].lastButton.GetComponent<PowerButton>()?.SelectPower();
+        }
     }
 
     void ForwardIndex()

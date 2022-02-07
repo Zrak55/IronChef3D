@@ -12,7 +12,20 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private PlayerFoodEater eatFood;
     [SerializeField] private PlayerCostCooldownManager cooldowns;
 
-    public static PlayerHUDManager PlayerHud;
+    private static PlayerHUDManager _playerHud;
+    public static PlayerHUDManager PlayerHud
+    {
+        get
+        {
+            if (_playerHud == null)
+                _playerHud = FindObjectOfType<PlayerHUDManager>();
+            return _playerHud;
+        }
+        set
+        {
+            _playerHud = value;
+        }
+    }
 
     [Header("Bars")]
     public Slider hpBar;
@@ -511,41 +524,59 @@ public class PlayerHUDManager : MonoBehaviour
         WeaponImage.sprite = weaponImages[i];
     }
 
-    public void SetPowerImage(PlayerPowerScriptable.PowerName power)
+    public Sprite GetPowerImage(PlayerPowerScriptable.PowerName power)
     {
-        switch(power)
+        Sprite s = null;
+        switch (power)
         {
             case PlayerPowerScriptable.PowerName.Molapeno:
-                powerImage.sprite = MalapenoImage;
+                s = MalapenoImage;
                 break;
             case PlayerPowerScriptable.PowerName.BreadTrap:
-                powerImage.sprite = BreadTrapImage;
+                s = BreadTrapImage;
                 break;
             case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
-                powerImage.sprite = SpearOfDesticheeseImage;
+                s = SpearOfDesticheeseImage;
                 break;
             case PlayerPowerScriptable.PowerName.PortableLunch:
-                powerImage.sprite = PortableLunchImage;
+                s = PortableLunchImage;
                 break;
             case PlayerPowerScriptable.PowerName.Ham_mer:
-                powerImage.sprite = HamMerImage;
+                s = HamMerImage;
                 break;
             case PlayerPowerScriptable.PowerName._50CheeseStrike:
-                powerImage.sprite = _50CheeseImage;
+                s = _50CheeseImage;
                 break;
             case PlayerPowerScriptable.PowerName.Catapasta:
-                powerImage.sprite = CatapastaImage;
+                s = CatapastaImage;
                 break;
             case PlayerPowerScriptable.PowerName.IceTray:
-                powerImage.sprite = IceTrayImage;
+                s = IceTrayImage;
                 break;
             case PlayerPowerScriptable.PowerName.SugarRush:
-                powerImage.sprite = SugarRushImage;
+                s = SugarRushImage;
                 break;
             case PlayerPowerScriptable.PowerName.Glockamole:
-                powerImage.sprite = GlockamoleImage;
+                s = GlockamoleImage;
                 break;
         }
+        return s;
+    }
+
+    public Sprite GetApplianceImage(PlayerApplianceScriptable.ApplianceName appliance)
+    {
+        Sprite s = null;
+
+        //TODO: Get appliane images
+
+        return s;
+    }
+
+    public void SetPowerImage(PlayerPowerScriptable.PowerName power)
+    {
+        powerImage.sprite = GetPowerImage(power);
+
+        
     }
 
 

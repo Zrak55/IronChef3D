@@ -12,9 +12,7 @@ public class ApplianceButton : MonoBehaviour
 
     private void Awake()
     {
-        if (appliance.applianceName == PlayerApplianceScriptable.ApplianceName.Fridge)
-            UnlocksManager.UnlockAppliance(PlayerApplianceScriptable.ApplianceName.Fridge.ToString());
-        CheckIfUnlocked();
+        AwakeSelf();
     }
     // Start is called before the first frame update
     void Start()
@@ -29,17 +27,29 @@ public class ApplianceButton : MonoBehaviour
             text.text = "Locked!";
         else
         {
+            
 
-
-            if (EventSystem.current.currentSelectedGameObject == this.gameObject)
-            {
-                text.text = appliance.briefDescription;
-            }
-            else
-            {
-                text.text = appliance.DisplayName;
-            }
+           // if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+           // {
+                //text.text = appliance.briefDescription;
+            //}
+           // else
+          //  {
+          //      text.text = appliance.DisplayName;
+          //  }
+            
         }
+    }
+
+    public void AwakeSelf()
+    {
+
+        if (appliance.applianceName == PlayerApplianceScriptable.ApplianceName.Fridge)
+            UnlocksManager.UnlockAppliance(PlayerApplianceScriptable.ApplianceName.Fridge.ToString());
+        CheckIfUnlocked();
+
+
+        GetComponent<Image>().sprite = PlayerHUDManager.PlayerHud.GetApplianceImage(appliance.applianceName);
     }
 
     public void SelectAppliance()

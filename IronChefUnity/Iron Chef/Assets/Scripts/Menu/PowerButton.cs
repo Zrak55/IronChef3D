@@ -13,9 +13,7 @@ public class PowerButton : MonoBehaviour
 
     private void Awake()
     {
-        if (power.powerName == PlayerPowerScriptable.PowerName.Molapeno)
-            UnlocksManager.UnlockPower(power.powerName.ToString());
-        CheckIfUnlocked();
+        AwakeSelf();
     }
     // Start is called before the first frame update
     void Start()
@@ -34,15 +32,24 @@ public class PowerButton : MonoBehaviour
         {
 
 
-            if (EventSystem.current.currentSelectedGameObject == this.gameObject)
-            {
-                text.text = power.briefDescription;
-            }
-            else
-            {
-                text.text = power.DisplayName;
-            }
+           // if (EventSystem.current.currentSelectedGameObject == this.gameObject)
+           // {
+           //     text.text = power.briefDescription;
+           // }
+          //  else
+          //  {
+          //      text.text = power.DisplayName;
+          //  }
         }
+    }
+
+    public void AwakeSelf()
+    {
+        if (power.powerName == PlayerPowerScriptable.PowerName.Molapeno)
+            UnlocksManager.UnlockPower(power.powerName.ToString());
+        CheckIfUnlocked();
+
+        GetComponent<Image>().sprite = PlayerHUDManager.PlayerHud.GetPowerImage(power.powerName);
     }
 
     public void SelectPower()
