@@ -1,27 +1,22 @@
-Task List 01/14 - 01/21
+Task List 02/07 - 02/14
 
 Alex:
-Add some screen shake here and there
-Add some benedict supporting sounds
-Splash Screen menu video
-"Ready" animation for gummy bear
-Start process of additive loading
+
 
 Spencer:
 Swapping to new team (see Mason)
 
 Wiliam:
-finish rig Gummy Zombie
-Begin Onion Knight Model/Rig
+FInish Onion Knight Rig
+Start Model Nec-Cream-Mancer
 
 Zach:
-Wrap up death poof from feedback
-Benedict egg shell crack VFX
+Benedict Egg Shell VFX
+Fudge Sludge pool
 
 Kris:
-Hydravioli Spawn Bubbles
-Tomatroll slam
+Tomatroll slam VFX touch up
+Touch up Benedict jump
 
 
 From last week that was missed
-Kris - Bubble vfx behind schedule
