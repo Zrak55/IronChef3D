@@ -5182,7 +5182,10 @@ MonoBehaviour:
   myCollider: {fileID: 4708036704711120478}
   attackAnimTime: 1
   IsCleave: 0
-  damage: 15
+  damage: 20
+  damagePercentIncreaseEachHit: 0
+  scalarResetTime: 3
+  maxPercentDamage: 3
 --- !u!1 &1906057242449987415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5341,6 +5344,9 @@ MonoBehaviour:
   attackAnimTime: 0.867
   IsCleave: 0
   damage: 10
+  damagePercentIncreaseEachHit: 0.25
+  scalarResetTime: 3
+  maxPercentDamage: 3
 --- !u!1 &2612864030397240026
 GameObject:
   m_ObjectHideFlags: 0
@@ -15594,7 +15600,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5006469806543601705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.08, z: 0.72}
+  m_LocalPosition: {x: 0, y: 2.08, z: 2.450144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1171573053084836741}
@@ -15612,7 +15618,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.748804, y: 3.5372295, z: 4.4602866}
-  m_Center: {x: 0, y: 0, z: 1.7301435}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5373042334412834428
 GameObject:
   m_ObjectHideFlags: 0
@@ -25645,7 +25651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7124934674022222569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.08, z: 0.72}
+  m_LocalPosition: {x: 0, y: 2.08, z: 2.156274}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1171573053084836741}
@@ -25663,7 +25669,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.7420855, y: 3.059789, z: 3.8725474}
-  m_Center: {x: 0, y: 0, z: 1.4362737}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7621087349355821481
 GameObject:
   m_ObjectHideFlags: 0
@@ -25860,7 +25866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7998771852340796473}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.08, z: 0.72}
+  m_LocalPosition: {x: 0, y: 2.08, z: 4.363674}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1171573053084836741}
@@ -25877,8 +25883,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.5298986, y: 3.3355978, z: 6.5338554}
-  m_Center: {x: 0, y: 0, z: 2.7669277}
+  m_Size: {x: 6.5091505, y: 3.3355978, z: 8.287349}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8083969092806925202
 GameObject:
   m_ObjectHideFlags: 0
@@ -40326,8 +40332,11 @@ MonoBehaviour:
   soundEffect: 1
   myCollider: {fileID: 1320961529762806012}
   attackAnimTime: 1.6
-  IsCleave: 0
+  IsCleave: 1
   damage: 20
+  damagePercentIncreaseEachHit: 0
+  scalarResetTime: 3
+  maxPercentDamage: 3
 --- !u!1 &9132940999299971924
 GameObject:
   m_ObjectHideFlags: 0

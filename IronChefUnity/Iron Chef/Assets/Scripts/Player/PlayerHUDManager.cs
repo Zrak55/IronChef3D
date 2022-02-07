@@ -12,11 +12,15 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private PlayerFoodEater eatFood;
     [SerializeField] private PlayerCostCooldownManager cooldowns;
 
+    public static PlayerHUDManager PlayerHud;
+
     [Header("Bars")]
     public Slider hpBar;
     public Slider staminaBar;
     public Slider hungryMeter;
     public Image foodHighlight;
+    public Slider KnifeDamageScalarBar;
+    public Text KnifeScalarNumber;
     float targetHPValue;
 
     [Header("Food Bars")]
@@ -61,6 +65,9 @@ public class PlayerHUDManager : MonoBehaviour
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
+
+
+
     [Header("Boss")]
     public Slider BossHP;
     public Text BossName;
@@ -104,6 +111,8 @@ public class PlayerHUDManager : MonoBehaviour
         SetHungryBar();
 
         InvokeRepeating("BossTipFade", 0, 0.05f);
+
+        PlayerHud = this;
     }
 
     void Start()
@@ -283,6 +292,26 @@ public class PlayerHUDManager : MonoBehaviour
         UpdateHungryBar();
         UpdateCDBars();
         UpdateBossHPBar();
+    }
+
+    public void UpdateScalarBar(float percentValue)
+    {
+        KnifeDamageScalarBar.value = percentValue;
+    }
+    public void ShowScalarBar()
+    {
+        if(KnifeDamageScalarBar.gameObject.activeSelf == false)
+            KnifeDamageScalarBar.gameObject.SetActive(true);
+    }
+    public void HideScalarBar()
+    {
+        if (KnifeDamageScalarBar.gameObject.activeSelf == true)
+            KnifeDamageScalarBar.gameObject.SetActive(false);
+    }
+
+    public void UpdateScalarText(float percent)
+    {
+        KnifeScalarNumber.text = percent.ToString("0.0") + "x";
     }
 
     private void UpdateBossHPBar()

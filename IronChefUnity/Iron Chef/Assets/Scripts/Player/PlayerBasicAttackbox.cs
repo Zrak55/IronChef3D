@@ -19,11 +19,21 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     bool hasPlayedSound = false;
 
+    float baseDamage;
+    public float damagePercentIncreaseEachHit = 0;
+    public float scalarResetTime = 3f;
+    public float maxPercentDamage = 3f;
+    float currentScalarTimer = 0f;
+
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
         sfx = SoundEffectSpawner.soundEffectSpawner;
         pcam = FindObjectOfType<PlayerCamControl>();
+
+        baseDamage = damage;
+        if (damagePercentIncreaseEachHit > 0)
+            InvokeRepeating("UndoTimer", 0f, 0.05f);
 
     }
     private void Start()
@@ -39,6 +49,23 @@ public class PlayerBasicAttackbox : MonoBehaviour
         }
 
         
+        
+        
+    }
+
+    public void UndoTimer()
+    {
+        if (currentScalarTimer > 0)
+        {
+            currentScalarTimer -= 0.05f;
+            if (currentScalarTimer <= 0)
+            {
+                currentScalarTimer = 0;
+                damage = baseDamage;
+                PlayerHUDManager.PlayerHud.HideScalarBar();
+            }
+            PlayerHUDManager.PlayerHud.UpdateScalarBar(currentScalarTimer / scalarResetTime);
+        }
     }
 
     private void FixedUpdate()
@@ -131,6 +158,15 @@ public class PlayerBasicAttackbox : MonoBehaviour
                                 sfx = SoundEffectSpawner.soundEffectSpawner;
                             }
                             sfx.MakeSoundEffect(transform.position, soundEffect);
+                        }
+
+                        if(damagePercentIncreaseEachHit > 0)
+                        {
+                            damage =Mathf.Min(damage + baseDamage * damagePercentIncreaseEachHit, baseDamage * (1+maxPercentDamage));
+                            
+                            currentScalarTimer = scalarResetTime;
+                            PlayerHUDManager.PlayerHud.ShowScalarBar();
+                            PlayerHUDManager.PlayerHud.UpdateScalarText(damage / baseDamage);
                         }
                     }
                 }
