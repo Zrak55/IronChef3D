@@ -273,6 +273,13 @@ MonoBehaviour:
   attackSoundEffect: 
   invincible: 0
   simpleFlag: 1
+  myMesh: {fileID: 6916612258280990672}
+  myMaterials:
+  - {fileID: 2100000, guid: 95cb47ed734dff84891d61ee02e3a341, type: 2}
+  - {fileID: 2100000, guid: e9b6d926704ce094ea776d250c23b404, type: 2}
+  - {fileID: 2100000, guid: f7d41f860c5318346a1725cafbd0e223, type: 2}
+  - {fileID: 2100000, guid: 95b95abd4163dfe4693135dc2102e7a6, type: 2}
+  - {fileID: 2100000, guid: 457d3fd553f957245859bd713fdbe6f6, type: 2}
 --- !u!1 &4445358600935164395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 0858348435bee60499013711738bab98, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06cb87b684b78d34695c01c891de734e, type: 3}
+--- !u!137 &6916612258280990672 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1838770041082946428, guid: 06cb87b684b78d34695c01c891de734e, type: 3}
+  m_PrefabInstance: {fileID: 5077845618812142764}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4752028587546059591 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06cb87b684b78d34695c01c891de734e, type: 3}

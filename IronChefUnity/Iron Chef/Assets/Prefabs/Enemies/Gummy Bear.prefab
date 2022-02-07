@@ -375,6 +375,13 @@ MonoBehaviour:
   gummySpawn1: {fileID: 8455275534703152656}
   gummySpawn2: {fileID: 4320613024576263943}
   gummySpawn3: {fileID: 281342722398460835}
+  myMesh: {fileID: 7307786980243940968}
+  myMaterials:
+  - {fileID: 2100000, guid: 95cb47ed734dff84891d61ee02e3a341, type: 2}
+  - {fileID: 2100000, guid: e9b6d926704ce094ea776d250c23b404, type: 2}
+  - {fileID: 2100000, guid: f7d41f860c5318346a1725cafbd0e223, type: 2}
+  - {fileID: 2100000, guid: 95b95abd4163dfe4693135dc2102e7a6, type: 2}
+  - {fileID: 2100000, guid: 457d3fd553f957245859bd713fdbe6f6, type: 2}
 --- !u!114 &4282671173526933761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: 50
+  CamShakeAmount: 0
 --- !u!114 &2965177495865509310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1238,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5135085269794398991, guid: b518cc4fcb505fe4499b008f3c63f3fd, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 95cb47ed734dff84891d61ee02e3a341, type: 2}
     - target: {fileID: -4432147050994689003, guid: b518cc4fcb505fe4499b008f3c63f3fd, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.1680758
@@ -1360,6 +1372,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b518cc4fcb505fe4499b008f3c63f3fd, type: 3}
+--- !u!137 &7307786980243940968 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -5135085269794398991, guid: b518cc4fcb505fe4499b008f3c63f3fd, type: 3}
+  m_PrefabInstance: {fileID: 6761867512037145241}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6511153723505843570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b518cc4fcb505fe4499b008f3c63f3fd, type: 3}

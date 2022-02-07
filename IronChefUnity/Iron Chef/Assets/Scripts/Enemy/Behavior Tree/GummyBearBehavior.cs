@@ -10,6 +10,9 @@ public class GummyBearBehavior : EnemyBehaviorTree
     public GameObject gummyObjects;
     public Transform gummySpawn1, gummySpawn2, gummySpawn3;
 
+    public SkinnedMeshRenderer myMesh;
+    public List<Material> myMaterials;
+
     private void Start()
     {
         setupWaypoints();
@@ -38,6 +41,8 @@ public class GummyBearBehavior : EnemyBehaviorTree
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         gummyBearBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+
+        myMesh.material = myMaterials[Random.Range(0, myMaterials.Count)];
     }
 
     private void Update()

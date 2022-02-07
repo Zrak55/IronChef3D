@@ -5353,7 +5353,7 @@ MonoBehaviour:
   jumpKnockbox: {fileID: 1201183073228880918}
   behavior: {fileID: 6952594615532671011}
   maxJumpHeight: 6
-  time: 4
+  time: 2
   shake: 1
   animHit: 1
   collider: {fileID: 7564515248135662135}

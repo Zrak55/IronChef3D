@@ -1,22 +1,25 @@
 Task List 02/07 - 02/14
 
 Alex:
-
+New weapon effects
+Swap ingredient collecting to a pickup and see how it feels
+Play games and get reference
+Refactor power selection screen
 
 Spencer:
 Swapping to new team (see Mason)
 
 Wiliam:
 FInish Onion Knight Rig
-Start Model Nec-Cream-Mancer
+Polish Tomatroll Anims (make it snappy)
 
 Zach:
 Benedict Egg Shell VFX
-Fudge Sludge pool
+Fudge Sludge pool VFX
 
 Kris:
 Tomatroll slam VFX touch up
 Touch up Benedict jump
-
+Fondemon spit
 
 From last week that was missed
