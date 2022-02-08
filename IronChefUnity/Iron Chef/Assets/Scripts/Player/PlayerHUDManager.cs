@@ -35,6 +35,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Slider KnifeDamageScalarBar;
     public Text KnifeScalarNumber;
     float targetHPValue;
+    
 
     [Header("Food Bars")]
     public Slider food1bar;
@@ -88,6 +89,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Image BossTipBackground;
     EnemyHitpoints LevelBossHP;
     bool fadeDelay = false;
+    public List<Slider> spareSliders;
 
 
     [Header("FoodBarSprites")]
