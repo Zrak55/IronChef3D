@@ -209,8 +209,7 @@ public class BenedictBehavior : EnemyBehaviorTree
                 Invoke("attackEnd", jumpTime);
                 jumpBehavior.BeginJumping(jumpTime);
                 agent.enabled = false;
-                RollAttack.status = Node.STATUS.RUNNING;
-                GetComponentInChildren<EnemyVFXController>().StartEffect(2);
+                JumpAttack.status = Node.STATUS.RUNNING;
             }
         }
         return JumpAttack.status;
