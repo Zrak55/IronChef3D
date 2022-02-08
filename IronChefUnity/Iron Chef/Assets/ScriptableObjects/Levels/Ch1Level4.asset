@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d634c6043bd55945839e87ea6ab7e87, type: 3}
   m_Name: Ch1Level4
   m_EditorClassIdentifier: 
-  dish: Ice Cream
+  dish: Ice Cream Sundae
   ingredientOneRequired: 8
   ingredientTwoRequired: 8
   ingredientThreeRequired: 1
