@@ -184,8 +184,11 @@ public class PlayerHUDManager : MonoBehaviour
     {
         float height = 110;
 
-        food5bar.maxValue = foodInfo.ingredientFiveMaximum;
-        food5bar.value = foodInfo.ingredientFiveRequired;
+        food5bar.maxValue = foodInfo.ingredientFiveRequired;
+
+        //food5bar.value = foodInfo.ingredientFiveRequired;
+        food5bar.value = food5bar.maxValue;        
+
         food5requiredbar.transform.position = food5bar.handleRect.transform.position;
         food5ingredient.text = foodInfo.ingredientFiveType.ToString();
         SetFoodBarImage(food5barImage, foodInfo.ingredientFiveType, height);
@@ -197,8 +200,11 @@ public class PlayerHUDManager : MonoBehaviour
         }
 
 
-        food4bar.maxValue = foodInfo.ingredientFourMaximum;
-        food4bar.value = foodInfo.ingredientFourRequired;
+        food4bar.maxValue = foodInfo.ingredientFourRequired;
+
+        //food4bar.value = foodInfo.ingredientFourRequired;
+        food4bar.value = food4bar.maxValue;
+
         food4requiredbar.transform.position = food4bar.handleRect.transform.position;
         food4ingredient.text = foodInfo.ingredientFourType.ToString();
         SetFoodBarImage(food4barImage, foodInfo.ingredientFourType, height);
@@ -209,8 +215,11 @@ public class PlayerHUDManager : MonoBehaviour
             badfoodbar.transform.position = food4bar.transform.position;
         }
 
-        food3bar.maxValue = foodInfo.ingredientThreeMaximum;
-        food3bar.value = foodInfo.ingredientThreeRequired;
+        food3bar.maxValue = foodInfo.ingredientThreeRequired;
+
+        // food3bar.value = foodInfo.ingredientThreeRequired;
+        food4bar.value = food4bar.maxValue;
+
         food3requiredbar.transform.position = food3bar.handleRect.transform.position;
         food3ingredient.text = foodInfo.ingredientThreeType.ToString();
         SetFoodBarImage(food3barImage, foodInfo.ingredientThreeType, height);
@@ -220,8 +229,12 @@ public class PlayerHUDManager : MonoBehaviour
             food3requiredbar.gameObject.SetActive(false);
             badfoodbar.transform.position = food3bar.transform.position;
         }
-        food2bar.maxValue = foodInfo.ingredientTwoMaximum;
-        food2bar.value = foodInfo.ingredientTwoRequired;
+
+        food2bar.maxValue = foodInfo.ingredientTwoRequired;
+
+        //food2bar.value = foodInfo.ingredientTwoRequired;
+        food2bar.value = food2bar.maxValue;
+
         food2requiredbar.transform.position = food2bar.handleRect.transform.position;
         food2ingredient.text = foodInfo.ingredientTwoType.ToString();
         SetFoodBarImage(food2barImage, foodInfo.ingredientTwoType, height);
@@ -231,8 +244,12 @@ public class PlayerHUDManager : MonoBehaviour
             food2requiredbar.gameObject.SetActive(false);
             badfoodbar.transform.position = food2bar.transform.position;
         }
-        food1bar.maxValue = foodInfo.ingredientOneMaximum;
-        food1bar.value = foodInfo.ingredientOneRequired;
+
+        food1bar.maxValue = foodInfo.ingredientOneRequired;
+
+        //food1bar.value = foodInfo.ingredientOneRequired;
+        food1bar.value = food1bar.maxValue;
+
         food1requiredbar.transform.position = food1bar.handleRect.transform.position;
         food1ingredient.text = foodInfo.ingredientOneType.ToString();
         SetFoodBarImage(food1barImage, foodInfo.ingredientOneType, height);
@@ -242,7 +259,8 @@ public class PlayerHUDManager : MonoBehaviour
             food1requiredbar.gameObject.SetActive(false);
             badfoodbar.transform.position = food1bar.transform.position;
         }
-        badfoodbar.maxValue = foodInfo.badIngredientsMaximum;
+
+        badfoodbar.maxValue = foodInfo.badIngredientsMaximum + (foodInfo.ingredientOneMaximum - foodInfo.ingredientOneRequired) + (foodInfo.ingredientTwoMaximum - foodInfo.ingredientTwoRequired) + (foodInfo.ingredientThreeMaximum - foodInfo.ingredientThreeRequired) + (foodInfo.ingredientFourMaximum - foodInfo.ingredientFourRequired) + (foodInfo.ingredientFiveMaximum - foodInfo.ingredientFiveRequired);
     }
 
 

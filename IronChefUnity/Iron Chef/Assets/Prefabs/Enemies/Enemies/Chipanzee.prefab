@@ -732,7 +732,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  pickupPrefab: {fileID: 0}
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1013,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChipanzeeRig
       objectReference: {fileID: 0}
+    - target: {fileID: 1706443342493973947, guid: b189e7e757098eb4fabe499bf0fbaa6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3075930bc189ca741b052e189cb44f54, type: 2}
+    - target: {fileID: 3701147597847803630, guid: b189e7e757098eb4fabe499bf0fbaa6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3075930bc189ca741b052e189cb44f54, type: 2}
     m_RemovedComponents:
     - {fileID: 5866666021909216657, guid: b189e7e757098eb4fabe499bf0fbaa6b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b189e7e757098eb4fabe499bf0fbaa6b, type: 3}
