@@ -18,15 +18,13 @@ public class EnemyHitpoints : MonoBehaviour
 
     public SoundEffectSpawner.SoundEffect deathSound;
     
-    [Space]
-    public GameObject DeathParticleSystem;
-    public GameObject DeathParticle;
 
 
     public delegate void SpecialDeathActions();
     public event SpecialDeathActions DeathEvents;
 
     EnemyVFXController vfx;
+
 
     private void Awake()
     {
@@ -119,15 +117,11 @@ public class EnemyHitpoints : MonoBehaviour
                 }
             }
 
-            GetComponent<EnemyFoodDropper>()?.GiveFood();
+            GetComponent<EnemyFoodDropper>()?.GiveFood(spawnDeathParticles);
 
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, deathSound);
 
-            if(DeathParticleSystem != null && spawnDeathParticles)
-            {
-                var dp = Instantiate(DeathParticleSystem, transform.position, Quaternion.identity);
-                dp.GetComponent<EnemyDeathParticles>().MakeParticles(DeathParticle);
-            }
+            
 
             //CheckDeadBoss();
 

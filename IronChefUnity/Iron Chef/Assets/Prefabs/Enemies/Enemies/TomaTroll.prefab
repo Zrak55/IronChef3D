@@ -5262,8 +5262,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: 0fea80cb5924ae64480f10f584d80e64, type: 3}
 --- !u!114 &2706341915672835633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5289,6 +5287,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 3
+  pickupPrefab: {fileID: 5796176345864650987, guid: 0e24cd1757f6e2e4c857999a05e4cf67, type: 3}
 --- !u!114 &5797179273293598612
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundName: 50
+  CamShakeAmount: 0
 --- !u!95 &5251160022812159295
 Animator:
   serializedVersion: 3
@@ -493,8 +494,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: 0fea80cb5924ae64480f10f584d80e64, type: 3}
 --- !u!114 &2706341915672835633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 14
+  pickupPrefab: {fileID: 5796176345864650987, guid: a63c7778543a4d64390a6ac3d676a39b, type: 3}
 --- !u!114 &5797179273293598612
 MonoBehaviour:
   m_ObjectHideFlags: 0
