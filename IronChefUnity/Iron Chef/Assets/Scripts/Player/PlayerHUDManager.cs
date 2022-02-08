@@ -186,6 +186,18 @@ public class PlayerHUDManager : MonoBehaviour
     {
         float height = 110;
 
+        food1bar.gameObject.SetActive(true);
+        food2bar.gameObject.SetActive(true);
+        food3bar.gameObject.SetActive(true);
+        food4bar.gameObject.SetActive(true);
+        food5bar.gameObject.SetActive(true);
+        food1requiredbar.gameObject.SetActive(true);
+        food2requiredbar.gameObject.SetActive(true);
+        food3requiredbar.gameObject.SetActive(true);
+        food4requiredbar.gameObject.SetActive(true);
+        food5requiredbar.gameObject.SetActive(true);
+
+
         food5bar.maxValue = foodInfo.ingredientFiveRequired;
 
         //food5bar.value = foodInfo.ingredientFiveRequired;
@@ -198,7 +210,6 @@ public class PlayerHUDManager : MonoBehaviour
         {
             food5bar.gameObject.SetActive(false);
             food5requiredbar.gameObject.SetActive(false);
-            badfoodbar.transform.position = food5bar.transform.position;
         }
 
 
@@ -214,13 +225,12 @@ public class PlayerHUDManager : MonoBehaviour
         {
             food4bar.gameObject.SetActive(false);
             food4requiredbar.gameObject.SetActive(false);
-            badfoodbar.transform.position = food4bar.transform.position;
         }
 
         food3bar.maxValue = foodInfo.ingredientThreeRequired;
 
         // food3bar.value = foodInfo.ingredientThreeRequired;
-        food4bar.value = food4bar.maxValue;
+        food3bar.value = food3bar.maxValue;
 
         food3requiredbar.transform.position = food3bar.handleRect.transform.position;
         food3ingredient.text = foodInfo.ingredientThreeType.ToString();
@@ -229,7 +239,6 @@ public class PlayerHUDManager : MonoBehaviour
         {
             food3bar.gameObject.SetActive(false);
             food3requiredbar.gameObject.SetActive(false);
-            badfoodbar.transform.position = food3bar.transform.position;
         }
 
         food2bar.maxValue = foodInfo.ingredientTwoRequired;
@@ -244,7 +253,6 @@ public class PlayerHUDManager : MonoBehaviour
         {
             food2bar.gameObject.SetActive(false);
             food2requiredbar.gameObject.SetActive(false);
-            badfoodbar.transform.position = food2bar.transform.position;
         }
 
         food1bar.maxValue = foodInfo.ingredientOneRequired;
@@ -259,7 +267,6 @@ public class PlayerHUDManager : MonoBehaviour
         {
             food1bar.gameObject.SetActive(false);
             food1requiredbar.gameObject.SetActive(false);
-            badfoodbar.transform.position = food1bar.transform.position;
         }
 
         badfoodbar.maxValue = foodInfo.badIngredientsMaximum + (foodInfo.ingredientOneMaximum - foodInfo.ingredientOneRequired) + (foodInfo.ingredientTwoMaximum - foodInfo.ingredientTwoRequired) + (foodInfo.ingredientThreeMaximum - foodInfo.ingredientThreeRequired) + (foodInfo.ingredientFourMaximum - foodInfo.ingredientFourRequired) + (foodInfo.ingredientFiveMaximum - foodInfo.ingredientFiveRequired);

@@ -127,8 +127,8 @@ public class EnemyHitpoints : MonoBehaviour
 
             vfx.SpawnDynamicEffect(0, transform.position);
 
-
-            DeathEvents?.Invoke();
+            if(spawnDeathParticles)
+                DeathEvents?.Invoke();
 
             Destroy(gameObject);
         }

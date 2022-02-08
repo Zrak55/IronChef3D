@@ -889,6 +889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 12
+  pickupPrefab: {fileID: 5796176345864650987, guid: c12010a47eb5a2040aabd47b36ac6751, type: 3}
 --- !u!114 &4798391828614751253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1055,8 +1056,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  DeathParticleSystem: {fileID: 0}
-  DeathParticle: {fileID: 0}
 --- !u!114 &3016073574888721067
 MonoBehaviour:
   m_ObjectHideFlags: 0
