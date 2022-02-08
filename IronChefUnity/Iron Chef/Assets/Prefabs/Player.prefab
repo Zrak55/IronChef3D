@@ -5344,7 +5344,7 @@ MonoBehaviour:
   attackAnimTime: 0.867
   IsCleave: 0
   damage: 10
-  damagePercentIncreaseEachHit: 0.25
+  damagePercentIncreaseEachHit: 0.1
   scalarResetTime: 3
   maxPercentDamage: 3
 --- !u!1 &2612864030397240026
@@ -40333,7 +40333,7 @@ MonoBehaviour:
   myCollider: {fileID: 1320961529762806012}
   attackAnimTime: 1.6
   IsCleave: 1
-  damage: 20
+  damage: 25
   damagePercentIncreaseEachHit: 0
   scalarResetTime: 3
   maxPercentDamage: 3
