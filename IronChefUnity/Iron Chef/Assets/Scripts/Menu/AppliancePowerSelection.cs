@@ -56,6 +56,8 @@ public class AppliancePowerSelection : MonoBehaviour
         ApplianceName.text = player.GetComponent<Appliance>().applianceScriptable.DisplayName;
         PowerDesc.text = player.GetComponent<PlayerPower>().powerInformation.description;
         ApplianceDesc.text = player.GetComponent<Appliance>().applianceScriptable.description;
+
+        Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }
 
     public void SelectPower()

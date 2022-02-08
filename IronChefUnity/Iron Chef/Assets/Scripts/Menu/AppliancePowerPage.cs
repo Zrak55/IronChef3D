@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class AppliancePowerPage : MonoBehaviour
 {
-    public Button lastButton;
+    public Image lastButton;
 
 
     private void Awake()
     {
         if (lastButton == null)
-            lastButton = GetComponentInChildren<Button>();
+            lastButton = GetComponentInChildren<Image>();
 
     }
     // Start is called before the first frame update

@@ -71,12 +71,14 @@ public class AppliancePowerPageManager : MonoBehaviour
 
     void SetNav()
     {
+        /*
         var nav = rightButton.navigation;
         nav.selectOnUp = pages[currentIndex].lastButton;
         rightButton.navigation = nav;
         nav = leftButton.navigation;
         nav.selectOnUp = pages[currentIndex].lastButton;
         leftButton.navigation = nav;
+        */
 
     }
 
