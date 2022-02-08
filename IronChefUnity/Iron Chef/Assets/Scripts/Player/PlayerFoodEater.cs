@@ -34,7 +34,7 @@ public class PlayerFoodEater : MonoBehaviour
 
     void TryEat()
     {
-        if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false)
+        if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false && health.GetPercent() < 1f)
         {
             bool ate = false;
             bool full = false;
