@@ -327,7 +327,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  pickupPrefab: {fileID: 0}
 --- !u!114 &2706341915672835633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1146,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6183186537856410867, guid: 198f6f8b03c8dcb4f94b877fbc8db1b6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: be356707764c76c4fa658d485878074c, type: 2}
     - target: {fileID: 919132149155446097, guid: 198f6f8b03c8dcb4f94b877fbc8db1b6, type: 3}
       propertyPath: m_Name
       value: CookieWheelRig
