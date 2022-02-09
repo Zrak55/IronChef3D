@@ -34,10 +34,14 @@ public class PlayerFoodEater : MonoBehaviour
 
     void TryEat()
     {
-        if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false)
+        if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false && health.GetPercent() < 1f)
         {
             bool ate = false;
             bool full = false;
+
+            //ONLY EAT BAD
+            currentEatIndex = 6;
+
             if(currentEatIndex == 1)
             {
                 if(food.ingredientOneCurrent > 0 && (maxAllowedEaten - amountEaten) >= 1)
@@ -133,11 +137,14 @@ public class PlayerFoodEater : MonoBehaviour
                 hud.PlayFullAnim();
             }
         }
+
+        //INFINITE EAT
+        amountEaten = 0;
     }
 
     void RestoreHealth()
     {
-        health.RestoreHP(20);
+        health.RestoreHP(5);
     }
 
     void TryChangeEatTarget()

@@ -39,7 +39,6 @@ public class Hammer : PlayerPower
             if(h.GetComponentInParent<EnemyStunHandler>() != null)
             {
                 h.GetComponentInParent<EnemyStunHandler>().Stun(stunTime);
-                break;
             }
         }
         if (hits.Count > 0)

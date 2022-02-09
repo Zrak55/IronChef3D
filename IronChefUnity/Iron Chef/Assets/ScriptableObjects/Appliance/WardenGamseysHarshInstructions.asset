@@ -14,12 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Warden Gamsey's Harsh Instructions
   applianceName: 7
-  description: Your attacks have a chance to invoke Warden Gamsey's wrath, stunning
-    an opponent.  The chance to stun is greater for slower attacks.
-  briefDescription: Stun on hit.
+  description: You gain 20% attack speed.
+  briefDescription: Increase attack speed.
   values:
-  - 2.5
-  - 0.0165
+  - 0.2
   valueDescriptions:
-  - Stun Time
-  - Stun Chance per damage
+  - Speed boost

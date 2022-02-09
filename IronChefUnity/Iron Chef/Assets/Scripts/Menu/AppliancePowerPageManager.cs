@@ -12,15 +12,21 @@ public class AppliancePowerPageManager : MonoBehaviour
 
     public bool autoSelect = true;
 
+    bool firstOn = true;
+
     private void OnEnable()
     {
         AppliancePowerSelection.CheckUnlocks();
     }
     private void Start()
     {
-        currentIndex = -1;
-        LoadNextPage();
-        autoSelect = true;
+        if(firstOn)
+        {
+            currentIndex = -1;
+            LoadNextPage();
+            autoSelect = true;
+            firstOn = false;
+        }
     }
     public void LoadNextPage()
     {

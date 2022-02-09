@@ -1131,7 +1131,6 @@ GameObject:
   - component: {fileID: 172127739606567637}
   - component: {fileID: 172127739606567636}
   - component: {fileID: 172127739606567635}
-  - component: {fileID: 3164527071398572375}
   m_Layer: 5
   m_Name: Molapeno
   m_TagString: Untagged
@@ -1211,18 +1210,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3164527071398572375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 172127739606567632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47b38d2b48c30da4fbb346f922ce4c6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &172127739777072707
 GameObject:
   m_ObjectHideFlags: 0

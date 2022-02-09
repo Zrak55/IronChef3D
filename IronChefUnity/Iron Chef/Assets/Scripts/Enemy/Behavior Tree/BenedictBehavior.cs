@@ -121,9 +121,14 @@ public class BenedictBehavior : EnemyBehaviorTree
         StopEscaping();
     }
 
-    public void Laugh()
+    public void LaughOverride()
     {
-        if(laugh == null)
+        Laugh(true);
+    }
+
+    public void Laugh(bool overrideLaugh = false)
+    {
+        if(laugh == null || overrideLaugh)
             laugh = SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(player, SoundEffectSpawner.SoundEffect.BenedictLaugh);
 
     }
@@ -209,8 +214,7 @@ public class BenedictBehavior : EnemyBehaviorTree
                 Invoke("attackEnd", jumpTime);
                 jumpBehavior.BeginJumping(jumpTime);
                 agent.enabled = false;
-                RollAttack.status = Node.STATUS.RUNNING;
-                GetComponentInChildren<EnemyVFXController>().StartEffect(2);
+                JumpAttack.status = Node.STATUS.RUNNING;
             }
         }
         return JumpAttack.status;

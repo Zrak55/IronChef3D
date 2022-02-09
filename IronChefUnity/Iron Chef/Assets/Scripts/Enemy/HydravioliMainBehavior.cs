@@ -78,6 +78,16 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
             }
 
             currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            foreach(var s in FindObjectOfType<PlayerHUDManager>().spareSliders)
+            {
+                if(s.gameObject.activeSelf == false)
+                {
+                    s.gameObject.SetActive(true);
+                    currentHeads[currentHeads.Count - 1].GetComponentInChildren<EnemyCanvas>().hpSlider = s;
+                    break;
+                }
+            }
+
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
 
 
@@ -107,10 +117,28 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         if (myHP.GetCurrentHP() > 0)
         {
             currentHeadPlace++;
-            currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace])); 
+            foreach (var s in FindObjectOfType<PlayerHUDManager>().spareSliders)
+            {
+                if (s.gameObject.activeSelf == false)
+                {
+                    s.gameObject.SetActive(true);
+                    currentHeads[currentHeads.Count - 1].GetComponentInChildren<EnemyCanvas>().hpSlider = s;
+                    break;
+                }
+            }
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
             currentHeadPlace++;
-            currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace]));
+            currentHeads.Add(Instantiate(HeadPrefab, spawnLocations[currentHeadPlace])); 
+            foreach (var s in FindObjectOfType<PlayerHUDManager>().spareSliders)
+            {
+                if (s.gameObject.activeSelf == false)
+                {
+                    s.gameObject.SetActive(true);
+                    currentHeads[currentHeads.Count - 1].GetComponentInChildren<EnemyCanvas>().hpSlider = s;
+                    break;
+                }
+            }
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
         }
     }

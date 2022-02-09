@@ -259,7 +259,7 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = FiftyPunchEffects[index];
                 break;
             case SoundEffect.PunchMiss:
-                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length];
+                clipToPlay = FiftyPunchEffects[FiftyPunchEffects.Length - 1];
                 break;
             case SoundEffect.PortableLunch:
                 clipToPlay = PortableLunch;

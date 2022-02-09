@@ -46,7 +46,7 @@ public class BenedictJump : MonoBehaviour
         {
             Physics.IgnoreCollision(collider, c, true);
         }
-        behavior.Laugh();
+        behavior.Laugh(true);
         StartCoroutine(jumpTick(target, time));
     }
     private IEnumerator jumpTick(Vector3 target, float time)
@@ -81,6 +81,7 @@ public class BenedictJump : MonoBehaviour
     public void DoneJumping()
     {
         FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
+        GetComponentInChildren<EnemyVFXController>().StartEffect(2);
 
         Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())

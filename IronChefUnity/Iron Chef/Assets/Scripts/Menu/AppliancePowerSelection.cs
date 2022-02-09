@@ -21,6 +21,8 @@ public class AppliancePowerSelection : MonoBehaviour
     public PowerButton firstPowerButton;
     public ApplianceButton firstApplianceButton;
 
+    bool firstOn = true;
+
 
 
     private void OnEnable()
@@ -41,9 +43,12 @@ public class AppliancePowerSelection : MonoBehaviour
         IronChefUtils.TurnOffCharacter();
 
 
-
-        firstPowerButton.SelectPower();
-        firstApplianceButton.SelectAppliance();
+        if(firstOn)
+        {
+            firstPowerButton.SelectPower();
+            firstApplianceButton.SelectAppliance();
+            firstOn = false;
+        }
 
 
 
@@ -57,7 +62,6 @@ public class AppliancePowerSelection : MonoBehaviour
         PowerDesc.text = player.GetComponent<PlayerPower>().powerInformation.description;
         ApplianceDesc.text = player.GetComponent<Appliance>().applianceScriptable.description;
 
-        Debug.Log(EventSystem.current.currentSelectedGameObject.name);
     }
 
     public void SelectPower()
@@ -66,11 +70,6 @@ public class AppliancePowerSelection : MonoBehaviour
     }
     public void SelectPower(PlayerPowerScriptable powerScriptable)
     {
-        if(player.GetComponent<PlayerPower>() != null)
-        {
-            player.GetComponent<PlayerPower>().DoRemovalThings();
-            Destroy(player.GetComponent<PlayerPower>());
-        }
 
         PlayerPower power = null;
 
@@ -116,15 +115,17 @@ public class AppliancePowerSelection : MonoBehaviour
         }
 
         FindObjectOfType<PlayerHUDManager>().SetPowerImage(powerScriptable.powerName);
+
+        foreach (var p in player.GetComponents<PlayerPower>())
+            if (p != power)
+            {
+                p.DoRemovalThings();
+                Destroy(p);
+            }
     }
 
     public void SelectAppliance(PlayerApplianceScriptable applianceScriptable)
     {
-        if (player.GetComponent<Appliance>() != null)
-        {
-            player.GetComponent<Appliance>().RemoveEffects();
-            Destroy(player.GetComponent<Appliance>());
-        }
 
         Appliance appliance = null;
 
@@ -165,6 +166,13 @@ public class AppliancePowerSelection : MonoBehaviour
         {
             appliance.SetScriptableData(applianceScriptable);
         }
+
+        foreach (var p in player.GetComponents<Appliance>())
+            if (p != appliance)
+            {
+                p.RemoveEffects();
+                Destroy(p);
+            }
     }
 
     public void Confirm()
@@ -185,16 +193,17 @@ public class AppliancePowerSelection : MonoBehaviour
 
     public static void CheckUnlocks()
     {
+        /*
         foreach (var t in FindObjectsOfType<AppliancePowerPageManager>())
         {
 
             foreach (var p in t.pages)
                 p.gameObject.SetActive(true);
-            foreach (var b in FindObjectsOfType<PowerButton>())
+            foreach (var b in t.GetComponentsInChildren<PowerButton>())
             {
                 b.CheckIfUnlocked();
             }
-            foreach (var b in FindObjectsOfType<ApplianceButton>())
+            foreach (var b in t.GetComponentsInChildren<ApplianceButton>())
             {
                 b.CheckIfUnlocked();
             }
@@ -202,6 +211,7 @@ public class AppliancePowerSelection : MonoBehaviour
             t.TurnOffAllPages();
             t.TurnOnCurrentPage();
         }
+        */
 
     }
 }

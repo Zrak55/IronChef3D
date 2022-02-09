@@ -180,23 +180,38 @@ public class LevelProgressManager : MonoBehaviour
     {
         if(type == ingredientOneType)
         {
-            ingredientOneCurrent++;
+            if (ingredientOneCurrent == ingredientOneRequired)
+                badIngredientsCurrent++;
+            else
+                ingredientOneCurrent++;
         }
         else if(type == ingredientTwoType)
         {
-            ingredientTwoCurrent++;
+            if (ingredientTwoCurrent == ingredientTwoRequired)
+                badIngredientsCurrent++;
+            else
+                ingredientTwoCurrent++;
         }
         else if (type == ingredientThreeType)
         {
-            ingredientThreeCurrent++;
+            if (ingredientThreeCurrent == ingredientThreeRequired)
+                badIngredientsCurrent++;
+            else
+                ingredientThreeCurrent++;
         }
         else if (type == ingredientFourType)
         {
-            ingredientFourCurrent++;
+            if (ingredientFourCurrent == ingredientFourRequired)
+                badIngredientsCurrent++;
+            else
+                ingredientFourCurrent++;
         }
         else if (type == ingredientFiveType)
         {
-            ingredientFiveCurrent++;
+            if (ingredientFiveCurrent == ingredientFiveRequired)
+                badIngredientsCurrent++;
+            else
+                ingredientFiveCurrent++;
         }
         else
         {
@@ -241,7 +256,7 @@ public class LevelProgressManager : MonoBehaviour
 
         if(badIngredientsMaximum > 0)
         {
-            score = score * (1-(0.5f * (float)badIngredientsCurrent / badIngredientsMaximum));
+            //score = score * (1-(0.5f * (float)badIngredientsCurrent / badIngredientsMaximum));
 
         }
 

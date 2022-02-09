@@ -113,6 +113,10 @@ public class PlayerHitpoints : MonoBehaviour
     {
         playerStats.CurrentHP = hp;
     }
+    public float GetPercent()
+    {
+        return playerStats.CurrentHP / playerStats.MaximumHP;
+    }
     
 
     
