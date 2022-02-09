@@ -65,7 +65,7 @@ public class Catapasta : PlayerPower
         spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200*Vector3.up, Quaternion.identity);
         spawnedProjectile.GetComponent<PlayerProjectile>().damage = damage;
         goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
-        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, GetComponent<CharacterMover>().model.transform.forward, 45);
+        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, IronChefUtils.GetSoftLockDirection(GetComponent<CharacterMover>().model.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
         remainTime = 0;
         SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
         shouldMove = true;

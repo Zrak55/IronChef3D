@@ -261,7 +261,7 @@ public class PlayerAttackController : MonoBehaviour
     public void PerformFryingPan()
     {
         var fp = Instantiate(FryingPanPrefab, throwPoint.position, mover.model.transform.rotation);;
-        fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + fp.transform.forward);
+        fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + IronChefUtils.GetSoftLockDirection(fp.transform.forward, fp.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20));
         CDandCost.SetFryingPanCooldown();
     }
     public void DoneFryingPan()

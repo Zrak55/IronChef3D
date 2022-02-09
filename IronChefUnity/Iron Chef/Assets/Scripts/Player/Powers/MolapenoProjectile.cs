@@ -75,7 +75,7 @@ public class MolapenoProjectile : MonoBehaviour
         duration = dur;
         radius = rad;
 
-        GetComponent<ProjectileLaunch>().Launch(force, transform.forward, angle);
+        GetComponent<ProjectileLaunch>().Launch(force, transform.forward + IronChefUtils.GetSoftLockDirection(transform.forward, transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), angle);
     }
 
     public bool checkCollider(Collider other)

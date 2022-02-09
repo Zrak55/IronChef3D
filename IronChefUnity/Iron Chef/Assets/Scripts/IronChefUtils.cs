@@ -50,6 +50,37 @@ public static class IronChefUtils
         
     }
 
+    public static Vector3 GetSoftLockDirection(Vector3 forward, Vector3 origin, LayerMask desiredLayer, float searchDegree, bool matchForwardY = true)
+    {
+        Vector3 newFacing = forward;
+
+        float closestEnemyDist = Mathf.Infinity;
+
+        Vector3 newDirection;
+        RaycastHit hit;
+
+
+        for (int i = (int)(-searchDegree/2); i <= searchDegree/2; i++)
+        {
+            newDirection = new Vector3((forward.x * Mathf.Cos(Mathf.Deg2Rad * i) - forward.z * Mathf.Sin(Mathf.Deg2Rad * i)), forward.y, (forward.x * Mathf.Sin(Mathf.Deg2Rad * i)) + (forward.z * Mathf.Cos(Mathf.Deg2Rad * i)));
+            if (Physics.Raycast(origin, newDirection, out hit, 50, desiredLayer))
+            {
+                if(Vector3.Distance(origin, hit.point) < closestEnemyDist)
+                {
+                    newFacing = newDirection;
+                    closestEnemyDist = Vector3.Distance(origin, hit.point);
+                }
+            }
+
+        }
+
+        if(matchForwardY)
+            newFacing.y = 0;
+
+        newFacing = newFacing.normalized * forward.magnitude;
+        return newFacing;
+    }
+
     public static Vector3 RotateUpByDegree(Vector3 forward, float angle)
     {
         forward = forward.normalized;
