@@ -121,9 +121,14 @@ public class BenedictBehavior : EnemyBehaviorTree
         StopEscaping();
     }
 
-    public void Laugh()
+    public void LaughOverride()
     {
-        if(laugh == null)
+        Laugh(true);
+    }
+
+    public void Laugh(bool overrideLaugh = false)
+    {
+        if(laugh == null || overrideLaugh)
             laugh = SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(player, SoundEffectSpawner.SoundEffect.BenedictLaugh);
 
     }

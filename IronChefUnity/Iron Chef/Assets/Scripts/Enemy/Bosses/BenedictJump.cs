@@ -46,7 +46,7 @@ public class BenedictJump : MonoBehaviour
         {
             Physics.IgnoreCollision(collider, c, true);
         }
-        behavior.Laugh();
+        behavior.Laugh(true);
         StartCoroutine(jumpTick(target, time));
     }
     private IEnumerator jumpTick(Vector3 target, float time)

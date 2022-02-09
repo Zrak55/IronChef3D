@@ -19,8 +19,8 @@ MonoBehaviour:
   cooldown: 15
   animationNumber: 5
   values:
-  - 1
-  - 50
+  - 2
+  - 25
   - 1
   - 7
   - 14

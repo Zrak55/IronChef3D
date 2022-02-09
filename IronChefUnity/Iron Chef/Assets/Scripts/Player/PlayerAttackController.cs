@@ -184,6 +184,7 @@ public class PlayerAttackController : MonoBehaviour
         {
             pb.attackAnimTime *= (1 - amount);
         }
+        Debug.Log(animator.speed);
     }
     public void RemoveAttackSpeed(float amount)
     {
@@ -193,6 +194,7 @@ public class PlayerAttackController : MonoBehaviour
         {
             pb.attackAnimTime /= (1 - amount);
         }
+        Debug.Log(animator.speed);
     }
 
     private void CheckBasic()

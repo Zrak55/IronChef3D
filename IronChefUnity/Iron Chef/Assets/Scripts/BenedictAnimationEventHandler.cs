@@ -24,6 +24,10 @@ public class BenedictAnimationEventHandler : MonoBehaviour
     {
         GetComponentInParent<EnemyBasicAttackbox>().HitOff();
     }
+    public void LaughOverride()
+    {
+        GetComponentInParent<BenedictBehavior>().LaughOverride();
+    }
 
     public void EggRollSound()
     {
