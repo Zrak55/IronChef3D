@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dps: 100
   radius: 5
-  particles: {fileID: 6527331906820560121, guid: d57f698ec000fd34887a1eb4553aae90, type: 3}
+  particles: {fileID: 919132149155446097, guid: 561ef181a1e391e4c8ff5f6cee2725b8, type: 3}
