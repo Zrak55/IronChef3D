@@ -5186,6 +5186,7 @@ MonoBehaviour:
   damagePercentIncreaseEachHit: 0
   scalarResetTime: 3
   maxPercentDamage: 3
+  baseCritValue: 0.2
 --- !u!1 &1906057242449987415
 GameObject:
   m_ObjectHideFlags: 0
@@ -5347,6 +5348,7 @@ MonoBehaviour:
   damagePercentIncreaseEachHit: 0.1
   scalarResetTime: 3
   maxPercentDamage: 3
+  baseCritValue: 0
 --- !u!1 &2612864030397240026
 GameObject:
   m_ObjectHideFlags: 0
@@ -40333,10 +40335,11 @@ MonoBehaviour:
   myCollider: {fileID: 1320961529762806012}
   attackAnimTime: 1.6
   IsCleave: 1
-  damage: 25
+  damage: 30
   damagePercentIncreaseEachHit: 0
   scalarResetTime: 3
   maxPercentDamage: 3
+  baseCritValue: 0
 --- !u!1 &9132940999299971924
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
     public float scalarResetTime = 3f;
     public float maxPercentDamage = 3f;
     float currentScalarTimer = 0f;
+    public float baseCritValue = 0f;
 
     private void Awake()
     {
@@ -123,19 +124,16 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
 
 
-                        bool hasCrit = false;
+                        float critVal = baseCritValue;
                         foreach (var h in modifier.HitModifiers)
                         {
-                            if(h.critPercent > 0)
+                            if (h.critPercent > 0)
                             {
-                                if (Random.Range(0f, 1f) <= h.critPercent)
-                                {
-                                    hasCrit = true;
-                                    break;
-                                }
+                                critVal += h.critPercent;
+
                             }
                         }
-                        if(hasCrit)
+                        if(Random.Range(0.00001f, 1f) <= critVal)
                         {
                             dmgToDeal *= 2;
                         }
