@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 30
+  aggroRange: 40
   spawnRange: 90
   attackRange: 1000
   attackCD: 0

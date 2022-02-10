@@ -5024,6 +5024,18 @@ MonoBehaviour:
   IsCleave: 0
   force: 0
   onAtAwake: 0
+--- !u!114 &2804923064238300741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254170305951122689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21619f812cdad1d4e9a0690c1f40181e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5069658016265969053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5352,9 +5364,11 @@ MonoBehaviour:
   jumpKnockbox: {fileID: 1201183073228880918}
   behavior: {fileID: 6952594615532671011}
   maxJumpHeight: 6
-  time: 2
+  time: 1.5
   shake: 1
   animHit: 1
+  adjustRealYValue: 0
+  delay: 1
   collider: {fileID: 7564515248135662135}
 --- !u!114 &6952594615532671011
 MonoBehaviour:

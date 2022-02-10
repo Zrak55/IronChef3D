@@ -16,6 +16,12 @@ public class EnemyJump : MonoBehaviour
     [SerializeField] public bool shake;
     [Tooltip("Bool that represents the hitbox, if it is off then the hitboxes will appear halfway through the jump")]
     [SerializeField] public bool animHit = false;
+    [Tooltip("Should Y value be adjusted in code or by animation?")]
+    public bool adjustRealYValue = true;
+    [Tooltip("Shoud the jump delay from firing until a function is called?")]
+    public bool delay = false;
+    float storedTime;
+
     public Collider collider;
     private NavMeshAgent agent;
     private bool hitOn = false;
@@ -30,7 +36,22 @@ public class EnemyJump : MonoBehaviour
 
     public void BeginJumping(float time)
     {
-        LaunchJump(FindObjectOfType<CharacterMover>().transform.position, time);
+        if(delay)
+        {
+            agent.enabled = false;
+            storedTime = time;
+        }
+        else
+        {
+            LaunchJump(FindObjectOfType<CharacterMover>().transform.position, time);
+        }
+    }
+
+    public void BeginJumpingPostDelay()
+    {
+        transform.LookAt(FindObjectOfType<CharacterMover>().transform);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+        LaunchJump(FindObjectOfType<CharacterMover>().transform.position, storedTime);
     }
 
     private void LaunchJump(Vector3 target, float time)
@@ -60,9 +81,12 @@ public class EnemyJump : MonoBehaviour
                 hitOn = true;
             }
 
-            transform.position = startPos;
             transform.position = Vector3.Lerp(startPos, target, cTime / time);
-            float yAmount = yOffset * cTime * (cTime - time);
+            float yAmount = 0;
+            if (adjustRealYValue)
+            {
+                yAmount = yOffset* cTime *(cTime - time);
+            }
             transform.position = new Vector3(transform.position.x, transform.position.y + yAmount, transform.position.z);
 
             yield return null;

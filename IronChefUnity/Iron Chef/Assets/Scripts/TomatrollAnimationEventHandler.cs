@@ -18,13 +18,8 @@ public class TomatrollAnimationEventHandler : MonoBehaviour
 
     }
 
-    public void HitOn(int i)
+    public void BeginJumpingPostDelay()
     {
-        //attacks.TurnHitboxOn(i);
-    }
-    public void HitOff(int i)
-    {
-        //attacks.TurnHitboxOff(i);
-
+        GetComponentInParent<EnemyJump>()?.BeginJumpingPostDelay();
     }
 }
