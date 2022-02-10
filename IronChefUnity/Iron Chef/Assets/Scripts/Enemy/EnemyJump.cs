@@ -76,7 +76,7 @@ public class EnemyJump : MonoBehaviour
             if (cTime >= time / 2 && hitOn == false && animHit == false)
             {
 
-                jumpHitbox.HitOn();
+                jumpHitbox.HitOn(); //Hello there
                 jumpKnockbox.HitOn();
                 hitOn = true;
             }

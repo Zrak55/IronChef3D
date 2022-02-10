@@ -66,22 +66,8 @@ ModelImporter:
         floatParameter: 0
         intParameter: 1
         messageOptions: 0
-      - time: 0.7306699
-        functionName: HitOn
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
       - time: 0.8192067
         functionName: playSound
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 1
-        messageOptions: 0
-      - time: 0.84598213
-        functionName: HitOff
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
