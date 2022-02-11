@@ -50,6 +50,17 @@ public class GummyBearBehavior : EnemyBehaviorTree
         gummyBearBehaviorTree.behavior();
     }
 
+    public override Node.STATUS moveTowards()
+    {
+        animator.SetBool("IsAggrod", false);
+        return base.moveTowards();
+    }
+
+    public override Node.STATUS moveReset()
+    {
+        animator.SetBool("IsAggrod", false);
+        return base.moveReset();
+    }
 
     public override Node.STATUS attackBasic()
     {

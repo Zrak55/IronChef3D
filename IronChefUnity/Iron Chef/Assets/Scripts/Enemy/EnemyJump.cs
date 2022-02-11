@@ -7,22 +7,21 @@ public class EnemyJump : MonoBehaviour
 {
     public EnemyBasicAttackbox jumpHitbox;
     public KnockPlayerAway jumpKnockbox;
-    public EnemyBehaviorTree behavior;
+    private Collider enemyCollider;
     [Tooltip("Float for how high the enemy will jump")]
-    [SerializeField] public float maxJumpHeight;
+    public float maxJumpHeight;
     [Tooltip("Float for how long it will take the enemy to jump")]
-    [SerializeField] public float time;
+    public float time;
     [Tooltip("Bool for if the screen will shake upon landing")]
-    [SerializeField] public bool shake;
+    public bool shake;
     [Tooltip("Bool that represents the hitbox, if it is off then the hitboxes will appear halfway through the jump")]
-    [SerializeField] public bool animHit = false;
+    public bool animHit = false;
     [Tooltip("Should Y value be adjusted in code or by animation?")]
     public bool adjustRealYValue = true;
     [Tooltip("Shoud the jump delay from firing until a function is called?")]
     public bool delay = false;
     float storedTime;
 
-    public Collider collider;
     private NavMeshAgent agent;
     private bool hitOn = false;
 
@@ -30,8 +29,8 @@ public class EnemyJump : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        behavior = GetComponent<EnemyBehaviorTree>();
         agent = GetComponent<NavMeshAgent>();
+        enemyCollider = GetComponent<Collider>();
     }
 
     public void BeginJumping(float time)
@@ -56,10 +55,10 @@ public class EnemyJump : MonoBehaviour
 
     private void LaunchJump(Vector3 target, float time)
     {
-        Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), true);
+        Physics.IgnoreCollision(enemyCollider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), true);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
         {
-            Physics.IgnoreCollision(collider, c, true);
+            Physics.IgnoreCollision(enemyCollider, c, true);
         }
 
         agent.enabled = false;
@@ -102,10 +101,10 @@ public class EnemyJump : MonoBehaviour
         if (shake)
             FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
 
-        Physics.IgnoreCollision(collider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
+        Physics.IgnoreCollision(enemyCollider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())
         {
-            Physics.IgnoreCollision(collider, c, false);
+            Physics.IgnoreCollision(enemyCollider, c, false);
         }
 
         agent.enabled = true;
