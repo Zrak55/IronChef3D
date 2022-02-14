@@ -9,20 +9,27 @@ public class EnemyFoodPickup : MonoBehaviour
     [Space]
     public GameObject deathParticleSystem;
     public GameObject deathParticle;
+    Rigidbody rb;
 
 
     // Start is called before the first frame update
     void Start()
     {
         readyToGive = false;
-        Invoke("ActivateGive", 2f);
-        GetComponent<Rigidbody>().AddForce(Vector3.up * 12, ForceMode.Impulse);
+        Invoke("ActivateGive", 1f);
+        rb = GetComponent<Rigidbody>();
+        rb.AddForce(Vector3.up * 15, ForceMode.Impulse);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    private void FixedUpdate()
+    {
+        rb.AddForce(Physics.gravity);
+
     }
 
     void ActivateGive()

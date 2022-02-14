@@ -66,6 +66,6 @@ public class EnemyDeathParticles : MonoBehaviour
             rbs.Add(Instantiate(particle, transform.position, Quaternion.identity));
             rbs[i].GetComponent<Rigidbody>().AddForce((Vector3.up + (Vector3.right * Random.Range(-0.5f, 0.5f)) + (Vector3.forward * Random.Range(-0.5f, 0.5f))).normalized * force, ForceMode.Impulse);
         }
-        Invoke("MoveParticles", 2f);
+        Invoke("MoveParticles", 1f);
     }
 }

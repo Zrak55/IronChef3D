@@ -26,6 +26,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
     float currentScalarTimer = 0f;
     public float baseCritValue = 0f;
 
+    CharacterMover myMover;
+
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
@@ -35,6 +37,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
         baseDamage = damage;
         if (damagePercentIncreaseEachHit > 0)
             InvokeRepeating("UndoTimer", 0f, 0.05f);
+
+        myMover = FindObjectOfType<CharacterMover>();
 
     }
     private void Start()
@@ -71,7 +75,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (CanHit)
+        if (CanHit && myMover.IsRolling() == false)
         {
             DoCollisionThings();
         }
