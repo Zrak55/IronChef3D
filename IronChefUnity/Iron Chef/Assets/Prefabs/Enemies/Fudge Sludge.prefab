@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   food: 13
-  pickupPrefab: {fileID: 0}
+  pickupPrefab: {fileID: 5796176345864650987, guid: 9b4b41180f92cf146b52a4955fb4d66e, type: 3}
 --- !u!114 &5797179273293598612
 MonoBehaviour:
   m_ObjectHideFlags: 0
