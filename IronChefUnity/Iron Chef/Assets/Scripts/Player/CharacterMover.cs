@@ -214,7 +214,6 @@ public class CharacterMover : MonoBehaviour
             {
                 currentMove.y = jumpSpeed;
                 costmanager.SetJumpCD();
-
             }
         }
     }
