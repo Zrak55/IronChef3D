@@ -6,9 +6,12 @@ public class Catapasta : PlayerPower
 {
     GameObject targeter;
     GameObject projectile;
+    int numProjectiles;
+    float offsetAmount;
 
     GameObject spawnedTargeter;
-    GameObject spawnedProjectile;
+    GameObject[] spawnedProjectiles;
+    Vector3[] offset;
     float goSpeed;
     float remainTime = 0f;
 
@@ -17,7 +20,9 @@ public class Catapasta : PlayerPower
 
     Transform throwPoint;
 
-    bool shouldMove = false;
+    bool[] shouldMove;
+
+    
 
 
 
@@ -30,31 +35,51 @@ public class Catapasta : PlayerPower
     // Update is called once per frame
     void Update()
     {
-        if(spawnedProjectile != null)
+        for(int i = 0; i < numProjectiles; i++)
         {
-            if (shouldMove && spawnedProjectile.transform.position != spawnedTargeter.transform.position)
+            var spawnedProjectile = spawnedProjectiles[i];
+            if (spawnedProjectile != null)
             {
-                spawnedProjectile.transform.position = Vector3.MoveTowards(spawnedProjectile.transform.position, spawnedTargeter.transform.position, goSpeed * Time.deltaTime);
-            }
-            else
-            {
-                if (spawnedTargeter.GetComponentInChildren<AudioSource>() != null)
-                    spawnedTargeter.GetComponentInChildren<AudioSource>().enabled = false;
-                if (shouldMove)
+                if (shouldMove[i] && spawnedProjectile.transform.position != spawnedTargeter.transform.position + offset[i])
                 {
-                    shouldMove = false;
-                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnedTargeter.transform.position, SoundEffectSpawner.SoundEffect.CatapastaHit);
-                }
-                if (remainTime >= 1f)
-                {
-                    Destroy(spawnedProjectile);
-                    Destroy(spawnedTargeter);
+                    spawnedProjectile.transform.position = Vector3.MoveTowards(spawnedProjectile.transform.position, spawnedTargeter.transform.position + offset[i], goSpeed * Time.deltaTime);
                 }
                 else
                 {
-                    remainTime += Time.deltaTime;
+                    if(spawnedTargeter != null)
+                    {
+                        if (spawnedTargeter.GetComponentInChildren<AudioSource>() != null)
+                            spawnedTargeter.GetComponentInChildren<AudioSource>().enabled = false;
+                    }
+                    if (shouldMove[i])
+                    {
+                        shouldMove[i] = false;
+                        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnedTargeter.transform.position, SoundEffectSpawner.SoundEffect.CatapastaHit);
+                    }
+                    if (remainTime >= 1f)
+                    {
+                        Destroy(spawnedProjectile);
+
+                        
+                    }
+                    else
+                    {
+                        remainTime += Time.deltaTime;
+                    }
                 }
             }
+        }
+        if(spawnedTargeter != null)
+        {
+            bool allDone = true;
+            foreach (var o in spawnedProjectiles)
+                if (o != null)
+                {
+                    allDone = false;
+                    break;
+                }
+            if (allDone)
+                Destroy(spawnedTargeter);
         }
     }
 
@@ -62,13 +87,18 @@ public class Catapasta : PlayerPower
     {
         base.DoPowerEffects();
         spawnedTargeter = Instantiate(targeter, throwPoint.position, throwPoint.rotation);
-        spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200*Vector3.up, Quaternion.identity);
-        spawnedProjectile.GetComponent<PlayerProjectile>().damage = damage;
-        goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
+        for (int i = 0; i < numProjectiles; i++)
+        {
+            var spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200 * Vector3.up, Quaternion.identity);
+            spawnedProjectile.GetComponent<PlayerProjectile>().damage = damage;
+            spawnedProjectiles[i] = spawnedProjectile;
+            offset[i] = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * (offsetAmount * Random.Range(0f, 1f));
+            goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
+            shouldMove[i] = true;
+        }
         spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, IronChefUtils.GetSoftLockDirection(GetComponent<CharacterMover>().model.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
         remainTime = 0;
         SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
-        shouldMove = true;
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)
@@ -78,5 +108,12 @@ public class Catapasta : PlayerPower
         damage = power.values[1];
         projectile = power.prefabs[0];
         targeter = power.prefabs[1];
+        numProjectiles = (int)power.values[2];
+        offsetAmount = power.values[3];
+        spawnedProjectiles = new GameObject[numProjectiles];
+        offset = new Vector3[numProjectiles];
+        shouldMove = new bool[numProjectiles];
+        for (int i = 0; i < numProjectiles; i++)
+            shouldMove[i] = false;
     }
 }

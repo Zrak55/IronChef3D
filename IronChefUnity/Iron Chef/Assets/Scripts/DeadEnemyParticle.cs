@@ -29,6 +29,7 @@ public class DeadEnemyParticle : MonoBehaviour
             if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.XpPickup);
+                PlayerHUDManager.PlayerHud.FoodParticleHit();
                 Destroy(gameObject);
             }
         }

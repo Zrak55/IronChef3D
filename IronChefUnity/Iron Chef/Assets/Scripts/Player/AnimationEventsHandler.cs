@@ -84,4 +84,9 @@ public class AnimationEventsHandler : MonoBehaviour
         bool isLeftFoot = (foot.ToUpper()) == "LEFT";
         characterMover.MakeFootstepEffect(isLeftFoot);
     }
+
+    public void ExitPotRollPositionUpdate()
+    {
+        transform.root.position = transform.root.position + transform.root.forward * 10f;
+    }
 }

@@ -116,6 +116,7 @@ public class PlayerHUDManager : MonoBehaviour
     public GameObject unlockNotification;
     public Text unlockText;
 
+    float updateFoodBarTimer = 0;
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -128,6 +129,7 @@ public class PlayerHUDManager : MonoBehaviour
         InvokeRepeating("BossTipFade", 0, 0.05f);
 
         PlayerHud = this;
+
     }
 
     void Start()
@@ -185,6 +187,7 @@ public class PlayerHUDManager : MonoBehaviour
     public void SetFoodBars()
     {
         float height = 110;
+        updateFoodBarTimer = 3f;
 
         food1bar.gameObject.SetActive(true);
         food2bar.gameObject.SetActive(true);
@@ -349,6 +352,11 @@ public class PlayerHUDManager : MonoBehaviour
             KnifeDamageScalarBar.gameObject.SetActive(false);
     }
 
+    public void FoodParticleHit()
+    {
+        updateFoodBarTimer = 1;
+    }
+
     public void UpdateScalarText(float percent)
     {
         KnifeScalarNumber.text = percent.ToString("0.0") + "x";
@@ -410,114 +418,120 @@ public class PlayerHUDManager : MonoBehaviour
 
     private void UpdateFoodBars()
     {
-        Color targetcolor;
+        if(updateFoodBarTimer > 0)
+        {
+            Color targetcolor;
 
-        IronChefUtils.moveABar(food1bar, foodInfo.ingredientOneCurrent);
-        if(foodInfo.ingredientOneCurrent > foodInfo.ingredientOneRequired)
-        {
-            targetcolor = Color.red;
-        }
-        else if (foodInfo.ingredientOneCurrent == foodInfo.ingredientOneRequired)
-        {
-            targetcolor = Color.green;
-        }
-        else
-        {
-            targetcolor = Color.blue;
-        }
-        targetcolor.a = (200f / 255f);
-        foreach (var i in food1bar.GetComponentsInChildren<Image>())
-        {
-            if (i.gameObject.name == "Fill")
-                i.color = targetcolor;
-        }
+            IronChefUtils.moveABar(food1bar, foodInfo.ingredientOneCurrent);
+            if (foodInfo.ingredientOneCurrent > foodInfo.ingredientOneRequired)
+            {
+                targetcolor = Color.red;
+            }
+            else if (foodInfo.ingredientOneCurrent == foodInfo.ingredientOneRequired)
+            {
+                targetcolor = Color.green;
+            }
+            else
+            {
+                targetcolor = Color.blue;
+            }
+            targetcolor.a = (200f / 255f);
+            foreach (var i in food1bar.GetComponentsInChildren<Image>())
+            {
+                if (i.gameObject.name == "Fill")
+                    i.color = targetcolor;
+            }
 
 
-        IronChefUtils.moveABar(food2bar, foodInfo.ingredientTwoCurrent);
-        if (foodInfo.ingredientTwoCurrent > foodInfo.ingredientTwoRequired)
-        {
-            targetcolor = Color.red;
+            IronChefUtils.moveABar(food2bar, foodInfo.ingredientTwoCurrent);
+            if (foodInfo.ingredientTwoCurrent > foodInfo.ingredientTwoRequired)
+            {
+                targetcolor = Color.red;
 
-        }
-        else if (foodInfo.ingredientTwoCurrent == foodInfo.ingredientTwoRequired)
-        {
-            targetcolor = Color.green;
-        }
-        else
-        {
-            targetcolor = Color.blue;
-        }
-        targetcolor.a = (200f / 255f);
-        foreach (var i in food2bar.GetComponentsInChildren<Image>())
-        {
-            if (i.gameObject.name == "Fill")
-                i.color = targetcolor;
+            }
+            else if (foodInfo.ingredientTwoCurrent == foodInfo.ingredientTwoRequired)
+            {
+                targetcolor = Color.green;
+            }
+            else
+            {
+                targetcolor = Color.blue;
+            }
+            targetcolor.a = (200f / 255f);
+            foreach (var i in food2bar.GetComponentsInChildren<Image>())
+            {
+                if (i.gameObject.name == "Fill")
+                    i.color = targetcolor;
+            }
+
+            IronChefUtils.moveABar(food3bar, foodInfo.ingredientThreeCurrent);
+            if (foodInfo.ingredientThreeCurrent > foodInfo.ingredientThreeRequired)
+            {
+                targetcolor = Color.red;
+
+            }
+            else if (foodInfo.ingredientThreeCurrent == foodInfo.ingredientThreeRequired)
+            {
+                targetcolor = Color.green;
+            }
+            else
+            {
+                targetcolor = Color.blue;
+            }
+            targetcolor.a = (200f / 255f);
+            foreach (var i in food3bar.GetComponentsInChildren<Image>())
+            {
+                if (i.gameObject.name == "Fill")
+                    i.color = targetcolor;
+            }
+
+            IronChefUtils.moveABar(food4bar, foodInfo.ingredientFourCurrent);
+            if (foodInfo.ingredientFourCurrent > foodInfo.ingredientFourRequired)
+            {
+                targetcolor = Color.red;
+
+            }
+            else if (foodInfo.ingredientFourCurrent == foodInfo.ingredientFourRequired)
+            {
+                targetcolor = Color.green;
+            }
+            else
+            {
+                targetcolor = Color.blue;
+            }
+            targetcolor.a = (200f / 255f);
+            foreach (var i in food4bar.GetComponentsInChildren<Image>())
+            {
+                if (i.gameObject.name == "Fill")
+                    i.color = targetcolor;
+            }
+
+            IronChefUtils.moveABar(food5bar, foodInfo.ingredientFiveCurrent);
+            if (foodInfo.ingredientFiveCurrent > foodInfo.ingredientFiveRequired)
+            {
+                targetcolor = Color.red;
+
+            }
+            else if (foodInfo.ingredientFiveCurrent == foodInfo.ingredientFiveRequired)
+            {
+                targetcolor = Color.green;
+            }
+            else
+            {
+                targetcolor = Color.blue;
+            }
+            targetcolor.a = (200f / 255f);
+            foreach (var i in food5bar.GetComponentsInChildren<Image>())
+            {
+                if (i.gameObject.name == "Fill")
+                    i.color = targetcolor;
+            }
+
+            IronChefUtils.moveABar(badfoodbar, foodInfo.badIngredientsCurrent);
         }
 
-        IronChefUtils.moveABar(food3bar, foodInfo.ingredientThreeCurrent);
-        if (foodInfo.ingredientThreeCurrent > foodInfo.ingredientThreeRequired)
-        {
-            targetcolor = Color.red;
-
-        }
-        else if (foodInfo.ingredientThreeCurrent == foodInfo.ingredientThreeRequired)
-        {
-            targetcolor = Color.green;
-        }
-        else
-        {
-            targetcolor = Color.blue;
-        }
-        targetcolor.a = (200f / 255f);
-        foreach (var i in food3bar.GetComponentsInChildren<Image>())
-        {
-            if (i.gameObject.name == "Fill")
-                i.color = targetcolor;
-        }
-
-        IronChefUtils.moveABar(food4bar, foodInfo.ingredientFourCurrent);
-        if (foodInfo.ingredientFourCurrent > foodInfo.ingredientFourRequired)
-        {
-            targetcolor = Color.red;
-
-        }
-        else if (foodInfo.ingredientFourCurrent == foodInfo.ingredientFourRequired)
-        {
-            targetcolor = Color.green;
-        }
-        else
-        {
-            targetcolor = Color.blue;
-        }
-        targetcolor.a = (200f / 255f);
-        foreach (var i in food4bar.GetComponentsInChildren<Image>())
-        {
-            if (i.gameObject.name == "Fill")
-                i.color = targetcolor;
-        }
-
-        IronChefUtils.moveABar(food5bar, foodInfo.ingredientFiveCurrent);
-        if (foodInfo.ingredientFiveCurrent > foodInfo.ingredientFiveRequired)
-        {
-            targetcolor = Color.red;
-
-        }
-        else if (foodInfo.ingredientFiveCurrent == foodInfo.ingredientFiveRequired)
-        {
-            targetcolor = Color.green;
-        }
-        else
-        {
-            targetcolor = Color.blue;
-        }
-        targetcolor.a = (200f / 255f);
-        foreach (var i in food5bar.GetComponentsInChildren<Image>())
-        {
-            if (i.gameObject.name == "Fill")
-                i.color = targetcolor;
-        }
-
-        IronChefUtils.moveABar(badfoodbar, foodInfo.badIngredientsCurrent);
+        updateFoodBarTimer -= Time.deltaTime;
+        
     }
 
     public void slowMoveSlider(Slider s, float target)
