@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, RunOnce;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, CheckBehind, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
     [HideInInspector] public bool invincible = false, simpleFlag = true;
@@ -208,6 +208,15 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
+    public Node.STATUS checkBehind()
+    {
+        //The distance from the enemy to the player
+        float playerDistance = Vector3.Distance(player.transform.position, transform.position);
+        if (Vector3.Angle(transform.forward, new Vector3(player.position.x - transform.position.x, 0, player.position.z - transform.position.z)) < attackAngle)
+            return CheckAngleRange.status = Node.STATUS.FAILURE;
+        return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+    }
+
     //Meant to go with a Selector node
     public Node.STATUS runOnce()
     {
@@ -231,7 +240,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect[value]);
     }
 
-    public void counter()
+    public virtual void counter()
     {
         invincible = false;
         animator.SetTrigger("Counter");

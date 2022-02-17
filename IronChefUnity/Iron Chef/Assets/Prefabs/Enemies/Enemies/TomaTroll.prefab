@@ -5447,7 +5447,7 @@ MonoBehaviour:
   waypointsTransforms: []
   aggroRange: 30
   spawnRange: 70
-  attackRange: 8
+  attackRange: 10
   attackCD: 3
   attackAngle: 30
   idleSoundEffect: 0c000000
