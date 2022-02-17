@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 4cf7d184b51da43489158ca6865f4bd3
+guid: ed059920592a783419e3e52e00b5b2eb
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Snakon Jump
+    second: snakon_idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -35,18 +35,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Snakon Jump
+      name: snakon_idle
       takeName: Take 001
       internalID: 0
       firstFrame: 0
-      lastFrame: 150
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -58,28 +58,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: 0.4199475
-        functionName: PlayAttackSound
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.671916
-        functionName: HitOn
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0.91851854
-        functionName: HitOff
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
