@@ -818,14 +818,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHitbox: {fileID: 2173555952373706524}
   jumpKnockbox: {fileID: 4674751781125959614}
-  behavior: {fileID: 1800947723216546153}
-  enemyCollider: {fileID: 6737522677001501040}
   maxJumpHeight: 1
   time: 1
   shake: 0
   animHit: 0
   adjustRealYValue: 1
   delay: 0
+  jumpThrough: 1
 --- !u!1 &8043967736513652177
 GameObject:
   m_ObjectHideFlags: 0
