@@ -127,6 +127,7 @@ public class EnemyVFXController : MonoBehaviour
                 {
 
                     go.SetActive(true);
+                    go.transform.SetParent(null);
                     if(ejectionForce > 0)
                     {
                         go.GetComponent<Rigidbody>()?.AddForce((go.transform.position - vfx.transform.position).normalized * ejectionForce);
