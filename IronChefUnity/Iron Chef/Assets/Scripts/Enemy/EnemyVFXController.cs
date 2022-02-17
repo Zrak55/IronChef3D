@@ -8,6 +8,16 @@ public class EnemyVFXController : MonoBehaviour
     public List<VisualEffect> effects;
     [SerializeField]
     public List<GameObject> DynamicSpawnEffects;
+    [SerializeField]
+    public List<OneTimeShowEffect> OneTimeEffects;
+
+    private void Start()
+    {
+        foreach(var ote in OneTimeEffects)
+        {
+            ote.vfx = this;
+        }
+    }
 
 
     public void SpawnDynamicEffect(int i, Vector3 pos)
@@ -99,6 +109,31 @@ public class EnemyVFXController : MonoBehaviour
         public void EndEffect()
         {
             trail.emitting = false;
+        }
+    }
+
+    [System.Serializable]
+    public class OneTimeShowEffect
+    {
+        public GameObject[] thingsToShow;
+        public float ejectionForce = 0;
+        public float liveTime;
+        [HideInInspector]public EnemyVFXController vfx;
+        public void StartEffect()
+        {
+            foreach(var go in thingsToShow)
+            {
+                if(go != null)
+                {
+
+                    go.SetActive(true);
+                    if(ejectionForce > 0)
+                    {
+                        go.GetComponent<Rigidbody>()?.AddForce((go.transform.position - vfx.transform.position).normalized * ejectionForce);
+                    }
+                    Destroy(go, liveTime);
+                }
+            }
         }
     }
 }
