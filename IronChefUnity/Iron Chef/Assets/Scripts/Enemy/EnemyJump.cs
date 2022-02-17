@@ -20,6 +20,8 @@ public class EnemyJump : MonoBehaviour
     public bool adjustRealYValue = true;
     [Tooltip("Shoud the jump delay from firing until a function is called?")]
     public bool delay = false;
+    [Tooltip("Bool representing if the enemy should jump a minimum distance when they jump.")]
+    public bool jumpThrough = false;
     float storedTime;
 
     private NavMeshAgent agent;
@@ -42,7 +44,13 @@ public class EnemyJump : MonoBehaviour
         }
         else
         {
-            LaunchJump(FindObjectOfType<CharacterMover>().transform.position, time);
+            Vector3 target = FindObjectOfType<CharacterMover>().transform.position;
+            if (Vector3.Distance(transform.position, target) < 10)
+            {
+                target = transform.position + Vector3.Normalize(target - transform.position) * 10;
+                target.y = FindObjectOfType<CharacterMover>().transform.position.y;
+            }
+            LaunchJump(target, time);
         }
     }
 
@@ -50,7 +58,8 @@ public class EnemyJump : MonoBehaviour
     {
         transform.LookAt(FindObjectOfType<CharacterMover>().transform);
         transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
-        LaunchJump(FindObjectOfType<CharacterMover>().transform.position, storedTime);
+        Vector3 target = FindObjectOfType<CharacterMover>().transform.position;
+        LaunchJump(target, storedTime);
     }
 
     private void LaunchJump(Vector3 target, float time)
