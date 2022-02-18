@@ -448,10 +448,12 @@ public class BenedictBehavior : EnemyBehaviorTree
                 //BenedictMeshMaterial.material = BenedictP2Material;
                 BenedictMesh.sharedMesh = BenedictP2Mesh;
                 BenedictMesh.material = BenedictP2Material;
-
+                
                 GetComponent<EnemyDamageTakenModifierController>().removeMod(DamageTakenModifier.ModifierName.BenedictImmunity);
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
+                GetComponent<EnemyVFXController>().OneTimeEffects[0].StartEffect();
+
                 Phase2Tip();
             }
             else if(currentPhase == 3)
