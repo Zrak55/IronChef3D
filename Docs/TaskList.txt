@@ -1,20 +1,20 @@
-Task List 02/11 - 02/18
+Task List 02/18 - 02/25
 
 Alex:
-Travel variations
-Change sprint to LB instead of A
-Change/update some boring powers
-Update tomatroll jump (faster)
-Make foodbar not move until ingredient bloops actually reach player
+UI controls
+Implement more pots
+Damage numbers
+Number balancing
+Redesign the starting hub
 
 Spencer:
-Increase tomatroll jump range
-Snakon strip "minimum travel distance" on jump
-Crustacean invincibility power
+Potatogre boulder.
+Meatle new power
+Implement new benedict roll (in code and animator)
 
 Wiliam:
-Implement new tomatroll animations
-Update snakon strip animation
+Touch up Snakon Strip
+Update Benedict Anims and Rig
 
 Zach:
 Touch up Egg Shell
@@ -25,6 +25,7 @@ Finish Fondemon Spit
 Tomatroll jump effect
 
 From last week that was missed
-Zach - Benedict egg shell not refined: updated but wasn't double checked after applying change so it's lacking quality
-	Sludge Pool too simplistic - more care needed for mesh/bubbles
-Kris - Fondemon spit not up to scuff
+Zach - Egg Shells
+	Sludge Pool
+Kris - Fondemon Spit
+	Sludge Pool
