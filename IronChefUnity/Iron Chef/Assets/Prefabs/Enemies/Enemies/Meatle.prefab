@@ -144,21 +144,6 @@ MonoBehaviour:
   damage: 8
   vfxHitNumber: -1
   swingingSound: 0
---- !u!114 &1707063743981039347
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4469183541461553907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effects: []
-  DynamicSpawnEffects:
-  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
 --- !u!114 &772343337997016421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +159,22 @@ MonoBehaviour:
   attacks:
   - {fileID: 1808279117068605294}
   - {fileID: 1860166208745294777}
+--- !u!114 &1707063743981039347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469183541461553907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effects: []
+  DynamicSpawnEffects:
+  - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
+  OneTimeEffects: []
 --- !u!1 &4470167129770485588
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 477952825927109779}
   hpSlider: {fileID: 5920457036178394068}
-  dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
+  dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
 --- !u!1 &9012491165350654263
 GameObject:

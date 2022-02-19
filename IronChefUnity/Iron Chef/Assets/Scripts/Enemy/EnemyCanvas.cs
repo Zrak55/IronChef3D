@@ -10,11 +10,12 @@ public class EnemyCanvas : MonoBehaviour
     public Slider hpSlider;
     public GameObject dmgNumber;
     public float animTime;
+    Transform player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        player = FindObjectOfType<CharacterMover>().transform;
         
     }
 
@@ -33,7 +34,7 @@ public class EnemyCanvas : MonoBehaviour
 
     public void MakeDamageNumber(float value)
     {
-        var go = Instantiate(dmgNumber, transform);
+        var go = Instantiate(dmgNumber, (transform.position + player.position)/2, Quaternion.identity);
         go.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("0.0");
         Destroy(go, animTime);
     }

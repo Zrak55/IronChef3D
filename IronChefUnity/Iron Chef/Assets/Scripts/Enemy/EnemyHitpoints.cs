@@ -79,7 +79,7 @@ public class EnemyHitpoints : MonoBehaviour
             if(!isInvoking)
             {
                 isInvoking = true;
-                Invoke("SmallDmgDisplay", 1f);
+                Invoke("SmallDmgDisplay", 0.1f);
             }
         }
 

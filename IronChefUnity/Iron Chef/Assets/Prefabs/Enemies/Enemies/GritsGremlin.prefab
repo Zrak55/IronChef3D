@@ -387,7 +387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 477952825927109779}
   hpSlider: {fileID: 7120057665725351661}
-  dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
+  dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
 --- !u!1 &3358648890654362482
 GameObject:
@@ -866,6 +866,7 @@ MonoBehaviour:
   effects: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
+  OneTimeEffects: []
 --- !u!1 &8042634753427596190
 GameObject:
   m_ObjectHideFlags: 0

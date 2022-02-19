@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerHUDManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private LevelProgressManager foodInfo;
     [SerializeField] private PlayerFoodEater eatFood;
     [SerializeField] private PlayerCostCooldownManager cooldowns;
+
 
     private static PlayerHUDManager _playerHud;
     public static PlayerHUDManager PlayerHud
@@ -117,6 +119,14 @@ public class PlayerHUDManager : MonoBehaviour
     public Text unlockText;
 
     float updateFoodBarTimer = 0;
+
+    [Header("Control texts")]
+    [SerializeField] private Text weaponSwap;
+    [SerializeField] private Text melee;
+    [SerializeField] private Text eat;
+    [SerializeField] private Text fryingpan;
+    [SerializeField] private Text power;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -127,6 +137,8 @@ public class PlayerHUDManager : MonoBehaviour
         SetHungryBar();
 
         InvokeRepeating("BossTipFade", 0, 0.05f);
+
+        InvokeRepeating("UpdateControlTexts", 0, 1f);
 
         PlayerHud = this;
 
@@ -152,6 +164,26 @@ public class PlayerHUDManager : MonoBehaviour
                 unlockNotification.SetActive(false);
             }
 
+        }
+    }
+
+    private void UpdateControlTexts()
+    {
+        if(Gamepad.current != null)
+        {
+            weaponSwap.text = "Y";
+            melee.text = "RT";
+            eat.text = "X";
+            fryingpan.text = "LT";
+            power.text = "RB";
+        }
+        else
+        {
+            weaponSwap.text = "MW";
+            melee.text = "LMB";
+            eat.text = "E";
+            fryingpan.text = "RMB";
+            power.text = "Q";
         }
     }
 
