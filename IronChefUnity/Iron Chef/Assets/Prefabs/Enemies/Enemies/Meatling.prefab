@@ -749,6 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   effects: []
   DynamicSpawnEffects: []
+  OneTimeEffects: []
 --- !u!1 &7803086111016615533
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,8 +861,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: bc35b88b2d817a044a8abc31376bd1eb, type: 3}
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -950,6 +949,7 @@ MonoBehaviour:
   attackSoundEffect: 07000000
   invincible: 0
   simpleFlag: 1
+  BossContactHeal: 75
 --- !u!1 &8042634753427596190
 GameObject:
   m_ObjectHideFlags: 0

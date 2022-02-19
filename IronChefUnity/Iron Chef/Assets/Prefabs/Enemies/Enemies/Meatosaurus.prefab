@@ -7994,7 +7994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec89c64fc9c335741a44e4d2b08ef379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 500
+  MaxHP: 750
   damaged: 0
   imDead: 0
   deathSound: 27

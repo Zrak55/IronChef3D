@@ -9,6 +9,9 @@ public class MeatlingBehavior : EnemyBehaviorTree
     BehaviorTree meatlingBehaviorTree;
     private Node CheckPlayer, CheckHurt;
 
+    [Space]
+    public float BossContactHeal = 50;
+
     private void Start()
     {
         setupWaypoints();
@@ -61,7 +64,7 @@ public class MeatlingBehavior : EnemyBehaviorTree
             if(enemyHitpoints.imDead == false)
             {
                 EnemyHitpoints bossHitpoints = boss.GetComponent<EnemyHitpoints>();
-                bossHitpoints.Heal(50);
+                bossHitpoints.Heal(BossContactHeal);
                 enemyHitpoints.Die();
             }
         }

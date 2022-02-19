@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e873422850cd2824c8ca9953e98ba03e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 200
+  MaxHP: 275
   damaged: 0
   imDead: 0
   deathSound: 27
