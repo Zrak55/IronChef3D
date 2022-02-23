@@ -19,8 +19,6 @@ public class EnemyProjectileControl : MonoBehaviour
     public bool DestroyOnTerrainHit = true;
     public bool DestroyOnPlayerHit = true;
 
-
-
     private void Awake()
     {
         if(isArc)
@@ -28,7 +26,8 @@ public class EnemyProjectileControl : MonoBehaviour
             Vector3 player = GameObject.Find("Player").transform.position;
             GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
         }
-        Destroy(gameObject, timeToLive);
+        if(timeToLive != 0)
+            Destroy(gameObject, timeToLive);
     }
 
     private void Update()

@@ -175,6 +175,27 @@ MonoBehaviour:
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
+--- !u!114 &9147699718821521030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4469183541461553907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61719d18d49ad8c40b6483d2583a3cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 4088226268673702336, guid: bb000e60f6427114eaf5aa0bd221f072, type: 3}
+  launchPoint: {fileID: 8227924910624289086}
+  projectilePoint: {fileID: 8227924910624289086}
+  randomRadiusFromPlayer: 0
+  height: 0
+  time: 0
+  ShouldShowWarning: 0
+  PlayerWarningPrefab: {fileID: 0}
+  sound: 0
 --- !u!1 &4470167129770485588
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +442,36 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &5615464846094745514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8227924910624289086}
+  m_Layer: 0
+  m_Name: ProjectilePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8227924910624289086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615464846094745514}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.616, z: 4.656}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7422479558757950679}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6028585377191098066
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +735,7 @@ GameObject:
   - component: {fileID: 4867357815208474035}
   - component: {fileID: 7963021607274575102}
   - component: {fileID: -8710290548720715660}
-  - component: {fileID: 7941993860622995322}
+  - component: {fileID: 1892053973230605961}
   - component: {fileID: 3205440139541697902}
   m_Layer: 9
   m_Name: Meatle
@@ -707,6 +758,7 @@ Transform:
   - {fileID: 8606494392846636468}
   - {fileID: 1587631034033020293}
   - {fileID: 3841124544457132105}
+  - {fileID: 8227924910624289086}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -839,7 +891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7acdca15e1cc50c4980d7348911a694f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7941993860622995322
+--- !u!114 &1892053973230605961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -848,7 +900,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7803086111016615533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0b8d2035ba73c84b85d822e5bfb63ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 915a0977596025d479446b978d58d470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
