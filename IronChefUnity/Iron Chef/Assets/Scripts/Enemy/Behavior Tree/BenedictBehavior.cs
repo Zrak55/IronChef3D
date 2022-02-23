@@ -453,6 +453,7 @@ public class BenedictBehavior : EnemyBehaviorTree
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 GetComponent<EnemyVFXController>().OneTimeEffects[0].StartEffect();
+                GetComponent<EnemyVFXController>().OneTimeEffects[1].StartEffect();
 
                 Phase2Tip();
             }
