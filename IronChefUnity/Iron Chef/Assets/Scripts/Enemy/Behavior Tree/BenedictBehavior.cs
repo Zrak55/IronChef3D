@@ -15,13 +15,13 @@ public class BenedictBehavior : EnemyBehaviorTree
     [SerializeField] private float jumpRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
     [SerializeField] private float yolkRange;
-    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [Tooltip("Float for the time it takes the enemy to attack.")]
     [SerializeField] private float biteTime;
-    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [Tooltip("Float for the time it takes the enemy to attack.")]
     [SerializeField] private float rolTime;
-    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [Tooltip("Float for the time it takes the enemy to attack.")]
     [SerializeField] private float yolkTime;
-    [Tooltip("Float for the time it takes the enemy to attack. (Will be replaced later with animation).")]
+    [Tooltip("Float for the time it takes the enemy to attack.")]
     [SerializeField] private float jumpTime;
     [Tooltip("Float for the time between the enemy's attack")]
     [SerializeField] private float BiteCD;
@@ -226,29 +226,29 @@ public class BenedictBehavior : EnemyBehaviorTree
         if(aggrod && !isAttacking)
         {
            
-                if (RollAttack.status == Node.STATUS.RUNNING && !isAttacking)
-                {
-                    RollAttack.status = Node.STATUS.SUCCESS;
-                    return RollAttack.status;
-                }
-                else if (RollOnCD || !InRollRange)
-                {
-                    RollAttack.status = Node.STATUS.SUCCESS;
-                    return RollAttack.status;
-                }
-                else
-                {
-                    Invoke("RollCDEnd", RollCD + rolTime);
-                    RollOnCD = true;
-                    isAttacking = true;
-                    animator.SetBool("Roll", true);
-                    Invoke("attackEnd", rolTime);
-                    rollBehavior.BeginRolling(rolTime);
-                    agent.enabled = false;
+            if (RollAttack.status == Node.STATUS.RUNNING && !isAttacking)
+            {
+                RollAttack.status = Node.STATUS.SUCCESS;
+                return RollAttack.status;
+            }
+            else if (RollOnCD || !InRollRange)
+            {
+                RollAttack.status = Node.STATUS.SUCCESS;
+                return RollAttack.status;
+            }
+            else
+            {
+                Invoke("RollCDEnd", RollCD + rolTime);
+                RollOnCD = true;
+                isAttacking = true;
+                animator.SetBool("Roll", true);
+                Invoke("attackEnd", rolTime);
+                rollBehavior.BeginRolling(rolTime);
+                agent.enabled = false;
 
 
-                    RollAttack.status = Node.STATUS.RUNNING;
-                }
+                RollAttack.status = Node.STATUS.RUNNING;
+            }
             
             
         }
@@ -458,6 +458,7 @@ public class BenedictBehavior : EnemyBehaviorTree
             }
             else if(currentPhase == 3)
             {
+                animator.SetBool("Yolk?", true);
 
                 BenedictMesh.sharedMesh = BenedictP3Mesh;
                 BenedictMesh.material = BenedictP3Material;
