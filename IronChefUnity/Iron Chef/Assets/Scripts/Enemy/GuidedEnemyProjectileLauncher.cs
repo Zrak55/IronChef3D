@@ -5,7 +5,7 @@ using UnityEngine;
 public class GuidedEnemyProjectileLauncher : MonoBehaviour
 {
     public GameObject projectile;
-    public Transform launchPoint;
+    public Transform launchPoint, projectilePoint;
     public float randomRadiusFromPlayer;
 
     public float height;
@@ -13,6 +13,7 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
 
     public bool ShouldShowWarning;
     public GameObject PlayerWarningPrefab;
+    private GameObject item;
 
     public SoundEffectSpawner.SoundEffect sound;
 
@@ -26,6 +27,18 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ProjectileAppear()
+    {
+        item = Instantiate(projectile, projectilePoint.position, Quaternion.identity);
+        item.transform.SetParent(projectilePoint);
+        item.GetComponent<Collider>().enabled = false;
+    }
+
+    public void ProjectileDissapear()
+    {
+        Destroy(item);
     }
 
     public void LaunchProjectile()
