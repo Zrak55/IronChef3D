@@ -19740,8 +19740,8 @@ MonoBehaviour:
     - {fileID: 4164205404438717193}
     - {fileID: 181310818496260102}
     - {fileID: 8162594313822818046}
-    ejectionForce: 3
-    liveTime: 1.5
+    ejectionForce: 5
+    liveTime: 3
     vfx: {fileID: 0}
 --- !u!1 &8162594313822818046
 GameObject:
