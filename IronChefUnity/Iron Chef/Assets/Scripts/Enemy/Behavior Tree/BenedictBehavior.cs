@@ -453,7 +453,7 @@ public class BenedictBehavior : EnemyBehaviorTree
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 GetComponentInChildren<EnemyVFXController>().StartEffect(0);
                 GetComponent<EnemyVFXController>().OneTimeEffects[0].StartEffect();
-                GetComponent<EnemyVFXController>().OneTimeEffects[1].StartEffect();
+                
 
                 Phase2Tip();
             }
@@ -472,7 +472,8 @@ public class BenedictBehavior : EnemyBehaviorTree
                 fast.percentAmount = 0.5f;
                 fast.duration = IronChefUtils.InfiniteDuration;
                 GetComponent<EnemySpeedController>().Modifiers.Add(fast);
-                
+                GetComponent<EnemyVFXController>().OneTimeEffects[1].StartEffect();
+
                 //rollBehavior.rollSpeed *= 1.25f;
                 jumpTime *= 0.75f;
 
