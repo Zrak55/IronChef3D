@@ -37,7 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
-    protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, CheckBehind, RunOnce;
+    protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, JumpBack, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, CheckBehind, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
     [HideInInspector] public bool invincible = false, simpleFlag = true;
@@ -169,6 +169,18 @@ public class EnemyBehaviorTree : MonoBehaviour
             AttackProjectile.status = Node.STATUS.SUCCESS;
         }
         return AttackProjectile.status;
+    }
+
+    public virtual Node.STATUS jumpBack()
+    {
+        if (!isAttackCD && JumpBack.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Back");
+            GetComponent<EnemyJump>().BeginJumping(.3f, (transform.forward * -attackRange * 2) + transform.position);
+        }
+        else if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
+            return JumpBack.status = Node.STATUS.SUCCESS;
+        return JumpBack.status = Node.STATUS.RUNNING;
     }
 
     //This is the part where enemies chase forever after being hurt. Another possible solution is invincibility and full heal when they deaggro (most games do this)

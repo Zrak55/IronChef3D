@@ -54,6 +54,17 @@ public class EnemyJump : MonoBehaviour
         }
     }
 
+    public void BeginJumping(float time, Vector3 target)
+    {
+        if (delay)
+        {
+            agent.enabled = false;
+            storedTime = time;
+        }
+        else
+            LaunchJump(target, time);
+    }
+
     public void BeginJumpingPostDelay()
     {
         transform.LookAt(FindObjectOfType<CharacterMover>().transform);

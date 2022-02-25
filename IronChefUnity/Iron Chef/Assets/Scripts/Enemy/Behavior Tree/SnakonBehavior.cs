@@ -7,7 +7,7 @@ public class SnakonBehavior : EnemyBehaviorTree
 {
     BehaviorTree snakonBehaviorTree;
     EnemyJump enemyJump;
-    private Node CheckPlayer, CheckHurt, CheckAttack, CheckJump;
+    private Node CheckPlayer, CheckHurt, CheckBack, CheckAttack, CheckJump;
     private bool isJumpCD = false;
 
     private void Start()
@@ -29,17 +29,20 @@ public class SnakonBehavior : EnemyBehaviorTree
         CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
         CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
         CheckDoubleRange = new Leaf("Player in Double Range?", checkDoubleRange);
+        CheckBehind = new Leaf("Player behind Enemy?", checkBehind);
         MoveTowards = new Leaf("Move towards player", moveTowards);
         MoveReset = new Leaf("Reset Move", moveReset);
         AttackBasic = new Leaf("Attack", attackBasic);
         AttackSecondary = new Leaf("Jump", attackSecondary);
+        JumpBack = new Leaf("Jump Backwards", jumpBack);
 
         //Setup sequence nodes and root
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
-        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckJump, CheckAttack);
+        CheckBack = new Sequence("Back Jump Sequence", CheckBehind, JumpBack);
+        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckBack, CheckJump, CheckAttack);
     }
     private void Update()
     {
