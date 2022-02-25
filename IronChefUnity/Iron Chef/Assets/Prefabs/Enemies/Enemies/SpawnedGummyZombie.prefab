@@ -189,8 +189,6 @@ MonoBehaviour:
   damaged: 0
   imDead: 0
   deathSound: 27
-  DeathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  DeathParticle: {fileID: 169342410966150083, guid: 0fea80cb5924ae64480f10f584d80e64, type: 3}
 --- !u!114 &2706341915672835633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +427,7 @@ MonoBehaviour:
   effects: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
+  OneTimeEffects: []
 --- !u!114 &2949997752768415059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -897,7 +896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: {fileID: 809333788984174179}
   hpSlider: {fileID: 6481596984739766432}
-  dmgNumber: {fileID: 661864995810591998, guid: b07cb625b15b8da4ca7904c9cafac4ea, type: 3}
+  dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
 --- !u!1 &8665300036915358873
 GameObject:
