@@ -145,6 +145,7 @@ public class PlayerFoodEater : MonoBehaviour
     void RestoreHealth()
     {
         health.RestoreHP(5);
+        hud.FoodParticleHit();
     }
 
     void TryChangeEatTarget()
