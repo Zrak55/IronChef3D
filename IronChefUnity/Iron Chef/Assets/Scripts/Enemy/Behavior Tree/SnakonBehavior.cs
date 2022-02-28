@@ -87,7 +87,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     private IEnumerator Jumping()
     {
         agent.destination = transform.position;
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1);
         simpleFlag = true;
         transform.LookAt(player);
         enemyJump.BeginJumping(enemyJump.time);

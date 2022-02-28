@@ -173,12 +173,12 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS jumpBack()
     {
-        if (!isAttackCD && JumpBack.status != Node.STATUS.RUNNING)
+        if (!isAttackCD && JumpBack.status != Node.STATUS.RUNNING && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
         {
             animator.SetTrigger("Back");
-            GetComponent<EnemyJump>().BeginJumping(.3f, (transform.forward * -attackRange * 2) + transform.position);
+            GetComponent<EnemyJump>().BeginJumping(.3f, (transform.forward * -attackRange) + transform.position);
         }
-        else if (!animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
+        else if (JumpBack.status == Node.STATUS.RUNNING)
             return JumpBack.status = Node.STATUS.SUCCESS;
         return JumpBack.status = Node.STATUS.RUNNING;
     }
