@@ -28,11 +28,21 @@ public class EnemyJump : MonoBehaviour
     private bool hitOn = false;
 
 
+    public int jumpVFXNum = -1;
+
+    EnemyVFXController vfx;
+
+
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyCollider = GetComponent<Collider>();
+        vfx = GetComponent<EnemyVFXController>();
+        if (vfx == null)
+            vfx = GetComponentInParent<EnemyVFXController>();
+        if (vfx == null)
+            vfx = GetComponentInChildren<EnemyVFXController>();
     }
 
     public void BeginJumping(float time)
@@ -120,6 +130,8 @@ public class EnemyJump : MonoBehaviour
     {
         if (shake)
             FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
+
+        vfx.StartEffect(jumpVFXNum);
 
         Physics.IgnoreCollision(enemyCollider, FindObjectOfType<CharacterController>().GetComponent<Collider>(), false);
         foreach (var c in FindObjectOfType<CharacterMover>().GetComponents<Collider>())

@@ -14804,6 +14804,11 @@ MonoBehaviour:
     - particle: {fileID: 7435119535996395336}
     - particle: {fileID: 2125099266857076074}
     trails: []
+  - particles:
+    - particle: {fileID: 8306589103251556222}
+    - particle: {fileID: 4161951740530406519}
+    - particle: {fileID: 2514216068819762706}
+    trails: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
@@ -20020,6 +20025,7 @@ MonoBehaviour:
   adjustRealYValue: 0
   delay: 1
   jumpThrough: 0
+  jumpVFXNum: 1
 --- !u!114 &6952594615532671011
 MonoBehaviour:
   m_ObjectHideFlags: 0

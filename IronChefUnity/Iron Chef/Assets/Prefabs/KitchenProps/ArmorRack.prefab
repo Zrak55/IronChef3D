@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9028420112446175256}
   - component: {fileID: 9020817049122772506}
   - component: {fileID: 9013674693747305880}
+  - component: {fileID: 7310254512501274146}
   m_Layer: 0
   m_Name: ArmorRack
   m_TagString: Untagged
@@ -85,6 +86,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7310254512501274146
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025302809770208848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.563205, y: 0.50618565, z: 0.9610538}
+  m_Center: {x: 0.00028669916, y: 0.18166539, z: -0.000030514222}
 --- !u!1001 &933751748739209201
 PrefabInstance:
   m_ObjectHideFlags: 0
