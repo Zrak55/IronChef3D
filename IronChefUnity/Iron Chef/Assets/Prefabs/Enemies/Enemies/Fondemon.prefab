@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5339553856097830202}
   - component: {fileID: 341589788208570005}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: SpitChunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4875,7 +4875,7 @@ GameObject:
   - component: {fileID: 4671797694081502441}
   - component: {fileID: 257741493719736908}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: SpitParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
