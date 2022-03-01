@@ -1,27 +1,15 @@
 Task List 02/18 - 02/25
 
 Alex:
-UI controls
-Implement more pots
-Damage numbers
-Number balancing
-Redesign the starting hub
-
 Continue new HUB
 Add NPCs to tutorial
 Touch up Crustacean animations
 
 Spencer:
-Potatogre boulder.
-Meatle new power
-Implement new benedict roll (in code and animator)
-
 Onion Knight Improvements
 Jump Back feature for enemies
 
 Wiliam:
-Implement Snakon Strip
-Rig Crustacean
 Update Benedict Anims and Rig
 
 Touch up Snakon Strip
@@ -31,19 +19,11 @@ Zach:
 Touch up Egg Shell
 Touch up sludge pool
 
-Touch up Egg Shell
-Touch up sludge pool
-
 Kris:
-Finish Fondemon Spit
-Tomatroll jump effect
-
 Finish Fondemon Spit
 Fondemon projectile hit
 
 
 From last week that was missed
-Zach - fudge sludge half done
-	Benedict egg shell still needs heaps of work.
+Zach - Fudge sludge and benedict not done yet
 Kris - Fondemon spit not up to scuff
-Lin - Snakon Strip not implemented yet
