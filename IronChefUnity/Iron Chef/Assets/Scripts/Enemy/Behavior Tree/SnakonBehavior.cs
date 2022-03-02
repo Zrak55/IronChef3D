@@ -9,6 +9,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     EnemyJump enemyJump;
     private Node CheckPlayer, CheckHurt, CheckBack, CheckAttack, CheckJump;
     private bool isJumpCD = false;
+    private float snakonJumpAnimTime = 1;
 
     private void Start()
     {
@@ -87,7 +88,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     private IEnumerator Jumping()
     {
         agent.destination = transform.position;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(snakonJumpAnimTime);
         simpleFlag = true;
         transform.LookAt(player);
         enemyJump.BeginJumping(enemyJump.time);

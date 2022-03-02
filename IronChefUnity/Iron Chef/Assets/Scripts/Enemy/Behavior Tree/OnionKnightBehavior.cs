@@ -53,7 +53,6 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         else
             invincible = false;
 
-        //Obviously, this code interacts unfavorably with the speed mods. Needs fix at some point.
         if (simpleFlag == false && aggrod == true)
         {
             enemySpeed.enabled = false;
