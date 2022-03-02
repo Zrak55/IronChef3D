@@ -4814,6 +4814,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 868291270129793268}
+  - component: {fileID: 5112609197502949032}
   m_Layer: 0
   m_Name: fudge
   m_TagString: Untagged
@@ -4837,6 +4838,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5112609197502949032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958063316010771129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155277b469ff9e44698b20e95035b117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dps: 60
+  radius: 1
+  particles: {fileID: 6974044966503530099}
 --- !u!1 &6881570297235393111
 GameObject:
   m_ObjectHideFlags: 0
