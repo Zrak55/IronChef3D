@@ -62,6 +62,8 @@ public class OnionKnightBehavior : EnemyBehaviorTree
                 midpoint = Vector3.zero;
             agent.destination = transform.position + midpoint;
             agent.speed = speed * 25;
+            if (Vector3.Angle(agent.velocity, new Vector3(player.position.x - transform.position.x, 0, player.position.z - transform.position.z)) > 100)
+                agent.velocity = Vector3.zero;
             agent.acceleration = acceleration * 25;
         }
         else
