@@ -12,7 +12,9 @@ public class MeatosaurusBreath : MonoBehaviour
     PlayerHitpoints php;
     MeatosaurusBehavior behavior;
     bool haventTipped = false;
-    public GameObject breathEffect;
+    //public GameObject breathEffect;
+    EnemyVFXController vfx;
+    public int VFXNumber;
 
     public float DamagePerSecond;
 
@@ -30,6 +32,7 @@ public class MeatosaurusBreath : MonoBehaviour
         behavior = GetComponent<MeatosaurusBehavior>();
         effect = GetComponent<MeatosaurusLightBreathEffect>();
         firstBreath = true;
+        vfx = GetComponent<EnemyVFXController>();
     }
 
     // Update is called once per frame
@@ -46,7 +49,8 @@ public class MeatosaurusBreath : MonoBehaviour
         MakeBreathSound();
         breathing = true;
         haventTipped = true;
-        breathEffect.SetActive(true);
+        //breathEffect.SetActive(true);
+        vfx.StartEffect(VFXNumber);
     }
 
     public void StopBreathing()
@@ -56,7 +60,8 @@ public class MeatosaurusBreath : MonoBehaviour
         breathing = false;
         GetComponent<MeatosaurusStomp>().DestroyAllRocks();
         effect.StopEffect();
-        breathEffect.SetActive(false);
+        //breathEffect.SetActive(false);
+        vfx.EndEffect(VFXNumber);
     }
 
     public void BreathTick()
