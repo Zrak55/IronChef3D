@@ -1,29 +1,33 @@
-Task List 02/18 - 02/25
+Task List 02/25 - 03/04
 
 Alex:
 Continue new HUB
 Add NPCs to tutorial
-Touch up Crustacean animations
+Redo Crustacean animations
+Playtest bug list/suggestions
 
 Spencer:
 Onion Knight Improvements
 Jump Back feature for enemies
+Playtest bug list/suggestions
 
 Wiliam:
+Implement Snakon Strip
 Update Benedict Anims and Rig
-
-Touch up Snakon Strip
-Update Benedict Anims and Rig
+Playtest bug list/suggestions
 
 Zach:
-Touch up Egg Shell
-Touch up sludge pool
+Egg Shell effect
+sludge pool effect
+Playtest bug list/suggestions
 
 Kris:
 Finish Fondemon Spit
 Fondemon projectile hit
+Playtest bug list/suggestions
 
 
 From last week that was missed
-Zach - Fudge sludge and benedict not done yet
+Zach - fudge sludge half done
+	Benedict egg shell still needs heaps of work.
 Kris - Fondemon spit not up to scuff

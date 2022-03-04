@@ -15614,7 +15614,7 @@ MonoBehaviour:
   damage: 10
   damagePercentIncreaseEachHit: 0.1
   scalarResetTime: 3
-  maxPercentDamage: 3
+  maxPercentDamage: 2
   baseCritValue: 0
 --- !u!1 &5006469806543601705
 GameObject:
