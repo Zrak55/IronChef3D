@@ -130,7 +130,12 @@ public class EnemyVFXController : MonoBehaviour
                     go.transform.SetParent(null);
                     if(ejectionForce > 0)
                     {
-                        go.GetComponent<Rigidbody>()?.AddForce((go.transform.position - vfx.transform.position).normalized * ejectionForce);
+                        var center = go.transform.position;
+                        var mr = go.GetComponent<MeshRenderer>();
+                        if (mr != null)
+                            center = mr.bounds.center;
+
+                        go.GetComponent<Rigidbody>()?.AddForce((center - vfx.transform.position).normalized * ejectionForce);
                     }
                     Destroy(go, liveTime);
                 }

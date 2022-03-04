@@ -466,7 +466,6 @@ public class BenedictBehavior : EnemyBehaviorTree
 
                 GetComponent<EnemyDamageTakenModifierController>().AddMod(DamageTakenModifier.ModifierName.BenedictDouble, 1, IronChefUtils.InfiniteDuration);
                 GetComponentInChildren<EnemyVFXController>().StartEffect(1);
-                GetComponentInChildren<EnemyVFXController>().StartEffect(1);
                 SpeedEffector fast = new SpeedEffector();
                 fast.effectName = SpeedEffector.EffectorName.BenedictSpeed;
                 fast.percentAmount = 0.5f;

@@ -1,33 +1,30 @@
-Task List 02/25 - 03/04
+Task List 03/04 - 03/11
 
 Alex:
-Continue new HUB
-Add NPCs to tutorial
-Redo Crustacean animations
-Playtest bug list/suggestions
+Fix level 4 layout bugs
+Revert to Auto-Loot
+Increase Hydravioli Aggro Range
+Fix tutorial sizing issues
+Power/Appliance save on respawn
+Implement Frying Pan bounce
 
 Spencer:
-Onion Knight Improvements
-Jump Back feature for enemies
-Playtest bug list/suggestions
+Tomatroll jump if in melee, behind tomatroll, and jump off CD
+Increase benedict NavMesh spin speed and acceleration
+Tune up Snakon strip jump (height, travel speed, etc)
+Increase some enemy damage numbers (Specifically Tomatroll and Potatogre)
 
 Wiliam:
-Implement Snakon Strip
-Update Benedict Anims and Rig
-Playtest bug list/suggestions
+Benedict rig and anims
 
 Zach:
-Egg Shell effect
-sludge pool effect
-Playtest bug list/suggestions
+finish sludge pool effect
+Player hit something effect
 
 Kris:
-Finish Fondemon Spit
-Fondemon projectile hit
-Playtest bug list/suggestions
+Finish Fondemon projectile hit
+Potatogre boulder explode
 
 
 From last week that was missed
-Zach - fudge sludge half done
-	Benedict egg shell still needs heaps of work.
-Kris - Fondemon spit not up to scuff
+Zach - fudge sludge not complete
