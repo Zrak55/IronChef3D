@@ -16,6 +16,8 @@ public class EnemyProjectile : MonoBehaviour
 
     public SoundEffectSpawner.SoundEffect ProjectileSoundEffect;
 
+    EnemyVFXController vfx;
+    [SerializeField] private int vfxNumber = -1;
 
     private void OnEnable()
     {
@@ -23,12 +25,20 @@ public class EnemyProjectile : MonoBehaviour
         enemyMove = gameObject.GetComponent<EnemyMove>();
         if (enemyMove == null)
             isAggro = true;
+
+        vfx = GetComponent<EnemyVFXController>();
+        if (vfx == null)
+            vfx = GetComponentInParent<EnemyVFXController>();
+        if (vfx == null)
+            vfx = GetComponentInChildren<EnemyVFXController>();
+
     }
 
     public void projectileAttack()
     {
         SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, ProjectileSoundEffect);
         Instantiate(projectile, gameObject.transform.position + spawn, gameObject.transform.rotation);
+        vfx?.StartEffect(vfxNumber);
         if (!isAggro)
             anim.SetTrigger("Projectile");
     }

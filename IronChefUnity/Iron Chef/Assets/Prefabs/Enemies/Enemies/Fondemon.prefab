@@ -40,7 +40,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 386289100708363412}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1.1
   stopAction: 0
   cullingMode: 0
@@ -4903,7 +4903,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 525846804841716648}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 0.5
   simulationSpeed: 1.1
   stopAction: 0
   cullingMode: 0
@@ -5147,7 +5147,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.03
+      scalar: 0.06
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -10259,6 +10259,7 @@ MonoBehaviour:
   projectile: {fileID: 4088226268673702336, guid: 965873f1096ced94dad5021ec0a4c17e, type: 3}
   spawn: {x: 0, y: 1.49, z: 0}
   ProjectileSoundEffect: 15
+  vfxNumber: 0
 --- !u!114 &4930875670775333374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10271,7 +10272,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8d8cf4ebd028b47b6f3cd43beb0f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effects: []
+  effects:
+  - particles:
+    - particle: {fileID: 5339553856097830202}
+    - particle: {fileID: 4671797694081502441}
+    trails: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
