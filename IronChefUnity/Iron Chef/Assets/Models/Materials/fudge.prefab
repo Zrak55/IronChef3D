@@ -9712,7 +9712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155277b469ff9e44698b20e95035b117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dps: 60
+  dps: 40
   radius: 1
   particles: {fileID: 6974044966503530099}
 --- !u!1 &6974044966503530099
