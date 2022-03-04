@@ -55,7 +55,7 @@ public class FudgeSludgeBehavior : EnemyBehaviorTree
 
     private IEnumerator SpawnSludge()
     {
-        Instantiate(sludge, transform.position + transform.forward * -5, transform.rotation);
+        Instantiate(sludge, transform.position + transform.forward * -.05f, transform.rotation);
         yield return new WaitForSeconds(3);
         StartCoroutine("SpawnSludge");
     }
