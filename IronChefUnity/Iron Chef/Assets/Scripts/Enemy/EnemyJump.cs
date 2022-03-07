@@ -102,7 +102,7 @@ public class EnemyJump : MonoBehaviour
         Vector3 startPos = transform.position;
         while (cTime < time)
         {
-            if (cTime >= time / 2 && hitOn == false && animHit == false)
+            if (cTime >= (2 * time) / 3 && hitOn == false && animHit == false)
             {
 
                 jumpHitbox.HitOn(); //Hello there

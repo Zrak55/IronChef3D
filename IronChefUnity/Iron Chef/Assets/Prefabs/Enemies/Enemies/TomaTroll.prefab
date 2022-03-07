@@ -4923,7 +4923,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 25
+  damage: 35
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &89708288266705176
@@ -14829,6 +14829,7 @@ MonoBehaviour:
   - {fileID: 1609249735737966303}
   - {fileID: 3455330500867566786}
   - {fileID: 3471940557902311021}
+  enemyBehaviorTree: {fileID: 0}
 --- !u!1 &1269663984311588696
 GameObject:
   m_ObjectHideFlags: 0
@@ -14890,7 +14891,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 20
+  damage: 25
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &3182044534722952411
@@ -19816,7 +19817,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 20
+  damage: 30
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &3856517895618374344
@@ -30161,7 +30162,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 10
+  damage: 20
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!1 &7786948733493607019
@@ -30526,7 +30527,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 20
+  damage: 30
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!1001 &2136637989906970704
