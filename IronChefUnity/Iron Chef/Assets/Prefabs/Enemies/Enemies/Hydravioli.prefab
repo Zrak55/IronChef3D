@@ -259,6 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 11
   pickupPrefab: {fileID: 5796176345864650987, guid: 5dabdf4cfe7b2d845bd9843ee9ac397c, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &3919037309518572097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,8 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 40
-  spawnRange: 90
+  aggroRange: 115
+  spawnRange: 1000
   attackRange: 1000
   attackCD: 0
   attackAngle: 360

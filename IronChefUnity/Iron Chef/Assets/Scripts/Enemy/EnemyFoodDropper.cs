@@ -6,6 +6,7 @@ public class EnemyFoodDropper : MonoBehaviour
 {
     public FoodType food;
     public GameObject pickupPrefab;
+    public bool AutoPickupFoodOnDeath = true;
 
 
     // Start is called before the first frame update
@@ -26,6 +27,8 @@ public class EnemyFoodDropper : MonoBehaviour
         {
             var pickup = Instantiate(pickupPrefab, transform.position, transform.rotation).GetComponent<EnemyFoodPickup>();
             pickup.SetFood(food);
+            if (AutoPickupFoodOnDeath)
+                pickup.Award();
         }
         else
         {
