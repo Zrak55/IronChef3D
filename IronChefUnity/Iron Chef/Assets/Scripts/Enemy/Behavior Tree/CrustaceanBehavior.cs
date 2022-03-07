@@ -42,10 +42,6 @@ public class CrustaceanBehavior : EnemyBehaviorTree
     private void Update()
     {
         crustaceanBehaviorTree.behavior();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Shell"))
-            invincible = true;
-        else
-            invincible = false;
     }
 
     public override Node.STATUS attackBasic()

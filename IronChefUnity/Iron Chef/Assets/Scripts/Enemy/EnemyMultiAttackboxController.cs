@@ -7,9 +7,10 @@ public class EnemyMultiAttackboxController : MonoBehaviour
     // Start is called before the first frame update
 
     public List<EnemyBasicAttackbox> attacks;
+    public EnemyBehaviorTree enemyBehaviorTree;
     void Start()
     {
-        
+        enemyBehaviorTree = GetComponentInParent<EnemyBehaviorTree>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,16 @@ public class EnemyMultiAttackboxController : MonoBehaviour
             attacks[i].HitOff();
 
         }
+    }
+
+    public void InvincibilityOn()
+    {
+        enemyBehaviorTree.invincible = true;
+    }
+
+    public void InvincibilityOff()
+    {
+        enemyBehaviorTree.invincible = false;
     }
 
     public void PlayAttackSound(int value)
