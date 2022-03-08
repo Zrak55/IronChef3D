@@ -22,11 +22,20 @@ public class PlayerProjectile : MonoBehaviour
 
     List<EnemyHitpoints> allhits;
 
+    [Header("Bouncing")]
+    public bool bounces = false;
+    public int numBounces = 0;
+    public float bounceRange = 0f;
+
+    private int currentBounces = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         allhits = new List<EnemyHitpoints>();
+
+        if (bounces)
+            multiHit = true;
     }
 
     // Update is called once per frame
@@ -61,7 +70,7 @@ public class PlayerProjectile : MonoBehaviour
         var enemyHealth = other.gameObject.GetComponentInParent<EnemyHitpoints>();
         if (enemyHealth != null)
         {
-            if (multiHit || !hit)
+            if (multiHit || !hit || bounces)
             {
                 if(!allhits.Contains(enemyHealth))
                 {
@@ -70,13 +79,63 @@ public class PlayerProjectile : MonoBehaviour
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, HitSound);
                     enemyHealth.TakeDamage(damage);
                     ApplyHitEffects();
-                    if (!multiHit)
+                    if (!multiHit || (bounces && currentBounces >= numBounces))
                         Destroy(gameObject);
+
+                    if(bounces)
+                    {
+                        currentBounces++;
+                        var newBounce = GetBounceTarget(enemyHealth);
+                        if(newBounce == null)
+                        {
+                            Destroy(gameObject);
+                        }    
+                        else
+                        {
+                            transform.LookAt(newBounce.transform);
+                            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, transform.rotation.eulerAngles.z);
+                            FireProjectile(new Vector3(newBounce.transform.position.x, transform.position.y, newBounce.transform.position.z));
+                        }
+
+                    }
                 }
             }
         }
         
         
+    }
+
+    private EnemyHitpoints GetBounceTarget(EnemyHitpoints currentHit, bool firstTry = true)
+    {
+        EnemyHitpoints bounceT = null;
+        var cols = Physics.OverlapSphere(transform.position, bounceRange, 1 << LayerMask.NameToLayer("Enemy"));
+        float dist = Mathf.Infinity;
+        foreach (var e in cols)
+        {
+            var eh = e.GetComponent<EnemyHitpoints>();
+            if (eh != null)
+            {
+                if (eh != currentHit && allhits.Contains(eh) == false)
+                {
+                    float nd = Vector3.Distance(transform.position, eh.transform.position);
+                    if (nd < dist)
+                    {
+                        dist = nd;
+                        bounceT = eh;
+                    }
+                }
+
+            }
+        }
+
+        if(bounceT == null && firstTry)
+        {
+            allhits.Clear();
+            allhits.Add(currentHit);
+            bounceT = GetBounceTarget(currentHit, false);
+        }
+
+        return bounceT;
     }
 
     public virtual void FireProjectile(Vector3 target)
