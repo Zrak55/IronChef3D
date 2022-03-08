@@ -44,7 +44,7 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
     public override Node.STATUS moveTowards()
     {
         if (!aggrod)
-            musicManager.combatCount++;
+            PlayerHitpoints.CombatCount++;
         aggrod = true;
 
         //Movement calculations

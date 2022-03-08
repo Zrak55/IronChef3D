@@ -50,7 +50,7 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
         //Music and sound effects
         if (aggrod)
-            musicManager.combatCount--;
+            PlayerHitpoints.CombatCount++;
         aggrod = false;
 
         //Movement
@@ -70,7 +70,7 @@ public class IsobeanBehavior : EnemyBehaviorTree
     {
         //Music
         if (!aggrod)
-            musicManager.combatCount++;
+            PlayerHitpoints.CombatCount++;
         aggrod = true;
         return base.attackProjectile();
     }

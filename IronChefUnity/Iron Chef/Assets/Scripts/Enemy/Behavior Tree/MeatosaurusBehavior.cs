@@ -503,7 +503,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
-                music.combatCount++;
+                PlayerHitpoints.CombatCount++;
 
                 if (bossWallEnter.activeSelf == false)
                     bossWallEnter.SetActive(true);
@@ -530,7 +530,7 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
         }
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
         if (aggrod)
-            music.combatCount--;
+            PlayerHitpoints.CombatCount--;
         aggrod = false;
 
         return PlayerSpawnRange.status;

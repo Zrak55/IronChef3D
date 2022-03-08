@@ -9,12 +9,11 @@ public class MusicManager : MonoBehaviour
     public List<AudioClip> normalClips;
     public List<AudioClip> combatClips;
 
-    GameObject player;
+    PlayerHitpoints player;
 
     int currentNormalClip;
     int currentCombatClip;
 
-    public int combatCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +31,7 @@ public class MusicManager : MonoBehaviour
     void Update()
     {
         if(player == null)
-            player = FindObjectOfType<CharacterMover>()?.gameObject;
+            player = FindObjectOfType<PlayerHitpoints>();
         updateMusicVolume();
         updateMusicClips();
     }
@@ -41,8 +40,9 @@ public class MusicManager : MonoBehaviour
     {
         if (player != null)
         {
+            
 
-            bool inCombat = combatCount > 0;
+            bool inCombat = PlayerHitpoints.InCombat();
 
             if (inCombat)
             {

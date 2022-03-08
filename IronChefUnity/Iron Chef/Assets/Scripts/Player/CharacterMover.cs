@@ -254,7 +254,7 @@ public class CharacterMover : MonoBehaviour
 
         if(sprintToggled && !rolling && canSprint && inputDirection != Vector3.zero)
         {
-            if(stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
+            if(PlayerHitpoints.InCombat() == false || stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
             {
                 sprinting = true;
             }

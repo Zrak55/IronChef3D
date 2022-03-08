@@ -393,7 +393,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
-                music.combatCount++;
+                PlayerHitpoints.CombatCount++;
 
                 bossWallEnter.SetActive(false);
                // bossWallFog.SetActive(true);
@@ -426,7 +426,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         }
         PlayerSpawnRange.status = Node.STATUS.FAILURE;
         if (aggrod)
-            music.combatCount--;
+            PlayerHitpoints.CombatCount--;
         aggrod = false;
 
         return PlayerSpawnRange.status;

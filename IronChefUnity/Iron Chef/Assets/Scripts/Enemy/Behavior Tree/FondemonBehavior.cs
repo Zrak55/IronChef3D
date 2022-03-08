@@ -45,7 +45,7 @@ public class FondemonBehavior : EnemyBehaviorTree
 
         //Music and sound effects
         if (aggrod)
-            musicManager.combatCount--;
+            PlayerHitpoints.CombatCount--;
         aggrod = false;
         if (idleSound == null && idleSoundEffect != null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);

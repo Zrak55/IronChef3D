@@ -91,7 +91,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
 
 
-            musicManager.combatCount++;
+            PlayerHitpoints.CombatCount++;
         }
         aggrod = true;
         ImAggrod.status = Node.STATUS.SUCCESS;

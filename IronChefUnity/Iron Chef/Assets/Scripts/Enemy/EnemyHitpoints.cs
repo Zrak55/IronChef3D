@@ -114,7 +114,7 @@ public class EnemyHitpoints : MonoBehaviour
             {
                 if (GetComponent<EnemyBehaviorTree>().isAggrod())
                 {
-                    FindObjectOfType<MusicManager>().combatCount--;
+                    PlayerHitpoints.CombatCount--;
                 }
             }
 

@@ -130,7 +130,7 @@ public class ChapterManager : MonoBehaviour
             UnlocksManager.UnlockLevel(ChapterNumber.ToString() + "-" + currentLevel.ToString());
             DisplayLevelScore(score);
             StartLevel(currentLevel);
-            FindObjectOfType<MusicManager>().combatCount = 0;
+            PlayerHitpoints.CombatCount = 0;
         }
     }
 

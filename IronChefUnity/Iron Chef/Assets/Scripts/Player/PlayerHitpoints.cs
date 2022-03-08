@@ -17,6 +17,10 @@ public class PlayerHitpoints : MonoBehaviour
     bool isDead = false;
     bool isGetHitSoundDelay = false;
 
+    public static int CombatCount = 0;
+
+
+
     private void Awake()
     {
         playerStats = gameObject.GetComponent<PlayerStats>();
@@ -25,6 +29,11 @@ public class PlayerHitpoints : MonoBehaviour
         pcam = FindObjectOfType<PlayerCamControl>();
         mods = GetComponent<PlayerDamageTakenModifierController>();
         isDead = false;
+    }
+
+    public static bool InCombat()
+    {
+        return CombatCount > 0;
     }
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver, bool IgnoresIframes = false)
