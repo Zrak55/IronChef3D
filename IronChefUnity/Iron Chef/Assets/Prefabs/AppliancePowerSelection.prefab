@@ -772,6 +772,8 @@ MonoBehaviour:
   firstSelectButton: {fileID: 172127739777072707}
   firstPowerButton: {fileID: 172127739606567636}
   firstApplianceButton: {fileID: 172127738918501069}
+  powerPages: {fileID: 8943518568967132405}
+  appliancePages: {fileID: 8288285380836891552}
 --- !u!1 &172127739391143412
 GameObject:
   m_ObjectHideFlags: 0

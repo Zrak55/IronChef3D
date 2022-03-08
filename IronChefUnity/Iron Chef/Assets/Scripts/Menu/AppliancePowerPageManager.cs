@@ -20,27 +20,44 @@ public class AppliancePowerPageManager : MonoBehaviour
     }
     private void Start()
     {
-        if(firstOn)
+        
+    }
+
+    public void StartThings()
+    {
+        if (firstOn)
         {
             currentIndex = -1;
-            LoadNextPage();
+            LoadNextPage(false);
             autoSelect = true;
             firstOn = false;
         }
     }
+
+
     public void LoadNextPage()
+    {
+        LoadNextPage(true);
+    }
+
+    public void LoadNextPage(bool setPref)
     {
         ForwardIndex();
         TurnOffAllPages();
-        TurnOnCurrentPage();
+        TurnOnCurrentPage(setPref);
         SetNav();
 
     }
+
     public void LoadPrevPage()
+    {
+        LoadPrevPage(true);
+    }
+    public void LoadPrevPage(bool setPref)
     {
         BackwardIndex();
         TurnOffAllPages();
-        TurnOnCurrentPage();
+        TurnOnCurrentPage(setPref);
         SetNav();
         
     }
@@ -50,16 +67,22 @@ public class AppliancePowerPageManager : MonoBehaviour
         foreach (var p in pages)
             p.gameObject.SetActive(false);
     }
-    public void TurnOnCurrentPage()
+
+    public void TurnOnCurrentPage(bool setPref)
     {
         pages[currentIndex].gameObject.SetActive(true);
         if (autoSelect)
         {
             pages[currentIndex].lastButton.GetComponent<ApplianceButton>()?.AwakeSelf();
-            pages[currentIndex].lastButton.GetComponent<ApplianceButton>()?.SelectAppliance();
+            pages[currentIndex].lastButton.GetComponent<ApplianceButton>()?.SelectAppliance(setPref);
             pages[currentIndex].lastButton.GetComponent<PowerButton>()?.AwakeSelf();
-            pages[currentIndex].lastButton.GetComponent<PowerButton>()?.SelectPower();
+            pages[currentIndex].lastButton.GetComponent<PowerButton>()?.SelectPower(setPref);
         }
+    }
+
+    public void TurnOnCurrentPage()
+    {
+        TurnOnCurrentPage(true);
     }
 
     void ForwardIndex()
@@ -73,6 +96,28 @@ public class AppliancePowerPageManager : MonoBehaviour
         currentIndex--;
         if (currentIndex < 0)
             currentIndex = pages.Count - 1;
+    }
+
+    public string LastPowerButtonName()
+    {
+        string ret = "";
+
+        if (pages[currentIndex].lastButton.GetComponent<PowerButton>() != null)
+            ret = pages[currentIndex].lastButton.GetComponent<PowerButton>().power.powerName.ToString();
+
+
+        return ret;
+    }
+
+    public string LastApplianceButtonName()
+    {
+        string ret = "";
+
+        if (pages[currentIndex].lastButton.GetComponent<ApplianceButton>() != null)
+            ret = pages[currentIndex].lastButton.GetComponent<ApplianceButton>().appliance.applianceName.ToString();
+
+
+        return ret;
     }
 
     void SetNav()

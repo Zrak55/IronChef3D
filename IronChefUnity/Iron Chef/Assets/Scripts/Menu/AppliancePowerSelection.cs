@@ -23,6 +23,11 @@ public class AppliancePowerSelection : MonoBehaviour
 
     bool firstOn = true;
 
+    const string PowerPref = "SelectedPower";
+    const string AppliancePref = "SelectedAppliance";
+
+    public AppliancePowerPageManager powerPages;
+    public AppliancePowerPageManager appliancePages;
 
 
     private void OnEnable()
@@ -45,8 +50,33 @@ public class AppliancePowerSelection : MonoBehaviour
 
         if(firstOn)
         {
-            firstPowerButton.SelectPower();
-            firstApplianceButton.SelectAppliance();
+            //firstPowerButton.SelectPower();
+            //firstApplianceButton.SelectAppliance();
+
+            string power = PlayerPrefs.GetString(PowerPref, "");
+            string appliance = PlayerPrefs.GetString(AppliancePref, "");
+
+            if (power == "")
+                power = "Molapeno";
+            if (appliance == "")
+                appliance = "Fridge";
+
+            powerPages.StartThings();
+            string p = "";
+            while(p != power)
+            {
+                powerPages.LoadNextPage(false);
+                p = powerPages.LastPowerButtonName();
+            }
+
+            appliancePages.StartThings();
+            string a = "";
+            while (a != appliance)
+            {
+               appliancePages.LoadNextPage(false);
+               a = appliancePages.LastApplianceButtonName();
+            }
+
             firstOn = false;
         }
 
@@ -68,10 +98,13 @@ public class AppliancePowerSelection : MonoBehaviour
     {
 
     }
-    public void SelectPower(PlayerPowerScriptable powerScriptable)
+    public void SelectPower(PlayerPowerScriptable powerScriptable, bool setPref = true)
     {
 
         PlayerPower power = null;
+
+        if(setPref)
+            PlayerPrefs.SetString(PowerPref, powerScriptable.powerName.ToString());
 
         switch(powerScriptable.powerName)
         {
@@ -124,10 +157,13 @@ public class AppliancePowerSelection : MonoBehaviour
             }
     }
 
-    public void SelectAppliance(PlayerApplianceScriptable applianceScriptable)
+    public void SelectAppliance(PlayerApplianceScriptable applianceScriptable, bool setPref = true)
     {
 
         Appliance appliance = null;
+
+        if(setPref)
+            PlayerPrefs.SetString(AppliancePref, applianceScriptable.applianceName.ToString());
 
         switch (applianceScriptable.applianceName)
         {

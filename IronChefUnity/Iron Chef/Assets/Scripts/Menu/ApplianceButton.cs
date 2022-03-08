@@ -52,7 +52,7 @@ public class ApplianceButton : MonoBehaviour
         GetComponent<Image>().sprite = PlayerHUDManager.PlayerHud.GetApplianceImage(appliance.applianceName);
     }
 
-    public void SelectAppliance()
+    public void SelectAppliance(bool setPref)
     {
         if (isLocked)
         {
@@ -61,8 +61,13 @@ public class ApplianceButton : MonoBehaviour
         else
         {
 
-            GetComponentInParent<AppliancePowerSelection>().SelectAppliance(appliance);
+            GetComponentInParent<AppliancePowerSelection>().SelectAppliance(appliance, setPref);
         }
+    }
+
+    public void SelectAppliance()
+    {
+        SelectAppliance(true);
     }
 
     public void CheckIfUnlocked()

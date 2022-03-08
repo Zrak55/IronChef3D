@@ -54,13 +54,18 @@ public class PowerButton : MonoBehaviour
 
     public void SelectPower()
     {
+        SelectPower(true);
+    }
+
+    public void SelectPower(bool setPref)
+    {
         if(isLocked)
         {
 
         }
         else
         {
-            GetComponentInParent<AppliancePowerSelection>().SelectPower(power);
+            GetComponentInParent<AppliancePowerSelection>().SelectPower(power, setPref);
 
         }
     }
