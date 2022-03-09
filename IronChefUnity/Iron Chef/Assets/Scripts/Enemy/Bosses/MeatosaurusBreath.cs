@@ -23,6 +23,7 @@ public class MeatosaurusBreath : MonoBehaviour
     [HideInInspector]
     public bool firstBreath;
 
+    public Transform HeadPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +52,14 @@ public class MeatosaurusBreath : MonoBehaviour
         haventTipped = true;
         //breathEffect.SetActive(true);
         vfx.StartEffect(VFXNumber);
+        GetComponent<MeatosaurusStomp>().DestroyRocksAtHead(HeadPoint);
+        GetComponent<MeatosaurusStomp>().SwapAllRocks();
+    }
+
+    public void WarnHeadRocks()
+    {
+
+        GetComponent<MeatosaurusStomp>().WarnRocksAtHead(HeadPoint);
     }
 
     public void StopBreathing()

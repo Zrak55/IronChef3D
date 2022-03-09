@@ -22,6 +22,8 @@ public class MeatosaurusStomp : MonoBehaviour
     [SerializeField]
     private EnemyBasicAttackbox hitbox;
 
+    public Material BurningRockMat;
+
     private void Start()
     {
         chosenPoints = new List<Transform>();
@@ -37,6 +39,55 @@ public class MeatosaurusStomp : MonoBehaviour
         chosenPoints.Clear();
     }
 
+    public void DestroyRocksAtHead(Transform head)
+    {
+        foreach(var go in currentRocks)
+        {
+            if(Vector3.Distance(head.position, go.transform.position) <= 10)
+            {
+                Destroy(go);
+            }
+        }    
+    }
+
+    public void WarnRocksAtHead(Transform head)
+    {
+        foreach (var go in currentRocks)
+        {
+            if (Vector3.Distance(head.position, go.transform.position) <= 10)
+            {
+                var mrs = go.GetComponentsInChildren<MeshRenderer>();
+                foreach(var mr in mrs)
+                {
+                    var mats = mr.materials;
+                    mats[0] = BurningRockMat;
+                    mr.materials = mats;
+                    mr.UpdateGIMaterials();
+
+                }
+            }
+        }
+    }
+
+    public void SwapAllRocks()
+    {
+        foreach (var go in currentRocks)
+        {
+            if (go != null)
+            {
+                var mrs = go.GetComponentsInChildren<MeshRenderer>();
+                foreach (var mr in mrs)
+                {
+                    var mats = mr.materials;
+                    mats[0] = BurningRockMat;
+                    mr.materials = mats;
+                    mr.UpdateGIMaterials();
+
+                }
+            }
+        }
+    }
+
     public void DoStomp()
     {
         pcam.ShakeCam(5, 2);
@@ -50,11 +101,11 @@ public class MeatosaurusStomp : MonoBehaviour
             while(!goodPoint)
             {
                 rand = Random.Range(0, rockPoints.Count);
-                if (!chosenPoints.Contains(rockPoints[i]))
+                if (!chosenPoints.Contains(rockPoints[rand]) && Vector3.Distance(rockPoints[rand].transform.position, transform.position) >= 12)
                 {
                     goodPoint = true;
                 }
-                else if(attempts >= 20)
+                else if(attempts >= 50)
                 {
                     goodPoint = true;
                 }
@@ -104,7 +155,8 @@ public class MeatosaurusStomp : MonoBehaviour
     public void DestroyAllRocks()
     {
         foreach (var go in currentRocks)
-            Destroy(go);
+            if(go != null)
+                Destroy(go);
         currentRocks.Clear();
         ResetStomp();
     }

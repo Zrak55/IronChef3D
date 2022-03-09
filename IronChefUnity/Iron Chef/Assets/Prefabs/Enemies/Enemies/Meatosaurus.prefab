@@ -3301,6 +3301,7 @@ MonoBehaviour:
   VFXNumber: 0
   DamagePerSecond: 17.5
   firstBreath: 0
+  HeadPoint: {fileID: 5182336246451896396}
 --- !u!114 &3190458747244206121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3408,6 +3409,7 @@ MonoBehaviour:
   rockDamage: 10
   rockFallAnimTime: 0.26666668
   hitbox: {fileID: 6476236327532816759}
+  BurningRockMat: {fileID: 2100000, guid: b7bcd7c6b3acb3241b0d5af1a358b19b, type: 2}
 --- !u!114 &4488138851683392478
 MonoBehaviour:
   m_ObjectHideFlags: 0
