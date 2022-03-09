@@ -3209,6 +3209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 7
   pickupPrefab: {fileID: 5796176345864650987, guid: 2e8a732da4ed0414087be21ac267b836, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &4798391828614751253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3402,7 +3403,7 @@ MonoBehaviour:
   fallDelay: 2
   rockPrefab: {fileID: 100000, guid: e4199836ecdb64c48a5e5e3f3ab0c4fc, type: 3}
   targeterPrefab: {fileID: 6882707936818889616, guid: 479c1fd23eed4794a91d773294869da2, type: 3}
-  rocksPerStomp: 5
+  rocksPerStomp: 4
   force: 10
   rockDamage: 10
   rockFallAnimTime: 0.26666668
@@ -3422,6 +3423,7 @@ MonoBehaviour:
   attacks:
   - {fileID: 8553284074534129276}
   - {fileID: 5365786567529179479}
+  enemyBehaviorTree: {fileID: 0}
 --- !u!95 &7329030326440159370
 Animator:
   serializedVersion: 3
@@ -3850,11 +3852,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.82
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.58
+      value: 8.6
       objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_LocalRotation.w

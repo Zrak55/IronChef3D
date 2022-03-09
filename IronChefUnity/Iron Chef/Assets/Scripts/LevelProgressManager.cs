@@ -138,6 +138,8 @@ public class LevelProgressManager : MonoBehaviour
         ingredientThreeType = level.ingredientThreeType;
         ingredientFourType = level.ingredientFourType;
         ingredientFiveType = level.ingredientFiveType;
+
+        PlayerHitpoints.CombatCount = 0;
     }
 
     private void GetMaxes()

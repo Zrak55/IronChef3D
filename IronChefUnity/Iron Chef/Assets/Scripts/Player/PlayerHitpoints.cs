@@ -29,8 +29,19 @@ public class PlayerHitpoints : MonoBehaviour
         pcam = FindObjectOfType<PlayerCamControl>();
         mods = GetComponent<PlayerDamageTakenModifierController>();
         isDead = false;
+        Invoke("combatReset", 0.1f);
     }
 
+    private void combatReset()
+    {
+        CombatCount = 0;
+        foreach(var e in FindObjectsOfType<EnemyBehaviorTree>())
+        {
+            if (e.isAggrod())
+                CombatCount++;
+
+        }
+    }
     public static bool InCombat()
     {
         return CombatCount > 0;

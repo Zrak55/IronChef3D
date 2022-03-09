@@ -28,6 +28,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     CharacterMover myMover;
 
+    public GameObject OnHitEffect;
+
     private void Awake()
     {
         enemiesHit = new List<EnemyHitpoints>();
@@ -108,6 +110,11 @@ public class PlayerBasicAttackbox : MonoBehaviour
                     if (IsCleave || enemiesHit.Count < 1)
                     {
                         enemiesHit.Add(enemy);
+
+                        if(OnHitEffect != null)
+                        {
+                            Destroy(Instantiate(OnHitEffect, hit.GetComponent<Collider>().ClosestPoint(myCollider.bounds.center), Quaternion.identity), 3f);
+                        }
 
                         var dmgMod = 0f;
                         float dmgToDeal;
