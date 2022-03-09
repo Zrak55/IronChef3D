@@ -176,7 +176,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         if (!isAttackCD && JumpBack.status != Node.STATUS.RUNNING && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Jump"))
         {
             animator.SetTrigger("Back");
-            GetComponent<EnemyJump>().BeginJumping(.3f, (transform.forward * -attackRange) + transform.position);
+            GetComponent<EnemyJump>().BeginJumping(1, (transform.forward * -attackRange) + transform.position);
         }
         else if (JumpBack.status == Node.STATUS.RUNNING)
             return JumpBack.status = Node.STATUS.SUCCESS;
@@ -204,7 +204,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkDoubleRange()
+    public virtual Node.STATUS checkDoubleRange()
     {
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
@@ -220,7 +220,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkBehind()
+    public virtual Node.STATUS checkBehind()
     {
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);

@@ -9,7 +9,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     EnemyJump enemyJump;
     private Node CheckPlayer, CheckHurt, CheckBack, CheckAttack, CheckJump;
     private bool isJumpCD = false;
-    private const float snakonJumpAnimTime = 1f;
+    private const float snakonJumpAnimTime = 1f, snakonJumpTime = .3f;
 
     private void Start()
     {
@@ -72,7 +72,7 @@ public class SnakonBehavior : EnemyBehaviorTree
         if (!isJumpCD && !isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
         {
             simpleFlag = false;
-            animator.Play("Jump");
+            animator.SetTrigger("Jump");
             StartCoroutine("Jumping");
             AttackSecondary.status = Node.STATUS.RUNNING;
         }
@@ -85,7 +85,33 @@ public class SnakonBehavior : EnemyBehaviorTree
         }
         return AttackSecondary.status;
     }
-    
+
+    public override Node.STATUS jumpBack()
+    {
+        if (!isAttackCD && JumpBack.status != Node.STATUS.RUNNING)
+        {
+            animator.SetTrigger("Back");
+            enemyJump.BeginJumping(snakonJumpTime, (transform.forward * -attackRange) + transform.position);
+        }
+        else if (JumpBack.status == Node.STATUS.RUNNING)
+            return JumpBack.status = Node.STATUS.SUCCESS;
+        return JumpBack.status = Node.STATUS.RUNNING;
+    }
+
+    public override Node.STATUS checkDoubleRange()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+            return CheckDoubleRange.status = Node.STATUS.FAILURE;
+        return base.checkDoubleRange();
+    }
+
+    public override Node.STATUS checkBehind()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Jump") || animator.GetCurrentAnimatorStateInfo(0).IsName("Back") || animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            return CheckDoubleRange.status = Node.STATUS.FAILURE;
+        return base.checkBehind();
+    }
+
     private IEnumerator Jumping()
     {
         agent.destination = transform.position;
