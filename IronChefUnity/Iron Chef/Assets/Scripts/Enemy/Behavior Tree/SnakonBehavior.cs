@@ -9,7 +9,7 @@ public class SnakonBehavior : EnemyBehaviorTree
     EnemyJump enemyJump;
     private Node CheckPlayer, CheckHurt, CheckBack, CheckAttack, CheckJump;
     private bool isJumpCD = false;
-    private float snakonJumpAnimTime = 1;
+    private const float snakonJumpAnimTime = 1f;
 
     private void Start()
     {
@@ -69,15 +69,16 @@ public class SnakonBehavior : EnemyBehaviorTree
 
     public override Node.STATUS attackSecondary()
     {
-        if (!isJumpCD && !isAttackCD && animator.GetCurrentAnimatorStateInfo(0).loop && AttackSecondary.status != Node.STATUS.RUNNING)
+        if (!isJumpCD && !isAttackCD && AttackSecondary.status != Node.STATUS.RUNNING)
         {
             simpleFlag = false;
-            animator.SetTrigger("Jump");
+            animator.Play("Jump");
             StartCoroutine("Jumping");
             AttackSecondary.status = Node.STATUS.RUNNING;
         }
         else if (simpleFlag == true && animator.GetCurrentAnimatorStateInfo(0).loop)
         {
+            StopCoroutine("Jumping");
             if (!isJumpCD)
                 StartCoroutine("jumpCDEnd");
             AttackSecondary.status = Node.STATUS.SUCCESS;

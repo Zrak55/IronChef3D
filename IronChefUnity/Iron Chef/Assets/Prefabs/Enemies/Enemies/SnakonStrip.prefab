@@ -95,7 +95,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 5
+  damage: 10
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!114 &4674751781125959614
@@ -745,6 +745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 6
   pickupPrefab: {fileID: 5796176345864650987, guid: f5d0eeb7ed59f8e4fa8e974c7c8566ca, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &3244397501475929103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,13 +820,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpHitbox: {fileID: 2173555952373706524}
   jumpKnockbox: {fileID: 4674751781125959614}
-  maxJumpHeight: 1
-  time: 1
+  maxJumpHeight: 1.2
+  time: 1.75
   shake: 0
   animHit: 0
   adjustRealYValue: 1
   delay: 0
   jumpThrough: 1
+  jumpVFXNum: -1
 --- !u!1 &8043967736513652177
 GameObject:
   m_ObjectHideFlags: 0
