@@ -6015,7 +6015,7 @@ NavMeshAgent:
   m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 300
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -6097,6 +6097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 4
   pickupPrefab: {fileID: 5796176345864650987, guid: e5291776b3992604880286f7933f96d1, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &3625025167294289699
 MonoBehaviour:
   m_ObjectHideFlags: 0

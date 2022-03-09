@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61607f4a90cb29140af5d71b0cb0a257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 75
   sound: 50
 --- !u!64 &7651940960555155472
 MeshCollider:

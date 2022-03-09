@@ -218,6 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 9
   pickupPrefab: {fileID: 5796176345864650987, guid: c12f57c8c6250e343b3b5a6102390e89, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &5797179273293598612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +648,7 @@ MonoBehaviour:
   CanHit: 0
   playersHit: []
   sound: 24
-  damage: 10
+  damage: 20
   vfxHitNumber: -1
   swingingSound: 0
 --- !u!114 &2433600585565962871

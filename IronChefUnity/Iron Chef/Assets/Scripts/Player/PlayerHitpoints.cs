@@ -52,7 +52,7 @@ public class PlayerHitpoints : MonoBehaviour
 
             playerStats.CurrentHP -= amount;
 
-            pcam.ShakeCam(amount / 5f, amount * 0.4f / 5f);
+            pcam.ShakeCam(amount / 5f, amount > 30 ? 2 : amount * 0.4f / 5f);
 
             if(!isGetHitSoundDelay)
             {
