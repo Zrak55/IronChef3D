@@ -25909,6 +25909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cleaver hit effect
       objectReference: {fileID: 0}
+    - target: {fileID: 3126590995976185089, guid: 82266034e59133a40a1445caeefeb03f, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6921422489566466345, guid: 82266034e59133a40a1445caeefeb03f, type: 3}
       propertyPath: playOnAwake
       value: 0
