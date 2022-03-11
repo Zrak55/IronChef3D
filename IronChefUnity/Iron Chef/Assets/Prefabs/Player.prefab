@@ -27657,6 +27657,10 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Rotation.y
       value: -15.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7980219029697613886, guid: f989e22fcae25de4f830424dc30daeaf, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f989e22fcae25de4f830424dc30daeaf, type: 3}
 --- !u!4 &8653446484787606190 stripped
