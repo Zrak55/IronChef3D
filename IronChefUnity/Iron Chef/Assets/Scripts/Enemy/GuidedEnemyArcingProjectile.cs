@@ -10,6 +10,8 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
     [SerializeField] private SoundEffectSpawner.SoundEffect sound;
     private PlayerHitpoints playerHitpoints;
 
+    [Space]
+    [SerializeField] private GameObject OnHitEffect;
 
 
     private void Awake()
@@ -33,12 +35,21 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
 
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
 
+            if (OnHitEffect != null)
+            {
+                Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+            }
+
             Destroy(gameObject);
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
-            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound); 
+            if (OnHitEffect != null)
+            {
+                Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+            }
             Destroy(gameObject);
         }
     }
@@ -68,4 +79,5 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
         transform.position = target;
 
     }
+
 }

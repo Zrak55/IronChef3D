@@ -19,6 +19,9 @@ public class EnemyProjectileControl : MonoBehaviour
     public bool DestroyOnTerrainHit = true;
     public bool DestroyOnPlayerHit = true;
 
+    [Space]
+    [SerializeField] private GameObject OnHitEffect;
+
     private void Awake()
     {
         if(isArc)
@@ -27,7 +30,13 @@ public class EnemyProjectileControl : MonoBehaviour
             GetComponent<ProjectileLaunch>().Launch(speed * Mathf.Sqrt(Vector3.Distance(player, transform.position)), player - transform.position, 45);
         }
         if(timeToLive != 0)
+        {
+            if (OnHitEffect != null)
+            {
+                Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+            }
             Destroy(gameObject, timeToLive);
+        }
     }
 
     private void Update()
@@ -50,15 +59,26 @@ public class EnemyProjectileControl : MonoBehaviour
             playerHitpoints.TakeDamage(damage);
 
             if(DestroyOnPlayerHit)
+            {
+                if (OnHitEffect != null)
+                {
+                    Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+                }
                 Destroy(gameObject);
+            }
         }
 
         if(DestroyOnTerrainHit)
         {
             if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
             {
+                if (OnHitEffect != null)
+                {
+                    Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+                }
                 Destroy(gameObject);
             }
         }  
     }
+
 }
