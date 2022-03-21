@@ -9,6 +9,7 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
     private Node CheckPlayer, CheckHurt, CheckAttack;
     public SkinnedMeshRenderer myMesh;
     public List<Material> myMaterials;
+    private const float invincibilityTime = .5f;
 
     private void Start()
     {
@@ -37,8 +38,9 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         gummyZombieBehaviorTree = new BehaviorTree(CheckPlayer, CheckHurt, CheckAttack);
 
-
         myMesh.material = myMaterials[Random.Range(0, myMaterials.Count)];
+
+        StartCoroutine("InvincibilityOff");
     }
 
     private void Update()
@@ -55,6 +57,13 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
     public void NeccreammancerDeathEvent()
     {
         FindObjectOfType<NeccreammancerBehavior>().ZombieIsKilled();
+    }
+
+    private IEnumerator InvincibilityOff()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(invincibilityTime);
+        invincible = false;
     }
 
 }

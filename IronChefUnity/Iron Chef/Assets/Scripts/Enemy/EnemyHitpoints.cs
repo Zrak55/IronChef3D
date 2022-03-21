@@ -77,7 +77,7 @@ public class EnemyHitpoints : MonoBehaviour
         else
         {
             smallDmg += amount;
-            if(!isInvoking)
+            if(!isInvoking && !didInvincible)
             {
                 isInvoking = true;
                 Invoke("SmallDmgDisplay", 0.1f);
