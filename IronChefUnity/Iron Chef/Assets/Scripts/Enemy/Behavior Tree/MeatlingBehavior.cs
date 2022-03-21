@@ -5,9 +5,7 @@ using UnityEngine.AI;
 
 public class MeatlingBehavior : EnemyBehaviorTree
 {
-    //This is a test class and not meant for actual use
     BehaviorTree meatlingBehaviorTree;
-    private Node CheckPlayer, CheckHurt;
 
     [Space]
     public float BossContactHeal = 50;

@@ -64,7 +64,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
         else if (animator.GetCurrentAnimatorStateInfo(0).loop)
         {
             if (attackNum == 0 && !isJumpCD)
-                StartCoroutine("jumpCdEnd");
+                StartCoroutine("jumpCDEnd");
             if (!isAttackCD)
                 StartCoroutine("atttackCDEnd");
             AttackBasic.status = Node.STATUS.SUCCESS;

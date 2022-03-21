@@ -206,13 +206,21 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS checkDoubleRange()
     {
+        //Ensure we aren't already attacking/jumping
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            return CheckDoubleRange.status = Node.STATUS.FAILURE;
+
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         return CheckDoubleRange.status = (playerDistance < attackRange * 2) && (playerDistance > attackRange * 1.5) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
-    public Node.STATUS checkAngleRange()
+    public virtual Node.STATUS checkAngleRange()
     {
+        //Ensure we aren't already attacking/jumping
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            return CheckAngleRange.status = Node.STATUS.FAILURE;
+
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         if (Vector3.Angle(transform.forward, new Vector3 (player.position.x - transform.position.x, 0, player.position.z - transform.position.z)) > attackAngle)
@@ -222,11 +230,15 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS checkBehind()
     {
+        //Ensure we aren't already attacking/jumping7
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            return CheckBehind.status = Node.STATUS.FAILURE;
+
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         if (Vector3.Angle(transform.forward, new Vector3(player.position.x - transform.position.x, 0, player.position.z - transform.position.z)) < attackAngle)
-            return CheckAngleRange.status = Node.STATUS.FAILURE;
-        return CheckAngleRange.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+            return CheckBehind.status = Node.STATUS.FAILURE;
+        return CheckBehind.status = (playerDistance < attackRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
     //Meant to go with a Selector node
