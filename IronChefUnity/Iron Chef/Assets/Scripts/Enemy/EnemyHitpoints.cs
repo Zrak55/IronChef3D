@@ -18,7 +18,7 @@ public class EnemyHitpoints : MonoBehaviour
 
 
     public SoundEffectSpawner.SoundEffect deathSound;
-    
+    private EnemyBehaviorTree enemyBehaviorTree;
 
 
     public delegate void SpecialDeathActions();
@@ -33,6 +33,7 @@ public class EnemyHitpoints : MonoBehaviour
         currentHP = MaxHP;
         mods = GetComponent<EnemyDamageTakenModifierController>();
         floatingDmg = GetComponentInChildren<EnemyCanvas>();
+        enemyBehaviorTree = GetComponent<EnemyBehaviorTree>();
 
         vfx = GetComponent<EnemyVFXController>();
         if(vfx == null)
@@ -53,13 +54,13 @@ public class EnemyHitpoints : MonoBehaviour
             dmgNumAmount = amount;
 
         bool didInvincible = false;
-        if(GetComponent<EnemyBehaviorTree>() != null)
+        if(enemyBehaviorTree != null)
         {
 
-            if (GetComponent<EnemyBehaviorTree>().invincible)
+            if (enemyBehaviorTree.invincible)
             {
                 didInvincible = true;
-                GetComponent<EnemyBehaviorTree>().counter();
+                enemyBehaviorTree.counter();
                 dmgNumAmount = 0;
                 amount = 0;
             }
@@ -77,7 +78,7 @@ public class EnemyHitpoints : MonoBehaviour
         else
         {
             smallDmg += amount;
-            if(!isInvoking && !didInvincible)
+            if(!isInvoking && (!didInvincible || enemyBehaviorTree?.hideDamage == false))
             {
                 isInvoking = true;
                 Invoke("SmallDmgDisplay", 0.1f);

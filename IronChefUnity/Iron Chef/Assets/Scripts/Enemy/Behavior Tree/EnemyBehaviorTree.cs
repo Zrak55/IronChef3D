@@ -40,7 +40,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, JumpBack, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, CheckBehind, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
-    [HideInInspector] public bool invincible = false, simpleFlag = true;
+    [HideInInspector] public bool invincible = false, simpleFlag = true, hideDamage = false;
 
     protected void randomizeWayponts(int range)
     {

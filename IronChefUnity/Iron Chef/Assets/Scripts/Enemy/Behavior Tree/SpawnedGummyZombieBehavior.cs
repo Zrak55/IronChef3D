@@ -41,6 +41,7 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
         myMesh.material = myMaterials[Random.Range(0, myMaterials.Count)];
 
         StartCoroutine("InvincibilityOff");
+        hideDamage = true;
     }
 
     private void Update()
