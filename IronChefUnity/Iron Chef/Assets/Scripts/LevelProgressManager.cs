@@ -94,14 +94,14 @@ public class LevelProgressManager : MonoBehaviour
 
 
 
-        DisplayDish();
+        //DisplayDish();
 
         CompleteSetup();
     }
 
-    private void DisplayDish()
+    public void DisplayDish()
     {
-        startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, 1);
+        startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, 0);
         startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
         StopCoroutine(fadeStartThings());
         startText.text = "Your next dish..." + level.dish + ".";
@@ -111,7 +111,7 @@ public class LevelProgressManager : MonoBehaviour
     {
         while(startBackground.color.a != 1)
         {
-            startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, Mathf.Min(startBackground.color.a + (0.5f * Time.deltaTime), 1));
+            startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, Mathf.Min(startBackground.color.a + (2f * Time.deltaTime), 1));
             startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
             yield return null;
         }

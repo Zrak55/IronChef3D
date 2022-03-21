@@ -219,9 +219,13 @@ public class AppliancePowerSelection : MonoBehaviour
         door.SetActive(false);
         turnin.SetActive(true);
 
+        LevelProgressManager.levelProgressManager.DisplayDish();
+
 
 
         gameObject.SetActive(false);
+
+        
 
         
     }
