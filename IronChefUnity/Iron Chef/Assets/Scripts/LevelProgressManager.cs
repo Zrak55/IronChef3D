@@ -68,8 +68,8 @@ public class LevelProgressManager : MonoBehaviour
     [Space]
     public int currentLevel = 0;
 
-    
 
+    IEnumerator fading;
 
     // Start is called before the first frame update
     void Start()
@@ -103,9 +103,14 @@ public class LevelProgressManager : MonoBehaviour
     {
         startBackground.color = new Color(startBackground.color.r, startBackground.color.g, startBackground.color.b, 0);
         startText.color = new Color(startText.color.r, startText.color.g, startText.color.b, startBackground.color.a);
-        StopCoroutine(fadeStartThings());
+        if(fading != null)
+        {
+            StopCoroutine(fading);
+            fading = null;
+        }
         startText.text = "Your next dish..." + level.dish + ".";
-        StartCoroutine(fadeStartThings());
+        fading = fadeStartThings();
+        StartCoroutine(fading);
     }
     IEnumerator fadeStartThings()
     {
