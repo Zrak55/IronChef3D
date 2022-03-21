@@ -9970,7 +9970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -30.3}
+  m_AnchoredPosition: {x: 0, y: -24.3}
   m_SizeDelta: {x: 100, y: 30.116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6581246045400140757
@@ -10003,8 +10003,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Fondemon
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
+  m_sharedMaterial: {fileID: 6277276947383984277, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10028,7 +10028,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.7
+  m_fontSize: 17.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -10430,6 +10430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 2
   pickupPrefab: {fileID: 5796176345864650987, guid: a0c9610d8ff144e4b975fbf0b4f04146, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &4773840796764016850
 MonoBehaviour:
   m_ObjectHideFlags: 0

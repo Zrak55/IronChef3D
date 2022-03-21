@@ -1,30 +1,29 @@
 Task List 03/04 - 03/11
 
 Alex:
-Fix level 4 layout bugs
-Revert to Auto-Loot
-Increase Hydravioli Aggro Range
-Fix tutorial sizing issues
-Power/Appliance save on respawn
-Implement Frying Pan bounce
+New UI buttons
+New fonts
+Fix tutorial geometry
+Torches by lvl 4 bridge
+Typo in desert menu
+Fix "power slide" bug with roll
+Fix roll overriding flying animation
 
 Spencer:
-Tomatroll jump if in melee, behind tomatroll, and jump off CD
-Increase benedict NavMesh spin speed and acceleration
-Tune up Snakon strip jump (height, travel speed, etc)
-Increase some enemy damage numbers (Specifically Tomatroll and Potatogre)
+fix Sprinkle Sprites phasing into walls
+Fix sprinkle sprite hitbox to allow ranged attacks to hit them
+Isobeans need to deaggro after player exits range
+Add gummy zombie iframe on spawn from gummy bear
 
-Wiliam:
+Lin:
 Benedict rig and anims
 
 Zach:
-finish sludge pool effect
 Player hit something effect
 
 Kris:
 Finish Fondemon projectile hit
-Potatogre boulder explode
+Player walking in swamp effect
 
 
 From last week that was missed
-Zach - fudge sludge not complete
