@@ -55,7 +55,10 @@ public class FondemonBehavior : EnemyBehaviorTree
 
     public override Node.STATUS attackProjectile()
     {
-        //Rotation
+        if (!aggrod)
+            PlayerHitpoints.CombatCount++;
+        aggrod = true;
+
         transform.LookAt(player);
         return base.attackProjectile();
     }

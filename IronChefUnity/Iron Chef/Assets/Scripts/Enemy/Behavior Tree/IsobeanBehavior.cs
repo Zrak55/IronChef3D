@@ -22,12 +22,13 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
         //Setup leaf nodes
         CheckAngleRange = new Leaf("Player in Attack Range?", checkAngleRange);
-        MoveTowards = new Leaf("Reset Move", moveTowards);
+        MoveReset = new Leaf("Reset Move", moveReset);
+        MoveTowards = new Leaf("Waypoint Move", moveTowards);
         AttackProjectile = new Leaf("Attack", attackProjectile);
 
         //Setup sequence nodes and root
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackProjectile);
-        CheckPlayer = new Sequence("Move Sequence", MoveTowards, CheckAttack);
+        CheckPlayer = new Sequence("Move Sequence", MoveReset, MoveTowards, CheckAttack);
         isobeanBehaviorTree = new BehaviorTree(CheckPlayer);
     }
 
