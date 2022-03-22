@@ -3845,6 +3845,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7422479558757950679}
     m_Modifications:
+    - target: {fileID: 5872685782318824876, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872685782318824876, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872685782318824876, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -3855,7 +3867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5872685782318824877, guid: 6aaef8a23492b6d4fa6183a3500e9670, type: 3}
       propertyPath: m_LocalPosition.z

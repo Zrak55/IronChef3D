@@ -59,14 +59,12 @@ public class MeatosaurusStomp : MonoBehaviour
                 var mrs = go.GetComponentsInChildren<MeshRenderer>();
                 foreach(var mr in mrs)
                 {
-                    var mats = mr.materials;
-                    mats[0] = BurningRockMat;
-                    mr.materials = mats;
-                    mr.UpdateGIMaterials();
-
+                    mr.material.EnableKeyword("_EMISSION");
+                    mr.material.SetColor("_EmissionColor", Color.red);
                 }
             }
         }
+        DynamicGI.UpdateEnvironment();
     }
 
     public void SwapAllRocks()
@@ -78,14 +76,13 @@ public class MeatosaurusStomp : MonoBehaviour
                 var mrs = go.GetComponentsInChildren<MeshRenderer>();
                 foreach (var mr in mrs)
                 {
-                    var mats = mr.materials;
-                    mats[0] = BurningRockMat;
-                    mr.materials = mats;
-                    mr.UpdateGIMaterials();
+                    mr.material.EnableKeyword("_EMISSION");
+                    mr.material.SetColor("_EmissionColor", Color.red);
 
                 }
             }
         }
+        DynamicGI.UpdateEnvironment();
     }
 
     public void DoStomp()
