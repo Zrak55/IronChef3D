@@ -344,6 +344,7 @@ MonoBehaviour:
   soundEffect: 0
   myCollider: {fileID: 4708036704711120478}
   attackAnimTime: 1
+  baseAttackAnimTime: 1.267
   IsCleave: 0
   damage: 20
   damagePercentIncreaseEachHit: 0
@@ -446,6 +447,7 @@ MonoBehaviour:
   soundEffect: 1
   myCollider: {fileID: 1320961529762806012}
   attackAnimTime: 1.6
+  baseAttackAnimTime: 1.6
   IsCleave: 1
   damage: 30
   damagePercentIncreaseEachHit: 0
@@ -10713,6 +10715,7 @@ MonoBehaviour:
   soundEffect: 2
   myCollider: {fileID: 4945257698567657216}
   attackAnimTime: 0.867
+  baseAttackAnimTime: 0.867
   IsCleave: 0
   damage: 10
   damagePercentIncreaseEachHit: 0.1

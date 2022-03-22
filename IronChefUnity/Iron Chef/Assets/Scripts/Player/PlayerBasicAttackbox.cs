@@ -11,7 +11,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
     private SoundEffectSpawner sfx;
     public Collider myCollider;
     PlayerCamControl pcam;
-    public float attackAnimTime;
+    [HideInInspector] public float attackAnimTime;
+    public float baseAttackAnimTime;
 
     public bool IsCleave = false;
 
@@ -32,6 +33,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     private void Awake()
     {
+
         enemiesHit = new List<EnemyHitpoints>();
         sfx = SoundEffectSpawner.soundEffectSpawner;
         pcam = FindObjectOfType<PlayerCamControl>();

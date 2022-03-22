@@ -39,6 +39,8 @@ public class PlayerAttackController : MonoBehaviour
 
     public GameObject[] BasicTrails;
 
+    float currentAttackSpeed = 1;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -177,24 +179,33 @@ public class PlayerAttackController : MonoBehaviour
     }
 
 
-    public void AddAttackSpeed(float amount)
+    public void ApplyAttackSpeed()
     {
-        animator.speed += amount;
-        foreach(var pb in PlayerBasics)
+        animator.speed = currentAttackSpeed;
+        foreach (var pb in PlayerBasics)
         {
-            pb.attackAnimTime *= (1 - amount);
+            pb.attackAnimTime = pb.baseAttackAnimTime / currentAttackSpeed;
         }
         Debug.Log(animator.speed);
     }
-    public void RemoveAttackSpeed(float amount)
+    public void UndoAttackSpeed()
     {
-        animator.speed -= amount;
+        animator.speed = 1;
 
         foreach (var pb in PlayerBasics)
         {
-            pb.attackAnimTime /= (1 - amount);
+            pb.attackAnimTime = pb.baseAttackAnimTime;
         }
         Debug.Log(animator.speed);
+    }
+
+    public void AddAttackSpeed(float amount)
+    {
+        currentAttackSpeed += amount;
+    }
+    public void RemoveAttackSpeed(float amount)
+    {
+        currentAttackSpeed -= amount;
     }
 
     private void CheckBasic()
@@ -210,6 +221,7 @@ public class PlayerAttackController : MonoBehaviour
     }
     private void PerformBasic()
     {
+        ApplyAttackSpeed();
         attacking = true;
 
         targetOverrideWeight = 1;
@@ -235,6 +247,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         //animator.SetBool("BasicAttack", false);
         Invoke("ResetOverrideWeight", 0.1f);
+        UndoAttackSpeed();
         attacking = false;
     }
 

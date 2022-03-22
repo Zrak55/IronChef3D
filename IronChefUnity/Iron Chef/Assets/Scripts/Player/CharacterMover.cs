@@ -230,7 +230,7 @@ public class CharacterMover : MonoBehaviour
                 rolling = true;
                 hitpoints.InvincibilityFrame(0.75f);
                 KnockbackIframe(0.75f);
-                animator.SetBool("Rolling", true);
+                animator.SetTrigger("Roll");
                 targetRollWeight = 1;
                 Invoke("UndoRoll", (7f / 6f));
             }
@@ -241,7 +241,6 @@ public class CharacterMover : MonoBehaviour
     public void UndoRoll()
     {
         rolling = false;
-        animator.SetBool("Rolling", false);
         targetRollWeight = 0;
     }
 

@@ -29,6 +29,9 @@ public class PlayerSpatulaJumper : MonoBehaviour
     {
         spatulaJumpEffects.SetActive(true);
         GetComponentInChildren<Animator>().SetBool("SpatulaJumping", true);
+        GetComponentInChildren<Animator>().SetLayerWeight(GetComponentInChildren<Animator>().GetLayerIndex("Roll Layer"), 0);
+        GetComponent<PlayerAttackController>().canAct = false;
+
         if (jumpHeight < 1)
             jumpHeight = maxJumpHeight;
         GetComponent<CharacterMover>().enabled = false;
@@ -58,6 +61,7 @@ public class PlayerSpatulaJumper : MonoBehaviour
         }
 
         GetComponentInChildren<Animator>().SetBool("SpatulaJumping", false);
+        GetComponent<PlayerAttackController>().canAct = true;
 
         spatulaJumpEffects.SetActive(false);
     }
