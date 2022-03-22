@@ -45,7 +45,7 @@ public class CharacterMover : MonoBehaviour
 
     float targetRollWeight;
 
-    Quaternion targetRotation;
+    [HideInInspector]public Quaternion targetRotation;
     Vector3 currentMove;
     Vector3 targetMoveSpeed;
     [Space]

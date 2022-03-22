@@ -64,6 +64,7 @@ public class PlayerTeleporter : MonoBehaviour
         bool finalPos = false;
 
         Vector3 start = character.transform.position;
+        var cm = character.GetComponent<CharacterMover>();
 
         //Character Off, Play enter animatior
         IronChefUtils.TurnOffCharacter();
@@ -91,10 +92,15 @@ public class PlayerTeleporter : MonoBehaviour
             cTime += Time.deltaTime;
         }
 
+        character.transform.LookAt(transform.position + (outputFinal.transform.position - output.transform.position));
+        character.transform.rotation = Quaternion.Euler(0, character.transform.rotation.eulerAngles.y, 0);
+        cm.model.transform.localRotation = Quaternion.Euler(0,0,0);
+        cm.targetRotation = character.transform.rotation;
 
 
         //teleport
         character.GetComponent<PlayerSpatulaJumper>().Jump(output.position, 0.1f, false);
+
 
         //Play exit animation
         PlayCharacterExitAnim();

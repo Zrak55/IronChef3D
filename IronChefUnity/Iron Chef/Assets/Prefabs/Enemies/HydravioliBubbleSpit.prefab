@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4055724436326045780}
   - component: {fileID: -1684916946929277556}
   - component: {fileID: -2927415614577416636}
+  - component: {fileID: 2024782544660551655}
   m_Layer: 8
   m_Name: HydravioliBubbleSpit
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9204856513382055990, guid: aca77cb687b697c49a4386ca720d69da, type: 3}
+  - {fileID: 2100000, guid: 598f73c97fd33344c9a4b2601d1ad891, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -127,3 +128,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   sound: 58
+  OnHitEffect: {fileID: 8197674773008887713, guid: a62d9b86ff97e5f4eb08517b2c7de144, type: 3}
+--- !u!95 &2024782544660551655
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088226268673702336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7f2c8b623b549524589b81e277decbef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
