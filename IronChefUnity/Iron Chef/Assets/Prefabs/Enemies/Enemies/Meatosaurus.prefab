@@ -3269,6 +3269,7 @@ MonoBehaviour:
   attackSoundEffect: 
   invincible: 0
   simpleFlag: 1
+  hideDamage: 0
   biteRange: 8
   BiteCD: 10
   biteTime: 2
@@ -3299,7 +3300,7 @@ MonoBehaviour:
   breathPoint: {fileID: 7799281280168251530}
   player: {fileID: 0}
   VFXNumber: 0
-  DamagePerSecond: 17.5
+  DamagePerSecond: 25
   firstBreath: 0
   HeadPoint: {fileID: 5182336246451896396}
 --- !u!114 &3190458747244206121
