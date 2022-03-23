@@ -128,3 +128,8 @@ MonoBehaviour:
   damage: 5
   speed: 15
   sound: 24
+  isArc: 0
+  timeToLive: 5
+  DestroyOnTerrainHit: 1
+  DestroyOnPlayerHit: 1
+  OnHitEffect: {fileID: 1400480443704250264, guid: 131a6bcb676f1ae4aa8ebddbbb42666d, type: 3}
