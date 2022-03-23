@@ -68,18 +68,23 @@ public class PlayerAttackController : MonoBehaviour
             CheckPower();
 
 
-            animator.SetLayerWeight(animator.GetLayerIndex("Mid Layer"), 1f-Mathf.Clamp(animator.GetFloat("Speed"), 0, 1));
+            
 
-            if(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) != targetOverrideWeight)
+        }
+        else
+        {
+            targetOverrideWeight = 0;
+        }
+        animator.SetLayerWeight(animator.GetLayerIndex("Mid Layer"), 1f - Mathf.Clamp(animator.GetFloat("Speed"), 0, 1));
+
+        if (animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) != targetOverrideWeight)
+        {
+            float tickRate = Time.deltaTime * 10;
+            if (targetOverrideWeight < animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")))
             {
-                float tickRate = Time.deltaTime * 10;
-                if (targetOverrideWeight < animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")))
-                {
-                    tickRate *= -1;
-                }
-                animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) + tickRate, 0, 1));
+                tickRate *= -1;
             }
-
+            animator.SetLayerWeight(animator.GetLayerIndex("Override Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Override Layer")) + tickRate, 0, 1));
         }
     }
 
