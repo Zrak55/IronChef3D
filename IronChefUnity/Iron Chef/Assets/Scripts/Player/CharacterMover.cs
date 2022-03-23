@@ -13,6 +13,7 @@ public class CharacterMover : MonoBehaviour
     public float baseSpeed;
     public float sprintSpeed;
     public float acceleration;
+    float baseAcceleration;
     public float jumpSpeed;
     public float rollSpeed;
 
@@ -73,6 +74,8 @@ public class CharacterMover : MonoBehaviour
         hitpoints = GetComponent<PlayerHitpoints>();
         animator = GetComponentInChildren<Animator>();
         speed = baseSpeed;
+
+        baseAcceleration = acceleration;
 
         rolling = false;
 
@@ -269,6 +272,11 @@ public class CharacterMover : MonoBehaviour
             sprinting = false;
             sprintToggled = false;
         }
+    }
+
+    public float GetBaseAcceleration()
+    {
+        return baseAcceleration;
     }
 
     public float GetBaseSpeed()

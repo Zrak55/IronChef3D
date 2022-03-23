@@ -28,6 +28,8 @@ public class MeatlingBehavior : EnemyBehaviorTree
 
         //Setup sequence nodes and root
         meatlingBehaviorTree = new BehaviorTree(MoveTowards);
+
+        AddToBossDeath();
     }
 
     private void Update()
@@ -66,5 +68,24 @@ public class MeatlingBehavior : EnemyBehaviorTree
                 enemyHitpoints.Die();
             }
         }
+    }
+
+    public void AddToBossDeath()
+    {
+        Debug.Log("Removing Meatling from boss death event");
+        EnemyHitpoints bossHitpoints = boss.GetComponent<EnemyHitpoints>();
+        bossHitpoints.DeathEvents += DestroyMe;
+        enemyHitpoints.DeathEvents += RemoveFromBossDeath;
+    }
+    public void RemoveFromBossDeath()
+    {
+        Debug.Log("Removing Meatling from boss death event");
+        EnemyHitpoints bossHitpoints = boss.GetComponent<EnemyHitpoints>();
+        bossHitpoints.DeathEvents -= DestroyMe;
+    }
+
+    public void DestroyMe()
+    {
+        Destroy(gameObject);
     }
 }

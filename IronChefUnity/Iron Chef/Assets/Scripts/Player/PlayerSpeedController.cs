@@ -39,6 +39,7 @@ public class PlayerSpeedController : MonoBehaviour
         removeList.Clear();
 
         mover.speed = mover.GetBaseSpeed() * totalMod;
+        mover.acceleration = mover.GetBaseAcceleration() * totalMod;
     }
 
     public void RemoveSpeedEffector(SpeedEffector.EffectorName speedName)
