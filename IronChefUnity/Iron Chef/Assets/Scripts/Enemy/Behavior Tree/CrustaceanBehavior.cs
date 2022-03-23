@@ -48,7 +48,7 @@ public class CrustaceanBehavior : EnemyBehaviorTree
     {
         if (!isAttackCD && AttackBasic.status != Node.STATUS.RUNNING)
         {
-            animator.SetInteger("AttackNum", Random.Range(0, 3));
+            animator.SetInteger("AttackNum", Random.Range(0, 2));
             animator.SetTrigger("Attack");
             AttackBasic.status = Node.STATUS.RUNNING;
         }
