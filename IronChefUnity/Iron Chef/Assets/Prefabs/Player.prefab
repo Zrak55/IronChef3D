@@ -10471,6 +10471,7 @@ MonoBehaviour:
   rollSpeed: 36
   speed: 0
   model: {fileID: 1948250837847046463}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
   CamFollowPoint: {fileID: 2430084910336362509}
   CamLookPoint: {fileID: 2430084910336362509}
   MouseOff: 0
@@ -10722,7 +10723,7 @@ MonoBehaviour:
   scalarResetTime: 3
   maxPercentDamage: 2
   baseCritValue: 0
-  OnHitEffect: {fileID: 2029167387135979869, guid: 82266034e59133a40a1445caeefeb03f, type: 3}
+  OnHitEffect: {fileID: 7792919481796269768, guid: 4253387340d096643a343d5fcec33aa7, type: 3}
 --- !u!1 &5006469806543601705
 GameObject:
   m_ObjectHideFlags: 0
