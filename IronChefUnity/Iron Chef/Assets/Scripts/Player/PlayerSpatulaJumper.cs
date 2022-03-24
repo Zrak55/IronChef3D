@@ -20,8 +20,18 @@ public class PlayerSpatulaJumper : MonoBehaviour
     }
 
 
-    public void Jump(Vector3 target, float time, bool specialHoldInPlace, float jumpHeight = -1)
+    public void Jump(Vector3 target, float time, bool specialHoldInPlace, float jumpHeight = -1, bool faceOutput = true)
     {
+        if(faceOutput)
+        {
+            var character = GetComponent<CharacterMover>();
+            character.transform.LookAt(target);
+            character.transform.rotation = Quaternion.Euler(0, character.transform.rotation.eulerAngles.y, 0);
+            character.model.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            character.targetRotation = character.transform.rotation;
+        }
+
+
         StartCoroutine(jumpTick(target, time, jumpHeight, specialHoldInPlace));
     }
 
@@ -31,6 +41,9 @@ public class PlayerSpatulaJumper : MonoBehaviour
         GetComponentInChildren<Animator>().SetBool("SpatulaJumping", true);
         GetComponentInChildren<Animator>().SetLayerWeight(GetComponentInChildren<Animator>().GetLayerIndex("Roll Layer"), 0);
         GetComponent<PlayerAttackController>().canAct = false;
+
+        
+
 
         if (jumpHeight < 1)
             jumpHeight = maxJumpHeight;

@@ -99,7 +99,7 @@ public class PlayerTeleporter : MonoBehaviour
 
 
         //teleport
-        character.GetComponent<PlayerSpatulaJumper>().Jump(output.position, 0.1f, false);
+        character.GetComponent<PlayerSpatulaJumper>().Jump(output.position, 0.1f, false, faceOutput:false);
 
 
         //Play exit animation

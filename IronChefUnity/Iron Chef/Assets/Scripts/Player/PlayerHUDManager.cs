@@ -12,6 +12,7 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private LevelProgressManager foodInfo;
     [SerializeField] private PlayerFoodEater eatFood;
     [SerializeField] private PlayerCostCooldownManager cooldowns;
+    CharacterMover character;
 
 
     private static PlayerHUDManager _playerHud;
@@ -127,6 +128,9 @@ public class PlayerHUDManager : MonoBehaviour
     [SerializeField] private Text fryingpan;
     [SerializeField] private Text power;
 
+    [Header("Other Images")]
+    [SerializeField] private Image sprintIcon;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -142,6 +146,7 @@ public class PlayerHUDManager : MonoBehaviour
 
         PlayerHud = this;
 
+        character = FindObjectOfType<CharacterMover>();
     }
 
     void Start()
@@ -152,7 +157,12 @@ public class PlayerHUDManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(character == null)
+            character = FindObjectOfType<CharacterMover>();
+
         UpdateBars();
+
+        sprintIcon.enabled = character.IsSprinting();
 
         if(unlockTimer > 0)
         {
