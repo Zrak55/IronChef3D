@@ -1,29 +1,27 @@
-Task List 03/21- 03/28
-
+Task List 03/25- 04/01                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 Alex:
-New UI buttons
-New fonts
-Fix tutorial geometry
-Torches by lvl 4 bridge
-Typo in desert menu
-Fix "power slide" bug with roll
-Fix roll overriding flying animation
+Remove lvl 4 for build
+Implement Benedict Anims w code
+Meatosaurus rock break on charge
+NPC Speech
+Player Death
+Trail on Tomatroll attack
 
 Spencer:
-fix Sprinkle Sprites phasing into walls
-Fix sprinkle sprite hitbox to allow ranged attacks to hit them
-Isobeans need to deaggro after player exits range
-Add gummy zombie iframe on spawn from gummy bear
+Fix Meatle ball roll
+Add CD to potatogre rock throw
+Chipanzee & Grits Gremlin powerup
 
 Lin:
-Benedict rig and anims
+Finish Benedict rig and anims
+Update Potatogre attack anims
 
 Zach:
 Player hit something effect
 
 Kris:
-Finish Fondemon projectile hit
-Player walking in swamp effect
-
-
-From last week that was missed
+polish Player walking in swamp effect
+Update Molapeno effect
+                                                                                                                                                                                                                                                                      NHY
+Everyone: 
+Playtest by Wednesday
