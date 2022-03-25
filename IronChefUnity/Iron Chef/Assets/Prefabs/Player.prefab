@@ -4890,7 +4890,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -15292,6 +15292,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ec4da56c3fc965a4b8160dcbfa5af167, type: 2}
   LeftFootEffect: {fileID: 8894751804524196821}
   RightFootEffect: {fileID: 6867471970117559848}
+  SwampWalkEffect: {fileID: 1766850327599961167}
 --- !u!114 &2978522925722276978
 MonoBehaviour:
   m_ObjectHideFlags: 0

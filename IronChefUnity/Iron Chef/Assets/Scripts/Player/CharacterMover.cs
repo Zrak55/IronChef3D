@@ -63,6 +63,7 @@ public class CharacterMover : MonoBehaviour
     [Header("Effects")]
     public ParticleSystem LeftFootEffect;
     public ParticleSystem RightFootEffect;
+    public ParticleSystem SwampWalkEffect;
 
     private void Awake()
     {
@@ -95,6 +96,7 @@ public class CharacterMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         inputDirection = getMovementInputVector();
 
         //Movement of character
@@ -151,6 +153,9 @@ public class CharacterMover : MonoBehaviour
                 tickRate *= -1;
             animator.SetLayerWeight(animator.GetLayerIndex("Roll Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) + tickRate, 0, 1));
         }
+
+
+        InWaterCheck();
     }
 
 
@@ -366,5 +371,31 @@ public class CharacterMover : MonoBehaviour
     public CharacterController getController()
     {
         return controller;
+    }
+
+    private void InWaterCheck()
+    {
+        if(Physics.Raycast(transform.position + 3 * Vector3.up, Vector3.down, 20, 1 << LayerMask.NameToLayer("WaterWading")))
+        {
+            var em = SwampWalkEffect.emission;
+            if (currentMove.magnitude > 0) 
+            {
+                em.rateOverTime = 5;
+            }
+            else
+            {
+                em.rateOverTime = 1.39f;
+            }
+
+
+
+            if (SwampWalkEffect.isPlaying == false)
+                SwampWalkEffect.Play();
+        }
+        else
+        {
+            if (SwampWalkEffect.isPlaying == true)
+                SwampWalkEffect.Stop();
+        }
     }
 }
