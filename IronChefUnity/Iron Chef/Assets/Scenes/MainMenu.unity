@@ -4562,7 +4562,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7bfa206648f34bd469ad7ba275aee08a, type: 3}
-    m_FontSize: 60
+    m_FontSize: 52
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -4573,7 +4573,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dessert
+  m_Text: Coming Soon!
 --- !u!222 &1379199529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5546,7 +5546,7 @@ GameObject:
   - component: {fileID: 1697766487}
   - component: {fileID: 1697766486}
   m_Layer: 5
-  m_Name: Desert
+  m_Name: Dessert
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5611,7 +5611,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1697766484}
   m_OnClick:
     m_PersistentCalls:

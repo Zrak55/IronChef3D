@@ -118,7 +118,7 @@ public class ChapterManager : MonoBehaviour
         }
         deathsThisLevel = 0;
 
-        if(currentLevel >= levels.Length)
+        if(currentLevel >= levels.Length || currentLevel == 3)  //HEY ALEX REMOVE THIS SECOND PART WHEN YOU WANT LEVEL 4 BACK IN THE GAME YOU DUMMY
         {
             totalScore /= (levels.Length - LevelToStartAt);
             UnlocksManager.UnlockChapter("Chapter" + (ChapterNumber + 1).ToString());
