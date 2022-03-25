@@ -21,6 +21,7 @@ public class MeatosaurusCharge : MonoBehaviour
 
     public Collider col;
 
+    public GameObject DestroyRockEffect;
 
     void Start()
     {
@@ -54,29 +55,51 @@ public class MeatosaurusCharge : MonoBehaviour
     void DoChargeThings()
     {
         Debug.Log("Charging");
-        var list = IronChefUtils.GetCastHits(col, "Terrain");
-        foreach (var i in list)
+
+        bool destroyRock = false;
+        var list2 = IronChefUtils.GetCastHits(col, "SpecialBossLayer1");
+        foreach (var i in list2)
         {
             if (i.gameObject.name != "Floor")
             {
                 SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
                 pcam.ShakeCam(5, 2);
-                StopCharge();
-
+                Destroy(Instantiate(DestroyRockEffect, i.transform.position, i.transform.rotation), 5f);
+                Destroy(i.transform.parent.gameObject);
+                destroyRock = true;
             }
 
 
         }
 
-        //Move
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), chargeSpeed * speed.GetMod() * Time.fixedDeltaTime);
 
-        var ray = new Ray(transform.position + (2 * Vector3.up), transform.forward);
-        if(Physics.Raycast(ray, 5 * col.bounds.size.z * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime, 1 << LayerMask.NameToLayer("Terrain")))
+        if (!destroyRock)
         {
-            //StopCharge();
+            var list = IronChefUtils.GetCastHits(col, "Terrain");
+            foreach (var i in list)
+            {
+                if (i.gameObject.name != "Floor")
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
+                    pcam.ShakeCam(5, 2);
+                    StopCharge();
+
+                }
+
+
+            }
+
+            //Move
+            transform.position = Vector3.MoveTowards(transform.position, transform.position + (targetFacing * 1000), chargeSpeed * speed.GetMod() * Time.fixedDeltaTime);
+
+            var ray = new Ray(transform.position + (2 * Vector3.up), transform.forward);
+            if (Physics.Raycast(ray, 5 * col.bounds.size.z * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime, 1 << LayerMask.NameToLayer("Terrain")))
+            {
+                //StopCharge();
+            }
+            //Debug.DrawRay(transform.position + (2 * Vector3.up), transform.forward * (10 * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime), Color.red, Time.fixedDeltaTime * 1.1f);
+
         }
-        //Debug.DrawRay(transform.position + (2 * Vector3.up), transform.forward * (10 * chargeSpeed * speed.GetMod() * Time.fixedDeltaTime), Color.red, Time.fixedDeltaTime * 1.1f);
     }
     void StopCharge()
     {
