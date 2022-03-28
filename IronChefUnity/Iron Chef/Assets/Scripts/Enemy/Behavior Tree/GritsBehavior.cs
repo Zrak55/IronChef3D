@@ -8,6 +8,7 @@ public class GritsBehavior : EnemyBehaviorTree
     //This is a test class and not meant for actual use
     BehaviorTree gritsBehaviorTree;
     private Node CheckPlayer, CheckHurt;
+    private const float gritsBounceTime = 1.3f, gritsAnimTime = .5f;
 
     private void Start()
     {
@@ -37,5 +38,39 @@ public class GritsBehavior : EnemyBehaviorTree
     private void Update()
     {
         gritsBehaviorTree.behavior();
+        if (Vector3.Distance(player.transform.position, transform.position) >= spawnRange && agent.velocity.magnitude == 0)
+            StopAllCoroutines();
+    }
+
+    public override Node.STATUS moveTowards()
+    {
+        //Music and sound effects
+        if (!aggrod)
+        {
+            Debug.Log("test");
+            StartCoroutine("Bounce");
+            PlayerHitpoints.CombatCount++;
+        }
+        aggrod = true;
+
+        //Movement calculations
+        Vector3 midpoint = player.transform.position - transform.position;
+        if (agent.enabled == true)
+            agent.destination = transform.position + midpoint;
+
+        //Animation
+        animator.SetBool("isMoving", (agent.velocity.magnitude == 0) ? false : true);
+
+        return MoveTowards.status = Node.STATUS.SUCCESS;
+    }
+
+    private IEnumerator Bounce()
+    {
+        agent.enabled = false;
+        yield return new WaitForSeconds(gritsAnimTime);
+        transform.LookAt(player);
+        agent.enabled = true;
+        yield return new WaitForSeconds(gritsBounceTime);
+        StartCoroutine("Bounce");
     }
 }

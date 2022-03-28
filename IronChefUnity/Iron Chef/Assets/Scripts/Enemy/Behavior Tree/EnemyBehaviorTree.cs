@@ -76,6 +76,8 @@ public class EnemyBehaviorTree : MonoBehaviour
         Vector3 midpoint = player.transform.position - transform.position;
         if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, player.position - transform.position) < attackAngle)
             midpoint = Vector3.zero;
+
+        //Unclear if this is still needed, just setting agent destination to transform.position + midpoint may be enough
         if (agent.enabled == true)
             agent.destination = (animator.GetCurrentAnimatorStateInfo(0).loop) ? (transform.position + midpoint) : transform.position;
 
@@ -98,9 +100,11 @@ public class EnemyBehaviorTree : MonoBehaviour
         }
 
         //Music and sound effects
-        if (aggrod)
+        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        {
             PlayerHitpoints.CombatCount--;
-        aggrod = false;
+            aggrod = false;
+        }
         if (agent.velocity.magnitude == 0 && animator.GetCurrentAnimatorStateInfo(0).loop && idleSound == null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
