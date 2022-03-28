@@ -209,7 +209,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         //Ensure we aren't already attacking/jumping
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             return CheckDoubleRange.status = Node.STATUS.FAILURE;
-
+        
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
         return CheckDoubleRange.status = (playerDistance < attackRange * 2) && (playerDistance > attackRange * 1.5) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
