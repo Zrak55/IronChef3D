@@ -15529,7 +15529,7 @@ MonoBehaviour:
   scalarResetTime: 3
   maxPercentDamage: 2
   baseCritValue: 0
-  OnHitEffect: {fileID: 7792919481796269768, guid: 4253387340d096643a343d5fcec33aa7, type: 3}
+  OnHitEffect: {fileID: 876648756439992193, guid: 8cb440cdc186de048a0819bfecadb9f5, type: 3}
 --- !u!1 &5006469806543601705
 GameObject:
   m_ObjectHideFlags: 0
