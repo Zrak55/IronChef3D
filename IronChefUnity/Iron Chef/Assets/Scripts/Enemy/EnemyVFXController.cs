@@ -56,6 +56,8 @@ public class EnemyVFXController : MonoBehaviour
         public List<ParticleEffect> particles;
         [SerializeField]
         public List<TrailEffect> trails;
+        [SerializeField]
+        public List<SpecialTrailEffect> specialTrails;
 
 
         public void StartEffect()
@@ -68,6 +70,10 @@ public class EnemyVFXController : MonoBehaviour
             {
                 t.StartEffect();
             }
+            foreach (var t in specialTrails)
+            {
+                t.StartEffect();
+            }
         }
         public void EndEffect()
         {
@@ -77,6 +83,10 @@ public class EnemyVFXController : MonoBehaviour
                 
             }
             foreach(var t in trails)
+            {
+                t.EndEffect();
+            }
+            foreach (var t in specialTrails)
             {
                 t.EndEffect();
             }
@@ -109,6 +119,20 @@ public class EnemyVFXController : MonoBehaviour
         public void EndEffect()
         {
             trail.emitting = false;
+        }
+    }
+
+    [System.Serializable]
+    public class SpecialTrailEffect
+    {
+        public MeleeWeaponTrail trail; 
+        public void StartEffect()
+        {
+            trail.Emit = true;
+        }
+        public void EndEffect()
+        {
+            trail.Emit = false;
         }
     }
 
