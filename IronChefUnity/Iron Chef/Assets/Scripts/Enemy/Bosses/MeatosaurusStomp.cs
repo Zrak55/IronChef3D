@@ -43,7 +43,7 @@ public class MeatosaurusStomp : MonoBehaviour
     {
         foreach(var go in currentRocks)
         {
-            if(Vector3.Distance(head.position, go.transform.position) <= 10)
+            if(Vector3.Distance(head.position, go.transform.position) <= 13)
             {
                 Destroy(go);
             }
@@ -54,13 +54,12 @@ public class MeatosaurusStomp : MonoBehaviour
     {
         foreach (var go in currentRocks)
         {
-            if (Vector3.Distance(head.position, go.transform.position) <= 10)
+            if (Vector3.Distance(head.position, go.transform.position) <= 13)
             {
                 var mrs = go.GetComponentsInChildren<MeshRenderer>();
                 foreach(var mr in mrs)
                 {
-                    mr.material.EnableKeyword("_EMISSION");
-                    mr.material.SetColor("_EmissionColor", Color.red);
+                    mr.material = BurningRockMat;
                 }
             }
         }
@@ -76,8 +75,7 @@ public class MeatosaurusStomp : MonoBehaviour
                 var mrs = go.GetComponentsInChildren<MeshRenderer>();
                 foreach (var mr in mrs)
                 {
-                    mr.material.EnableKeyword("_EMISSION");
-                    mr.material.SetColor("_EmissionColor", Color.red);
+                    mr.material = BurningRockMat;
 
                 }
             }

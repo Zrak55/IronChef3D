@@ -3411,7 +3411,7 @@ MonoBehaviour:
   rockDamage: 10
   rockFallAnimTime: 0.26666668
   hitbox: {fileID: 6476236327532816759}
-  BurningRockMat: {fileID: 2100000, guid: b7bcd7c6b3acb3241b0d5af1a358b19b, type: 2}
+  BurningRockMat: {fileID: 2100000, guid: 1644411a6ac746e4a8e075ff69fc59c5, type: 2}
 --- !u!114 &4488138851683392478
 MonoBehaviour:
   m_ObjectHideFlags: 0
