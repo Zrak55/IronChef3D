@@ -78,7 +78,7 @@ public class MeatosaurusCharge : MonoBehaviour
             var list = IronChefUtils.GetCastHits(col, "Terrain");
             foreach (var i in list)
             {
-                if (i.gameObject.name != "Floor")
+                if (i.gameObject.name != "Floor" && i.gameObject.name != "MeatosaurusRockPlayerCol")
                 {
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
                     pcam.ShakeCam(5, 2);
