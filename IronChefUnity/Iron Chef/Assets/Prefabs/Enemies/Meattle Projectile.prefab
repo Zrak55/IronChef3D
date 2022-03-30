@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4055724436326045780}
   - component: {fileID: -1684916946929277556}
   - component: {fileID: 5810888298083260772}
+  - component: {fileID: 5189378210479607523}
   m_Layer: 8
   m_Name: Meattle Projectile
   m_TagString: Untagged
@@ -62,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -9204856513382055990, guid: aca77cb687b697c49a4386ca720d69da, type: 3}
+  - {fileID: 2100000, guid: 3c10ab1686fe3bd4faf5c9bac1c64fcb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -130,3 +131,22 @@ MonoBehaviour:
   destroyOnFloor: 0
   time: 3
   OnHitEffect: {fileID: 0}
+--- !u!95 &5189378210479607523
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4088226268673702336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f32ecfdacdb58140aec4d4a10f1bf37, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
