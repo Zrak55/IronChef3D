@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 6377710268919181855}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
   sound: 52
@@ -691,8 +692,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sprinkle Sprites
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
-  m_sharedMaterial: {fileID: 6277276947383984277, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
+  m_sharedMaterial: {fileID: -5341346548591618028, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -716,7 +717,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.85
+  m_fontSize: 18.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

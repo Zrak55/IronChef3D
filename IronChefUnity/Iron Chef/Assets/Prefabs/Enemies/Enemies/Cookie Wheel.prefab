@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 6377710268919181855}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
   sound: 52
@@ -424,6 +425,7 @@ MonoBehaviour:
   attackSoundEffect: 00000000
   invincible: 0
   simpleFlag: 1
+  hideDamage: 0
   cookie: {fileID: 5963125518231666606}
 --- !u!1 &4445358600935164395
 GameObject:
@@ -492,8 +494,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cookie Wheel
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
-  m_sharedMaterial: {fileID: 6277276947383984277, guid: a0c1c31b75367ae489aefdf1b260b322, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
+  m_sharedMaterial: {fileID: -5341346548591618028, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -517,7 +519,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 16.05
+  m_fontSize: 21.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

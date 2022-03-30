@@ -39,6 +39,8 @@ public class SkyboxTransition : MonoBehaviour
 
     IEnumerator swapping()
     {
+        Debug.Log("Swapping Skybox");
+
         foreach(var swapper in FindObjectsOfType<SkyboxTransition>())
         {
             swapper.ICanSwap = false;

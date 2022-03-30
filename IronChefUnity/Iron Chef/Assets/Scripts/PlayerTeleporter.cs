@@ -13,6 +13,8 @@ public class PlayerTeleporter : MonoBehaviour
     Animator playerAnimator;
     CharacterController character;
 
+    public SkyboxTransition skyboxTransition;
+
     void Start()
     {
         character = FindObjectOfType<CharacterMover>().GetComponent<CharacterController>();
@@ -66,11 +68,17 @@ public class PlayerTeleporter : MonoBehaviour
         Vector3 start = character.transform.position;
         var cm = character.GetComponent<CharacterMover>();
 
+
         //Character Off, Play enter animatior
         IronChefUtils.TurnOffCharacter();
         character.enabled = false;
         PlayCharacterEnterAnim();
         blackFadeImage.color = new Color(0, 0, 0, 0);
+
+        if (skyboxTransition != null)
+        {
+            skyboxTransition.SwapSkyboxes();
+        }
 
         while (cTime < 1.5f)
         {
@@ -86,7 +94,10 @@ public class PlayerTeleporter : MonoBehaviour
             }
 
             if(cTime >= 0.5f)
+            {
+                
                 blackFadeImage.color = new Color(0, 0, 0, Mathf.Clamp(blackFadeImage.color.a + fadeSpeed * Time.deltaTime, 0, 1));
+            }
 
             yield return null;
             cTime += Time.deltaTime;
@@ -99,6 +110,7 @@ public class PlayerTeleporter : MonoBehaviour
 
 
         //teleport
+        
         character.GetComponent<PlayerSpatulaJumper>().Jump(output.position, 0.1f, false, faceOutput:false);
 
 

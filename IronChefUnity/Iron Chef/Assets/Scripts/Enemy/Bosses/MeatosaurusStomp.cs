@@ -107,7 +107,7 @@ public class MeatosaurusStomp : MonoBehaviour
                 attempts++;
             }
             chosenPoints.Add(rockPoints[rand]);
-            Destroy(Instantiate(targeterPrefab, rockPoints[rand].position, Quaternion.identity), fallDelay);
+            Destroy(Instantiate(targeterPrefab, rockPoints[rand].position + (Vector3.up * 0.25f), Quaternion.identity), fallDelay);
             StartCoroutine(SpawnStomp(fallDelay, rockPoints[rand]));
         }
         
