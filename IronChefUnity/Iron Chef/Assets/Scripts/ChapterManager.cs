@@ -225,7 +225,7 @@ public class ChapterManager : MonoBehaviour
         int stars = 0;
         if (score < 50)
         {
-            WinStatusText.text = "Your dish needs work...\nTry to avoid unnecessary ingredients!";
+            WinStatusText.text = "Your dish needs work...\nSlay more monsters to increase your score!";
             //continueButton.gameObject.SetActive(false);
         }
         else if (score < 75)

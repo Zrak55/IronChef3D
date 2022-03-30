@@ -94,6 +94,13 @@ public class CharacterMover : MonoBehaviour
     }
 
     // Update is called once per frame
+    private void FixedUpdate()
+    {
+
+
+        InWaterCheck();
+    }
+
     void Update()
     {
 
@@ -154,8 +161,6 @@ public class CharacterMover : MonoBehaviour
             animator.SetLayerWeight(animator.GetLayerIndex("Roll Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) + tickRate, 0, 1));
         }
 
-
-        InWaterCheck();
     }
 
 
@@ -375,17 +380,18 @@ public class CharacterMover : MonoBehaviour
 
     private void InWaterCheck()
     {
-        if(Physics.Raycast(transform.position + 3 * Vector3.up, Vector3.down, 20, 1 << LayerMask.NameToLayer("WaterWading")))
+        RaycastHit hit;
+        if(Physics.Raycast(transform.position + 3 * Vector3.up, Vector3.down, out hit, 5, 1 << LayerMask.NameToLayer("WaterWading")))
         {
+            SwampWalkEffect.transform.position = new Vector3(SwampWalkEffect.transform.position.x, hit.point.y, SwampWalkEffect.transform.position.z);
             var em = SwampWalkEffect.emission;
-            if (currentMove.magnitude > 0) 
-            {
-                em.rateOverTime = 5;
-            }
-            else
-            {
-                em.rateOverTime = 1.39f;
-            }
+            var main = SwampWalkEffect.main;
+            em.rateOverTime = currentMove.magnitude * 0.6f + 1.39f;
+
+            main.startSize = 5.25f + currentMove.magnitude * 0.25f;
+            main.startLifetime = 3f - Mathf.Clamp(currentMove.magnitude * 0.05f, 0, 2f);
+
+            
 
 
 
@@ -394,6 +400,7 @@ public class CharacterMover : MonoBehaviour
         }
         else
         {
+            //SwampWalkEffect.transform.position = transform.position + Vector3.up * 2;
             if (SwampWalkEffect.isPlaying == true)
                 SwampWalkEffect.Stop();
         }

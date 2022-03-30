@@ -7,6 +7,8 @@ public class EnemyBasicAttackbox : MonoBehaviour
     //Copied and pasted from PlayerBasicAttackbox (with small edits)
     [Tooltip("Collider representing the enemies' attack range.")]
     public Collider attackbox;
+    [Tooltip("For if an attack needs more than one collider.  Always fill attackbox first, however.")]
+    public Collider[] bonusAttackBoxes;
     [HideInInspector] public bool CanHit = false;
     [HideInInspector] public List<PlayerHitpoints> playersHit;
     private EnemyAttackModifierController modifier;
@@ -73,6 +75,10 @@ public class EnemyBasicAttackbox : MonoBehaviour
     public void DoCollisionThings()
     {
         var hits = IronChefUtils.GetCastHits(attackbox);
+        foreach(var c in bonusAttackBoxes)
+        {
+            hits.AddRange(IronChefUtils.GetCastHits(c));
+        }
         foreach (var hit in hits)
         {
             var player = hit.GetComponentInParent<PlayerHitpoints>();

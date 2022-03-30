@@ -48,21 +48,25 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
+                first = false;
                 Color newC = Color.white;
                 newC.a = 0;
                 image.color = newC;
                 SetImage(image.sprite);
-                first = false;
             }
         }
     }
 
     public void SetImage(Sprite i)
     {
-        if (fader != null)
-            StopCoroutine(fader);
-        fader = fadeImageIn(i);
-        StartCoroutine(fader);
+        if(!first)
+        {
+
+            if (fader != null)
+                StopCoroutine(fader);
+            fader = fadeImageIn(i);
+            StartCoroutine(fader);
+        }
     }
     public void LeaveImage()
     {

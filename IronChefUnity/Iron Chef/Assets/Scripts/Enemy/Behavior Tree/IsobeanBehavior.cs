@@ -50,9 +50,11 @@ public class IsobeanBehavior : EnemyBehaviorTree
         }
 
         //Music and sound effects
-        if (aggrod)
-            PlayerHitpoints.CombatCount++;
-        aggrod = false;
+        if(aggrod)
+        {
+            aggrod = false;
+            PlayerHitpoints.CombatCount--;
+        }
 
         //Movement
         Vector3 distance = transform.position - currentWaypoint;
@@ -71,8 +73,10 @@ public class IsobeanBehavior : EnemyBehaviorTree
     {
         //Music
         if (!aggrod)
+        {
             PlayerHitpoints.CombatCount++;
-        aggrod = true;
+            aggrod = true;
+        }
         return base.attackProjectile();
     }
 }

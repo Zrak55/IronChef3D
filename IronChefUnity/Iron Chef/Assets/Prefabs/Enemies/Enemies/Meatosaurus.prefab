@@ -3300,7 +3300,7 @@ MonoBehaviour:
   breathPoint: {fileID: 7799281280168251530}
   player: {fileID: 0}
   VFXNumber: 0
-  DamagePerSecond: 25
+  DamagePerSecond: 35
   firstBreath: 0
   HeadPoint: {fileID: 5182336246451896396}
 --- !u!114 &3190458747244206121
@@ -3518,6 +3518,7 @@ MonoBehaviour:
     - particle: {fileID: 5182336246451896397}
     - particle: {fileID: 3847973032914323541}
     trails: []
+    specialTrails: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []

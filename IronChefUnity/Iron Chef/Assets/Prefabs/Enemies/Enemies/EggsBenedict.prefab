@@ -6120,6 +6120,7 @@ MonoBehaviour:
   attackSoundEffect: 
   invincible: 0
   simpleFlag: 1
+  hideDamage: 0
   biteRange: 12
   rollRange: 100
   jumpRange: 100
@@ -6232,6 +6233,7 @@ MonoBehaviour:
   - particles:
     - particle: {fileID: 7499002919881530356}
     trails: []
+    specialTrails: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects:

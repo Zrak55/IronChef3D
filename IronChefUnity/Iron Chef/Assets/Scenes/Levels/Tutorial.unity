@@ -24453,6 +24453,71 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1033246125
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2635389204776608887, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2635389204776608887, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_RootOrder
+      value: 62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -345.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 322.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -331.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5668522
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8238195
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -110.938
+      objectReference: {fileID: 0}
+    - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803086111016615533, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
+      propertyPath: m_Name
+      value: Fondemon (10)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
 --- !u!1001 &1039737913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26307,15 +26372,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -342.29782
+      value: -342.99
       objectReference: {fileID: 0}
     - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 321.2205
+      value: 322.27
       objectReference: {fileID: 0}
     - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -340.2092
+      value: -341.97
       objectReference: {fileID: 0}
     - target: {fileID: 7422479558757950679, guid: 9dd2465e80994014f88eb8f99c8e936c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -50107,7 +50172,7 @@ MonoBehaviour:
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
-  m_SelectedVertices: 63000000
+  m_SelectedVertices: 
 --- !u!64 &1422866477
 MeshCollider:
   m_ObjectHideFlags: 0
