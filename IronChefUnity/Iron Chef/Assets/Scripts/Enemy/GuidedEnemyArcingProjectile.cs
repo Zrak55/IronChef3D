@@ -9,6 +9,10 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
     [Tooltip("Audio to play on hit")]
     [SerializeField] private SoundEffectSpawner.SoundEffect sound;
     private PlayerHitpoints playerHitpoints;
+    [Tooltip("Bool representing if the object should destroy itself on hitting the ground")]
+    [SerializeField] private bool destroyOnFloor = true;
+    [Tooltip("Float representing amount of time it should destroy itself after, 0  means it won't")]
+    [SerializeField] private float time = 0;
 
     [Space]
     [SerializeField] private GameObject OnHitEffect;
@@ -16,7 +20,8 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
 
     private void Awake()
     {
-        
+        if (time != 0)
+            Destroy(gameObject, time);
     }
 
     private void Update()
@@ -27,6 +32,7 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         playerHitpoints = other.gameObject.GetComponentInParent<PlayerHitpoints>();
         if (playerHitpoints != null)
         {
@@ -43,14 +49,17 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        if (destroyOnFloor || other.gameObject.name != "Floor")
         {
-            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound); 
-            if (OnHitEffect != null)
+            if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
             {
-                Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
+                if (OnHitEffect != null)
+                {
+                    Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+                }
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
 

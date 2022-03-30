@@ -78,7 +78,9 @@ public class MeatleBehavior : EnemyBehaviorTree
         return AttackBasic.status;
     }
 
-    public override void counter()
+    public override Node.STATUS attackProjectile()
     {
+        transform.LookAt(player);
+        return base.attackProjectile();
     }
 }

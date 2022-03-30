@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   sound: 50
+  destroyOnFloor: 1
   OnHitEffect: {fileID: 2623041367954390759, guid: 30e59570c37416e48bc4979e5378e5b4, type: 3}
 --- !u!64 &7651940960555155472
 MeshCollider:

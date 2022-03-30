@@ -47,7 +47,6 @@ public class GritsBehavior : EnemyBehaviorTree
         //Music and sound effects
         if (!aggrod)
         {
-            Debug.Log("test");
             StartCoroutine("Bounce");
             PlayerHitpoints.CombatCount++;
         }
