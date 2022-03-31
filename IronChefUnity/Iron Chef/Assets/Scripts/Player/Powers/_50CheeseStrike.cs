@@ -11,6 +11,7 @@ public class _50CheeseStrike : PlayerPower
     float Width;
     float Depth;
     float Height;
+    float scaleAmount;
     Transform model;
     List<EnemyHitpoints> allhits;
 
@@ -36,23 +37,21 @@ public class _50CheeseStrike : PlayerPower
         Width = power.values[3];
         Depth = power.values[4];
         Height = power.values[5];
+        scaleAmount = power.values[6];
     }
     public override void DoPowerEffects()
     {
         base.DoPowerEffects();
         StartCoroutine(RepeatPower());
+        StartCoroutine(SpawnEffects());
 
     }
 
-    IEnumerator RepeatPower()
+    IEnumerator SpawnEffects()
     {
-        int numPunches = 0;
-        float tickRate = Duration / NumPunches;
-
-        while (numPunches < NumPunches)
+        float cTime = 0;
+        while(cTime <= Duration)
         {
-            Debug.Log("Try Hit");
-            allhits = new List<EnemyHitpoints>();
 
             Vector3 offset;
             float xOffset = 1;
@@ -68,6 +67,25 @@ public class _50CheeseStrike : PlayerPower
 
 
             Instantiate(particle, model.transform.position + offset, model.rotation);
+
+            yield return new WaitForSeconds(0.05f);
+            cTime += .05f;
+        }
+    }
+
+    IEnumerator RepeatPower()
+    {
+        int numPunches = 0;
+        float tickRate = Duration / NumPunches;
+
+        float currentDamage = SinglePunchDamage;
+
+        while (numPunches < NumPunches)
+        {
+            Debug.Log("Try Hit");
+            allhits = new List<EnemyHitpoints>();
+
+            
             bool hitSomething = false;
             var hits = IronChefUtils.GetCastHits(Width, Height, Depth, transform.position, model.rotation);
             foreach (var h in hits)
@@ -76,23 +94,22 @@ public class _50CheeseStrike : PlayerPower
                 if (hp != null && allhits.Contains(hp) == false)
                 {
                     hitSomething = true;
-                    hp.TakeDamage(SinglePunchDamage);
+                    hp.TakeDamage(currentDamage);
                     allhits.Add(hp);
                 }
             }
             
-            if(numPunches % 5 == 0)
-            {
                 if (hitSomething)
                 {
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FiftyPunches);
+                    currentDamage *= scaleAmount;
                 }
                 else
                 {
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PunchMiss);
 
                 }
-            }
+            
             
 
 

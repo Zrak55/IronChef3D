@@ -5,7 +5,7 @@ using UnityEngine;
 public class IceTray : PlayerPower
 {
     GameObject projectile;
-    float stunPerProjectile;
+    float damagePerProjectile;
     int numProjectiles;
     float launchForce;
     float launchAngle;
@@ -29,7 +29,7 @@ public class IceTray : PlayerPower
     {
         base.SetScriptableData(power);
         projectile = power.prefabs[0];
-        stunPerProjectile = power.values[0];
+        damagePerProjectile = power.values[0];
         numProjectiles = (int)power.values[1];
         launchForce = power.values[2];
         launchAngle = power.values[3];
@@ -42,9 +42,9 @@ public class IceTray : PlayerPower
         for(int i = 0; i < numProjectiles; i++)
         {
             var newProj = Instantiate(projectile, launchPoint.position, launchPoint.rotation);
-            newProj.GetComponent<IceTrayProjectile>().stunTime = stunPerProjectile;
+            newProj.GetComponent<IceTrayProjectile>().damage = damagePerProjectile;
             newProj.transform.Rotate(new Vector3(0, Random.Range(-spreadConeAngle / 2, spreadConeAngle / 2), 0));
-            newProj.GetComponent<ProjectileLaunch>().Launch(launchForce, newProj.transform.forward, launchAngle);
+            newProj.GetComponent<ProjectileLaunch>().Launch(launchForce, newProj.transform.forward, launchAngle + Random.Range(-spreadConeAngle/2, spreadConeAngle/2));
         }
     }
 }

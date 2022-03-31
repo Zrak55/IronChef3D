@@ -14,19 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Ice Tray
   powerName: 7
-  description: Throw several cubes in a forward arc, stunning enemies they hit.. 
-    Stun increases on an enemy for each projectile that hits it.
-  briefDescription: Throw stunning projectiles.
+  description: Throw several cubes forward, each individual proectile dealing damage.
+  briefDescription: Throw many small projectiles forward.
   cooldown: 10
   animationNumber: 1
   values:
-  - 0.5
-  - 10
+  - 1
+  - 50
   - 25
   - 15
-  - 120
+  - 45
   valueDescriptions:
-  - Stun
+  - Damage
   - Projectile Count
   - Launch Force
   - Launch Angle
