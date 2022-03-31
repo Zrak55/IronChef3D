@@ -19,12 +19,13 @@ MonoBehaviour:
   cooldown: 15
   animationNumber: 5
   values:
-  - 2
-  - 25
+  - 1
+  - 6
   - 1
   - 7
   - 14
   - 8
+  - 2
   valueDescriptions:
   - Punch Damage
   - Number of Punches
@@ -32,6 +33,7 @@ MonoBehaviour:
   - Width
   - Depth
   - Height
+  - Scale Amount Per Hit
   prefabs:
   - {fileID: 2669251090362438238, guid: 5d3ab3f650f2f5148aefeb3ac1ab0ac7, type: 3}
   powerAnimDuration: 1.467
