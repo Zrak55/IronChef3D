@@ -49,7 +49,7 @@ public class ApplianceButton : MonoBehaviour
         CheckIfUnlocked();
 
 
-        GetComponent<Image>().sprite = PlayerHUDManager.PlayerHud.GetApplianceImage(appliance.applianceName);
+        //GetComponent<Image>().sprite = PlayerHUDManager.PlayerHud.GetApplianceImage(appliance.applianceName);
     }
 
     public void SelectAppliance(bool setPref)
