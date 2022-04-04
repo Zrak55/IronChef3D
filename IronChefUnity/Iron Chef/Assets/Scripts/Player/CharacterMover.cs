@@ -65,6 +65,8 @@ public class CharacterMover : MonoBehaviour
     public ParticleSystem RightFootEffect;
     public ParticleSystem SwampWalkEffect;
 
+    
+
     private void Awake()
     {
 
@@ -103,6 +105,7 @@ public class CharacterMover : MonoBehaviour
 
     void Update()
     {
+        CheckStuck();
 
         inputDirection = getMovementInputVector();
 
@@ -161,6 +164,42 @@ public class CharacterMover : MonoBehaviour
             animator.SetLayerWeight(animator.GetLayerIndex("Roll Layer"), Mathf.Clamp(animator.GetLayerWeight(animator.GetLayerIndex("Roll Layer")) + tickRate, 0, 1));
         }
 
+    }
+
+    public void CheckStuck()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
+        {
+            if (!AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
+            {
+                Debug.Log("Attempting unstuck procedure!");
+
+                //We are stuck
+                bool unstucked = false;
+
+                int dist = 1;
+                while (!unstucked)
+                {
+                    for (int i = 0; i < 360 && !unstucked; i += 30)
+                    {
+                        Vector3 checkUnstuckPos = transform.position + (new Vector3(Mathf.Cos(Mathf.Deg2Rad * i), 0, Mathf.Sin(Mathf.Deg2Rad * i)).normalized * dist);
+                        if (Physics.Raycast(checkUnstuckPos + Vector3.up, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
+                        {
+                            if (AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
+                            {
+                                //Found a place to go
+                                transform.position = hit.point;
+                                unstucked = true;
+                            }
+                        }
+                    }
+
+                    dist++;
+                }
+
+            }
+        }
     }
 
 
