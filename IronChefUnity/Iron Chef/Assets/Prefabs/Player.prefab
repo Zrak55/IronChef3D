@@ -5284,7 +5284,7 @@ MonoBehaviour:
   scalarResetTime: 3
   maxPercentDamage: 3
   baseCritValue: 0.2
-  OnHitEffect: {fileID: 2029167387135979869, guid: 82266034e59133a40a1445caeefeb03f, type: 3}
+  OnHitEffect: {fileID: 7445887703583515582, guid: a4435ea91d3b1b24394f620c7f742150, type: 3}
 --- !u!1 &2152394535256591182
 GameObject:
   m_ObjectHideFlags: 0
@@ -15453,6 +15453,8 @@ MonoBehaviour:
   - {fileID: 9132940999299971924}
   - {fileID: 1524460744892199940}
   AimImage: {fileID: 1650393694938190749}
+  SavedRangedAttackPoint: {x: 0, y: 0, z: 0}
+  lining: 0
 --- !u!114 &2978522925722276990
 MonoBehaviour:
   m_ObjectHideFlags: 0
