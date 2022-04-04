@@ -184,7 +184,7 @@ public class CharacterMover : MonoBehaviour
                     for (int i = 0; i < 360 && !unstucked; i += 30)
                     {
                         Vector3 checkUnstuckPos = transform.position + (new Vector3(Mathf.Cos(Mathf.Deg2Rad * i), 0, Mathf.Sin(Mathf.Deg2Rad * i)).normalized * dist);
-                        if (Physics.Raycast(checkUnstuckPos + Vector3.up, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
+                        if (Physics.Raycast(checkUnstuckPos + Vector3.up*10, Vector3.down, out hit, 1000, 1 << LayerMask.NameToLayer("Terrain")))
                         {
                             if (AllowedWalkMaterials.Contains(hit.collider.gameObject.GetComponent<MeshRenderer>().sharedMaterial))
                             {
