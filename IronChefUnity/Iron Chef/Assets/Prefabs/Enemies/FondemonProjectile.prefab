@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  speed: 15
+  speed: 40
   sound: 24
   isArc: 0
   timeToLive: 5

@@ -6,6 +6,7 @@ public class FondemonBehavior : EnemyBehaviorTree
 {
     BehaviorTree fondemonBehaviorTree;
     private Node CheckAttack, CheckPlayer;
+    private Transform[] body;
 
     private void Start()
     {
@@ -26,6 +27,9 @@ public class FondemonBehavior : EnemyBehaviorTree
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackProjectile);
         CheckPlayer = new Sequence("Still Sequence", MoveReset, CheckAttack);
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
+
+        body = GetComponentsInChildren<Transform>();
+        Debug.Log(body);
     }
 
     private void Update()
@@ -59,7 +63,7 @@ public class FondemonBehavior : EnemyBehaviorTree
             PlayerHitpoints.CombatCount++;
         aggrod = true;
 
-        transform.LookAt(player);
+        body[1].LookAt(player);
         return base.attackProjectile();
     }
 }
