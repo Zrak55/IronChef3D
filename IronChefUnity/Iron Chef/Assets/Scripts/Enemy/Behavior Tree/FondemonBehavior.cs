@@ -29,7 +29,6 @@ public class FondemonBehavior : EnemyBehaviorTree
         fondemonBehaviorTree = new BehaviorTree(CheckPlayer);
 
         body = GetComponentsInChildren<Transform>();
-        Debug.Log(body);
     }
 
     private void Update()

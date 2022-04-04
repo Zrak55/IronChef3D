@@ -60,7 +60,7 @@ ModelImporter:
       curves: []
       events:
       - time: 0.50162864
-        functionName: projectileAttack
+        functionName: LaunchProjectile
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

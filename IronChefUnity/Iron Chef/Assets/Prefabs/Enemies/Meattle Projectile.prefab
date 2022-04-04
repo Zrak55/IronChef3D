@@ -129,7 +129,7 @@ MonoBehaviour:
   damage: 20
   sound: 0
   destroyOnFloor: 0
-  time: 3
+  time: 1.2
   OnHitEffect: {fileID: 0}
 --- !u!95 &5189378210479607523
 Animator:

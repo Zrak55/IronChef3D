@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 3587781569024699538}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
   sound: 20
@@ -193,7 +194,7 @@ MonoBehaviour:
   projectilePoint: {fileID: 8227924910624289086}
   randomRadiusFromPlayer: 0
   height: 0
-  time: 3
+  time: 1.2
   ShouldShowWarning: 0
   PlayerWarningPrefab: {fileID: 0}
   sound: 0
@@ -1086,6 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 3617504908792537396}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
   sound: 20

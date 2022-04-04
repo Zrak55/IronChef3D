@@ -684,8 +684,8 @@ MonoBehaviour:
   launchPoint: {fileID: 2204489159468466251}
   projectilePoint: {fileID: 6093461638289456422}
   randomRadiusFromPlayer: 1
-  height: 6
-  time: 1.5
+  height: 5
+  time: 0.5
   ShouldShowWarning: 0
   PlayerWarningPrefab: {fileID: 0}
   sound: 0

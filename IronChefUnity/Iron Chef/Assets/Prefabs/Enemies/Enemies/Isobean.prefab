@@ -69,7 +69,7 @@ RectTransform:
   - {fileID: 8631543737705109393}
   - {fileID: 2331997068289906432}
   m_Father: {fileID: 7422479558757950679}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -270,6 +270,36 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4951321063006755704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5676365674171769443}
+  m_Layer: 0
+  m_Name: Launch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5676365674171769443
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4951321063006755704}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7422479558757950679}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6299350652460505818
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +504,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2342973415078283714}
+  - {fileID: 5676365674171769443}
   - {fileID: 7115274123795762935}
   - {fileID: 9165689324201345008}
   m_Father: {fileID: 0}
@@ -788,7 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundName: 46
   CamShakeAmount: 0
---- !u!114 &1675178771988322174
+--- !u!114 &5233837029703831769
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -797,13 +828,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8392670439782753610}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034968287a4286e44b0a08795c5e1fa4, type: 3}
+  m_Script: {fileID: 11500000, guid: 61719d18d49ad8c40b6483d2583a3cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 4088226268673702336, guid: 89cb4dcfe16a0be4691c94456f6b9c22, type: 3}
-  spawn: {x: 0, y: 2, z: 3}
-  ProjectileSoundEffect: 47
-  vfxNumber: -1
+  launchPoint: {fileID: 5676365674171769443}
+  projectilePoint: {fileID: 5676365674171769443}
+  randomRadiusFromPlayer: 2
+  height: 3
+  time: 0.8
+  ShouldShowWarning: 0
+  PlayerWarningPrefab: {fileID: 0}
+  sound: 0
 --- !u!114 &7606207797420932278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,7 +984,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ea21f01bf34d671439366cbe80d7d8a3, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ea21f01bf34d671439366cbe80d7d8a3, type: 3}
       propertyPath: m_LocalScale.x
