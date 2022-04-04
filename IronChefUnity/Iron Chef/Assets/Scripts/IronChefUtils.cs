@@ -50,6 +50,11 @@ public static class IronChefUtils
         
     }
 
+    public static bool IsCharacterOn()
+    {
+        return GameObject.FindObjectOfType<CharacterMover>().enabled;
+    }
+
     public static Vector3 GetSoftLockDirection(Vector3 forward, Vector3 origin, LayerMask desiredLayer, float searchDegree, bool matchForwardY = true)
     {
         Vector3 newFacing = forward;

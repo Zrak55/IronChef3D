@@ -85,7 +85,10 @@ public class InGameMenu : MonoBehaviour
             }
             else
             {
-                Pause();
+                if(IronChefUtils.IsCharacterOn()) //can't pause on menus and such
+                {
+                    Pause();
+                }
             }
         }
     }
