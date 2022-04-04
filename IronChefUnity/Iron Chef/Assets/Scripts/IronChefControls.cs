@@ -91,9 +91,25 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""FryingPanAim"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c8f80dd-40a0-43ba-b44d-ce40ad387c67"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""UsePower"",
                     ""type"": ""Button"",
                     ""id"": ""feb2ab15-5077-4252-89b9-1e022b621357"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""UsePowerPressed"",
+                    ""type"": ""Button"",
+                    ""id"": ""983690bb-811c-4ede-affd-c1fad4c9b0a4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -392,6 +408,17 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9d0fb016-3400-4789-9b9c-95bad22a980c"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""28ec9e4b-8ceb-4cb2-8bcb-a26cb52052c3"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
@@ -438,7 +465,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""4084d310-c794-445f-a2ec-181523469c58"",
                     ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FryingPan"",
@@ -449,7 +476,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""a695b87a-a38d-4d1e-a1ea-7729cd053ae8"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""FryingPan"",
@@ -460,7 +487,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""e1d6537b-2cf9-45d2-a863-b663d50bcb25"",
                     ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UsePower"",
@@ -471,7 +498,7 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""5896cde4-96d7-4ccb-ab42-39a62571ac54"",
                     ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""UsePower"",
@@ -686,6 +713,50 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                     ""action"": ""Dialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ea727639-2a9b-45bf-9934-c5fb52656fdc"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FryingPanAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1b98cb6-6fe1-4288-bbc2-c051ac22be05"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FryingPanAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92a6f0c5-4bee-4f45-8d68-97931d916e93"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePowerPressed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""58a49e88-e57c-4fc4-a6bf-5bb7a63a3d44"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UsePowerPressed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -703,7 +774,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         m_Gameplay_BasicAttack = m_Gameplay.FindAction("BasicAttack", throwIfNotFound: true);
         m_Gameplay_SwapBasicWeapon = m_Gameplay.FindAction("SwapBasicWeapon", throwIfNotFound: true);
         m_Gameplay_FryingPan = m_Gameplay.FindAction("FryingPan", throwIfNotFound: true);
+        m_Gameplay_FryingPanAim = m_Gameplay.FindAction("FryingPanAim", throwIfNotFound: true);
         m_Gameplay_UsePower = m_Gameplay.FindAction("UsePower", throwIfNotFound: true);
+        m_Gameplay_UsePowerPressed = m_Gameplay.FindAction("UsePowerPressed", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_Eat = m_Gameplay.FindAction("Eat", throwIfNotFound: true);
         m_Gameplay_ChangeEat = m_Gameplay.FindAction("ChangeEat", throwIfNotFound: true);
@@ -768,7 +841,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_BasicAttack;
     private readonly InputAction m_Gameplay_SwapBasicWeapon;
     private readonly InputAction m_Gameplay_FryingPan;
+    private readonly InputAction m_Gameplay_FryingPanAim;
     private readonly InputAction m_Gameplay_UsePower;
+    private readonly InputAction m_Gameplay_UsePowerPressed;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_Eat;
     private readonly InputAction m_Gameplay_ChangeEat;
@@ -788,7 +863,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         public InputAction @BasicAttack => m_Wrapper.m_Gameplay_BasicAttack;
         public InputAction @SwapBasicWeapon => m_Wrapper.m_Gameplay_SwapBasicWeapon;
         public InputAction @FryingPan => m_Wrapper.m_Gameplay_FryingPan;
+        public InputAction @FryingPanAim => m_Wrapper.m_Gameplay_FryingPanAim;
         public InputAction @UsePower => m_Wrapper.m_Gameplay_UsePower;
+        public InputAction @UsePowerPressed => m_Wrapper.m_Gameplay_UsePowerPressed;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @Eat => m_Wrapper.m_Gameplay_Eat;
         public InputAction @ChangeEat => m_Wrapper.m_Gameplay_ChangeEat;
@@ -831,9 +908,15 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @FryingPan.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
                 @FryingPan.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
                 @FryingPan.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPan;
+                @FryingPanAim.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPanAim;
+                @FryingPanAim.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPanAim;
+                @FryingPanAim.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFryingPanAim;
                 @UsePower.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
                 @UsePower.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
                 @UsePower.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePower;
+                @UsePowerPressed.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerPressed;
+                @UsePowerPressed.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerPressed;
+                @UsePowerPressed.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerPressed;
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
@@ -883,9 +966,15 @@ public class @IronChefControls : IInputActionCollection, IDisposable
                 @FryingPan.started += instance.OnFryingPan;
                 @FryingPan.performed += instance.OnFryingPan;
                 @FryingPan.canceled += instance.OnFryingPan;
+                @FryingPanAim.started += instance.OnFryingPanAim;
+                @FryingPanAim.performed += instance.OnFryingPanAim;
+                @FryingPanAim.canceled += instance.OnFryingPanAim;
                 @UsePower.started += instance.OnUsePower;
                 @UsePower.performed += instance.OnUsePower;
                 @UsePower.canceled += instance.OnUsePower;
+                @UsePowerPressed.started += instance.OnUsePowerPressed;
+                @UsePowerPressed.performed += instance.OnUsePowerPressed;
+                @UsePowerPressed.canceled += instance.OnUsePowerPressed;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
@@ -919,7 +1008,9 @@ public class @IronChefControls : IInputActionCollection, IDisposable
         void OnBasicAttack(InputAction.CallbackContext context);
         void OnSwapBasicWeapon(InputAction.CallbackContext context);
         void OnFryingPan(InputAction.CallbackContext context);
+        void OnFryingPanAim(InputAction.CallbackContext context);
         void OnUsePower(InputAction.CallbackContext context);
+        void OnUsePowerPressed(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnEat(InputAction.CallbackContext context);
         void OnChangeEat(InputAction.CallbackContext context);

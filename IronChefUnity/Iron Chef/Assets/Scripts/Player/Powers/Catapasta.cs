@@ -83,10 +83,15 @@ public class Catapasta : PlayerPower
         }
     }
 
+    public override void PlayerPowerPressed()
+    {
+        base.PlayerPowerPressed();
+        attkControl.ToggleAiming(true);
+    }
     public override void DoPowerEffects()
     {
         base.DoPowerEffects();
-        spawnedTargeter = Instantiate(targeter, throwPoint.position, throwPoint.rotation);
+        spawnedTargeter = Instantiate(targeter, throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
         for (int i = 0; i < numProjectiles; i++)
         {
             var spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200 * Vector3.up, Quaternion.identity);
@@ -96,7 +101,7 @@ public class Catapasta : PlayerPower
             goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
             shouldMove[i] = true;
         }
-        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, IronChefUtils.GetSoftLockDirection(GetComponent<CharacterMover>().model.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
+        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, spawnedTargeter.transform.forward + IronChefUtils.GetSoftLockDirection(spawnedTargeter.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
         remainTime = 0;
         SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
     }

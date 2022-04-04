@@ -24,10 +24,17 @@ public class SpearOfDesticheese : PlayerPower
         
     }
 
+    public override void PlayerPowerPressed()
+    {
+        base.PlayerPowerPressed();
+        attkControl.ToggleAiming(true);
+
+    }
+
     public override void DoPowerEffects()
     {
         base.DoPowerEffects();
-        var fp = Instantiate(spear, throwPoint.position, rotation.rotation);
+        var fp = Instantiate(spear, throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
         fp.GetComponent<PlayerProjectile>().damage = damage;
         fp.GetComponent<PlayerProjectile>().speed = speed;
         fp.GetComponent<PlayerProjectile>().maxAllowedDistance = distance;

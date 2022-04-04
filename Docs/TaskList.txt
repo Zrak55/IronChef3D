@@ -1,27 +1,34 @@
-Task List 03/25- 04/01                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+Task List 04/04- 04/08                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 Alex:
-Remove lvl 4 for build
-Implement Benedict Anims w code
-Meatosaurus rock break on charge
-NPC Speech
-Player Death
-Trail on Tomatroll attack
+Put lvl 4 back
+Player Aiming Visual (hold button to aim, release fires in that specific direction)
+Remove ability to pause on power selection screen
+Better anti-stuck tech
+Move Sprint to LS Press
+Animate Onion Knight
 
 Spencer:
-Fix Meatle ball roll
-Add CD to potatogre rock throw
-Chipanzee & Grits Gremlin powerup
+Increase fondemon projectile speed
+Fondemon Canvas orientation
+Crustacean animation with hide fix.
+Increase speed of meatle projectile
 
 Lin:
-Finish Benedict rig and anims
-Update Potatogre attack anims
+Finish Neccreammancer model
+New Benedict Rig
 
 Zach:
-Player hit something effect
+Cleaver Hit effects
+Heal Particle for player
 
 Kris:
-polish Player walking in swamp effect
-Update Molapeno effect
-                                                                                                                                                                                                                                                                      NHY
-Everyone: 
-Playtest by Wednesday
+Gather/Implement Sound Effects:
+	Ingredient filled
+	Eat 
+	Eat to full hp
+	Hunger bar empty
+	Level complete
+	Level complete 100%
+	Area discover
+	Cauldron travel
+Playtest - look for sounds that don't fit/are missing

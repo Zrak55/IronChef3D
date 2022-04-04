@@ -35,13 +35,17 @@ public class IceTray : PlayerPower
         launchAngle = power.values[3];
         spreadConeAngle = power.values[4];
     }
-
+    public override void PlayerPowerPressed()
+    {
+        base.PlayerPowerPressed();
+        attkControl.ToggleAiming(true);
+    }
     public override void DoPowerEffects()
     {
         base.DoPowerEffects();
         for(int i = 0; i < numProjectiles; i++)
         {
-            var newProj = Instantiate(projectile, launchPoint.position, launchPoint.rotation);
+            var newProj = Instantiate(projectile, launchPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
             newProj.GetComponent<IceTrayProjectile>().damage = damagePerProjectile;
             newProj.transform.Rotate(new Vector3(0, Random.Range(-spreadConeAngle / 2, spreadConeAngle / 2), 0));
             newProj.GetComponent<ProjectileLaunch>().Launch(launchForce, newProj.transform.forward, launchAngle + Random.Range(-spreadConeAngle/2, spreadConeAngle/2));

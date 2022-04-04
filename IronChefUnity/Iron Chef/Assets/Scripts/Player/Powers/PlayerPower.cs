@@ -9,6 +9,7 @@ public class PlayerPower : MonoBehaviour
     public PlayerPowerScriptable powerInformation;
     protected PlayerCostCooldownManager cooldownManager;
     public Animator anim;
+    protected PlayerAttackController attkControl;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class PlayerPower : MonoBehaviour
     {
         cooldownManager = GetComponent<PlayerCostCooldownManager>();
         anim = GetComponentInChildren<Animator>();
+        attkControl = GetComponent<PlayerAttackController>();
     }
 
     public virtual void PerformPower()
@@ -42,7 +44,12 @@ public class PlayerPower : MonoBehaviour
     public virtual void DoPowerEffects()
     {
         cooldownManager.SetPowerCooldown();
-        
+        attkControl.lining = false;
+    }
+
+    public virtual void PlayerPowerPressed()
+    {
+
     }
 
     public virtual void SetScriptableData(PlayerPowerScriptable power)

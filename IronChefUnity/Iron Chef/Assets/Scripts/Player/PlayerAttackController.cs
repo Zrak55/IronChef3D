@@ -41,6 +41,14 @@ public class PlayerAttackController : MonoBehaviour
 
     float currentAttackSpeed = 1;
 
+    public GameObject AimImage;
+
+    [HideInInspector]
+    public Vector3 SavedRangedAttackPoint = Vector3.zero;
+    private Vector3 savedRanedLineForward = Vector3.zero;
+    [HideInInspector]
+    public bool lining = false;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -90,6 +98,10 @@ public class PlayerAttackController : MonoBehaviour
 
 
 
+    public void ToggleAiming(bool state)
+    {
+        AimImage.SetActive(state);
+    }
 
     public void TurnBasicAttackTrailOn()
     {
@@ -265,22 +277,34 @@ public class PlayerAttackController : MonoBehaviour
 
     private void CheckFryingPan()
     {
+        if (InputControls.controls.Gameplay.FryingPanAim.triggered)
+        {
+            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
+            {
+                ToggleAiming(true);
+            }
+        }
         if (InputControls.controls.Gameplay.FryingPan.triggered)
         {
-            if(!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
+            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
             {
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
                 targetOverrideWeight = 1;
+                SavedRangedAttackPoint = mover.model.transform.rotation.eulerAngles;
+                savedRanedLineForward = mover.model.transform.forward;
+                StartCoroutine(saveLineAiming());
             }
+            
         }
     }
 
     public void PerformFryingPan()
     {
-        var fp = Instantiate(FryingPanPrefab, throwPoint.position, mover.model.transform.rotation);;
+        var fp = Instantiate(FryingPanPrefab, throwPoint.position, Quaternion.Euler(SavedRangedAttackPoint));
         fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + IronChefUtils.GetSoftLockDirection(fp.transform.forward, fp.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20));
         CDandCost.SetFryingPanCooldown();
+        lining = false;
     }
     public void DoneFryingPan()
     {
@@ -290,8 +314,36 @@ public class PlayerAttackController : MonoBehaviour
         targetOverrideWeight = 0;
     }
 
+
+    IEnumerator saveLineAiming()
+    {
+        lining = true;
+        var lr = AimImage.GetComponent<LineRenderer>();
+        if(lr != null)
+        {
+            lr.useWorldSpace = true;
+            while (lining)
+            {
+                lr.SetPosition(0, mover.model.transform.position + Vector3.up * 3);
+                lr.SetPosition(1, mover.model.transform.position + savedRanedLineForward * 40 + Vector3.up * 3);
+                yield return null;
+            }
+
+            lr.useWorldSpace = false;
+            lr.SetPosition(0, new Vector3(0, 3, 0));
+            lr.SetPosition(1, new Vector3(0, 3, 40));
+        }
+
+        ToggleAiming(false);
+    }
+
     private void CheckPower()
     {
+        if (InputControls.controls.Gameplay.UsePowerPressed.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling())
+        {
+            GetComponent<PlayerPower>().PlayerPowerPressed();
+        }
+
         //Debug.Log("Input: " + InputControls.controls.Gameplay.UsePower.triggered + " On CD: " + CDandCost.PowerOnCooldown + " Attacking: " + attacking);
         if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling())
         {
@@ -300,6 +352,9 @@ public class PlayerAttackController : MonoBehaviour
             targetOverrideWeight = 1;
             GetComponent<PlayerPower>().PerformPower();
             Invoke("EndPower", GetComponent<PlayerPower>().powerInformation.powerAnimDuration);
+            SavedRangedAttackPoint = mover.model.transform.rotation.eulerAngles;
+            savedRanedLineForward = mover.model.transform.forward;
+            StartCoroutine(saveLineAiming());
         }
     }
     public void EndPower()

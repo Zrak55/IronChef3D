@@ -118,7 +118,7 @@ public class ChapterManager : MonoBehaviour
         }
         deathsThisLevel = 0;
 
-        if(currentLevel >= levels.Length || currentLevel == 3)  //HEY ALEX REMOVE THIS SECOND PART WHEN YOU WANT LEVEL 4 BACK IN THE GAME YOU DUMMY
+        if(currentLevel >= levels.Length) 
         {
             totalScore /= (levels.Length - LevelToStartAt);
             UnlocksManager.UnlockChapter("Chapter" + (ChapterNumber + 1).ToString());
@@ -233,7 +233,7 @@ public class ChapterManager : MonoBehaviour
             WinStatusText.text = "On the right track...";
             stars = 1;
         }
-        else if (score < 90)
+        else if (score < 100)
         {
             WinStatusText.text = "Scrumptious!";
             stars = 2;
