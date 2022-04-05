@@ -75,6 +75,16 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] HydraSpawn;
     public AudioClip TrollSlam;
     public AudioClip[] BenedictLaugh;
+    public AudioClip Eat;
+    public AudioClip EatEmpty;
+    public AudioClip EatFull;
+    public AudioClip CauldronTravel;
+    public AudioClip AreaDiscover;
+    public AudioClip IngredFull;
+    public AudioClip LevelCom;
+    public AudioClip LevelCom100;
+
+
     private void Awake()
     {
         soundEffectSpawner = this;
@@ -368,20 +378,42 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = BenedictLaugh[Random.Range(0, BenedictLaugh.Length)];
                 isBossEffect = true;
                 break;
-
-
-
-             /*
-             * BLANK CASE STATEMENT:             
-             case SoundEffect.:
-                index = Random.Range(0, .Length);
-                clipToPlay = [index];
+            case SoundEffect.Eat:
+                clipToPlay = Eat;
+                break;
+            case SoundEffect.EatEmpty:
+                clipToPlay = EatEmpty;
+                break;
+            case SoundEffect.EatFull:
+                clipToPlay = EatFull;
+                break;
+            case SoundEffect.CauldronTravel:
+                clipToPlay = CauldronTravel;
+                break;
+            case SoundEffect.AreaDiscover:
+                clipToPlay = AreaDiscover;
+                break;
+            case SoundEffect.IngredFull:
+                clipToPlay = IngredFull;
+                break;
+            case SoundEffect.LevelCom:
+                clipToPlay = LevelCom;
+                break;
+            case SoundEffect.LevelCom100:
+                clipToPlay = LevelCom100;
                 break;
 
-             case SoundEffect.:
-                clipToPlay = ;
-                break;
-             */
+                /*
+                * BLANK CASE STATEMENT:             
+                case SoundEffect.:
+                   index = Random.Range(0, .Length);
+                   clipToPlay = [index];
+                   break;
+
+                case SoundEffect.:
+                   clipToPlay = ;
+                   break;
+                */
         }
         if (clipToPlay != null)
         {
@@ -467,8 +499,15 @@ public class SoundEffectSpawner : MonoBehaviour
         GummyBearIdle,
         GummyBearZombieIdle,
         GummyBearDeath,
-        BenedictLaugh
-        
+        BenedictLaugh,
+        Eat,
+        EatEmpty,
+        EatFull,
+        CauldronTravel,
+        AreaDiscover,
+        IngredFull,
+        LevelCom,
+        LevelCom100
     }
 }
 
