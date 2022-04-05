@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2065797239187647309}
   - component: {fileID: 3099870937475720424}
   - component: {fileID: 927745339180240930}
-  - component: {fileID: 3105492957165166909}
   - component: {fileID: 523727279203373567}
+  - component: {fileID: 7715580794716895895}
   m_Layer: 11
   m_Name: EA_RockMini_PRE
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3105492957165166909
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720655468578435575}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 1180676026550898293, guid: 01cc1709ffffd6b4481aa6fce45faaaa, type: 3}
 --- !u!208 &523727279203373567
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -113,3 +99,16 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.016, y: 0.16000001, z: 0.026}
   m_TimeToStationary: 0.5
+--- !u!65 &7715580794716895895
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720655468578435575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8101437, y: 0.32059816, z: 0.73466074}
+  m_Center: {x: -0.01593721, y: 0.16029908, z: 0.02625531}

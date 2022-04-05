@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 410684862604869580}
   - component: {fileID: 2474724684023827206}
   - component: {fileID: 7778125741031404510}
-  - component: {fileID: 915059384413207648}
+  - component: {fileID: 2027141180216938075}
   m_Layer: 11
   m_Name: EA_Rock31_Big_PRE
   m_TagString: Untagged
@@ -99,8 +99,8 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.022000002, y: 0.32000002, z: 0.037}
   m_TimeToStationary: 0.5
---- !u!64 &915059384413207648
-MeshCollider:
+--- !u!65 &2027141180216938075
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -109,7 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4533648259479744274, guid: f0bdf9d9028f51148a99d2c214f62b4a, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.594, y: 0.726, z: 1.522}
+  m_Center: {x: -0.022, y: 0.32, z: 0.037}
