@@ -58,6 +58,8 @@ public class EnemyVFXController : MonoBehaviour
         public List<TrailEffect> trails;
         [SerializeField]
         public List<SpecialTrailEffect> specialTrails;
+        [SerializeField]
+        public List<OutlineEffect> outlines;
 
 
         public void StartEffect()
@@ -74,6 +76,10 @@ public class EnemyVFXController : MonoBehaviour
             {
                 t.StartEffect();
             }
+            foreach(var t in outlines)
+            {
+                t.StartEffect();
+            }
         }
         public void EndEffect()
         {
@@ -87,6 +93,10 @@ public class EnemyVFXController : MonoBehaviour
                 t.EndEffect();
             }
             foreach (var t in specialTrails)
+            {
+                t.EndEffect();
+            }
+            foreach (var t in outlines)
             {
                 t.EndEffect();
             }
@@ -164,6 +174,22 @@ public class EnemyVFXController : MonoBehaviour
                     Destroy(go, liveTime);
                 }
             }
+        }
+    }
+
+    [System.Serializable]
+    public class OutlineEffect
+    {
+        public Outline[] outlines;
+        public void StartEffect()
+        {
+            foreach (var o in outlines)
+                o.enabled = true;
+        }
+        public void EndEffect()
+        {
+            foreach (var o in outlines)
+                o.enabled = false;
         }
     }
 }

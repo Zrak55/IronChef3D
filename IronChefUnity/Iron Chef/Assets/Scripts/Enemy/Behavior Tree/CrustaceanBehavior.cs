@@ -12,6 +12,8 @@ public class CrustaceanBehavior : EnemyBehaviorTree
     {
         setupWaypoints();
 
+        GetComponentInChildren<Outline>().enabled = false;
+
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
