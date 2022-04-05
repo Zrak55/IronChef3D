@@ -18,6 +18,7 @@ public class SpeedEffector
         BenedictSpeed,
         SugarRush,
         OnionKnight,
-        CheeseGrater
+        CheeseGrater,
+        HammerRoot
     }
 }

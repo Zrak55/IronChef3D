@@ -38,8 +38,11 @@ public class PlayerSpeedController : MonoBehaviour
         }
         removeList.Clear();
 
+        if (totalMod < 0)
+            totalMod = 0;
+
         mover.speed = mover.GetBaseSpeed() * totalMod;
-        mover.acceleration = mover.GetBaseAcceleration() * totalMod;
+        mover.acceleration = Mathf.Max(mover.GetBaseAcceleration() * totalMod, mover.GetBaseAcceleration());
     }
 
     public void RemoveSpeedEffector(SpeedEffector.EffectorName speedName)

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hammer : PlayerPower
 {
-    float stunTime;
+    float damage;
 
     float width;
     float depth;
@@ -15,12 +15,13 @@ public class Hammer : PlayerPower
     GameObject meatMallet;
 
     PlayerAttackController pattack;
-
+    PlayerSpeedController speed;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        speed = GetComponent<PlayerSpeedController>();
     }
 
     // Update is called once per frame
@@ -36,9 +37,9 @@ public class Hammer : PlayerPower
         var hits = IronChefUtils.GetCastHits(width, height, depth, transform.position, GetComponent<CharacterMover>().model.transform.rotation);
         foreach(var h in hits)
         {
-            if(h.GetComponentInParent<EnemyStunHandler>() != null)
+            if(h.GetComponentInParent<EnemyHitpoints>() != null)
             {
-                h.GetComponentInParent<EnemyStunHandler>().Stun(stunTime);
+                h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage);
             }
         }
         if (hits.Count > 0)
@@ -52,7 +53,7 @@ public class Hammer : PlayerPower
 
         pattack = GetComponent<PlayerAttackController>();
 
-        stunTime = power.values[0];
+        damage = power.values[0];
         width = power.values[1];
         depth = power.values[2];
         height = power.values[3];
@@ -68,6 +69,7 @@ public class Hammer : PlayerPower
         meatMallet.SetActive(true);
         pattack.DeactivateBasicWeapon();
         Invoke("MalletOff", animTime);
+        IronChefUtils.AddSlow(speed, 100f, animTime, SpeedEffector.EffectorName.HammerRoot);
 
     }
 

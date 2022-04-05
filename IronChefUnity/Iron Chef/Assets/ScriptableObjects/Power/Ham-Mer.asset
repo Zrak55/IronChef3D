@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Ham-Mer
   powerName: 4
-  description: Stun all enemies in front of you.
-  briefDescription: Stun all enemies in melee
+  description: After a windup, deal massive damage to all enemies in melee.
+  briefDescription: Deal massive damage after a windup.
   cooldown: 8
   animationNumber: 4
   values:
-  - 4
+  - 150
   - 8
   - 15.5
   - 10
-  - 1.6
+  - 3.7
   valueDescriptions:
-  - Stun
+  - Damage
   - Width
   - Depth
   - Height
   - Anim Time
   prefabs:
   - {fileID: 2117711650593801206, guid: e9b760e4717031742bc11a882a781d2a, type: 3}
-  powerAnimDuration: 1.6
+  powerAnimDuration: 3.7
