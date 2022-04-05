@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7015f6389a7d76243abae63d850c0eee, type: 2}
+  - {fileID: 2100000, guid: 84ebf1dc488960f469400bb5570d6675, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,3 +131,5 @@ MonoBehaviour:
   isArc: 0
   timeToLive: 5
   DestroyOnTerrainHit: 0
+  DestroyOnPlayerHit: 1
+  OnHitEffect: {fileID: 0}

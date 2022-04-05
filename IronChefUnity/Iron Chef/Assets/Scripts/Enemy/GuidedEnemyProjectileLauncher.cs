@@ -34,6 +34,10 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
         item = Instantiate(projectile, projectilePoint.position, Quaternion.identity);
         item.transform.SetParent(projectilePoint);
         item.GetComponent<Collider>().enabled = false;
+        foreach(var item in GetComponentsInChildren<ParticleSystem>())
+        {
+            item.Stop();
+        }
     }
 
     public void ProjectileDissapear()
