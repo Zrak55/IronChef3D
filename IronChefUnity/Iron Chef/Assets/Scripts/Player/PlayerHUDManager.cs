@@ -70,7 +70,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Image powerImage;
     [Space]
     public Sprite MalapenoImage;
-    public Sprite BreadTrapImage;
+    public Sprite CarbUpImage;
     public Sprite SpearOfDesticheeseImage;
     public Sprite PortableLunchImage;
     public Sprite HamMerImage;
@@ -615,8 +615,8 @@ public class PlayerHUDManager : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Molapeno:
                 s = MalapenoImage;
                 break;
-            case PlayerPowerScriptable.PowerName.BreadTrap:
-                s = BreadTrapImage;
+            case PlayerPowerScriptable.PowerName.CarbUp:
+                s = CarbUpImage;
                 break;
             case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
                 s = SpearOfDesticheeseImage;

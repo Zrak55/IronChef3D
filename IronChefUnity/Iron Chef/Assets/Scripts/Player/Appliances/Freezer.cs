@@ -8,11 +8,11 @@ public class Freezer : Appliance
     {
         base.ApplyEffects();
         FreezerHitModifier mod = new FreezerHitModifier();
-        mod.stunTime = applianceScriptable.values[0];
-        mod.stunDelay = applianceScriptable.values[1];
-        mod.limit = (int)applianceScriptable.values[2];
+        mod.hitCount = (int)applianceScriptable.values[0];
+        mod.damage = applianceScriptable.values[1];
         mod.duration = IronChefUtils.InfiniteDuration;
         mod.modName = PlayerAttackHitModifier.PlayerHitModName.Freezer;
+        mod.soundEffect = SoundEffectSpawner.SoundEffect.Freezer;
 
         GetComponent<PlayerAttackModifierController>().HitModifiers.Add(mod);
     }

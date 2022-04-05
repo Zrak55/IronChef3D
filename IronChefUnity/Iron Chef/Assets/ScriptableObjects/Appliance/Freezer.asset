@@ -14,14 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Freezer
   applianceName: 6
-  description: After 3 hits with basic attacks, stun an opponent for 1s.  This has
-    a delay of 5s after stunning an opponent.
-  briefDescription: Stun enemies after consecutive hits.
+  description: Every third basic attack will deal 10 bonus damage.
+  briefDescription: Deal extra damage on consecutive attacks.
   values:
-  - 2
-  - 4
   - 3
+  - 10
   valueDescriptions:
-  - Stun
-  - Stun Delay
-  - Mark Requirement
+  - Hit Requiremet
+  - Damage amount

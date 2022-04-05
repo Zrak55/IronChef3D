@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
-  m_Name: BreadTrap
+  m_Name: CarbUp
   m_EditorClassIdentifier: 
-  DisplayName: Bread Trap
+  DisplayName: Carb Up
   powerName: 1
-  description: Lay down a permanant bread trap.  Enemies who touch it are stunned.
-  briefDescription: Set up a stunning trap.
-  cooldown: 15
-  animationNumber: 2
+  description: Gain 100% speed for 5s.
+  briefDescription: Gain super speed temporarily.
+  cooldown: 12
+  animationNumber: 3
   values:
-  - 8
-  - 3
+  - 1
+  - 5
   valueDescriptions:
-  - Stun Duration
-  - Trigger Radius
+  - Speed Up
+  - Duration
   prefabs:
-  - {fileID: 7219546348998335166, guid: 42a20be5d0500ad41a27585be138f10a, type: 3}
+  - {fileID: 2262031025979508716, guid: 14773f78d72cdd042a5a86d8698e30f3, type: 3}
   powerAnimDuration: 1.033

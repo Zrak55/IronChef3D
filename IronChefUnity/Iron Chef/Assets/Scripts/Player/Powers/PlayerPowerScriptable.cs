@@ -23,7 +23,7 @@ public class PlayerPowerScriptable : ScriptableObject
     public enum PowerName
     {
         Molapeno,
-        BreadTrap,
+        CarbUp,
         SpearOfDesticheese,
         PortableLunch,
         Ham_mer,

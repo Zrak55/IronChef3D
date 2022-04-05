@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 8089892504165876828}
   - component: {fileID: 25041544080422620}
   m_Layer: 5
-  m_Name: Bread Trap
+  m_Name: CarbUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -762,8 +762,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  door: {fileID: 0}
-  turnin: {fileID: 0}
   playerCam: {fileID: 0}
   PowerName: {fileID: 8521858850911088267}
   ApplianceName: {fileID: 4450554720451680137}

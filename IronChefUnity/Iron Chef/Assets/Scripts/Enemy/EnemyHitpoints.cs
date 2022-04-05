@@ -45,51 +45,55 @@ public class EnemyHitpoints : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
-        float dmgNumAmount = amount;
-
-        mods.DoModifierSpecials(amount);
-
-        amount = Mathf.Max(amount * mods.getMultiplier(), 0);
-        if (amount > dmgNumAmount)
-            dmgNumAmount = amount;
-
-        bool didInvincible = false;
-        if(enemyBehaviorTree != null)
+        if(currentHP > 0)
         {
+            float dmgNumAmount = amount;
 
-            if (enemyBehaviorTree.invincible)
+            mods.DoModifierSpecials(amount);
+
+            amount = Mathf.Max(amount * mods.getMultiplier(), 0);
+            if (amount > dmgNumAmount)
+                dmgNumAmount = amount;
+
+            bool didInvincible = false;
+            if (enemyBehaviorTree != null)
             {
-                didInvincible = true;
-                enemyBehaviorTree.counter();
-                dmgNumAmount = 0;
-                amount = 0;
+
+                if (enemyBehaviorTree.invincible)
+                {
+                    didInvincible = true;
+                    enemyBehaviorTree.counter();
+                    dmgNumAmount = 0;
+                    amount = 0;
+                }
+            }
+            if (!didInvincible)
+            {
+                currentHP -= amount;
+                damaged = true;
+            }
+
+            if (dmgNumAmount >= 1)
+            {
+                floatingDmg.MakeDamageNumber(amount);
+            }
+            else
+            {
+                smallDmg += amount;
+                if (!isInvoking && (!didInvincible || enemyBehaviorTree?.hideDamage == false))
+                {
+                    isInvoking = true;
+                    Invoke("SmallDmgDisplay", 0.1f);
+                }
+            }
+
+
+            if (currentHP <= 0)
+            {
+                Die();
             }
         }
-        if(!didInvincible)
-        {
-            currentHP -= amount;
-            damaged = true;
-        }
-
-        if(dmgNumAmount >= 1)
-        {
-            floatingDmg.MakeDamageNumber(amount);
-        }
-        else
-        {
-            smallDmg += amount;
-            if(!isInvoking && (!didInvincible || enemyBehaviorTree?.hideDamage == false))
-            {
-                isInvoking = true;
-                Invoke("SmallDmgDisplay", 0.1f);
-            }
-        }
-
-
-        if(currentHP <= 0)
-        {
-            Die();
-        }
+        
     }
 
     public void Heal(float amount)

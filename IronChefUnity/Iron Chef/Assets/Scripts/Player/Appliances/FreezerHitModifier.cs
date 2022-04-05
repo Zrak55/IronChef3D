@@ -4,86 +4,35 @@ using UnityEngine;
 
 public class FreezerHitModifier : PlayerAttackHitModifier
 {
-    public int limit;
-    public float stunDelay;
-    public float stunTime;
-    SoundEffectSpawner sounds;
+    public int hitCount;
+    public float damage;
+    public int currentHits = 0;
+    bool critReady;
 
-    List<Mark> allMarks = new List<Mark>();
-    public override void SpecialTickAction()
+    public override void OncePerAttackEffect(List<EnemyHitpoints> allHitEnemies)
     {
-        base.SpecialTickAction();
-        for (int i = 0; i < allMarks.Count; i++)
-        {
-            if (allMarks[i].enemy == null)
-            {
-                allMarks.RemoveAt(i);
-                i--;
-            }
-            else
-            {
-                var tmp = allMarks[i];
-                tmp.delay -= Time.deltaTime;
-                allMarks[i] = tmp;
-            }
-        }
-    }
+        base.OncePerAttackEffect(allHitEnemies);
 
-    public override void DoSpecialModifier(EnemyHitpoints enemyHP, float damage)
-    {
-        base.DoSpecialModifier(enemyHP, damage);
-        bool foundEnemy = false;
-        for(int i = 0; i < allMarks.Count; i++)
+        if(allHitEnemies.Count > 0)
         {
-            if(allMarks[i].enemy == null)
+            currentHits++;
+            if (currentHits >= hitCount)
             {
-                allMarks.RemoveAt(i);
-                i--;
-            }
-            else
-            {
-                var e = enemyHP.GetComponent<EnemyStunHandler>();
-                if(allMarks[i].enemy == e)
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(GameObject.FindObjectOfType<CharacterMover>().transform.position, soundEffect);
+                foreach (var e in allHitEnemies)
                 {
-                    foundEnemy = true;
-                    if(allMarks[i].delay <= 0)
+                    if (e != null)
                     {
-                        var tmp = allMarks[i];
-                        tmp.numMarks++;
 
-                        if(tmp.numMarks >= limit)
-                        {
-                            tmp.numMarks = 0;
-                            tmp.delay = stunDelay;
-                            tmp.enemy.Stun(stunTime);
-                            if(sounds == null)
-                            {
-                                sounds = SoundEffectSpawner.soundEffectSpawner;
-                            }
-                            sounds.MakeSoundEffect(tmp.enemy.transform.position, SoundEffectSpawner.SoundEffect.Freezer);
-                        }
-                        allMarks[i] = tmp;
+                        e.TakeDamage(damage);
                     }
-                    break;
                 }
-                
+                currentHits = 0;
+
             }
         }
-        if(!foundEnemy)
-        {
-            var nm = new Mark();
-            nm.enemy = enemyHP.GetComponent<EnemyStunHandler>();
-            nm.numMarks = 1;
-            nm.delay = 0;
-            allMarks.Add(nm);
-        }
+        
     }
 
 
-    struct Mark
-    {
-        public EnemyStunHandler enemy;
-        public int numMarks;
-        public float delay;
-    }
 }

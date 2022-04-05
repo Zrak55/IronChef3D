@@ -31,6 +31,8 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
     public GameObject OnHitEffect;
 
+    public static float GlobalCritPercent = 0f;
+
     private void Awake()
     {
 
@@ -92,6 +94,10 @@ public class PlayerBasicAttackbox : MonoBehaviour
     public void HitOff()
     {
         CanHit = false;
+        foreach(var mod in modifier.HitModifiers)
+        {
+            mod.OncePerAttackEffect(enemiesHit);
+        }
         enemiesHit.Clear();
     }
 
@@ -146,6 +152,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
                             }
                         }
+                        critVal += GlobalCritPercent;
                         if(Random.Range(0.00001f, 1f) <= critVal)
                         {
                             dmgToDeal *= 2;
@@ -183,6 +190,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                 }
             }
         }
+
 
 
 

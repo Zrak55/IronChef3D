@@ -109,8 +109,8 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Molapeno:
                 power = player.AddComponent<Molapeno>();
                 break;
-            case PlayerPowerScriptable.PowerName.BreadTrap:
-                power = player.AddComponent<BreadTrap>();
+            case PlayerPowerScriptable.PowerName.CarbUp:
+                power = player.AddComponent<CarbUp>();
                 break;
             case PlayerPowerScriptable.PowerName.SpearOfDesticheese:
                 power = player.AddComponent<SpearOfDesticheese>();

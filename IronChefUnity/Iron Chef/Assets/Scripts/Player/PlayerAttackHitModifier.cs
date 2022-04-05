@@ -44,6 +44,11 @@ public class PlayerAttackHitModifier
     {
 
     }
+
+    public virtual void OncePerAttackEffect(List<EnemyHitpoints> allHitEnemies)
+    {
+
+    }
 }
 
 
