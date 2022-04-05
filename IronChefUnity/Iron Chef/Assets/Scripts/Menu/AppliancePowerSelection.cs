@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class AppliancePowerSelection : MonoBehaviour
 {
     public GameObject player;
-    public GameObject door;
-    public GameObject turnin;
     public GameObject playerCam;
 
     public Text PowerName;
@@ -215,9 +213,6 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         IronChefUtils.TurnOnCharacter();
 
-        //TODO: Update with proper models/anims/etc
-        door.SetActive(false);
-        turnin.SetActive(true);
 
         LevelProgressManager.levelProgressManager.DisplayDish();
 
