@@ -21,13 +21,23 @@ public class GuidedEnemyArcingProjectile : MonoBehaviour
     private void Awake()
     {
         if (time != 0)
-            Destroy(gameObject, time);
+            Invoke("DestroyOnTime", time);
     }
 
     private void Update()
     {
         
 
+    }
+
+    public void DestroyOnTime()
+    {
+        if(gameObject != null)
+        {
+
+            Destroy(Instantiate(OnHitEffect, transform.position, Quaternion.identity), 3f);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
