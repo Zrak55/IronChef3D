@@ -56,6 +56,8 @@ public class PlayerAttackController : MonoBehaviour
         animator.SetInteger("BasicAttackNum", 0);
         CDandCost = GetComponent<PlayerCostCooldownManager>();
         mover = GetComponent<CharacterMover>();
+
+        PlayerProjectile.ExtraFryingPanBounces = 0;
     }
 
     // Start is called before the first frame update

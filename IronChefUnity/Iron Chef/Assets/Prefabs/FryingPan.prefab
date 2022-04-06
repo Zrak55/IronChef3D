@@ -192,6 +192,7 @@ MonoBehaviour:
   multiHit: 0
   HitSound: 13
   FlightSound: 14
+  isFryingPan: 1
   bounces: 1
   numBounces: 3
   bounceRange: 30

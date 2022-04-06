@@ -20,6 +20,9 @@ public class PlayerProjectile : MonoBehaviour
     public SoundEffectSpawner.SoundEffect HitSound;
     public SoundEffectSpawner.SoundEffect FlightSound;
 
+    public bool isFryingPan = false;
+    public static int ExtraFryingPanBounces = 0;
+
     List<EnemyHitpoints> allhits;
 
     [Header("Bouncing")]
@@ -79,7 +82,12 @@ public class PlayerProjectile : MonoBehaviour
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, HitSound);
                     enemyHealth.TakeDamage(damage);
                     ApplyHitEffects();
-                    if (!multiHit || (bounces && currentBounces >= numBounces))
+                    int bounceMax = numBounces;
+                    if(isFryingPan)
+                    {
+                        bounceMax += ExtraFryingPanBounces;
+                    }
+                    if (!multiHit || (bounces && currentBounces >= bounceMax))
                         Destroy(gameObject);
 
                     if(bounces)

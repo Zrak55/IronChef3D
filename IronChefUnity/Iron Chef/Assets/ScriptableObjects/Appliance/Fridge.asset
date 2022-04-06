@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DisplayName: Fridge
   applianceName: 0
-  description: Your basic attacks slow the enemy's movement speed by 30%
-  briefDescription: Slow enemies.
+  description: Your Frying Pan bounces 2 more times.
+  briefDescription: Add bounces to the frying pan.
   values:
-  - 0.3
-  - 5
+  - 2
   valueDescriptions:
-  - Slow Amount
-  - Slow Duration
+  - Extra Bounces

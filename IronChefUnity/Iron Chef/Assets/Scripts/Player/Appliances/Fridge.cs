@@ -8,17 +8,7 @@ public class Fridge : Appliance
     {
         base.ApplyEffects();
 
-        PlayerAttackHitModifier mod = new PlayerAttackHitModifier();
-        mod.damageIncrease = 0;
-        mod.slowAmount = applianceScriptable.values[0];
-        mod.slowDuration = applianceScriptable.values[1];
-        mod.slowName = SpeedEffector.EffectorName.Fridge;
-        mod.duration = IronChefUtils.InfiniteDuration;
-        mod.modName = PlayerAttackHitModifier.PlayerHitModName.Fridge;
-        mod.soundEffect = SoundEffectSpawner.SoundEffect.FridgeSlow;
-        mod.shouldPlaySound = true;
-
-        GetComponent<PlayerAttackModifierController>().HitModifiers.Add(mod);
+        PlayerProjectile.ExtraFryingPanBounces += (int)applianceScriptable.values[0];
 
 
 
@@ -28,7 +18,7 @@ public class Fridge : Appliance
     public override void RemoveEffects()
     {
         base.RemoveEffects();
-        GetComponent<PlayerAttackModifierController>().RemoveHitModifier(PlayerAttackHitModifier.PlayerHitModName.Fridge);
+        PlayerProjectile.ExtraFryingPanBounces -= (int)applianceScriptable.values[0];
 
     }
 }
