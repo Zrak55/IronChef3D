@@ -717,14 +717,7 @@ AnimationClip:
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.6666667
-    functionName: PlayAttackSound
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.6666667
+  - time: 0.48333332
     functionName: SimpleFlag
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -738,8 +731,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1666666
-    functionName: SimpleFlag
+  - time: 0.76666665
+    functionName: PlayAttackSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -747,6 +740,13 @@ AnimationClip:
     messageOptions: 0
   - time: 1.1666666
     functionName: HitOff
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.25
+    functionName: SimpleFlag
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

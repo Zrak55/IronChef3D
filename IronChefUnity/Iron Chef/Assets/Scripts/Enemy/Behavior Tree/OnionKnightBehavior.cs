@@ -48,10 +48,7 @@ public class OnionKnightBehavior : EnemyBehaviorTree
     {
         onionKnightBehaviorTree.behavior();
         transform.LookAt(player);
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Parry"))
-            invincible = true;
-        else
-            invincible = false;
+        
 
         if (simpleFlag == false && aggrod == true)
         {
