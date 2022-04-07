@@ -435,6 +435,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3e6089bfa3361184c9886f28133ad428, type: 3}
   - {fileID: 8300000, guid: 9ff767d614e4490439e2c9ea7f695fe5, type: 3}
   - {fileID: 8300000, guid: 611fe09b0366d3f44b9d9b4e3cdecb98, type: 3}
+  Eat: {fileID: 8300000, guid: ebb53dfa1f532754890fa1c5217ce27c, type: 3}
+  EatEmpty: {fileID: 8300000, guid: c6c7f96e33783554ea6533d8555d6349, type: 3}
+  EatFull: {fileID: 8300000, guid: 1f52ef879a76226458bb4e4f54706ace, type: 3}
+  CauldronTravel: {fileID: 8300000, guid: 46b24cce8b2b2ef4b8ad81f1e28da640, type: 3}
+  AreaDiscover: {fileID: 8300000, guid: 9870fce75a99fc1499298a418cf8106e, type: 3}
+  IngredFull: {fileID: 0}
+  LevelCom: {fileID: 8300000, guid: 541380261a36fae48b97e5f2548a9464, type: 3}
+  LevelCom100: {fileID: 8300000, guid: 2445ed009be1f8645941f17df969eee7, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,4 +461,3 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0419fa092e403f43a4d6927f0aab311, type: 3}
   combatClips:
   - {fileID: 8300000, guid: 0f1c97bd9290f78439726e0bea80df76, type: 3}
-  combatCount: 0
