@@ -5387,7 +5387,7 @@ MonoBehaviour:
   scalarResetTime: 3
   maxPercentDamage: 3
   baseCritValue: 0
-  OnHitEffect: {fileID: 876648756439992193, guid: 8cb440cdc186de048a0819bfecadb9f5, type: 3}
+  OnHitEffect: {fileID: 876648756439992193, guid: 11aad5eddc5c5fb4c897ec86459fd0ee, type: 3}
 --- !u!1 &2612864030397240026
 GameObject:
   m_ObjectHideFlags: 0
@@ -15661,7 +15661,7 @@ MonoBehaviour:
   scalarResetTime: 3
   maxPercentDamage: 2
   baseCritValue: 0
-  OnHitEffect: {fileID: 876648756439992193, guid: 8cb440cdc186de048a0819bfecadb9f5, type: 3}
+  OnHitEffect: {fileID: 876648756439992193, guid: 11aad5eddc5c5fb4c897ec86459fd0ee, type: 3}
 --- !u!1 &5006469806543601705
 GameObject:
   m_ObjectHideFlags: 0
