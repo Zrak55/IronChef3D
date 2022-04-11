@@ -271,6 +271,11 @@ public class LevelProgressManager : MonoBehaviour
         {
             score /= numIngredients;
             score *= 100;
+            Debug.Log("Deaths: " + ChapterManager.deathsThisLevel);
+            for(int i = 0; i < ChapterManager.deathsThisLevel; i++)
+            {
+                score *= 0.1f;
+            }
         }
 
         Debug.Log("Score: " + score + "/100");

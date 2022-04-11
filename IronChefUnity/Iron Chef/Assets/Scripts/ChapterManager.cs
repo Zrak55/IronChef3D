@@ -123,7 +123,7 @@ public class ChapterManager : MonoBehaviour
             totalScore /= (levels.Length - LevelToStartAt);
             UnlocksManager.UnlockChapter("Chapter" + (ChapterNumber + 1).ToString());
             UnlocksManager.UnlockLevel((ChapterNumber+1).ToString() + "-0");
-            ShowWinScreen(totalScore);
+            ShowWinScreen(score);
         }
         else
         {

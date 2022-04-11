@@ -174,4 +174,10 @@ public class InGameMenu : MonoBehaviour
     {
         Settings.InvertVerticalCam = invertVerticalCam.isOn;
     }
+
+    public void UnstuckPlayer()
+    {
+        ChapterManager.deathsThisLevel++;
+        FindObjectOfType<ChapterManager>().RestartLevel();
+    }
 }
