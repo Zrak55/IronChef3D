@@ -70,6 +70,7 @@ public class Hammer : PlayerPower
         pattack.DeactivateBasicWeapon();
         Invoke("MalletOff", animTime);
         IronChefUtils.AddSlow(speed, 100f, animTime, SpeedEffector.EffectorName.HammerRoot);
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.HammerBuild);
 
     }
 

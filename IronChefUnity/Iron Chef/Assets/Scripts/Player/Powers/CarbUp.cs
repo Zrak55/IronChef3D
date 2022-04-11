@@ -30,7 +30,7 @@ public class CarbUp : PlayerPower
 
         currentParticles = Instantiate(particles, particlePoint);
         IronChefUtils.AddSpeedUp(speed, speedUp, duration, SpeedEffector.EffectorName.CarbUp);
-
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CarbUp);
         Invoke("UnPower", duration);
 
     }

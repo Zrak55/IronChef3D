@@ -267,8 +267,8 @@ MonoBehaviour:
   attackRange: 5
   attackCD: 1
   attackAngle: 45
-  idleSoundEffect: 
-  attackSoundEffect: 
+  idleSoundEffect: 42000000
+  attackSoundEffect: 43000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0
@@ -445,10 +445,10 @@ MonoBehaviour:
   bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 52
+  sound: 24
   damage: 10
   vfxHitNumber: -1
-  swingingSound: 52
+  swingingSound: 67
 --- !u!1 &5996602253192707847
 GameObject:
   m_ObjectHideFlags: 0

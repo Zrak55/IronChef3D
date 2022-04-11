@@ -101,6 +101,7 @@ public class PlayerHitpoints : MonoBehaviour
     {
         FindObjectOfType<ChapterManager>().ShowLoseScreen();
         ChapterManager.deathsThisLevel++;
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PlayerDeath);
         //TODO: Play death animation before deletion
 
     }

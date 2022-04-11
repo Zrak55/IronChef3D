@@ -125,6 +125,7 @@ public class EnemyBasicAttackbox : MonoBehaviour
     public void InvincibleOn()
     {
         enemyBehaviorTree.invincible = true;
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Parry);
     }
     public void InvincibleOff()
     {

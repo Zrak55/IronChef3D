@@ -75,6 +75,8 @@ public class PlayerTeleporter : MonoBehaviour
         PlayCharacterEnterAnim();
         blackFadeImage.color = new Color(0, 0, 0, 0);
 
+        bool playedEnter = false;
+
         if (skyboxTransition != null)
         {
             skyboxTransition.SwapSkyboxes();
@@ -95,7 +97,11 @@ public class PlayerTeleporter : MonoBehaviour
 
             if(cTime >= 0.5f)
             {
-                
+                if(!playedEnter)
+                {
+                    playedEnter = true;
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(character.transform.position, SoundEffectSpawner.SoundEffect.CauldronTravel);
+                }
                 blackFadeImage.color = new Color(0, 0, 0, Mathf.Clamp(blackFadeImage.color.a + fadeSpeed * Time.deltaTime, 0, 1));
             }
 
@@ -118,6 +124,7 @@ public class PlayerTeleporter : MonoBehaviour
         PlayCharacterExitAnim();
         yield return new WaitForSeconds(0.25f);
 
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(character.transform.position, SoundEffectSpawner.SoundEffect.CauldronTravel);
         finalPos = false;
         cTime = 0;
         while (cTime < 1.25f)

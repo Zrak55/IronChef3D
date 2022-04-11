@@ -38,6 +38,7 @@ public class EnemyMultiAttackboxController : MonoBehaviour
     public void InvincibilityOn()
     {
         enemyBehaviorTree.invincible = true;
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Parry);
     }
 
     public void InvincibilityOff()

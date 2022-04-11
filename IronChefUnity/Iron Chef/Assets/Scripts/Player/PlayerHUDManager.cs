@@ -201,6 +201,7 @@ public class PlayerHUDManager : MonoBehaviour
     {
         if(locName.text != lName)
         {
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.AreaDiscover);
             locName.text = lName;
             StartCoroutine(FadeLocName());
         }

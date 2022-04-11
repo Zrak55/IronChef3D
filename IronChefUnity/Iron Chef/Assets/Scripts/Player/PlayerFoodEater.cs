@@ -42,18 +42,23 @@ public class PlayerFoodEater : MonoBehaviour
             //ONLY EAT BAD
             currentEatIndex = 6;
 
-            if(currentEatIndex == 1)
+            if (currentEatIndex == 1)
             {
-                if(food.ingredientOneCurrent > 0 && (maxAllowedEaten - amountEaten) >= 1)
+                if (food.ingredientOneCurrent > 0 && (maxAllowedEaten - amountEaten) >= 1)
                 {
                     food.ingredientOneCurrent--;
                     amountEaten++;
                     ate = true;
+
                 }
 
                 else if ((maxAllowedEaten - amountEaten) < 1)
                 {
                     full = true;
+                }
+                else if (food.ingredientOneCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
                 }
             }
             if (currentEatIndex == 2)
@@ -69,6 +74,10 @@ public class PlayerFoodEater : MonoBehaviour
                 {
                     full = true;
                 }
+                else if (food.ingredientTwoCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
+                }
             }
             if (currentEatIndex == 3)
             {
@@ -82,6 +91,10 @@ public class PlayerFoodEater : MonoBehaviour
                 else if ((maxAllowedEaten - amountEaten) < 1)
                 {
                     full = true;
+                }
+                else if (food.ingredientThreeCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
                 }
             }
             if (currentEatIndex == 4)
@@ -97,6 +110,10 @@ public class PlayerFoodEater : MonoBehaviour
                 {
                     full = true;
                 }
+                else if (food.ingredientFourCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
+                }
             }
             if (currentEatIndex == 5)
             {
@@ -110,6 +127,11 @@ public class PlayerFoodEater : MonoBehaviour
                 else if ((maxAllowedEaten - amountEaten) < 1)
                 {
                     full = true;
+                }
+
+                else if (food.ingredientFiveCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
                 }
             }
             if (currentEatIndex == 6)
@@ -125,19 +147,28 @@ public class PlayerFoodEater : MonoBehaviour
                 {
                     full = true;
                 }
+
+                else if (food.badIngredientsCurrent == 0)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatEmpty);
+                }
             }
 
             if (ate)
             {
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Eat);
                 RestoreHealth();
                 cooldown.SetEatCD();
             }
-            else if(full)
+            else if (full)
             {
                 hud.PlayFullAnim();
             }
         }
-
+        else if (InputControls.controls.Gameplay.Eat.triggered && cooldown.EatOnCD == false && health.GetPercent() == 1)
+        {
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.EatFull);
+        }
         //INFINITE EAT
         amountEaten = 0;
     }

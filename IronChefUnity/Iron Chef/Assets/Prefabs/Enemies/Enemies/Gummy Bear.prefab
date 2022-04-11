@@ -365,8 +365,8 @@ MonoBehaviour:
   attackRange: 8
   attackCD: 3
   attackAngle: 30
-  idleSoundEffect: 00000000
-  attackSoundEffect: 34000000
+  idleSoundEffect: 40000000
+  attackSoundEffect: 3f000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0
@@ -623,8 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: 50
-  CamShakeAmount: 0
+  soundName: 65
+  CamShakeAmount: 0.5
 --- !u!114 &2965177495865509310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,10 +657,10 @@ MonoBehaviour:
   bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 52
+  sound: 24
   damage: 10
   vfxHitNumber: -1
-  swingingSound: 52
+  swingingSound: 63
 --- !u!1 &5996602253192707847
 GameObject:
   m_ObjectHideFlags: 0

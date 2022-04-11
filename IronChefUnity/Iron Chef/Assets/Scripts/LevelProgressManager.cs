@@ -285,13 +285,18 @@ public class LevelProgressManager : MonoBehaviour
                 hud.UnlockNotification(level.completionApplianceUnlock.ToString());
                 hud.UnlockNotification(level.completionPowerUnlock.ToString());
             }
+
             if (score >= 90)
             {
-
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(FindObjectOfType<PlayerAttackController>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom100);
                 UnlocksManager.UnlockAppliance(level.perfectionApplianceUnlock.ToString());
                 UnlocksManager.UnlockPower(level.perfectionPowerUnlock.ToString());
                 hud.UnlockNotification(level.perfectionApplianceUnlock.ToString());
                 hud.UnlockNotification(level.perfectionPowerUnlock.ToString());
+            }
+            else
+            {
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom);
             }
         }
         
