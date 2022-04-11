@@ -92,6 +92,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip Parry;
     public AudioClip HammerBuild;
     public AudioClip CarbUp;
+    public AudioClip PlayerDeath;
 
     private void Awake()
     {
@@ -437,7 +438,9 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.CarbUp:
                 clipToPlay = CarbUp;
                 break;
-
+            case SoundEffect.PlayerDeath:
+                clipToPlay = PlayerDeath;
+                break;
                 /*
                 * BLANK CASE STATEMENT:             
                 case SoundEffect.:
@@ -547,7 +550,8 @@ public class SoundEffectSpawner : MonoBehaviour
         LevelCom100,
         Parry,
         HammerBuild,
-        CarbUp
+        CarbUp,
+        PlayerDeath
     }
 }
 
