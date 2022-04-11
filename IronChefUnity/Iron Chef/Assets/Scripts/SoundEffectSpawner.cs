@@ -83,7 +83,15 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip IngredFull;
     public AudioClip LevelCom;
     public AudioClip LevelCom100;
-
+    public AudioClip GummyBearAttack;
+    public AudioClip GummyBearIdle;
+    public AudioClip GummyBearStep;
+    public AudioClip GummyBearDeath;
+    public AudioClip GummyZombieIdle;
+    public AudioClip GummyZombieAttack;
+    public AudioClip Parry;
+    public AudioClip HammerBuild;
+    public AudioClip CarbUp;
 
     private void Awake()
     {
@@ -402,6 +410,33 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.LevelCom100:
                 clipToPlay = LevelCom100;
                 break;
+            case SoundEffect.GummyBearDeath:
+                clipToPlay = GummyBearDeath;
+                break;
+            case SoundEffect.GummyBearAttack:
+                clipToPlay = GummyBearAttack;
+                break;
+            case SoundEffect.GummyBearIdle:
+                clipToPlay = GummyBearIdle;
+                break;
+            case SoundEffect.GummyBearStep:
+                clipToPlay = GummyBearStep;
+                break;
+            case SoundEffect.GummyZombieAttack:
+                clipToPlay = GummyZombieAttack;
+                break;
+            case SoundEffect.GummyZombieIdle:
+                clipToPlay = GummyZombieIdle;
+                break;
+            case SoundEffect.Parry:
+                clipToPlay = Parry;
+                break;
+            case SoundEffect.HammerBuild:
+                clipToPlay = HammerBuild;
+                break;
+            case SoundEffect.CarbUp:
+                clipToPlay = CarbUp;
+                break;
 
                 /*
                 * BLANK CASE STATEMENT:             
@@ -497,7 +532,9 @@ public class SoundEffectSpawner : MonoBehaviour
         TrollSlam,
         GummyBearAttack,
         GummyBearIdle,
-        GummyBearZombieIdle,
+        GummyBearStep,
+        GummyZombieIdle,
+        GummyZombieAttack,
         GummyBearDeath,
         BenedictLaugh,
         Eat,
@@ -507,7 +544,10 @@ public class SoundEffectSpawner : MonoBehaviour
         AreaDiscover,
         IngredFull,
         LevelCom,
-        LevelCom100
+        LevelCom100,
+        Parry,
+        HammerBuild,
+        CarbUp
     }
 }
 
