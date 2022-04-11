@@ -38,8 +38,8 @@ ModelImporter:
       name: snakon_JAtk
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 80
+      firstFrame: 15
+      lastFrame: 115
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -83,7 +83,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 15
     isReadable: 0
   meshes:
     lODScreenPercentages: []
