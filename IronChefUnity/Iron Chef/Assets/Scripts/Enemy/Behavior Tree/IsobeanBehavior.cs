@@ -15,6 +15,7 @@ public class IsobeanBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -50,8 +51,9 @@ public class IsobeanBehavior : EnemyBehaviorTree
         }
 
         //Music and sound effects
-        if(aggrod)
+        if(aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
         {
+            enemyCanvas.SwapState();
             aggrod = false;
             PlayerHitpoints.CombatCount--;
         }
@@ -74,6 +76,7 @@ public class IsobeanBehavior : EnemyBehaviorTree
         //Music
         if (!aggrod)
         {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
             aggrod = true;
         }

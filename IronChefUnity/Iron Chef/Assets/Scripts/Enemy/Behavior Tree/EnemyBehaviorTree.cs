@@ -37,6 +37,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
     protected EnemyBasicAttackbox enemyBasicAttackbox;
+    protected EnemyCanvas enemyCanvas;
     protected Node MoveTowards, MoveReset, AttackBasic, AttackSecondary, AttackProjectile, JumpBack, CheckEnemyHurt, CheckAggroRange, CheckSpawnRange, CheckDoubleRange, CheckAngleRange, CheckBehind, RunOnce;
     //Ensure the enemy doesn't start a new attack in the middle of an old one, and that we don't queue up a ton of music.
     protected bool aggrod, isAttackCD = false;
@@ -69,8 +70,11 @@ public class EnemyBehaviorTree : MonoBehaviour
     {
         //Music and sound effects
         if (!aggrod)
+        {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
-        aggrod = true;
+            aggrod = true;
+        }
 
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;
@@ -102,6 +106,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         //Music and sound effects
         if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
         {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount--;
             aggrod = false;
         }

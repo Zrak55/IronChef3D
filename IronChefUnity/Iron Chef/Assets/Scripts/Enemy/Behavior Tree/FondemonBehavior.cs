@@ -13,6 +13,7 @@ public class FondemonBehavior : EnemyBehaviorTree
         enemyProjectile = GetComponent<EnemyProjectile>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -47,9 +48,12 @@ public class FondemonBehavior : EnemyBehaviorTree
         }
 
         //Music and sound effects
-        if (aggrod)
+        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount--;
-        aggrod = false;
+            aggrod = false;
+        }
         if (idleSound == null && idleSoundEffect != null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
@@ -59,8 +63,11 @@ public class FondemonBehavior : EnemyBehaviorTree
     public override Node.STATUS attackProjectile()
     {
         if (!aggrod)
+        {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
-        aggrod = true;
+            aggrod = true;
+        }
 
         body[1].LookAt(player);
         return base.attackProjectile();

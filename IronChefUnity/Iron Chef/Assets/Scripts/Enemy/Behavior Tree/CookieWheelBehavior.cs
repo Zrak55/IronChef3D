@@ -20,6 +20,7 @@ public class CookieWheelBehavior : EnemyBehaviorTree
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
         enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -48,8 +49,11 @@ public class CookieWheelBehavior : EnemyBehaviorTree
     public override Node.STATUS moveTowards()
     {
         if (!aggrod)
+        {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
-        aggrod = true;
+            aggrod = true;
+        }
 
         //Movement calculations
         agent.destination = player.position;

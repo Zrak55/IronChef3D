@@ -17,6 +17,7 @@ public class GritsBehavior : EnemyBehaviorTree
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -47,10 +48,12 @@ public class GritsBehavior : EnemyBehaviorTree
         //Music and sound effects
         if (!aggrod)
         {
+            enemyCanvas.SwapState();
             StartCoroutine("Bounce");
             PlayerHitpoints.CombatCount++;
+            aggrod = true;
         }
-        aggrod = true;
+        
 
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;

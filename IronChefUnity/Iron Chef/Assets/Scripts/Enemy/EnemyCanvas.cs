@@ -16,7 +16,7 @@ public class EnemyCanvas : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<CharacterMover>().transform;
-        
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -37,5 +37,13 @@ public class EnemyCanvas : MonoBehaviour
         var go = Instantiate(dmgNumber, (transform.position + player.position)/2, Quaternion.identity);
         go.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("0.0");
         Destroy(go, animTime);
+    }
+
+    public void SwapState()
+    {
+        if (gameObject.activeSelf == false)
+            gameObject.SetActive(true);
+        else
+            gameObject.SetActive(false);
     }
 }

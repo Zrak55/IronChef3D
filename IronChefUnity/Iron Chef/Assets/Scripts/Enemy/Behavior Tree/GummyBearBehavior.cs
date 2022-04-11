@@ -22,6 +22,7 @@ public class GummyBearBehavior : EnemyBehaviorTree
         //Subscribe to delegate
         enemyHitpoints.DeathEvents += OnDeath;
         enemyStunHandler = GetComponent<EnemyStunHandler>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();

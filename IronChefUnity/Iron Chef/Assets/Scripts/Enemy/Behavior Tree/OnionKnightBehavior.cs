@@ -20,6 +20,7 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         enemyStunHandler = GetComponent<EnemyStunHandler>();
         enemySpeed = GetComponent<EnemySpeed>();
         enemySpeedController = GetComponent<EnemySpeedController>();
+        enemyCanvas = GetComponentInChildren<EnemyCanvas>(true);
         animator = GetComponentInChildren<Animator>();
         player = GameObject.Find("Player").transform;
         musicManager = FindObjectOfType<MusicManager>();
@@ -76,8 +77,11 @@ public class OnionKnightBehavior : EnemyBehaviorTree
     {
         //Music and sound effects
         if (!aggrod)
+        {
+            enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
-        aggrod = true;
+            aggrod = true;
+        }
 
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;
