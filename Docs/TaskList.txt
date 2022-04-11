@@ -1,34 +1,31 @@
 Task List 04/04- 04/08                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 Alex:
-Put lvl 4 back
-Player Aiming Visual (hold button to aim, release fires in that specific direction)
-Remove ability to pause on power selection screen
-Better anti-stuck tech
-Move Sprint to LS Press
-Animate Onion Knight
+Unstuck Button
+Aiming Camera Change
+Implement sound effects added by Kris
+Add in some VFX to some player powers
 
 Spencer:
-Increase fondemon projectile speed
-Fondemon Canvas orientation
-Crustacean animation with hide fix.
-Increase speed of meatle projectile
+Snakon jump animation update
+Fudge Sludge attackbox
+Hide Enemy Canvas until they are aggrod
+Fudge Sludge Puddles
 
 Lin:
-Finish Neccreammancer model
-New Benedict Rig
+Rig Neccreammancer
 
 Zach:
-Cleaver Hit effects
-Heal Particle for player
+Make Player Hit Effects bigger
+Heal Particle
+Yolk Drip Effect
 
 Kris:
-Gather/Implement Sound Effects:
-	Ingredient filled
-	Eat 
-	Eat to full hp
-	Hunger bar empty
-	Level complete
-	Level complete 100%
-	Area discover
-	Cauldron travel
-Playtest - look for sounds that don't fit/are missing
+Gather/Implement Sound Effects
+	Ingredient Filled
+	Gummy Zombie (Idle, Attack)
+	Gummy Bear (Idle, Attack, Footstep)
+	"Parry" sound (for Crustacean and Onion Knight)
+	Player Powers (not exhaustive list)
+		Straining noise for Ham-Mer buildup
+		Hammer Collision
+		Carb Up sound
