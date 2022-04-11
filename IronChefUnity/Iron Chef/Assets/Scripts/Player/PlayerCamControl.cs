@@ -3,11 +3,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerCamControl : MonoBehaviour
 {
     public Camera cam;
     public Cinemachine.CinemachineFreeLook cinemachine;
+
+    CinemachineInputProvider input;
 
     public SkinnedMeshRenderer playerView;
     [SerializeField]
@@ -26,14 +29,63 @@ public class PlayerCamControl : MonoBehaviour
 
     Vector3 currentSnapRotation;
 
+    public bool aiming;
+
+
+    float baseXSpeed;
+    float baseXAccel;
+    float baseXDeccel;
+    InputActionReference xyInput;
+
+    [SerializeField] List<GameObject> normalCameraObjs;
+    [SerializeField] List<GameObject> aimingCameraObjs;
+
 
     private void Awake()
     {
+
+        aiming = false;
+
         playerView = FindObjectOfType<CharacterMover>().model.GetComponentInChildren<SkinnedMeshRenderer>();
 
-        ShakeCam(0, 0, true);   
+        ShakeCam(0, 0, true);
+
+        input = GetComponentInChildren<CinemachineInputProvider>();
+
+        baseXSpeed = cinemachine.m_XAxis.m_MaxSpeed;
+        baseXAccel = cinemachine.m_XAxis.m_AccelTime;
+        baseXDeccel = cinemachine.m_XAxis.m_DecelTime;
+        xyInput = input.XYAxis;
+        
     }
 
+    public void EnterAimingMode()
+    {
+        aiming = true;
+
+        foreach(var g in normalCameraObjs)
+        {
+            g.SetActive(false);
+        }
+        foreach(var g in aimingCameraObjs)
+        {
+            g.SetActive(true);
+        }
+    }
+    public void LeaveAimingMode()
+    {
+        aiming = false;
+
+        foreach (var g in aimingCameraObjs)
+        {
+            g.SetActive(false);
+        }
+        foreach (var g in normalCameraObjs)
+        {
+            g.SetActive(true);
+        }
+        
+    }
 
 
     // Start is called before the first frame update

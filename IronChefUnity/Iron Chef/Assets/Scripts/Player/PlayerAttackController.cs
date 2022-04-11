@@ -31,6 +31,8 @@ public class PlayerAttackController : MonoBehaviour
     PlayerCostCooldownManager CDandCost;
     CharacterMover mover;
 
+    PlayerCamControl pcam;
+
 
     private float maxAttackTimer = 3f;
     private float attackTimer = 0f;
@@ -56,7 +58,7 @@ public class PlayerAttackController : MonoBehaviour
         animator.SetInteger("BasicAttackNum", 0);
         CDandCost = GetComponent<PlayerCostCooldownManager>();
         mover = GetComponent<CharacterMover>();
-
+        pcam = FindObjectOfType<PlayerCamControl>();
         PlayerProjectile.ExtraFryingPanBounces = 0;
     }
 
@@ -103,6 +105,14 @@ public class PlayerAttackController : MonoBehaviour
     public void ToggleAiming(bool state)
     {
         AimImage.SetActive(state);
+        if(state)
+        {
+            pcam.EnterAimingMode();
+        }
+        else
+        {
+            pcam.LeaveAimingMode();
+        }
     }
 
     public void TurnBasicAttackTrailOn()

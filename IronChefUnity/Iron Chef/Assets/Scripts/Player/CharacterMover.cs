@@ -40,6 +40,7 @@ public class CharacterMover : MonoBehaviour
 
 
     GameObject cam;
+    PlayerCamControl camControl;
 
     public GameObject model;
     private float modelRotSpeed = 360f;
@@ -86,6 +87,7 @@ public class CharacterMover : MonoBehaviour
         currentMove = new Vector3(0, 0, 0);
 
         cam = FindObjectOfType<Camera>().gameObject;
+        camControl = cam.GetComponentInParent<PlayerCamControl>();
 
     }
 
@@ -110,9 +112,13 @@ public class CharacterMover : MonoBehaviour
         inputDirection = getMovementInputVector();
 
         //Movement of character
+        
         Vector3 camFacing = cam.transform.forward;
+        
         camFacing.y = 0;
         camFacing = camFacing.normalized;
+        
+        
 
         if(!rolling)
         {
