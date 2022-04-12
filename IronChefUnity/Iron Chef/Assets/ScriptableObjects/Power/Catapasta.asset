@@ -31,4 +31,5 @@ MonoBehaviour:
   prefabs:
   - {fileID: 4312367088962146410, guid: 3b6bcd0f7c7939f4ca68b08387b051bf, type: 3}
   - {fileID: 7219546348998335166, guid: f8a32771299a24947b2a7ce1f84016cb, type: 3}
+  - {fileID: 7633062520802609200, guid: 829b4c6ed690ee94988e8b4edb3721a4, type: 3}
   powerAnimDuration: 2.033
