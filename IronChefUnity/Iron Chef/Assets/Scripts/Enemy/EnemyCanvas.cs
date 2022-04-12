@@ -12,11 +12,14 @@ public class EnemyCanvas : MonoBehaviour
     public float animTime;
     Transform player;
 
+    public bool DeactivateOnStart = true;
+
     // Start is called before the first frame update
     void Start()
     {
         player = FindObjectOfType<CharacterMover>().transform;
-        gameObject.SetActive(false);
+        if(DeactivateOnStart)
+            gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -46,4 +49,5 @@ public class EnemyCanvas : MonoBehaviour
         else
             gameObject.SetActive(false);
     }
+
 }

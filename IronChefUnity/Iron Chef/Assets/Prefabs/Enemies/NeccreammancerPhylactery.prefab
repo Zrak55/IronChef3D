@@ -373,6 +373,7 @@ MonoBehaviour:
   hpSlider: {fileID: 6467137297056637075}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 0
 --- !u!1 &4000154930656500948
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,8 +984,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Phylactery
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
+  m_sharedMaterial: {fileID: -5341346548591618028, guid: 287f9f75476d6054aa5d40f294157970, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1008,7 +1009,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.6
+  m_fontSize: 22.9
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

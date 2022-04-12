@@ -130,6 +130,7 @@ MonoBehaviour:
     - particle: {fileID: 6866441052843190683}
     trails: []
     specialTrails: []
+    outlines: []
   - particles:
     - particle: {fileID: 7254490017943468531}
     - particle: {fileID: 8909459952018334992}
@@ -139,6 +140,7 @@ MonoBehaviour:
     - particle: {fileID: 5723999025373887242}
     trails: []
     specialTrails: []
+    outlines: []
   - particles:
     - particle: {fileID: 2719835172254557161}
     - particle: {fileID: 4230895518120984330}
@@ -148,6 +150,7 @@ MonoBehaviour:
     - particle: {fileID: 5723999025373887242}
     trails: []
     specialTrails: []
+    outlines: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
@@ -1113,6 +1116,7 @@ MonoBehaviour:
   hpSlider: {fileID: 6456732286342044363}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 0
 --- !u!1 &8458888309333737999
 GameObject:
   m_ObjectHideFlags: 0
