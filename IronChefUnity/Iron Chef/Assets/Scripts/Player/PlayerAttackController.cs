@@ -51,6 +51,9 @@ public class PlayerAttackController : MonoBehaviour
     [HideInInspector]
     public bool lining = false;
 
+    bool allowedToPower = false;
+    bool allowedToFryingPan = false;
+
     private void Awake()
     {
         animator = GetComponentInChildren<Animator>();
@@ -104,6 +107,7 @@ public class PlayerAttackController : MonoBehaviour
 
     public void ToggleAiming(bool state)
     {
+        
         AimImage.SetActive(state);
         if(state)
         {
@@ -239,7 +243,7 @@ public class PlayerAttackController : MonoBehaviour
 
     private void CheckBasic()
     {
-        if(!attacking && canBasicAttack)
+        if(!attacking && canBasicAttack && !AimImage.activeSelf)
         {
 
             if (InputControls.controls.Gameplay.BasicAttack.triggered)
@@ -291,15 +295,17 @@ public class PlayerAttackController : MonoBehaviour
     {
         if (InputControls.controls.Gameplay.FryingPanAim.triggered)
         {
-            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
+            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling() && !AimImage.activeSelf)
             {
+                allowedToFryingPan = true;
                 ToggleAiming(true);
             }
         }
         if (InputControls.controls.Gameplay.FryingPan.triggered)
         {
-            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling())
+            if (!attacking && CDandCost.FryingPanOnCooldown == false && !mover.IsRolling() && allowedToFryingPan)
             {
+                allowedToFryingPan = false;
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
                 targetOverrideWeight = 1;
@@ -351,14 +357,16 @@ public class PlayerAttackController : MonoBehaviour
 
     private void CheckPower()
     {
-        if (InputControls.controls.Gameplay.UsePowerPressed.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling())
+        if (InputControls.controls.Gameplay.UsePowerPressed.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling() && !AimImage.activeSelf)
         {
+            allowedToPower = true;
             GetComponent<PlayerPower>().PlayerPowerPressed();
         }
 
         //Debug.Log("Input: " + InputControls.controls.Gameplay.UsePower.triggered + " On CD: " + CDandCost.PowerOnCooldown + " Attacking: " + attacking);
-        if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling())
+        if (InputControls.controls.Gameplay.UsePower.triggered && CDandCost.PowerOnCooldown == false && !attacking && !mover.IsRolling() && allowedToPower)
         {
+            allowedToPower = false;
             attacking = true;
             animator.SetBool("UsingPower", true);
             targetOverrideWeight = 1;

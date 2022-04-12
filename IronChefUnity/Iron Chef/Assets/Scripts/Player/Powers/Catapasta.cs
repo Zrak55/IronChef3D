@@ -6,6 +6,7 @@ public class Catapasta : PlayerPower
 {
     GameObject targeter;
     GameObject projectile;
+    GameObject hitEffect;
     int numProjectiles;
     float offsetAmount;
 
@@ -44,29 +45,22 @@ public class Catapasta : PlayerPower
                 {
                     spawnedProjectile.transform.position = Vector3.MoveTowards(spawnedProjectile.transform.position, spawnedTargeter.transform.position + offset[i], goSpeed * Time.deltaTime);
                 }
-                else
+
+
+                
+                if (spawnedProjectile.transform.position == spawnedTargeter.transform.position + offset[i])
                 {
-                    if(spawnedTargeter != null)
+                    if (spawnedTargeter != null)
                     {
                         if (spawnedTargeter.GetComponentInChildren<AudioSource>() != null)
                             spawnedTargeter.GetComponentInChildren<AudioSource>().enabled = false;
                     }
-                    if (shouldMove[i])
-                    {
-                        shouldMove[i] = false;
-                        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnedTargeter.transform.position, SoundEffectSpawner.SoundEffect.CatapastaHit);
-                    }
-                    if (remainTime >= 1f)
-                    {
-                        Destroy(spawnedProjectile);
+                    shouldMove[i] = false;
+                    Destroy(Instantiate(hitEffect, spawnedProjectile.transform.position, Quaternion.identity), 3f);
+                    Destroy(spawnedProjectile);
 
-                        
-                    }
-                    else
-                    {
-                        remainTime += Time.deltaTime;
-                    }
                 }
+                
             }
         }
         if(spawnedTargeter != null)
@@ -101,7 +95,7 @@ public class Catapasta : PlayerPower
             goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
             shouldMove[i] = true;
         }
-        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(10, spawnedTargeter.transform.forward + IronChefUtils.GetSoftLockDirection(spawnedTargeter.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
+        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(20, spawnedTargeter.transform.forward + IronChefUtils.GetSoftLockDirection(spawnedTargeter.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
         remainTime = 0;
         SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
     }
@@ -118,6 +112,7 @@ public class Catapasta : PlayerPower
         spawnedProjectiles = new GameObject[numProjectiles];
         offset = new Vector3[numProjectiles];
         shouldMove = new bool[numProjectiles];
+        hitEffect = power.prefabs[2];
         for (int i = 0; i < numProjectiles; i++)
             shouldMove[i] = false;
     }
