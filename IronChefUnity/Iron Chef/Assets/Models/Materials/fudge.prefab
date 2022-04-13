@@ -999,10 +999,19 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.1663923
         - serializedVersion: 3
+          time: 0.6518588
+          value: 0.6397671
+          inSlope: -0.8217964
+          outSlope: -0.8217964
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.35409033
+        - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0.41642115
-          outSlope: 0.41642115
+          value: 0
+          inSlope: -1.8376657
+          outSlope: -1.8376657
           tangentMode: 34
           weightedMode: 0
           inWeight: 0.33333334
@@ -9628,6 +9637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 868291270129793268}
   - component: {fileID: 5112609197502949032}
+  - component: {fileID: 329617190227936727}
   m_Layer: 0
   m_Name: fudge
   m_TagString: Untagged
@@ -9666,6 +9676,25 @@ MonoBehaviour:
   dps: 60
   radius: 1
   particles: {fileID: 6974044966503530099}
+--- !u!95 &329617190227936727
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958063316010771129}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21a22c2132495b54e9f94d0d3227ea66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6974044966503530099
 GameObject:
   m_ObjectHideFlags: 0

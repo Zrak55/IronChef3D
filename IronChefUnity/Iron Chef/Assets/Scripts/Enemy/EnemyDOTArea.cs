@@ -15,7 +15,7 @@ public class EnemyDOTArea : MonoBehaviour
     {
         hitPlayer = new List<PlayerHitpoints>();
         DoSpawnThings();
-        Invoke("DestroySelf", 5f);
+        Destroy(gameObject, 5);
     }
 
     void Update()
@@ -32,7 +32,6 @@ public class EnemyDOTArea : MonoBehaviour
     public void DoSpawnThings()
     {
         transform.localScale = new Vector3(.01f, .01f, .01f);
-        StartCoroutine("Spawn");
         instParticles = Instantiate(particles, transform);
         instParticles.transform.localPosition = Vector3.zero;
     }
@@ -54,31 +53,5 @@ public class EnemyDOTArea : MonoBehaviour
         }
         hitPlayer.Clear();
 
-    }
-
-    void DestroySelf()
-    {
-        StartCoroutine(DeSpawn());
-    }
-
-    private IEnumerator Spawn()
-    {
-        while (transform.localScale != new Vector3(1, 1, 1))
-        {
-            transform.localScale += new Vector3(.01f, .01f, .01f);
-            yield return new WaitForSeconds(.01f);
-        }
-        yield return null;
-    }
-
-    private IEnumerator DeSpawn()
-    {
-        while (transform.localScale != new Vector3(0, 0, 0))
-        {
-            transform.localScale -= new Vector3(.01f, .01f, .01f);
-            yield return new WaitForSeconds(.005f);
-        }
-        Destroy(gameObject);
-        yield return null;
     }
 }

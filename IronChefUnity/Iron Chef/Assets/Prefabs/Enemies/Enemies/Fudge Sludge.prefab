@@ -963,6 +963,7 @@ MonoBehaviour:
   hpSlider: {fileID: 6481596984739766432}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &8665300036915358873
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,8 +1006,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 6.591067, y: 10.25304, z: 5.38}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 6.591067, y: 10.25304, z: 10.853798}
+  m_Center: {x: -0.0000005970859, y: 0, z: 2.7368972}
 --- !u!114 &1573563119325138209
 MonoBehaviour:
   m_ObjectHideFlags: 0
