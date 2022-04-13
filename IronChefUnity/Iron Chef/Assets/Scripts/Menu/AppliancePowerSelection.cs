@@ -29,6 +29,8 @@ public class AppliancePowerSelection : MonoBehaviour
 
     public GameObject PlayerHud;
 
+    PlayerHUDManager hudScript;
+
 
     private void OnEnable()
     {
@@ -47,6 +49,7 @@ public class AppliancePowerSelection : MonoBehaviour
         playerCam = FindObjectOfType<PlayerCameraSetup>().gameObject;
         IronChefUtils.TurnOffCharacter();
 
+        hudScript = PlayerHud.GetComponent<PlayerHUDManager>();
 
         if(firstOn)
         {
@@ -151,7 +154,7 @@ public class AppliancePowerSelection : MonoBehaviour
             power.SetScriptableData(powerScriptable);
         }
 
-        FindObjectOfType<PlayerHUDManager>().SetPowerImage(powerScriptable.powerName);
+        hudScript.SetPowerImage(powerScriptable.powerName);
 
         foreach (var p in player.GetComponents<PlayerPower>())
             if (p != power)
