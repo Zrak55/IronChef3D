@@ -79,6 +79,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite IceTrayImage;
     public Sprite SugarRushImage;
     public Sprite GlockamoleImage;
+    public Sprite MortaterImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -642,6 +643,9 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.Glockamole:
                 s = GlockamoleImage;
+                break;
+            case PlayerPowerScriptable.PowerName.Mortater:
+                s = MortaterImage;
                 break;
         }
         return s;

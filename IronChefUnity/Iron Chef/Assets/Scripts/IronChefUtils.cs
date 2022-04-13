@@ -228,6 +228,17 @@ public static class IronChefUtils
         return list;
     }
 
+    public static List<GameObject> GetCastHits(float radius, Vector3 position, string Layer = "Hitbox")
+    {
+        var h = Physics.OverlapSphere(position, radius, 1 << LayerMask.NameToLayer(Layer));
+        List<GameObject> hits = new List<GameObject>();
+        foreach(var cols in h)
+        {
+            hits.Add(cols.gameObject);
+        }
+        return hits;
+    }
+
     public static List<GameObject> GetCastHits(Collider col, string Layer = "Hitbox")
     {
 

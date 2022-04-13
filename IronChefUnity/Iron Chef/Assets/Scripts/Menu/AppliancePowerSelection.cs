@@ -136,6 +136,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Glockamole:
                 power = player.AddComponent<Glockamole>();
                 break;
+            case PlayerPowerScriptable.PowerName.Mortater:
+                power = player.AddComponent<Mortater>();
+                break;
             default:
                 break;
         }

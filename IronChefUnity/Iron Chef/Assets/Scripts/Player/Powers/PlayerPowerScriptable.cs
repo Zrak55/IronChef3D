@@ -31,6 +31,9 @@ public class PlayerPowerScriptable : ScriptableObject
         Catapasta,
         IceTray,
         SugarRush,
-        Glockamole
+        Glockamole,
+        Mortater,
+        _50CarrotRifle,
+        M1BrownieMachineGun
     }
 }
