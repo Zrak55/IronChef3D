@@ -39,7 +39,7 @@ public class GritsBehavior : EnemyBehaviorTree
     private void Update()
     {
         gritsBehaviorTree.behavior();
-        if (Vector3.Distance(player.transform.position, transform.position) >= spawnRange && agent.velocity.magnitude == 0)
+        if (Vector3.Distance(player.transform.position, transform.position) >= spawnRange && agent.velocity.magnitude == 0 && !enemyHitpoints.damaged)
             StopAllCoroutines();
     }
 
