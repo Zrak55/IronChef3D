@@ -25,6 +25,11 @@ public class Mortater : PlayerPower
     }
 
 
+    public override void PlayerPowerPressed()
+    {
+        base.PlayerPowerPressed();
+        attkControl.ToggleAiming(true);
+    }
     public override void DoPowerEffects()
     {
         base.DoPowerEffects();
