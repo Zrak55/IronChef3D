@@ -275,6 +275,7 @@ public static class IronChefUtils
     public static void TurnOffCharacter()
     {
         GameObject.FindObjectOfType<CharacterMover>().MouseOff = false;
+        GameObject.FindObjectOfType<CharacterMover>().GetComponentInChildren<Animator>().SetFloat("Speed", 0);
         GameObject.FindObjectOfType<CharacterMover>().enabled = false;
         GameObject.FindObjectOfType<PlayerCamControl>().CanMoveCam(false);
         GameObject.FindObjectOfType<PlayerAttackController>().canAct = false;

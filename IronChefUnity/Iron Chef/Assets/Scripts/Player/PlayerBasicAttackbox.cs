@@ -164,7 +164,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         }
 
 
-                        pcam.ShakeCam(dmgToDeal/10f , dmgToDeal * 0.4f / 10f);
+                        pcam.ShakeCam(dmgToDeal/12.5f , .4f);
                         enemy.TakeDamage(dmgToDeal);
 
 

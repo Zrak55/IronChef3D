@@ -17,13 +17,12 @@ public class PlayerCamControl : MonoBehaviour
     public ObscureObject[] obscureTheseObjects;
     public float clipPlayerDistance;
     float currentShakeIntensity = 0;
-    float currentShakeFrequency = 0;
-    public float frequencyAcceleration;
-    public float intensityAcceleration;
+    public float currentShakeFrequency = 0;
+
+    float timer = 0f;
 
     float verticalMult = 0.35f;
 
-    bool shouldChange;
 
     bool canMove;
 
@@ -177,10 +176,18 @@ public class PlayerCamControl : MonoBehaviour
 
     void TickCamShake()
     {
-        if (shouldChange)
+        if (timer != 0)
         {
+            timer = Mathf.Max(timer - Time.deltaTime, 0);
 
-            CinemachineBasicMultiChannelPerlin c;
+        }
+        else
+        {
+            currentShakeIntensity = 0;
+
+        }
+
+        CinemachineBasicMultiChannelPerlin c;
             c = cinemachine.GetRig(0).GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
             c.m_AmplitudeGain = currentShakeIntensity;
             c.m_FrequencyGain = currentShakeFrequency;
@@ -191,38 +198,17 @@ public class PlayerCamControl : MonoBehaviour
             c.m_AmplitudeGain = currentShakeIntensity;
             c.m_FrequencyGain = currentShakeFrequency;
 
-            shouldChange = false;
-        }
-
-        if (currentShakeIntensity != 0)
-        {
-            currentShakeIntensity = Mathf.Max(currentShakeIntensity + (Time.deltaTime * -1f * intensityAcceleration), 0);
-            shouldChange = true;
-
-        }
-        else
-        {
-            currentShakeFrequency = 0;
-        }
-        if (currentShakeFrequency != 0)
-        {
-            currentShakeFrequency = Mathf.Max(currentShakeFrequency + (Time.deltaTime * -1f * frequencyAcceleration), 0);
-            shouldChange = true;
-        }
-        else
-        {
-            currentShakeIntensity = 0;
-        }
+       
+        
 
     }
 
-    public void ShakeCam(float intensity, float frequency, bool overrideAmount = false)
+    public void ShakeCam(float intensity, float shakeTime, bool overrideAmount = false)
     {
-        if (overrideAmount || (intensity > currentShakeIntensity && frequency > currentShakeFrequency))
+        if (overrideAmount || (intensity > currentShakeIntensity))
         {
+            timer = shakeTime;
             currentShakeIntensity = intensity;
-            currentShakeFrequency = frequency;
-            shouldChange = true;
         }
     }
 

@@ -27,6 +27,8 @@ public class AppliancePowerSelection : MonoBehaviour
     public AppliancePowerPageManager powerPages;
     public AppliancePowerPageManager appliancePages;
 
+    public GameObject PlayerHud;
+
 
     private void OnEnable()
     {
@@ -85,6 +87,7 @@ public class AppliancePowerSelection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerHud.SetActive(false);
         PowerName.text = player.GetComponent<PlayerPower>().powerInformation.DisplayName;
         ApplianceName.text = player.GetComponent<Appliance>().applianceScriptable.DisplayName;
         PowerDesc.text = player.GetComponent<PlayerPower>().powerInformation.description;
@@ -216,6 +219,7 @@ public class AppliancePowerSelection : MonoBehaviour
     {
         IronChefUtils.TurnOnCharacter();
 
+        PlayerHud.SetActive(true);
 
         LevelProgressManager.levelProgressManager.DisplayDish();
 

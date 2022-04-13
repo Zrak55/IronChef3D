@@ -129,7 +129,7 @@ public class EnemyJump : MonoBehaviour
     public void DoneJumping()
     {
         if (shake)
-            FindObjectOfType<PlayerCamControl>().ShakeCam(5, 1.5f);
+            FindObjectOfType<PlayerCamControl>().ShakeCam(5, .75f);
 
         vfx.StartEffect(jumpVFXNum);
 

@@ -1206,8 +1206,7 @@ MonoBehaviour:
     obscureDistance: 4.25
     objectRadius: 5
   clipPlayerDistance: 6
-  frequencyAcceleration: 1.25
-  intensityAcceleration: 0.5
+  currentShakeFrequency: 0.5
   aiming: 0
   normalCameraObjs:
   - {fileID: 493559122}

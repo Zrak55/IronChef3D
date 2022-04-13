@@ -69,7 +69,7 @@ public class BenedictRoll : MonoBehaviour
                         {
                             targetFacing = (RoomCenter.position - transform.position).normalized;
                             targetFacing.y = 0;
-                            cam.ShakeCam(2.5f, 0.75f);
+                            cam.ShakeCam(2.5f, .25f);
                         }
                         else
                         {

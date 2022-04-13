@@ -63,7 +63,7 @@ public class MeatosaurusCharge : MonoBehaviour
             if (i.gameObject.name != "Floor")
             {
                 SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
-                pcam.ShakeCam(5, 2);
+                pcam.ShakeCam(5, 1);
                 Destroy(Instantiate(DestroyRockEffect, i.transform.position, i.transform.rotation), 5f);
                 Destroy(i.transform.parent.gameObject);
                 destroyRock = true;
@@ -81,7 +81,7 @@ public class MeatosaurusCharge : MonoBehaviour
                 if (i.gameObject.name != "Floor" && i.gameObject.name != "MeatosaurusRockPlayerCol")
                 {
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.TrexWallHit);
-                    pcam.ShakeCam(5, 2);
+                    pcam.ShakeCam(5, 1);
                     StopCharge();
 
                 }

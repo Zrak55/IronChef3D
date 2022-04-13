@@ -18,7 +18,7 @@ public class EnemyFootsteps : MonoBehaviour
                 cam = FindObjectOfType<PlayerCamControl>();
 
             if (Vector3.Distance(cam.cinemachine.m_Follow.position, transform.position) < 200f) //dont shake from 1000000 miles away
-                cam.ShakeCam(CamShakeAmount, CamShakeAmount);
+                cam.ShakeCam(CamShakeAmount, 0.25f);
         }
     }
 }

@@ -309,18 +309,19 @@ public class CharacterMover : MonoBehaviour
             sprintToggled = !sprintToggled;
         }
 
-        if(sprintToggled && !rolling && canSprint && inputDirection != Vector3.zero)
+        if(sprintToggled && canSprint && inputDirection != Vector3.zero)
         {
-            if(PlayerHitpoints.InCombat() == false || stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
-            {
-                sprinting = true;
-            }
-            else
-            {
-                sprinting = false;
-                sprintToggled = false;
-                StartCoroutine(sprintDelay());
-            }
+                if (PlayerHitpoints.InCombat() == false || stats.TrySpendStamina(costmanager.SprintCostPerSecond * Time.deltaTime))
+                {
+                    sprinting = true;
+                }
+                else
+                {
+                    sprinting = false;
+                    sprintToggled = false;
+                    StartCoroutine(sprintDelay());
+                }
+            
         }
         else
         {
