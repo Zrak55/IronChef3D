@@ -123,6 +123,26 @@ public class CharacterMover : MonoBehaviour
         if(!rolling)
         {
             direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
+            if(camControl.aiming)
+            {
+                camFacing = model.transform.forward;
+                camFacing.y = 0;
+                if (inputDirection.z < 0)
+                {
+                    if (inputDirection.x > 0)
+                    {
+                        inputDirection.x = 1;
+                        inputDirection.z = 0;
+                    }
+                    else
+                    {
+                        inputDirection.x = -1;
+                        inputDirection.z = 0;
+                    }
+                }
+                direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
+                
+            }
         }
         direction = direction.normalized * speed;
         targetMoveSpeed = direction;

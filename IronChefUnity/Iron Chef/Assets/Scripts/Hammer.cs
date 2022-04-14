@@ -13,6 +13,7 @@ public class Hammer : PlayerPower
     float animTime;
 
     GameObject meatMallet;
+    GameObject hitEffect;
 
     PlayerAttackController pattack;
     PlayerSpeedController speed;
@@ -40,6 +41,8 @@ public class Hammer : PlayerPower
             if(h.GetComponentInParent<EnemyHitpoints>() != null)
             {
                 h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage);
+                Destroy(Instantiate(hitEffect, h.transform.position + (Vector3.up * 1.5f), Quaternion.identity), 3f);
+                FindObjectOfType<PlayerCamControl>().ShakeCam(7, 0.75f);
             }
         }
         if (hits.Count > 0)
@@ -58,6 +61,8 @@ public class Hammer : PlayerPower
         depth = power.values[2];
         height = power.values[3];
         animTime = power.values[4];
+
+        hitEffect = power.prefabs[1];
 
         meatMallet = Instantiate(power.prefabs[0], pattack.throwPoint.parent);
         meatMallet.SetActive(false);

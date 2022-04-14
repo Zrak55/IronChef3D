@@ -58,6 +58,11 @@ public class PlayerCamControl : MonoBehaviour
         
     }
 
+    public bool IsAiming()
+    {
+        return aiming;
+    }
+
     public void EnterAimingMode()
     {
         aiming = true;

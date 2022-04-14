@@ -57,6 +57,7 @@ public class Catapasta : PlayerPower
                     }
                     shouldMove[i] = false;
                     Destroy(Instantiate(hitEffect, spawnedProjectile.transform.position, Quaternion.identity), 3f);
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnedProjectile.transform.position, SoundEffectSpawner.SoundEffect.CatapastaHit);
                     Destroy(spawnedProjectile);
 
                 }
