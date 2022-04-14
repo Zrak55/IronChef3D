@@ -220,9 +220,11 @@ public static class IronChefUtils
     public static List<GameObject> GetCastHits(float width, float height, float depth, Vector3 location, Quaternion rotation, string Layer = "Hitbox")
     {
         var newGO = GameObject.Instantiate(new GameObject(), location, rotation);
+        newGO.transform.SetParent(null);
+        newGO.transform.localScale = new Vector3(1, 1, 1);
         var col = newGO.AddComponent<BoxCollider>();
         col.isTrigger = true;
-        col.size = new Vector3(width, depth, height);
+        col.size = new Vector3(width, height, depth);
         var list = GetCastHits(col, Layer);
         GameObject.Destroy(newGO);
         return list;

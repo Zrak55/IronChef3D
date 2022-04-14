@@ -23,9 +23,10 @@ MonoBehaviour:
   - 6
   - 1
   - 7
-  - 14
+  - 10
   - 8
   - 2
+  - 5
   valueDescriptions:
   - Punch Damage
   - Number of Punches
@@ -34,6 +35,7 @@ MonoBehaviour:
   - Depth
   - Height
   - Scale Amount Per Hit
+  - Forward Offset
   prefabs:
   - {fileID: 2669251090362438238, guid: 5d3ab3f650f2f5148aefeb3ac1ab0ac7, type: 3}
   powerAnimDuration: 1.467

@@ -12,6 +12,7 @@ public class _50CheeseStrike : PlayerPower
     float Depth;
     float Height;
     float scaleAmount;
+    float forwardOffset;
     Transform model;
     List<EnemyHitpoints> allhits;
 
@@ -38,6 +39,7 @@ public class _50CheeseStrike : PlayerPower
         Depth = power.values[4];
         Height = power.values[5];
         scaleAmount = power.values[6];
+        forwardOffset = power.values[7];
     }
     public override void DoPowerEffects()
     {
@@ -87,7 +89,7 @@ public class _50CheeseStrike : PlayerPower
 
             
             bool hitSomething = false;
-            var hits = IronChefUtils.GetCastHits(Width, Height, Depth, transform.position, model.rotation);
+            var hits = IronChefUtils.GetCastHits(Width, Height, Depth, transform.position + (transform.forward * forwardOffset), model.rotation);
             foreach (var h in hits)
             {
                 var hp = h.GetComponentInParent<EnemyHitpoints>();

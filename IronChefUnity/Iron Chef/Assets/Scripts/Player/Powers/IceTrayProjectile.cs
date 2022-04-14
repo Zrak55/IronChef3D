@@ -6,6 +6,7 @@ public class IceTrayProjectile : MonoBehaviour
 {
     [HideInInspector]
     public float damage;
+    public GameObject onHitEffect;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -26,6 +27,7 @@ public class IceTrayProjectile : MonoBehaviour
     private void DoCollideThings(EnemyHitpoints enemy)
     {
         enemy?.TakeDamage(damage);
+        Destroy(Instantiate(onHitEffect, transform.position, Quaternion.identity), 3f);
         Destroy(gameObject);
     }
 
