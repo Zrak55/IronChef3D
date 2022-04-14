@@ -26,7 +26,15 @@ public class PlayerHealOverTimeManager : MonoBehaviour
         List<HealOverTimeEffector> remList = new List<HealOverTimeEffector>();
         foreach(var e in effectors)
         {
-            phealth.RestoreHP(e.HealPerSecond * Time.deltaTime);
+            if(e.Duration < Time.deltaTime)
+            {
+                phealth.RestoreHP(e.HealPerSecond * e.Duration);
+            }
+            else
+            {
+                phealth.RestoreHP(e.HealPerSecond * Time.deltaTime);
+            }
+            
             e.Duration -= Time.deltaTime;
             if (e.Duration <= 0)
                 remList.Add(e);
