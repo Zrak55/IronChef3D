@@ -32,4 +32,5 @@ MonoBehaviour:
   - Anim Time
   prefabs:
   - {fileID: 2117711650593801206, guid: e9b760e4717031742bc11a882a781d2a, type: 3}
+  - {fileID: 7445887703583515582, guid: 47bcc1b4fe525a3488e3a7e0757d708a, type: 3}
   powerAnimDuration: 3.7
