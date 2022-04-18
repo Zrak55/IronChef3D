@@ -19,7 +19,7 @@ MonoBehaviour:
   cooldown: 10
   animationNumber: 1
   values:
-  - 10
+  - 10.111
   - 3
   - 10
   - 20
