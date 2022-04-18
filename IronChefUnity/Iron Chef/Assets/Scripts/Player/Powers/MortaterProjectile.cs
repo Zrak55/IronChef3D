@@ -58,7 +58,7 @@ public class MortaterProjectile : MonoBehaviour
                 var eh = obj.GetComponentInParent<EnemyHitpoints>();
                 if (eh != null)
                 {
-                    eh.TakeDamage(damage);
+                    eh.TakeDamage(damage, false);
                 }
             }
 

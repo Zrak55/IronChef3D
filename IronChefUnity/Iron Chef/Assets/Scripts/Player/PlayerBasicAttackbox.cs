@@ -141,7 +141,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         }
                         dmgToDeal = damage * (1 + dmgMod);
 
-
+                        bool wasCrit = false;
 
                         float critVal = baseCritValue;
                         foreach (var h in modifier.HitModifiers)
@@ -156,6 +156,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         if(Random.Range(0.00001f, 1f) <= critVal)
                         {
                             dmgToDeal *= 2;
+                            wasCrit = true;
                         }
 
                         foreach(var h in modifier.HitModifiers)
@@ -165,7 +166,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
 
 
                         pcam.ShakeCam(dmgToDeal/12.5f , .4f);
-                        enemy.TakeDamage(dmgToDeal);
+                        enemy.TakeDamage(dmgToDeal, wasCrit);
 
 
                         if (!hasPlayedSound)

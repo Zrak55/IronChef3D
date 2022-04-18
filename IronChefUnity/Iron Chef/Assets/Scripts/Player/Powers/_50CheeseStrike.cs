@@ -96,7 +96,7 @@ public class _50CheeseStrike : PlayerPower
                 if (hp != null && allhits.Contains(hp) == false)
                 {
                     hitSomething = true;
-                    hp.TakeDamage(currentDamage);
+                    hp.TakeDamage(currentDamage, false);
                     allhits.Add(hp);
                 }
             }

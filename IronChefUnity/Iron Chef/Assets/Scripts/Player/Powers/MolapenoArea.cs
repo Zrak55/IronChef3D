@@ -55,7 +55,7 @@ public class MolapenoArea : MonoBehaviour
         }
         foreach(var e in hitEnemies)
         {
-            e.TakeDamage(dps * Time.deltaTime);
+            e.TakeDamage(dps * Time.deltaTime, false);
         }
         hitEnemies.Clear();
 

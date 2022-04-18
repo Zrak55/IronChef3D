@@ -40,7 +40,7 @@ public class Hammer : PlayerPower
         {
             if(h.GetComponentInParent<EnemyHitpoints>() != null)
             {
-                h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage);
+                h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage, false);
                 Destroy(Instantiate(hitEffect, h.transform.position + (Vector3.up * 1.5f), Quaternion.identity), 3f);
                 FindObjectOfType<PlayerCamControl>().ShakeCam(7, 0.75f);
             }

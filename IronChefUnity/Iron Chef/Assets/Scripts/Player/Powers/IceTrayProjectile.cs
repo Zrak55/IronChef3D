@@ -26,7 +26,7 @@ public class IceTrayProjectile : MonoBehaviour
 
     private void DoCollideThings(EnemyHitpoints enemy)
     {
-        enemy?.TakeDamage(damage);
+        enemy?.TakeDamage(damage, false);
         Destroy(Instantiate(onHitEffect, transform.position, Quaternion.identity), 3f);
         Destroy(gameObject);
     }

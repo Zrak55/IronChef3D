@@ -109,7 +109,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
                 if(head != null)
                     head.GetComponent<HydravioliHeadBehavior>().DeathNoNewHead();
 
-        myHP.TakeDamage(1);
+        myHP.TakeDamage(1, false);
     }
 
     public void TwoNewHeads()

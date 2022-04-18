@@ -24,7 +24,7 @@ public class FreezerHitModifier : PlayerAttackHitModifier
                     if (e != null)
                     {
 
-                        e.TakeDamage(damage);
+                        e.TakeDamage(damage, false);
                     }
                 }
                 currentHits = 0;

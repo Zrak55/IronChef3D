@@ -35,10 +35,10 @@ public class EnemyCanvas : MonoBehaviour
         IronChefUtils.moveABar(hpSlider, hp.GetPercentHP());
     }
 
-    public void MakeDamageNumber(float value)
+    public void MakeDamageNumber(float value, bool wasCrit)
     {
         var go = Instantiate(dmgNumber, (transform.position + player.position)/2, Quaternion.identity);
-        go.GetComponentInChildren<TextMeshProUGUI>().text = value.ToString("0.0");
+        go.GetComponent<FloatingDamageNumber>().SetValue(value, wasCrit);
         Destroy(go, animTime);
     }
 

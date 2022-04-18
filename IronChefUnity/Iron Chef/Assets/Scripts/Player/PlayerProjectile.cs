@@ -80,7 +80,7 @@ public class PlayerProjectile : MonoBehaviour
                     allhits.Add(enemyHealth);
                     hit = true;
                     SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, HitSound);
-                    enemyHealth.TakeDamage(damage);
+                    enemyHealth.TakeDamage(damage, false);
                     ApplyHitEffects();
                     int bounceMax = numBounces;
                     if(isFryingPan)

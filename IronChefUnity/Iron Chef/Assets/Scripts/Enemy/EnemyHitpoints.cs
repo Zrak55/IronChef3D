@@ -43,7 +43,7 @@ public class EnemyHitpoints : MonoBehaviour
 
     }
 
-    public virtual void TakeDamage(float amount)
+    public virtual void TakeDamage(float amount, bool wasCrit)
     {
         if(currentHP > 0)
         {
@@ -75,7 +75,7 @@ public class EnemyHitpoints : MonoBehaviour
 
             if (dmgNumAmount >= 1)
             {
-                floatingDmg.MakeDamageNumber(amount);
+                floatingDmg.MakeDamageNumber(amount, wasCrit);
             }
             else
             {
@@ -103,7 +103,7 @@ public class EnemyHitpoints : MonoBehaviour
 
     void SmallDmgDisplay()
     {
-        floatingDmg.MakeDamageNumber(smallDmg);
+        floatingDmg.MakeDamageNumber(smallDmg, false);
         
         smallDmg = 0;
         isInvoking = false;
