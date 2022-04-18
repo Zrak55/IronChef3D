@@ -105,7 +105,11 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioSource MakeFollowingSoundEffect(Transform follow, SoundEffect effect, float volume, float overrideTimeAlive)
     {
         var x = MakeSoundEffect(follow.position, volume, effect, overrideTimeAlive);
-        x.transform.SetParent(follow);
+        if(x != null)
+        {
+
+            x.transform.SetParent(follow);
+        }
         return x;
     }
     private AudioSource MakeSoundEffect(Vector3 location, float volume, AudioClip Clip, float pitch, bool isBossEffect,float overrideTimeAlive = -1)
@@ -115,18 +119,28 @@ public class SoundEffectSpawner : MonoBehaviour
             go = Instantiate(audioSource, location, Quaternion.Euler(Vector3.zero));
         else
             go = Instantiate(bossAudioSource, location, Quaternion.Euler(Vector3.zero));
-        var ac = go.GetComponent<AudioSource>();
 
 
-        ac.clip = Clip;
-        ac.volume = volume;
-        ac.pitch = pitch;
-        ac.Play();
+        AudioSource ac = null;
 
-        if (overrideTimeAlive > 0)
-            Destroy(go, overrideTimeAlive);
-        else
-            Destroy(go, ac.clip.length * 1.1f);
+        if (Clip != null)
+        {
+            ac = go.GetComponent<AudioSource>();
+
+
+            ac.clip = Clip;
+            ac.volume = volume;
+            ac.pitch = pitch;
+
+            ac.Play();
+
+            if (overrideTimeAlive > 0)
+                Destroy(go, overrideTimeAlive);
+            else
+                Destroy(go, ac.clip.length * 1.1f);
+
+        }
+            
 
         return ac;
 
@@ -453,12 +467,9 @@ public class SoundEffectSpawner : MonoBehaviour
                    break;
                 */
         }
-        if (clipToPlay != null)
-        {
-            return MakeSoundEffect(location, volume, clipToPlay, pitch, isBossEffect, overrideTimeAlive);
-        }
-        else
-            return null;
+        
+        return MakeSoundEffect(location, volume, clipToPlay, pitch, isBossEffect, overrideTimeAlive);
+        
     }
 
     public AudioSource MakeSoundEffect(Vector3 location, SoundEffect effect)
