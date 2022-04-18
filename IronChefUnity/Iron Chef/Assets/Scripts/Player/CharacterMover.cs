@@ -129,17 +129,9 @@ public class CharacterMover : MonoBehaviour
                 camFacing.y = 0;
                 if (inputDirection.z < 0)
                 {
-                    if (inputDirection.x > 0)
-                    {
-                        inputDirection.x = 1;
-                        inputDirection.z = 0;
-                    }
-                    else
-                    {
-                        inputDirection.x = -1;
-                        inputDirection.z = 0;
-                    }
+                    inputDirection.z = 0;
                 }
+                inputDirection.x = 0;
                 direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
                 
             }
@@ -175,6 +167,19 @@ public class CharacterMover : MonoBehaviour
             model.transform.rotation = oldRot;
         }
         model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, targetRotation, modelRotSpeed * Time.deltaTime);
+
+        if(camControl.aiming)
+        {
+            float rotateMult = 6;
+            if(InputControls.controls.Gameplay.RotateCameraControllerCheck.ReadValue<Vector2>() != Vector2.zero)
+            {
+                rotateMult = 5;    //isController
+            }
+            float amountToRotate = InputControls.controls.Gameplay.RotateCamera.ReadValue<Vector2>().x * rotateMult;
+
+            model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, Quaternion.Euler(model.transform.rotation.eulerAngles + new Vector3(0, amountToRotate, 0)), modelRotSpeed * Time.deltaTime);
+            targetRotation = model.transform.rotation;
+        }
 
         if(MouseOff && IronChefUtils.MouseIsHidden() == false)
         {
