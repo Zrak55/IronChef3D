@@ -20,6 +20,7 @@ public class SpeedEffector
         OnionKnight,
         CheeseGrater,
         HammerRoot,
-        CarbUp
+        CarbUp,
+        Carrot50CalRoot
     }
 }

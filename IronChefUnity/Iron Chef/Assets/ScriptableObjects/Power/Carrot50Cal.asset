@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: Carrot50Cal
+  m_EditorClassIdentifier: 
+  DisplayName: Carrot 50 Cal
+  powerName: 11
+  description: Fire a powerful shot after a charge up.
+  briefDescription: Powerful ranged attack with a buildup
+  cooldown: 25
+  animationNumber: 8
+  values:
+  - 100
+  - 125
+  - 250
+  - 2.733
+  valueDescriptions:
+  - Damage
+  - Speed
+  - Distance
+  - Anim Time
+  prefabs:
+  - {fileID: 4312367088962146410, guid: 8cca9aa5c28827a408b22c7b4178c137, type: 3}
+  powerAnimDuration: 2.733

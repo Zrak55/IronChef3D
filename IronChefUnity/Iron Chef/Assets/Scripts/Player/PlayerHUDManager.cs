@@ -80,6 +80,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite SugarRushImage;
     public Sprite GlockamoleImage;
     public Sprite MortaterImage;
+    public Sprite Carrot50CalImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -230,7 +231,7 @@ public class PlayerHUDManager : MonoBehaviour
     }
     public void SetFoodBars()
     {
-        float height = 110;
+        float height = 85;
         updateFoodBarTimer = 3f;
 
         food1bar.gameObject.SetActive(true);
@@ -646,6 +647,9 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.Mortater:
                 s = MortaterImage;
+                break;
+            case PlayerPowerScriptable.PowerName.Carrot50Cal:
+                s = Carrot50CalImage;
                 break;
         }
         return s;

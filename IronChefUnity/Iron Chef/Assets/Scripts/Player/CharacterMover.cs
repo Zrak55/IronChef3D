@@ -27,6 +27,7 @@ public class CharacterMover : MonoBehaviour
     private PlayerCostCooldownManager costmanager;
     private PlayerHitpoints hitpoints;
     private Animator animator;
+    private PlayerSpeedController pSpeed;
 
     private bool rolling;
     private bool sprinting;
@@ -77,6 +78,7 @@ public class CharacterMover : MonoBehaviour
         costmanager = GetComponent<PlayerCostCooldownManager>();
         hitpoints = GetComponent<PlayerHitpoints>();
         animator = GetComponentInChildren<Animator>();
+        pSpeed = GetComponent<PlayerSpeedController>();
         speed = baseSpeed;
 
         baseAcceleration = acceleration;
@@ -175,6 +177,7 @@ public class CharacterMover : MonoBehaviour
             {
                 rotateMult = 5;    //isController
             }
+            rotateMult *= pSpeed.GetModifer();
             float amountToRotate = InputControls.controls.Gameplay.RotateCamera.ReadValue<Vector2>().x * rotateMult;
 
             model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, Quaternion.Euler(model.transform.rotation.eulerAngles + new Vector3(0, amountToRotate, 0)), modelRotSpeed * Time.deltaTime);

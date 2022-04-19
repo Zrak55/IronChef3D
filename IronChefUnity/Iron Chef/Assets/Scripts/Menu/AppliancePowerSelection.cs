@@ -145,6 +145,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Mortater:
                 power = player.AddComponent<Mortater>();
                 break;
+            case PlayerPowerScriptable.PowerName.Carrot50Cal:
+                power = player.AddComponent<Carrot50Cal>();
+                break;
             default:
                 break;
         }

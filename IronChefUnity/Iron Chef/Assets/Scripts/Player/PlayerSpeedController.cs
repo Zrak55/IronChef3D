@@ -11,6 +11,8 @@ public class PlayerSpeedController : MonoBehaviour
     public List<SpeedEffector> Modifiers = new List<SpeedEffector>();
     List<SpeedEffector> removeList;
 
+    float totalMod;
+
     private void Awake()
     {
         removeList = new List<SpeedEffector>();
@@ -19,7 +21,7 @@ public class PlayerSpeedController : MonoBehaviour
 
     private void Update()
     {
-        float totalMod = 1;
+        totalMod = 1;
         foreach(var mod in Modifiers)
         {
             totalMod += mod.percentAmount;
@@ -59,5 +61,10 @@ public class PlayerSpeedController : MonoBehaviour
         {
             Modifiers.Remove(rs);
         }
+    }
+
+    public float GetModifer()
+    {
+        return totalMod;
     }
 }

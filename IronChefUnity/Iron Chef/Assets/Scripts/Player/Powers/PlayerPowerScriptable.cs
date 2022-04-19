@@ -33,7 +33,7 @@ public class PlayerPowerScriptable : ScriptableObject
         SugarRush,
         Glockamole,
         Mortater,
-        _50CarrotRifle,
+        Carrot50Cal,
         M1BrownieMachineGun
     }
 }
