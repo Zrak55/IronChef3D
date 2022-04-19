@@ -81,6 +81,7 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite GlockamoleImage;
     public Sprite MortaterImage;
     public Sprite Carrot50CalImage;
+    public Sprite M1BrownieMachineGunImage;
     [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
@@ -650,6 +651,9 @@ public class PlayerHUDManager : MonoBehaviour
                 break;
             case PlayerPowerScriptable.PowerName.Carrot50Cal:
                 s = Carrot50CalImage;
+                break;
+            case PlayerPowerScriptable.PowerName.M1BrownieMachineGun:
+                s = M1BrownieMachineGunImage;
                 break;
         }
         return s;

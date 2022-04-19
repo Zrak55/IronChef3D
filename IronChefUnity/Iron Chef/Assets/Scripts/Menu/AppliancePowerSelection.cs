@@ -148,6 +148,9 @@ public class AppliancePowerSelection : MonoBehaviour
             case PlayerPowerScriptable.PowerName.Carrot50Cal:
                 power = player.AddComponent<Carrot50Cal>();
                 break;
+            case PlayerPowerScriptable.PowerName.M1BrownieMachineGun:
+                power = player.AddComponent<M1BrownieMachineGun>();
+                break;
             default:
                 break;
         }

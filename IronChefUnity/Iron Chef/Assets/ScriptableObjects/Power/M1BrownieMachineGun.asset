@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d01275c12d16eb408bf7b45e29f050f, type: 3}
+  m_Name: M1BrownieMachineGun
+  m_EditorClassIdentifier: 
+  DisplayName: M1 Brownie Machine Gun
+  powerName: 12
+  description: Fire many shots in a quick burst
+  briefDescription: Spray and Prey!
+  cooldown: 20
+  animationNumber: 9
+  values:
+  - 3
+  - 100
+  - 100
+  - 60
+  - 6
+  valueDescriptions:
+  - Damage
+  - Speed
+  - Distance
+  - Num Shots
+  - Duration
+  prefabs:
+  - {fileID: 4312367088962146410, guid: 04ad6542e44343d41852b7c968340cac, type: 3}
+  powerAnimDuration: 6.1

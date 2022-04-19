@@ -6127,6 +6127,7 @@ MonoBehaviour:
   GlockamoleImage: {fileID: 21300000, guid: 0b97d02305ef74e7ea0cb413d9cc158a, type: 3}
   MortaterImage: {fileID: 21300000, guid: 44994881295ab4b1084896d685432eff, type: 3}
   Carrot50CalImage: {fileID: 21300000, guid: 1fbdfb9bf6c2e4397a1d62eed589ec1f, type: 3}
+  M1BrownieMachineGunImage: {fileID: 21300000, guid: 6abcc03757a494181bcd2f733079582b, type: 3}
   FryingPanCD: {fileID: 4637321172747905478}
   PowerCD: {fileID: 2186335998541098982}
   BossHP: {fileID: 3279070991662583522}

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f3785d3a80bd5af47860e024816de9c5
+guid: 9e04ef925133cc146a4e2d1dfcd52398
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Mortater
+    second: M1Brownie
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -41,11 +41,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Mortater
+      name: M1Brownie
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 69
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,7 +65,7 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.60370994
+      - time: 0.025386041
         functionName: DoPowerEffects
         data: 
         objectReferenceParameter: {instanceID: 0}
