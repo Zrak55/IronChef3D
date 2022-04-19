@@ -32,8 +32,8 @@ public class GenericEnemyBehavior : EnemyBehaviorTree
         AttackBasic = new Leaf("Attack", attackBasic);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
+        CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         genericBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }

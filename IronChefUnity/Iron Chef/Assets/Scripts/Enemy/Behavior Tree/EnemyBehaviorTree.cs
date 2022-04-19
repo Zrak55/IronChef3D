@@ -11,7 +11,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     [Tooltip("Float for the maximum distance the enemy will begin to follow the player from.")]
     [SerializeField] protected float aggroRange;
     [Tooltip("Float for the maximum disatnce the enemy will move from the spawn.")]
-    [SerializeField] protected float spawnRange;
+    [SerializeField] public float spawnRange;
     [Tooltip("Float for the maximum distance the enemy will begin to attack from.")]
     [SerializeField] protected float attackRange;
     [Tooltip("Float for the time between the enemy's attack.")]
@@ -104,7 +104,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         }
 
         //Music and sound effects
-        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        if (aggrod && Vector3.Distance(currentWaypoint, transform.position) >= spawnRange && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount--;
@@ -209,7 +209,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     public Node.STATUS checkSpawnRange()
     {
         //The distance from the enemy to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
-        float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);
+        float spawnDistance = Vector3.Distance(transform.position, currentWaypoint);
         return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 

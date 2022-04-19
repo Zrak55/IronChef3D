@@ -34,8 +34,8 @@ public class MeatleBehavior : EnemyBehaviorTree
 
         //Setup sequence nodes and root
         CheckProjectile = new Selector("Projectile Selector", RunOnce, AttackProjectile);
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards, CheckProjectile);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
+        CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards, CheckProjectile);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         meatleBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
     }
