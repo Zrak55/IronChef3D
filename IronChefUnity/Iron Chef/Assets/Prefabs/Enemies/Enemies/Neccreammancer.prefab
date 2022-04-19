@@ -100,6 +100,7 @@ MonoBehaviour:
   hpSlider: {fileID: 9010058996005919706}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &2474245006354490031
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +891,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 12
   pickupPrefab: {fileID: 5796176345864650987, guid: c12010a47eb5a2040aabd47b36ac6751, type: 3}
+  AutoPickupFoodOnDeath: 1
 --- !u!114 &4798391828614751253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,6 +970,7 @@ MonoBehaviour:
   attackSoundEffect: 
   invincible: 0
   simpleFlag: 1
+  hideDamage: 0
   frostboltRange: 100
   frostboltCD: 5
   frostboltTime: 3
@@ -1004,6 +1007,7 @@ MonoBehaviour:
   projectile: {fileID: 4088226268673702336, guid: 0b3776c81b99f68439fb3e38f8cd1da8, type: 3}
   spawn: {x: 1, y: 3, z: 0}
   ProjectileSoundEffect: 4
+  vfxNumber: -1
 --- !u!114 &6697474145741523647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,7 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CometPrefab: {fileID: 4088226268673702336, guid: 11903fef5335a93459cb29ccf839fdc1, type: 3}
   Warning: {fileID: 6882707936818889616, guid: 8c3a8c87752ece74fbb3dd6c1565f661, type: 3}
-  numComets: 5
+  numComets: 4
   interCometDelay: 0.5
   stageCener: {fileID: 0}
   stageRadius: 100
