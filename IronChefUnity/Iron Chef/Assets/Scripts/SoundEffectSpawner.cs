@@ -140,6 +140,10 @@ public class SoundEffectSpawner : MonoBehaviour
                 Destroy(go, ac.clip.length * 1.1f);
 
         }
+        else
+        {
+            Destroy(go, 1f);
+        }
             
 
         return ac;
