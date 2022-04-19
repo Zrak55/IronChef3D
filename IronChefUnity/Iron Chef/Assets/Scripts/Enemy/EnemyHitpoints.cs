@@ -70,7 +70,11 @@ public class EnemyHitpoints : MonoBehaviour
             if (!didInvincible)
             {
                 currentHP -= amount;
-                damaged = true;
+                if (!damaged)
+                {
+                    damaged = true;
+                    enemyBehaviorTree.spawnRange *= 2;
+                }
             }
 
             if (dmgNumAmount >= 1)

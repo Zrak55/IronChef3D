@@ -38,8 +38,8 @@ public class TomatrollBehavior : EnemyBehaviorTree
         AttackSecondary = new Leaf("Jump", attackSecondary);
 
         //Setup sequence nodes and root
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckAggroRange, MoveTowards);
-        CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, MoveTowards);
+        CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
         CheckJumpBehind = new Sequence("Jump Behind Sequence", CheckBehind, AttackSecondary);

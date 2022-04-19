@@ -30,7 +30,6 @@ public class Selector : Node
     #endregion
     #region Functions
     //The node will run its first child. If it fails, keep going through children. Otherwise, continue with that node.
-    //Selector needs more testing to confirm it works as is.
     public override STATUS proccess()
     {
         STATUS childStatus;
@@ -45,7 +44,7 @@ public class Selector : Node
                 return status;
             }
         }
-        status = STATUS.SUCCESS;
+        status = STATUS.FAILURE;
         return status;
     }
     #endregion
