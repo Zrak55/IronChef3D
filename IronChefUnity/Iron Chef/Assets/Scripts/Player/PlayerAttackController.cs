@@ -44,6 +44,7 @@ public class PlayerAttackController : MonoBehaviour
     float currentAttackSpeed = 1;
 
     public GameObject AimImage;
+    LineRenderer aimLine;
 
     [HideInInspector]
     public Vector3 SavedRangedAttackPoint = Vector3.zero;
@@ -63,6 +64,8 @@ public class PlayerAttackController : MonoBehaviour
         mover = GetComponent<CharacterMover>();
         pcam = FindObjectOfType<PlayerCamControl>();
         PlayerProjectile.ExtraFryingPanBounces = 0;
+        aimLine = AimImage.GetComponentInChildren<LineRenderer>();
+        AimImage.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -82,7 +85,11 @@ public class PlayerAttackController : MonoBehaviour
             CheckFryingPan();
             CheckPower();
 
-
+            if(!lining)
+            {
+                aimLine.SetPosition(0, mover.model.transform.position + Vector3.up * 3);
+                aimLine.SetPosition(1, mover.model.transform.position + Camera.main.transform.forward * 40 + Vector3.up * 3);
+            }
             
 
         }
@@ -309,8 +316,8 @@ public class PlayerAttackController : MonoBehaviour
                 attacking = true;
                 animator.SetBool("RangedAttack", true);
                 targetOverrideWeight = 1;
-                SavedRangedAttackPoint = mover.model.transform.rotation.eulerAngles;
-                savedRanedLineForward = mover.model.transform.forward;
+                SavedRangedAttackPoint = Camera.main.transform.rotation.eulerAngles;
+                savedRanedLineForward = Camera.main.transform.forward;
                 StartCoroutine(saveLineAiming());
             }
             
@@ -347,9 +354,6 @@ public class PlayerAttackController : MonoBehaviour
                 yield return null;
             }
 
-            lr.useWorldSpace = false;
-            lr.SetPosition(0, new Vector3(0, 3, 0));
-            lr.SetPosition(1, new Vector3(0, 3, 40));
         }
 
         ToggleAiming(false);
@@ -372,8 +376,8 @@ public class PlayerAttackController : MonoBehaviour
             targetOverrideWeight = 1;
             GetComponent<PlayerPower>().PerformPower();
             Invoke("EndPower", GetComponent<PlayerPower>().powerInformation.powerAnimDuration);
-            SavedRangedAttackPoint = mover.model.transform.rotation.eulerAngles;
-            savedRanedLineForward = mover.model.transform.forward;
+            SavedRangedAttackPoint = Camera.main.transform.rotation.eulerAngles;
+            savedRanedLineForward = Camera.main.transform.forward;
             StartCoroutine(saveLineAiming());
         }
     }

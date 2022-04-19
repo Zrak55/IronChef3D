@@ -67,6 +67,8 @@ public class CharacterMover : MonoBehaviour
     public ParticleSystem RightFootEffect;
     public ParticleSystem SwampWalkEffect;
 
+    public GameObject cameraAimingHolder;
+
     
 
     private void Awake()
@@ -125,18 +127,6 @@ public class CharacterMover : MonoBehaviour
         if(!rolling)
         {
             direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
-            if(camControl.aiming)
-            {
-                camFacing = model.transform.forward;
-                camFacing.y = 0;
-                if (inputDirection.z < 0)
-                {
-                    inputDirection.z = 0;
-                }
-                inputDirection.x = 0;
-                direction = IronChefUtils.RotateFlatVector3(inputDirection, camFacing);
-                
-            }
         }
         direction = direction.normalized * speed;
         targetMoveSpeed = direction;
@@ -171,13 +161,11 @@ public class CharacterMover : MonoBehaviour
             rotateMult *= pSpeed.GetModifer();
             float amountToRotate = InputControls.controls.Gameplay.RotateCamera.ReadValue<Vector2>().x * rotateMult;
 
-            model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, Quaternion.Euler(model.transform.rotation.eulerAngles + new Vector3(0, amountToRotate, 0)), modelRotSpeed * Time.deltaTime);
+            cameraAimingHolder.transform.rotation = Quaternion.RotateTowards(cameraAimingHolder.transform.rotation, Quaternion.Euler(cameraAimingHolder.transform.rotation.eulerAngles + new Vector3(0, amountToRotate, 0)), modelRotSpeed * Time.deltaTime);
             
-            targetRotation = model.transform.rotation;
         }
-        else
-        {
-            if (direction != Vector3.zero)
+           
+        if (direction != Vector3.zero)
             {
                 var oldRot = model.transform.rotation;
                 model.transform.LookAt(transform.position + direction);
@@ -185,7 +173,7 @@ public class CharacterMover : MonoBehaviour
                 model.transform.rotation = oldRot;
             }
             model.transform.rotation = Quaternion.RotateTowards(model.transform.rotation, targetRotation, modelRotSpeed * Time.deltaTime);
-        }
+        
 
         if(MouseOff && IronChefUtils.MouseIsHidden() == false)
         {
