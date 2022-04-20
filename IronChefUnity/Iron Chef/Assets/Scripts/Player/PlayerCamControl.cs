@@ -154,6 +154,11 @@ public class PlayerCamControl : MonoBehaviour
         {
             SnapCamToBack();
         }
+
+        if(aiming)
+        {
+            cinemachine.m_XAxis.Value = Camera.main.transform.rotation.eulerAngles.y;
+        }
     }
 
     void SetCamSensitivity()

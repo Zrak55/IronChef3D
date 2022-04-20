@@ -87,8 +87,9 @@ public class PlayerAttackController : MonoBehaviour
 
             if(!lining)
             {
-                aimLine.SetPosition(0, mover.model.transform.position + Vector3.up * 3);
-                aimLine.SetPosition(1, mover.model.transform.position + Camera.main.transform.forward * 40 + Vector3.up * 3);
+                //aimLine.SetPosition(0, mover.model.transform.position + Vector3.up * 3);
+                //aimLine.SetPosition(1, mover.model.transform.position + Camera.main.transform.forward * 40 + Vector3.up * 3);
+                AimImage.transform.position = Camera.main.WorldToScreenPoint(mover.model.transform.position + Camera.main.transform.forward * 40 + Vector3.up * 3);
             }
             
 
