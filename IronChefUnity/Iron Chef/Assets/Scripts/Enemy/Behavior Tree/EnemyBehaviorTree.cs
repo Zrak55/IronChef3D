@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEditor;
@@ -22,6 +23,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> idleSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> attackSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
+    protected const float sphereCastRadius = 10f;
     protected Transform player;
     protected GameObject boss;
     //The spawn location of the enemy is automatically set based on scene placement.
@@ -33,6 +35,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected AudioSource idleSound;
     protected SoundEffectSpawner soundEffectSpawner;
     protected NavMeshAgent agent;
+    protected List<EnemyBehaviorTree> enemyBehaviorTrees = new List<EnemyBehaviorTree>();
     protected EnemyHitpoints enemyHitpoints;
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
@@ -55,6 +58,17 @@ public class EnemyBehaviorTree : MonoBehaviour
         }
     }
 
+    protected void setupEncounter()
+    {
+        RaycastHit[] hit = Physics.SphereCastAll(transform.position, sphereCastRadius, transform.forward, LayerMask.GetMask("Enemy"));
+        foreach (RaycastHit raycastHit in hit)
+        {
+            EnemyBehaviorTree temp = raycastHit.transform.gameObject.GetComponent<EnemyBehaviorTree>();
+            if (temp != null)
+                enemyBehaviorTrees.Add(temp);
+        }
+    }
+
     protected void setupWaypoints()
     {
         //Waypoints and positioning
@@ -68,14 +82,6 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS moveTowards()
     {
-        //Music and sound effects
-        if (!aggrod)
-        {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount++;
-            aggrod = true;
-        }
-
         //Movement calculations
         Vector3 midpoint = player.transform.position - transform.position;
         if (midpoint.magnitude < attackRange && Vector3.Angle(transform.forward, player.position - transform.position) < attackAngle)
@@ -93,23 +99,6 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS moveReset()
     {
-        //Before anything else, check if stunned
-        if (enemyStunHandler.IsStunned())
-        {
-            agent.destination = transform.position;
-            //Maybe there will be another animation state for stunning later
-            animator.SetBool("isMoving", false);
-            animator.Play("Base Layer.Idle", 0, 0);
-            return MoveReset.status = Node.STATUS.RUNNING;
-        }
-
-        //Music and sound effects
-        if (aggrod && Vector3.Distance(currentWaypoint, transform.position) >= spawnRange && !animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
-        {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount--;
-            aggrod = false;
-        }
         if (agent.velocity.magnitude == 0 && animator.GetCurrentAnimatorStateInfo(0).loop && idleSound == null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
@@ -196,14 +185,19 @@ public class EnemyBehaviorTree : MonoBehaviour
     //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled on MoveReset success and everything else false (Try running)
     public Node.STATUS checkEnemyHurt()
     {
-        return CheckEnemyHurt.status = (enemyHitpoints.damaged ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE);
+        return CheckEnemyHurt.status = enemyHitpoints.damaged ? becomeAggro() : Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkAggroRange()
     {
         //The distance from the enemy to the player
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
+        {
+            if (enemyBehaviorTree.isAggrod())
+                return CheckAggroRange.status = becomeAggro();
+        }    
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return CheckAggroRange.status = (playerDistance < aggroRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : becomeDeAggro();
     }
 
     public Node.STATUS checkSpawnRange()
@@ -266,6 +260,28 @@ public class EnemyBehaviorTree : MonoBehaviour
         isAttackCD = true;
         yield return new WaitForSeconds(attackCD);
         isAttackCD = false;
+    }
+
+    protected Node.STATUS becomeAggro()
+    {
+        if (!aggrod)
+        {
+            enemyCanvas.SwapState();
+            PlayerHitpoints.CombatCount++;
+            aggrod = true;
+        }
+        return Node.STATUS.SUCCESS;
+    }
+
+    protected Node.STATUS becomeDeAggro()
+    {
+        if (aggrod)
+        {
+            enemyCanvas.SwapState();
+            PlayerHitpoints.CombatCount--;
+            aggrod = false;
+        }
+        return Node.STATUS.FAILURE;
     }
 
     public void playSound(int value)

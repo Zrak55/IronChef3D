@@ -10,6 +10,8 @@ public class FondemonBehavior : EnemyBehaviorTree
 
     private void Start()
     {
+        setupEncounter();
+
         enemyProjectile = GetComponent<EnemyProjectile>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();

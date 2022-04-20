@@ -11,6 +11,7 @@ public class CrustaceanBehavior : EnemyBehaviorTree
     private void Start()
     {
         setupWaypoints();
+        setupEncounter();
 
         GetComponentInChildren<Outline>().enabled = false;
 

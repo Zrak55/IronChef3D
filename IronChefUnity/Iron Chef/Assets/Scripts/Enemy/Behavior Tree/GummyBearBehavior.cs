@@ -16,6 +16,7 @@ public class GummyBearBehavior : EnemyBehaviorTree
     private void Start()
     {
         setupWaypoints();
+        setupEncounter();
 
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();

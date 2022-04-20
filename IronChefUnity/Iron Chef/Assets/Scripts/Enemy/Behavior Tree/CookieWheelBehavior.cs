@@ -14,9 +14,9 @@ public class CookieWheelBehavior : EnemyBehaviorTree
     void Start()
     {
         setupWaypoints();
+        setupEncounter();
 
         agent = GetComponent<NavMeshAgent>();
-        agent.radius = .1f;
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
         enemyBasicAttackbox = GetComponentInChildren<EnemyBasicAttackbox>();

@@ -11,6 +11,7 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
     void Start()
     {
         setupWaypoints();
+        setupEncounter();
 
         agent = GetComponent<NavMeshAgent>();
         agent.radius = .1f;

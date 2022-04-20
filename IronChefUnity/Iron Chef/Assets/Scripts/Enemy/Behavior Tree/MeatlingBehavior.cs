@@ -12,8 +12,6 @@ public class MeatlingBehavior : EnemyBehaviorTree
 
     private void Start()
     {
-        setupWaypoints();
-
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
         enemyStunHandler = GetComponent<EnemyStunHandler>();
