@@ -44,7 +44,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip SpearThrow;
     public AudioClip[] FiftyPunchEffects;
     public AudioClip PortableLunch;
-    public AudioClip Glockamole;
+    public AudioClip[] Glockamole;
     public AudioClip BreadTrap;
     public AudioClip Hammer;
     public AudioClip CatapastaFly;
@@ -93,6 +93,11 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip HammerBuild;
     public AudioClip CarbUp;
     public AudioClip PlayerDeath;
+    public AudioClip[] MoraterEffects;
+    public AudioClip[] M1BrownieEffects;
+    public AudioClip[] Carrot50CaloryEffects;
+    public AudioClip CritHit;
+    public AudioClip[] OnionKnightEffects;
 
     private void Awake()
     {
@@ -286,7 +291,10 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = BreadTrap;
                 break;
             case SoundEffect.Glockamole:
-                clipToPlay = Glockamole;
+                clipToPlay = Glockamole[0];
+                break;
+            case SoundEffect.GlockamoleHit:
+                clipToPlay = Glockamole[1];
                 break;
             case SoundEffect.Hammer:
                 clipToPlay = Hammer;
@@ -424,9 +432,11 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = IngredFull;
                 break;
             case SoundEffect.LevelCom:
+                pitch = 1;
                 clipToPlay = LevelCom;
                 break;
             case SoundEffect.LevelCom100:
+                pitch = 1;
                 clipToPlay = LevelCom100;
                 break;
             case SoundEffect.GummyBearDeath:
@@ -459,6 +469,26 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.PlayerDeath:
                 clipToPlay = PlayerDeath;
                 break;
+            case SoundEffect.Morater:
+                index = Random.Range(0, MoraterEffects.Length);
+                clipToPlay = MoraterEffects[index];
+                break;
+            case SoundEffect.M1Brownie:
+                index = Random.Range(0, M1BrownieEffects.Length);
+                clipToPlay = M1BrownieEffects[index];
+                break;
+            case SoundEffect.Carrot50Calory:
+                index = Random.Range(0, Carrot50CaloryEffects.Length);
+                clipToPlay = Carrot50CaloryEffects[index];
+                break;
+            case SoundEffect.CritHit:
+                clipToPlay = CritHit;
+                break;
+            case SoundEffect.OnionKnight:
+                index = Random.Range(0, OnionKnightEffects.Length);
+                clipToPlay = OnionKnightEffects[index];
+                break;
+
                 /*
                 * BLANK CASE STATEMENT:             
                 case SoundEffect.:
@@ -517,6 +547,7 @@ public class SoundEffectSpawner : MonoBehaviour
         SpearThrow,
         Hammer,
         Glockamole,
+        GlockamoleHit,
         BreadTrap,
         FiftyPunches,
         PunchMiss,
@@ -566,7 +597,12 @@ public class SoundEffectSpawner : MonoBehaviour
         Parry,
         HammerBuild,
         CarbUp,
-        PlayerDeath
+        PlayerDeath,
+        Morater,
+        M1Brownie,
+        Carrot50Calory,
+        CritHit,
+        OnionKnight
     }
 }
 
