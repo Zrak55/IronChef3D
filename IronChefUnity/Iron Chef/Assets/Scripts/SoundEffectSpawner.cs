@@ -93,7 +93,7 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip HammerBuild;
     public AudioClip CarbUp;
     public AudioClip PlayerDeath;
-    public AudioClip[] MoraterEffects;
+    public AudioClip[] MortaterEffects;
     public AudioClip[] M1BrownieEffects;
     public AudioClip[] Carrot50CaloryEffects;
     public AudioClip CritHit;
@@ -469,24 +469,35 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.PlayerDeath:
                 clipToPlay = PlayerDeath;
                 break;
-            case SoundEffect.Morater:
-                index = Random.Range(0, MoraterEffects.Length);
-                clipToPlay = MoraterEffects[index];
+            case SoundEffect.MortaterFire:
+                clipToPlay = MortaterEffects[0];
                 break;
-            case SoundEffect.M1Brownie:
-                index = Random.Range(0, M1BrownieEffects.Length);
-                clipToPlay = M1BrownieEffects[index];
+            case SoundEffect.MortaterHit:
+                clipToPlay = MortaterEffects[1];
                 break;
-            case SoundEffect.Carrot50Calory:
-                index = Random.Range(0, Carrot50CaloryEffects.Length);
-                clipToPlay = Carrot50CaloryEffects[index];
+            case SoundEffect.M1BrownieFire:
+                clipToPlay = M1BrownieEffects[0];
+                break;
+            case SoundEffect.M1BrownieHit:
+                clipToPlay = M1BrownieEffects[1];
+                break;
+            case SoundEffect.Carrot50CaloryFire:
+                clipToPlay = Carrot50CaloryEffects[0];
+                break;
+            case SoundEffect.Carrot50CaloryHit:
+                clipToPlay = Carrot50CaloryEffects[1];
                 break;
             case SoundEffect.CritHit:
                 clipToPlay = CritHit;
                 break;
-            case SoundEffect.OnionKnight:
-                index = Random.Range(0, OnionKnightEffects.Length);
-                clipToPlay = OnionKnightEffects[index];
+            case SoundEffect.OnionKnightAggro:
+                clipToPlay = OnionKnightEffects[0];
+                break;
+            case SoundEffect.OnionKnightAttack:
+                clipToPlay = OnionKnightEffects[1];
+                break;
+            case SoundEffect.OnionKnightCounter:
+                clipToPlay = OnionKnightEffects[2];
                 break;
 
                 /*
@@ -598,11 +609,16 @@ public class SoundEffectSpawner : MonoBehaviour
         HammerBuild,
         CarbUp,
         PlayerDeath,
-        Morater,
-        M1Brownie,
-        Carrot50Calory,
+        MortaterFire,
+        MortaterHit,
+        M1BrownieFire,
+        M1BrownieHit,
+        Carrot50CaloryFire,
+        Carrot50CaloryHit,
         CritHit,
-        OnionKnight
+        OnionKnightAggro,
+        OnionKnightAttack,
+        OnionKnightCounter
     }
 }
 
