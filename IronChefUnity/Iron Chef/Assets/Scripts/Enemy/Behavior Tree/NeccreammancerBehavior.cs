@@ -393,6 +393,8 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
+                animator.SetBool("Aggrod", true);
+
                 PlayerHitpoints.CombatCount++;
 
                 bossWallEnter.SetActive(false);
