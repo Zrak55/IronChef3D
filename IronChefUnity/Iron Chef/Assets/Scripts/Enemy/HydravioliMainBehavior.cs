@@ -20,6 +20,8 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
     public List<GameObject> spawningBubbles;
 
+    bool didOriginatingThings = false;
+
     private void Start()
     {
         currentHeads = new List<GameObject>();
@@ -46,8 +48,6 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         CheckHurt = new Sequence("Check Hurt Sequence", CheckEnemyHurt, ImAggrod);
         hydravioliBehaviorTree = new BehaviorTree(CheckPlayer, CheckHurt);
 
-
-
         myHP = GetComponent<EnemyHitpoints>();
         myHP.DeathEvents += BossOver;
     }
@@ -65,7 +65,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
     Node.STATUS aggro()
     {
-        if (!aggrod)
+        if (!didOriginatingThings)
         {
             foreach (var go in BossWalls)
                 go.SetActive(true);
@@ -92,6 +92,8 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
 
             PlayerHitpoints.CombatCount++;
+
+            didOriginatingThings = true;
         }
         aggrod = true;
         ImAggrod.status = Node.STATUS.SUCCESS;

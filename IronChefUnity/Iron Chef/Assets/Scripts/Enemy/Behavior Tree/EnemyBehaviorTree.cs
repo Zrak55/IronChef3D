@@ -266,7 +266,8 @@ public class EnemyBehaviorTree : MonoBehaviour
     {
         if (!aggrod)
         {
-            enemyCanvas.SwapState();
+            if(enemyCanvas != null)
+                enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount++;
             aggrod = true;
         }
@@ -277,7 +278,8 @@ public class EnemyBehaviorTree : MonoBehaviour
     {
         if (aggrod)
         {
-            enemyCanvas.SwapState();
+            if (enemyCanvas != null)
+                enemyCanvas.SwapState();
             PlayerHitpoints.CombatCount--;
             aggrod = false;
         }
