@@ -33,21 +33,23 @@ public class Hammer : PlayerPower
 
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-
-        var hits = IronChefUtils.GetCastHits(width, height, depth, transform.position, GetComponent<CharacterMover>().model.transform.rotation);
-        foreach(var h in hits)
+        if (!internalCooldown)
         {
-            if(h.GetComponentInParent<EnemyHitpoints>() != null)
-            {
-                h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage, false);
-                Destroy(Instantiate(hitEffect, h.transform.position + (Vector3.up * 1.5f), Quaternion.identity), 3f);
-                FindObjectOfType<PlayerCamControl>().ShakeCam(7, 0.75f);
-            }
-        }
-        if (hits.Count > 0)
-            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Hammer);
+            base.DoPowerEffects();
 
+            var hits = IronChefUtils.GetCastHits(width, height, depth, transform.position, GetComponent<CharacterMover>().model.transform.rotation);
+            foreach (var h in hits)
+            {
+                if (h.GetComponentInParent<EnemyHitpoints>() != null)
+                {
+                    h.GetComponentInParent<EnemyHitpoints>().TakeDamage(damage, false);
+                    Destroy(Instantiate(hitEffect, h.transform.position + (Vector3.up * 1.5f), Quaternion.identity), 3f);
+                    FindObjectOfType<PlayerCamControl>().ShakeCam(7, 0.75f);
+                }
+            }
+            if (hits.Count > 0)
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Hammer);
+        }
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)

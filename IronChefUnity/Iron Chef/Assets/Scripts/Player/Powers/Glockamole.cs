@@ -31,15 +31,17 @@ public class Glockamole : PlayerPower
     }
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        var fp = Instantiate(spear, shootPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
-        fp.GetComponent<PlayerProjectile>().damage = damage;
-        fp.GetComponent<PlayerProjectile>().speed = speed;
-        fp.GetComponent<PlayerProjectile>().maxAllowedDistance = distance;
-        fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + IronChefUtils.GetSoftLockDirection(fp.transform.forward, fp.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true));
-        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Glockamole);
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
+            var fp = Instantiate(spear, shootPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
+            fp.GetComponent<PlayerProjectile>().damage = damage;
+            fp.GetComponent<PlayerProjectile>().speed = speed;
+            fp.GetComponent<PlayerProjectile>().maxAllowedDistance = distance;
+            fp.GetComponent<PlayerProjectile>().FireProjectile(fp.transform.position + IronChefUtils.GetSoftLockDirection(fp.transform.forward, fp.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true));
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Glockamole);
+        }
     }
-
     public override void SetScriptableData(PlayerPowerScriptable power)
     {
         base.SetScriptableData(power);

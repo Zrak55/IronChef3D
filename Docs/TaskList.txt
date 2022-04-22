@@ -1,22 +1,21 @@
-Task List 04/15- 04/22                                                                                                                                                                                                                                                                                                                  
+Task List 04/22- 04/29                                                                                                                                                                                                                                                                                                                  
 Alex:
-Animate Neccremmancer
-Implement more Peter feedback changes
-Add last hidden unlockables
-Tweak new player aiming
-Add parry particle effect to Onion Knight
-Critical Hit notification
+Fix Player Power bugs
+Implement Kris sounds
+Implement Zach VFX
+Replace player power temp visuals
+Small quality changes (player still gets hit when already dead, etc)
 
 Spencer:
-Damaged aggro range - if enemy is damaged, make their leash range 2-3x normal instead of infinite
-"Group Aggro" system - add in some code to enemy behavior so if one enemy is aggrod, a select group of them become aggrod as well.  (aggro a whole encoutner instead of one enemy at a time)
-Enemy numerical balancing - tweak enemy damages/healths as you see fit
+Set specific group aggro radius for encounters
+Enemy Canvas hiding
+Enemy behavior bug squashing
 
 Lin:
-Finish Rig Neccreammancer
 Texture Sprinkle Sprites
 Texture Fudge Sludge
-Begin Texture Neccreammancer
+Texture Neccreammancer
+Model/Texture Phylactery
 
 Zach:
 Finalize Heal Particle
@@ -25,21 +24,11 @@ Make Beefcake footprint sticker/sprite
 
 Kris:
 Gather/Implement Sound Effects
-    Ingredient Filled
-    Gummy Zombie (Idle, Attack)
-    Gummy Bear (Idle, Attack, Footstep)
-    "Parry" sound (for Crustacean and Onion Knight)
-    Player Powers (not exhaustive list)
-        Straining noise for Ham-Mer buildup
-        Hammer Collision
-        Carb Up sound
-
+  Carb Up sound
   Mortater SFX - ploop + explosion
-  M1 Brownie SFX - firing + on hit
-  Carrot 50 Caliber SFX - fire + hit
   Glockamole - Hit sound
   Critical hit sound
-  Onion Knight
-    Aggro noise  "Oho!"
-    Attack    "Yah!"
-    Counterattack "Aha!"
+  Player Death
+  Meatle - Idle, Attack, Ball Roll
+  Fudge Sludge - Idle, Attack, Pool
+  

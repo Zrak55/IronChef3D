@@ -23,10 +23,12 @@ public class MortaterProjectile : MonoBehaviour
     bool hasSpawned = false;
 
     public GameObject ExplosionEffect;
+    List<EnemyHitpoints> enemiesHit;
 
 
     private void Awake()
     {
+        enemiesHit = new List<EnemyHitpoints>();
     }
 
 
@@ -53,11 +55,13 @@ public class MortaterProjectile : MonoBehaviour
             hasSpawned = true;
             var area = IronChefUtils.GetCastHits(radius, transform.position);
 
+
             foreach (var obj in area)
             {
                 var eh = obj.GetComponentInParent<EnemyHitpoints>();
-                if (eh != null)
+                if (eh != null && enemiesHit.Contains(eh) == false)
                 {
+                    enemiesHit.Add(eh);
                     eh.TakeDamage(damage, false);
                 }
             }

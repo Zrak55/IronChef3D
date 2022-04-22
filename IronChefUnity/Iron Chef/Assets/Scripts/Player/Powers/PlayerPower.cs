@@ -10,6 +10,7 @@ public class PlayerPower : MonoBehaviour
     protected PlayerCostCooldownManager cooldownManager;
     public Animator anim;
     protected PlayerAttackController attkControl;
+    protected bool internalCooldown = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,8 +44,18 @@ public class PlayerPower : MonoBehaviour
 
     public virtual void DoPowerEffects()
     {
-        cooldownManager.SetPowerCooldown();
-        attkControl.lining = false;
+        if(!internalCooldown)
+        {
+            internalCooldown = true;
+            cooldownManager.SetPowerCooldown();
+            attkControl.lining = false;
+            Invoke("undoInternalCooldown", 0.1f);
+        }
+    }
+
+    void undoInternalCooldown()
+    {
+        internalCooldown = false;
     }
 
     public virtual void PlayerPowerPressed()

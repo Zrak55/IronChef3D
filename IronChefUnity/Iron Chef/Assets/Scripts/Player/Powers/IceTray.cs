@@ -42,13 +42,16 @@ public class IceTray : PlayerPower
     }
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        for(int i = 0; i < numProjectiles; i++)
+        if (!internalCooldown)
         {
-            var newProj = Instantiate(projectile, launchPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
-            newProj.GetComponent<IceTrayProjectile>().damage = damagePerProjectile;
-            newProj.transform.Rotate(new Vector3(0, Random.Range(-spreadConeAngle / 2, spreadConeAngle / 2), 0));
-            newProj.GetComponent<ProjectileLaunch>().Launch(launchForce, newProj.transform.forward, launchAngle + Random.Range(-spreadConeAngle/2, spreadConeAngle/2));
+            base.DoPowerEffects();
+            for (int i = 0; i < numProjectiles; i++)
+            {
+                var newProj = Instantiate(projectile, launchPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
+                newProj.GetComponent<IceTrayProjectile>().damage = damagePerProjectile;
+                newProj.transform.Rotate(new Vector3(0, Random.Range(-spreadConeAngle / 2, spreadConeAngle / 2), 0));
+                newProj.GetComponent<ProjectileLaunch>().Launch(launchForce, newProj.transform.forward, launchAngle + Random.Range(-spreadConeAngle / 2, spreadConeAngle / 2));
+            }
         }
     }
 }

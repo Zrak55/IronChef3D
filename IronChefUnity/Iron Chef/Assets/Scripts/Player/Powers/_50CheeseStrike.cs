@@ -43,10 +43,12 @@ public class _50CheeseStrike : PlayerPower
     }
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        StartCoroutine(RepeatPower());
-        StartCoroutine(SpawnEffects());
-
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
+            StartCoroutine(RepeatPower());
+            StartCoroutine(SpawnEffects());
+        }
     }
 
     IEnumerator SpawnEffects()

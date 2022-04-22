@@ -85,20 +85,23 @@ public class Catapasta : PlayerPower
     }
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        spawnedTargeter = Instantiate(targeter, throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
-        for (int i = 0; i < numProjectiles; i++)
+        if (!internalCooldown)
         {
-            var spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200 * Vector3.up, Quaternion.identity);
-            spawnedProjectile.GetComponent<PlayerProjectile>().damage = damage;
-            spawnedProjectiles[i] = spawnedProjectile;
-            offset[i] = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * (offsetAmount * Random.Range(0f, 1f));
-            goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
-            shouldMove[i] = true;
+            base.DoPowerEffects();
+            spawnedTargeter = Instantiate(targeter, throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint));
+            for (int i = 0; i < numProjectiles; i++)
+            {
+                var spawnedProjectile = Instantiate(projectile, spawnedTargeter.transform.position + (spawnedTargeter.transform.right * 200) + 200 * Vector3.up, Quaternion.identity);
+                spawnedProjectile.GetComponent<PlayerProjectile>().damage = damage;
+                spawnedProjectiles[i] = spawnedProjectile;
+                offset[i] = new Vector3(Random.Range(-1f, 1f), 0, Random.Range(-1f, 1f)).normalized * (offsetAmount * Random.Range(0f, 1f));
+                goSpeed = Vector3.Distance(spawnedTargeter.transform.position, spawnedProjectile.transform.position) / time;
+                shouldMove[i] = true;
+            }
+            spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(20, spawnedTargeter.transform.forward + IronChefUtils.GetSoftLockDirection(spawnedTargeter.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
+            remainTime = 0;
+            SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
         }
-        spawnedTargeter.GetComponent<ProjectileLaunch>().Launch(20, spawnedTargeter.transform.forward + IronChefUtils.GetSoftLockDirection(spawnedTargeter.transform.forward, spawnedTargeter.transform.position, 1 << LayerMask.NameToLayer("Enemy"), 20, true), 45);
-        remainTime = 0;
-        SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(spawnedTargeter.transform, SoundEffectSpawner.SoundEffect.CatapastaFly);
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)

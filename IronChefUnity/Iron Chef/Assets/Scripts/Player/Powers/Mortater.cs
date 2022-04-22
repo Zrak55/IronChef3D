@@ -32,14 +32,16 @@ public class Mortater : PlayerPower
     }
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        var proj = Instantiate(MortaterPrefab, GetComponent<PlayerAttackController>().throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint)).GetComponent<MortaterProjectile>();
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
+            var proj = Instantiate(MortaterPrefab, GetComponent<PlayerAttackController>().throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint)).GetComponent<MortaterProjectile>();
 
-        //TOD: Get damage buffs/other buffs
+            //TOD: Get damage buffs/other buffs
 
 
-        proj.SetData(baseDamage, launchForce, launchAngle, baseRadius);
-
+            proj.SetData(baseDamage, launchForce, launchAngle, baseRadius);
+        }
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)

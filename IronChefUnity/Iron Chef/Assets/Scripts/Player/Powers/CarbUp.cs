@@ -26,12 +26,15 @@ public class CarbUp : PlayerPower
 
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
 
-        currentParticles = Instantiate(particles, particlePoint);
-        IronChefUtils.AddSpeedUp(speed, speedUp, duration, SpeedEffector.EffectorName.CarbUp);
-        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CarbUp);
-        Invoke("UnPower", duration);
+            currentParticles = Instantiate(particles, particlePoint);
+            IronChefUtils.AddSpeedUp(speed, speedUp, duration, SpeedEffector.EffectorName.CarbUp);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CarbUp);
+            Invoke("UnPower", duration);
+        }
 
     }
 

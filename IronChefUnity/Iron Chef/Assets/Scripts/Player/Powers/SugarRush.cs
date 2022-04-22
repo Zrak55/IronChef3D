@@ -42,15 +42,18 @@ public class SugarRush : PlayerPower
 
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
 
-        currentParticles = Instantiate(particles, particlePoint);
-        IronChefUtils.AddSpeedUp(speed, moveSpeedStim, duration, SpeedEffector.EffectorName.SugarRush);
-        pattacks.AddAttackSpeed(attackSpeedStim);
+            currentParticles = Instantiate(particles, particlePoint);
+            IronChefUtils.AddSpeedUp(speed, moveSpeedStim, duration, SpeedEffector.EffectorName.SugarRush);
+            pattacks.AddAttackSpeed(attackSpeedStim);
 
-        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SugarRush);
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.SugarRush);
 
-        Invoke("UnPower", duration);
+            Invoke("UnPower", duration);
+        }
     }
 
     void UnPower()

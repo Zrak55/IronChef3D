@@ -19,8 +19,10 @@ public class M1BrownieMachineGun : PlayerPower
 
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
+        }
 
 
         //SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Glockamole);

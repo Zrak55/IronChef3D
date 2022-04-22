@@ -32,14 +32,16 @@ public class Molapeno : PlayerPower
 
     public override void DoPowerEffects()
     {
-        base.DoPowerEffects();
-        var proj = Instantiate(MolapenoPrefab, GetComponent<PlayerAttackController>().throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint)).GetComponent<MolapenoProjectile>();
+        if (!internalCooldown)
+        {
+            base.DoPowerEffects();
+            var proj = Instantiate(MolapenoPrefab, GetComponent<PlayerAttackController>().throwPoint.position, Quaternion.Euler(attkControl.SavedRangedAttackPoint)).GetComponent<MolapenoProjectile>();
 
-        //TOD: Get damage buffs/other buffs
+            //TOD: Get damage buffs/other buffs
 
 
-        proj.SetData(baseDamagePerSecond, launchForce, launchAngle, baseDuration, baseRadius);
-
+            proj.SetData(baseDamagePerSecond, launchForce, launchAngle, baseDuration, baseRadius);
+        }
     }
 
     public override void SetScriptableData(PlayerPowerScriptable power)
