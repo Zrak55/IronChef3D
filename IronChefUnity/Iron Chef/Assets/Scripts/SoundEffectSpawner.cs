@@ -511,6 +511,9 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.MeatleRoll:
                 clipToPlay = MeatleEffects[2];
                 break;
+            case SoundEffect.MeatleRollHit:
+                clipToPlay = MeatleEffects[3];
+                break;
             case SoundEffect.FudgeAttack:
                 clipToPlay = FudgeEffects[0];
                 break;
@@ -519,6 +522,9 @@ public class SoundEffectSpawner : MonoBehaviour
                 break;
             case SoundEffect.FudgePool:
                 clipToPlay = FudgeEffects[2];
+                break;
+            case SoundEffect.None:
+                clipToPlay = null;
                 break;
                 /*
                 * BLANK CASE STATEMENT:             
@@ -642,9 +648,11 @@ public class SoundEffectSpawner : MonoBehaviour
         MeatleIdle,
         MeatleAttack,
         MeatleRoll,
+        MeatleRollHit,
         FudgeIdle,
         FudgeAttack,
         FudgePool,
+        None
     }
 }
 
