@@ -19,15 +19,21 @@ public class MortaterProjectile : MonoBehaviour
     float force;
     float launchAngle;
     float radius;
+    Rigidbody rb;
 
     bool hasSpawned = false;
 
     public GameObject ExplosionEffect;
     List<EnemyHitpoints> enemiesHit;
 
-
+   void FixedUpdate()
+    {
+        transform.LookAt(rb.position + rb.velocity.normalized);
+        Debug.Log(transform.rotation.eulerAngles);
+    }
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         enemiesHit = new List<EnemyHitpoints>();
     }
 
