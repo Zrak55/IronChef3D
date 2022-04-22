@@ -184,7 +184,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286473280938800377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5000529, y: 3.3999023, z: -1.2198963}
+  m_LocalPosition: {x: 1.5, y: 3.3999023, z: -1.2198963}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1638934626392385634}
@@ -5099,7 +5099,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400708667916279048}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4998909, y: 3.3999023, z: 2.500016}
+  m_LocalPosition: {x: 1.5, y: 3.3999023, z: 2.500016}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1638934626392385634}
@@ -15586,6 +15586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IFramesAmount: 0.25
+  HealEffect: {fileID: 5923124148846319308, guid: 807773a7e5e183c489ad028a54fe0ed2, type: 3}
 --- !u!114 &6411622519581159654
 MonoBehaviour:
   m_ObjectHideFlags: 0

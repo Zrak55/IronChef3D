@@ -16,9 +16,9 @@ public class PlayerHitpoints : MonoBehaviour
     PlayerDamageTakenModifierController mods;
     bool isDead = false;
     bool isGetHitSoundDelay = false;
+    [SerializeField] private GameObject HealEffect;
 
     public static int CombatCount = 0;
-
 
 
     private void Awake()
@@ -49,41 +49,45 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver, bool IgnoresIframes = false)
     {
-        if (isIFrames == false || IgnoresIframes || isDead)
+        if(!isDead)
         {
-            //TODO: Play animation of getting hit here. I'm not sure yet if the animation
-            //will include knockback or not so I won't include it yet.
-
-            if(!IgnoresIframes)
-                InvincibilityFrame(IFramesAmount);
-
-            //Get Modifier effects
-            mods.DoModifierSpecials(amount);
-            amount = amount * mods.getMultiplier();
-
-            playerStats.CurrentHP -= amount;
-
-            pcam.ShakeCam(Mathf.Max(amount, 30) / 12.5f, 0.5f);
-
-            if(!isGetHitSoundDelay)
+            if (isIFrames == false || IgnoresIframes)
             {
-                sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
-                isGetHitSoundDelay = true;
-                Invoke("UndoHitSoundDelay", IFramesAmount);
-            }
+                //TODO: Play animation of getting hit here. I'm not sure yet if the animation
+                //will include knockback or not so I won't include it yet.
 
-            if (playerStats.CurrentHP <= 0)
-            {
-                Die();
-            }
+                if (!IgnoresIframes)
+                    InvincibilityFrame(IFramesAmount);
 
-            if(sound != SoundEffectSpawner.SoundEffect.Cleaver)
-            {
-                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
-            }
+                //Get Modifier effects
+                mods.DoModifierSpecials(amount);
+                amount = amount * mods.getMultiplier();
 
-            
+                playerStats.CurrentHP -= amount;
+
+                pcam.ShakeCam(Mathf.Max(amount, 30) / 12.5f, 0.5f);
+
+                if (!isGetHitSoundDelay)
+                {
+                    sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
+                    isGetHitSoundDelay = true;
+                    Invoke("UndoHitSoundDelay", IFramesAmount);
+                }
+
+                if (playerStats.CurrentHP <= 0)
+                {
+                    Die();
+                }
+
+                if (sound != SoundEffectSpawner.SoundEffect.Cleaver)
+                {
+                    SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, sound);
+                }
+
+
+            }
         }
+       
     }
 
     public void UndoHitSoundDelay()
@@ -102,6 +106,7 @@ public class PlayerHitpoints : MonoBehaviour
         FindObjectOfType<ChapterManager>().ShowLoseScreen();
         ChapterManager.deathsThisLevel++;
         SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.PlayerDeath);
+        isDead = true;
         //TODO: Play death animation before deletion
 
     }
@@ -113,6 +118,7 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void RestoreHP(float amount)
     {
+        Destroy(Instantiate(HealEffect, transform.position, transform.rotation), 5f);
         playerStats.CurrentHP = Mathf.Clamp(playerStats.CurrentHP + amount, 0, playerStats.MaximumHP);
     }
 
