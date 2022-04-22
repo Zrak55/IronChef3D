@@ -494,10 +494,11 @@ public class SoundEffectSpawner : MonoBehaviour
                 clipToPlay = OnionKnightEffects[0];
                 break;
             case SoundEffect.OnionKnightAttack:
-                clipToPlay = OnionKnightEffects[1];
+                index = Random.Range(1,2);
+                clipToPlay = OnionKnightEffects[index];
                 break;
             case SoundEffect.OnionKnightCounter:
-                clipToPlay = OnionKnightEffects[2];
+                clipToPlay = OnionKnightEffects[3];
                 break;
 
                 /*

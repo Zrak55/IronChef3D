@@ -381,7 +381,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 335b16fe669bc2340b8a8f4ea15e7c4f, type: 3}
   - {fileID: 8300000, guid: cc1e5f6a593104b4dacc23fbdf86f763, type: 3}
   PortableLunch: {fileID: 8300000, guid: b83e92e6090377e40ac60de12180d348, type: 3}
-  Glockamole: {fileID: 8300000, guid: e0111414a8b0b7341a1fe725bd5176ae, type: 3}
+  Glockamole:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   BreadTrap: {fileID: 8300000, guid: a6f710aaeebff6a45881991cf14043d2, type: 3}
   Hammer: {fileID: 8300000, guid: d94f0a5a09156dd429551e52f6ca72cd, type: 3}
   CatapastaFly: {fileID: 8300000, guid: 42cc58f027771674c8087398c7adceda, type: 3}
@@ -440,9 +443,34 @@ MonoBehaviour:
   EatFull: {fileID: 8300000, guid: 1f52ef879a76226458bb4e4f54706ace, type: 3}
   CauldronTravel: {fileID: 8300000, guid: 46b24cce8b2b2ef4b8ad81f1e28da640, type: 3}
   AreaDiscover: {fileID: 8300000, guid: 9870fce75a99fc1499298a418cf8106e, type: 3}
-  IngredFull: {fileID: 0}
+  IngredFull: {fileID: 8300000, guid: bd6a038bba025564cae6150f15f1c9d3, type: 3}
   LevelCom: {fileID: 8300000, guid: 541380261a36fae48b97e5f2548a9464, type: 3}
   LevelCom100: {fileID: 8300000, guid: 2445ed009be1f8645941f17df969eee7, type: 3}
+  GummyBearAttack: {fileID: 8300000, guid: 6dbc81b863c27134395b15c462c24c54, type: 3}
+  GummyBearIdle: {fileID: 8300000, guid: 867b53d0b0f1da148a7b42f993a0963d, type: 3}
+  GummyBearStep: {fileID: 8300000, guid: feb744664f183f64aa2595c92a5da7cc, type: 3}
+  GummyBearDeath: {fileID: 8300000, guid: ce75fcc29a167fc4597d22986542ade0, type: 3}
+  GummyZombieIdle: {fileID: 8300000, guid: f8d7bce2ce527f040895a8b86705f25a, type: 3}
+  GummyZombieAttack: {fileID: 8300000, guid: 10e577d23c5adc64f83932e04e81a976, type: 3}
+  Parry: {fileID: 8300000, guid: 0709a96290828144daa388b76c5f1d52, type: 3}
+  HammerBuild: {fileID: 8300000, guid: 6e6f87f96419a664996a912acd590a12, type: 3}
+  CarbUp: {fileID: 0}
+  PlayerDeath: {fileID: 0}
+  MortaterEffects:
+  - {fileID: 0}
+  - {fileID: 0}
+  M1BrownieEffects:
+  - {fileID: 8300000, guid: 80d78ae9d68c6fd4ea65604d316d6d33, type: 3}
+  - {fileID: 8300000, guid: a6ac8e7a80a870441807572e11a3d228, type: 3}
+  Carrot50CaloryEffects:
+  - {fileID: 8300000, guid: 188f57f470fd7eb4fa70dca1d2046a60, type: 3}
+  - {fileID: 8300000, guid: 167d685eddf554e41845ae152d973f69, type: 3}
+  CritHit: {fileID: 8300000, guid: 835335ad6d412c248ac17bd775707adb, type: 3}
+  OnionKnightEffects:
+  - {fileID: 8300000, guid: 4059eb1a155a77c4b97e9b662a88be4e, type: 3}
+  - {fileID: 8300000, guid: d73c7e5f32748f343b96789aef927075, type: 3}
+  - {fileID: 8300000, guid: 7ecd2607e03d7224397c7ee6490c3ffd, type: 3}
+  - {fileID: 8300000, guid: 8707268928f66f64f95c94e6b101eff5, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
