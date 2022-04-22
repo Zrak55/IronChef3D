@@ -98,6 +98,8 @@ public class SoundEffectSpawner : MonoBehaviour
     public AudioClip[] Carrot50CaloryEffects;
     public AudioClip CritHit;
     public AudioClip[] OnionKnightEffects;
+    public AudioClip[] MeatleEffects;
+    public AudioClip[] FudgeEffects;
 
     private void Awake()
     {
@@ -500,7 +502,24 @@ public class SoundEffectSpawner : MonoBehaviour
             case SoundEffect.OnionKnightCounter:
                 clipToPlay = OnionKnightEffects[3];
                 break;
-
+            case SoundEffect.MeatleAttack:
+                clipToPlay = MeatleEffects[0];
+                break;
+            case SoundEffect.MeatleIdle:
+                clipToPlay = MeatleEffects[1];
+                break;
+            case SoundEffect.MeatleRoll:
+                clipToPlay = MeatleEffects[2];
+                break;
+            case SoundEffect.FudgeAttack:
+                clipToPlay = FudgeEffects[0];
+                break;
+            case SoundEffect.FudgeIdle:
+                clipToPlay = FudgeEffects[1];
+                break;
+            case SoundEffect.FudgePool:
+                clipToPlay = FudgeEffects[2];
+                break;
                 /*
                 * BLANK CASE STATEMENT:             
                 case SoundEffect.:
@@ -619,7 +638,13 @@ public class SoundEffectSpawner : MonoBehaviour
         CritHit,
         OnionKnightAggro,
         OnionKnightAttack,
-        OnionKnightCounter
+        OnionKnightCounter,
+        MeatleIdle,
+        MeatleAttack,
+        MeatleRoll,
+        FudgeIdle,
+        FudgeAttack,
+        FudgePool,
     }
 }
 
