@@ -615,7 +615,7 @@ MonoBehaviour:
   bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 91
   damage: 10
   vfxHitNumber: -1
   swingingSound: 0

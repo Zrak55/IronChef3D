@@ -16,6 +16,7 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
     private GameObject item;
 
     public SoundEffectSpawner.SoundEffect sound;
+    public SoundEffectSpawner.SoundEffect projectileTravelSound;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +53,7 @@ public class GuidedEnemyProjectileLauncher : MonoBehaviour
         Vector3 target = FindObjectOfType<CharacterMover>().transform.position;
         if (randomRadiusFromPlayer > 0)
             target += (new Vector3(Random.Range(-1, 1), 0, Random.Range(-1, 1)).normalized * randomRadiusFromPlayer);
-
+        SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(proj.transform, projectileTravelSound);
         //Set position to ground;
         Ray r = new Ray(target + (Vector3.up * 2), Vector3.down);
         RaycastHit hit;

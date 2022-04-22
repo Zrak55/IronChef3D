@@ -157,6 +157,7 @@ public class PlayerBasicAttackbox : MonoBehaviour
                         {
                             dmgToDeal *= 2;
                             wasCrit = true;
+                            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.CritHit);
                         }
 
                         foreach(var h in modifier.HitModifiers)

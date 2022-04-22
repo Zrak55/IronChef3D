@@ -263,7 +263,7 @@ public class EnemyBehaviorTree : MonoBehaviour
         isAttackCD = false;
     }
 
-    protected Node.STATUS becomeAggro()
+    protected virtual Node.STATUS becomeAggro()
     {
         if (!aggrod)
         {

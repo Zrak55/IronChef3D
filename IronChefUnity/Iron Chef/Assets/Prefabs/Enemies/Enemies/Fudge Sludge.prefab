@@ -89,7 +89,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 602369011043138945}
-  - component: {fileID: 758585307435685994}
   - component: {fileID: 5251160022812159295}
   - component: {fileID: 3808036943765549107}
   m_Layer: 0
@@ -116,20 +115,6 @@ Transform:
   m_Father: {fileID: 2728591735133725449}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &758585307435685994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2594611590468753562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundName: 50
-  CamShakeAmount: 0
 --- !u!95 &5251160022812159295
 Animator:
   serializedVersion: 3
@@ -165,10 +150,10 @@ MonoBehaviour:
   bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 52
+  sound: 98
   damage: 5
   vfxHitNumber: -1
-  swingingSound: 52
+  swingingSound: 100
 --- !u!1 &3856517895618374344
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,8 +357,8 @@ MonoBehaviour:
   attackRange: 6
   attackCD: 2
   attackAngle: 30
-  idleSoundEffect: 00000000
-  attackSoundEffect: 00000000
+  idleSoundEffect: 61000000
+  attackSoundEffect: 62000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0

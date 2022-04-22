@@ -111,4 +111,24 @@ public class OnionKnightBehavior : EnemyBehaviorTree
         }
         return AttackBasic.status;
     }
+
+    protected override Node.STATUS becomeAggro()
+    {
+        if(!aggrod)
+        {
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.OnionKnightAggro);
+        }
+        return base.becomeAggro();
+    }
+
+    public void PlayCounterSound()
+    {
+        SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.OnionKnightCounter);
+    }
+
+    public override void counter()
+    {
+        PlayCounterSound();
+        base.counter();
+    }
 }

@@ -197,7 +197,8 @@ MonoBehaviour:
   time: 1.2
   ShouldShowWarning: 0
   PlayerWarningPrefab: {fileID: 0}
-  sound: 0
+  sound: 94
+  projectileTravelSound: 95
 --- !u!1 &4470167129770485588
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,8 +913,8 @@ MonoBehaviour:
   attackRange: 5
   attackCD: 1.5
   attackAngle: 20
-  idleSoundEffect: 12000000
-  attackSoundEffect: 1300000014000000
+  idleSoundEffect: 5d000000
+  attackSoundEffect: 5e000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   hpSlider: {fileID: 5920457036178394068}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &9012491165350654263
 GameObject:
   m_ObjectHideFlags: 0

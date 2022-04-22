@@ -123,6 +123,7 @@ public class PlayerTeleporter : MonoBehaviour
         //Play exit animation
         PlayCharacterExitAnim();
         yield return new WaitForSeconds(0.25f);
+        IronChefUtils.TurnOffCharacter();
 
         SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(character.transform.position, SoundEffectSpawner.SoundEffect.CauldronTravel);
         finalPos = false;

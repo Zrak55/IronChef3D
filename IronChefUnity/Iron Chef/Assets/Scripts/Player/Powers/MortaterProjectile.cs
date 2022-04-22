@@ -55,6 +55,7 @@ public class MortaterProjectile : MonoBehaviour
             hasSpawned = true;
             var area = IronChefUtils.GetCastHits(radius, transform.position);
 
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.MortaterHit);
 
             foreach (var obj in area)
             {

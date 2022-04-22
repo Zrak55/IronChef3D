@@ -35,6 +35,8 @@ public class M1BrownieMachineGun : PlayerPower
 
         while (numShots < NumShots)
         {
+
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.M1BrownieFire);
             var fp = Instantiate(spear, shootPoint.position, rotation.rotation);
             fp.GetComponent<PlayerProjectile>().damage = damage;
             fp.GetComponent<PlayerProjectile>().speed = speed;

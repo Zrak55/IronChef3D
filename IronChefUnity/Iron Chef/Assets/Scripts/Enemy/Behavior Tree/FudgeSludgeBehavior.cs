@@ -57,7 +57,8 @@ public class FudgeSludgeBehavior : EnemyBehaviorTree
 
     private IEnumerator SpawnSludge()
     {
-        Instantiate(sludge, transform.position + transform.forward * -.05f, transform.rotation);
+        var obj = Instantiate(sludge, transform.position + transform.forward * -.05f, transform.rotation);
+        SoundEffectSpawner.soundEffectSpawner.MakeFollowingSoundEffect(obj.transform, SoundEffectSpawner.SoundEffect.FudgePool);
         yield return new WaitForSeconds(3);
         StartCoroutine("SpawnSludge");
     }

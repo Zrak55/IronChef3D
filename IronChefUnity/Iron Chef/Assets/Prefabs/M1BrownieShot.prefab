@@ -270,7 +270,7 @@ MonoBehaviour:
   maxAllowedDistance: 100
   damage: 50
   multiHit: 0
-  HitSound: 13
+  HitSound: 86
   FlightSound: 17
   isFryingPan: 0
   bounces: 0

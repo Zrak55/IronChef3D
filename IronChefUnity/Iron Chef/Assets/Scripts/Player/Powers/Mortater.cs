@@ -39,7 +39,7 @@ public class Mortater : PlayerPower
 
             //TOD: Get damage buffs/other buffs
 
-
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.MortaterFire);
             proj.SetData(baseDamage, launchForce, launchAngle, baseRadius);
         }
     }
