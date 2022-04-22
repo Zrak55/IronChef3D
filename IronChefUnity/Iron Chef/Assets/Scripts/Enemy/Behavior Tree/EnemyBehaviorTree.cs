@@ -197,14 +197,15 @@ public class EnemyBehaviorTree : MonoBehaviour
                 return CheckAggroRange.status = becomeAggro();
         }    
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : becomeDeAggro();
+        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkSpawnRange()
     {
-        //The distance from the enemy to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
-        float spawnDistance = Vector3.Distance(transform.position, currentWaypoint);
-        return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
+        //The distance from the player to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
+        //The reason it is the player is so that an enemy won't path outside their leash range
+        float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);
+        return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : becomeDeAggro();
     }
 
     public virtual Node.STATUS checkDoubleRange()
