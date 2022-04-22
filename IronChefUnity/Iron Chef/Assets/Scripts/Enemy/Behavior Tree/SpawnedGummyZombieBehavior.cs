@@ -11,7 +11,7 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
     public List<Material> myMaterials;
     private const float invincibilityTime = .5f;
 
-    private void Start()
+    private void Awake()
     {
         setupWaypoints();
         setupEncounter();
