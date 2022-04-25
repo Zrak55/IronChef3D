@@ -34,7 +34,7 @@ public class GritsBehavior : EnemyBehaviorTree
         //Setup sequence nodes and root
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
-        gritsBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt);
+        gritsBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer);
     }
 
     private void Update()

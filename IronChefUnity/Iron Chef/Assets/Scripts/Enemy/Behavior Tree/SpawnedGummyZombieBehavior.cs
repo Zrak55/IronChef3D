@@ -38,7 +38,7 @@ public class SpawnedGummyZombieBehavior : EnemyBehaviorTree
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
-        gummyZombieBehaviorTree = new BehaviorTree(CheckPlayer, CheckHurt, CheckAttack);
+        gummyZombieBehaviorTree = new BehaviorTree(CheckPlayer, CheckAttack);
 
         myMesh.material = myMaterials[Random.Range(0, myMaterials.Count)];
 

@@ -23,7 +23,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> idleSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> attackSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
-    protected const float sphereCastRadius = 10f;
+    protected const float sphereCastRadius = 30f;
     protected Transform player;
     protected GameObject boss;
     //The spawn location of the enemy is automatically set based on scene placement.
@@ -190,18 +190,27 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public Node.STATUS checkAggroRange()
     {
-        //The distance from the enemy to the player
+        //Check if nearby enemies are aggrod
         foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
             if (enemyBehaviorTree.isAggrod())
                 return CheckAggroRange.status = becomeAggro();
-        }    
+        }
+
+        //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : Node.STATUS.FAILURE;
+        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : becomeDeAggro();
     }
 
     public Node.STATUS checkSpawnRange()
     {
+        //Check if nearby enemies are aggrod
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
+        {
+            if (enemyBehaviorTree.isAggrod())
+                return CheckSpawnRange.status = becomeAggro();
+        }
+
         //The distance from the player to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
         //The reason it is the player is so that an enemy won't path outside their leash range
         float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);

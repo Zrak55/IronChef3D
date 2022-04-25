@@ -37,7 +37,7 @@ public class FudgeSludgeBehavior : EnemyBehaviorTree
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
-        fudgeSludgeBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+        fudgeSludgeBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckAttack);
     }
 
     private void Update()

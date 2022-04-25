@@ -45,7 +45,7 @@ public class SnakonBehavior : EnemyBehaviorTree
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
         CheckBack = new Sequence("Back Jump Sequence", CheckBehind, JumpBack);
-        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckBack, CheckJump, CheckAttack);
+        snakonBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckBack, CheckJump, CheckAttack);
     }
     private void Update()
     {

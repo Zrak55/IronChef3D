@@ -36,7 +36,7 @@ public class GenericEnemyBehavior : EnemyBehaviorTree
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
-        genericBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+        genericBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckAttack);
     }
 
     //TODO: Fix multiple things same frame.

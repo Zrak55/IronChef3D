@@ -9825,6 +9825,7 @@ MonoBehaviour:
   hpSlider: {fileID: 7663141458754971336}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &1931062759135674386
 GameObject:
   m_ObjectHideFlags: 0
@@ -10278,6 +10279,7 @@ MonoBehaviour:
     - particle: {fileID: 4671797694081502441}
     trails: []
     specialTrails: []
+    outlines: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
@@ -10368,9 +10370,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 50
-  spawnRange: 50
-  attackRange: 50
+  aggroRange: 40
+  spawnRange: 40
+  attackRange: 40
   attackCD: 2
   attackAngle: 360
   idleSoundEffect: 0f000000

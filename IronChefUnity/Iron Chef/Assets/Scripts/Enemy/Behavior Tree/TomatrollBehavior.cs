@@ -44,7 +44,7 @@ public class TomatrollBehavior : EnemyBehaviorTree
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
         CheckJumpBehind = new Sequence("Jump Behind Sequence", CheckBehind, AttackSecondary);
-        tomatrollBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckJump, CheckJumpBehind, CheckAttack);
+        tomatrollBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckJump, CheckJumpBehind, CheckAttack);
     }
 
     private void Update()

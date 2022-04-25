@@ -40,7 +40,7 @@ public class CrustaceanBehavior : EnemyBehaviorTree
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckShell = new Sequence("Hiding Seqence", CheckBehind, AttackSecondary);
-        crustaceanBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack, CheckShell);
+        crustaceanBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckAttack, CheckShell);
     }
 
     private void Update()

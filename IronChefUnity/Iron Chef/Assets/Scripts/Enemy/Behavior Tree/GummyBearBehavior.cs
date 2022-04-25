@@ -42,7 +42,7 @@ public class GummyBearBehavior : EnemyBehaviorTree
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
-        gummyBearBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt, CheckAttack);
+        gummyBearBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckAttack);
 
         myMesh.material = myMaterials[Random.Range(0, myMaterials.Count)];
     }

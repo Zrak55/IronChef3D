@@ -36,7 +36,7 @@ public class CookieWheelBehavior : EnemyBehaviorTree
         //Setup sequence nodes and root
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
         CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
-        cookieWheelBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckHurt);
+        cookieWheelBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer);
     }
 
     // Update is called once per frame
