@@ -6128,6 +6128,15 @@ MonoBehaviour:
   MortaterImage: {fileID: 21300000, guid: 44994881295ab4b1084896d685432eff, type: 3}
   Carrot50CalImage: {fileID: 21300000, guid: 1fbdfb9bf6c2e4397a1d62eed589ec1f, type: 3}
   M1BrownieMachineGunImage: {fileID: 21300000, guid: 6abcc03757a494181bcd2f733079582b, type: 3}
+  FridgeImage: {fileID: 21300000, guid: 938504cc2cb9df743992fe872caf30f4, type: 3}
+  FreezerImage: {fileID: 21300000, guid: 123712c7c09d1cd4cacdef8b35d848b7, type: 3}
+  StoveImage: {fileID: 21300000, guid: ed0a91d01e0ca3f4d8b0e76c5666f5f7, type: 3}
+  GrillImage: {fileID: 21300000, guid: a80d122e910624847822b66781810d5a, type: 3}
+  WardenGamseyHarshInstructionImage: {fileID: 21300000, guid: a664f18497b1a5a44b074df5d0fbd0cc, type: 3}
+  BlenderImage: {fileID: 21300000, guid: ae72a5e37afc16b459edfc30874b1593, type: 3}
+  CheeseGraterImage: {fileID: 21300000, guid: 63c848a7090681a4fbf3b0197d5509c3, type: 3}
+  CookingOilImage: {fileID: 21300000, guid: 0365e1d68649f04469f01347e84e88b0, type: 3}
+  MicrowaveImage: {fileID: 21300000, guid: 1adc290d498b2cd499a7ea7885f8a5e6, type: 3}
   FryingPanCD: {fileID: 4637321172747905478}
   PowerCD: {fileID: 2186335998541098982}
   BossHP: {fileID: 3279070991662583522}

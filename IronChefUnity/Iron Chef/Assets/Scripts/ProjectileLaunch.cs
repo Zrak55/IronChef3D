@@ -30,9 +30,10 @@ public class ProjectileLaunch : MonoBehaviour
     {
         Vector3 direction = IronChefUtils.RotateUpByDegree(forward, angle);
         GetComponent<Rigidbody>().AddForce(direction.normalized * power, ForceMode.Impulse);
-        if(ApplyRandomRotation)
+        if (ApplyRandomRotation)
         {
-            rb.AddTorque(new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)).normalized * 180, ForceMode.Impulse);
+            rb = GetComponent<Rigidbody>();
+            rb.angularVelocity = new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)).normalized * 180 * Mathf.Deg2Rad;
         }
     }
 

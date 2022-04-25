@@ -83,6 +83,16 @@ public class PlayerHUDManager : MonoBehaviour
     public Sprite Carrot50CalImage;
     public Sprite M1BrownieMachineGunImage;
     [Space]
+    public Sprite FridgeImage;
+    public Sprite FreezerImage;
+    public Sprite StoveImage;
+    public Sprite GrillImage;
+    public Sprite WardenGamseyHarshInstructionImage;
+    public Sprite BlenderImage;
+    public Sprite CheeseGraterImage;
+    public Sprite CookingOilImage;
+    public Sprite MicrowaveImage;
+    [Space]
     public Slider FryingPanCD;
     public Slider PowerCD;
 
@@ -663,7 +673,37 @@ public class PlayerHUDManager : MonoBehaviour
     {
         Sprite s = null;
 
-        //TODO: Get appliane images
+        switch(appliance)
+        {
+            case PlayerApplianceScriptable.ApplianceName.Fridge:
+                s = FridgeImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Blender:
+                s = BlenderImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.CheeseGrater:
+                s = CheeseGraterImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.CookingOil:
+                s = CookingOilImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Freezer:
+                s = FreezerImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Grill:
+                s = GrillImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Microwave:
+                s = MicrowaveImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.Stove:
+                s = StoveImage;
+                break;
+            case PlayerApplianceScriptable.ApplianceName.WardenGamseysHarshInstructions:
+                s = WardenGamseyHarshInstructionImage;
+                break;
+
+        }
 
         return s;
     }
