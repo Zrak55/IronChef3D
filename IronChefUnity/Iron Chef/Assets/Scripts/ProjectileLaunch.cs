@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProjectileLaunch : MonoBehaviour
 {
     Rigidbody rb;
+    [SerializeField] private bool ApplyRandomRotation = false;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,10 @@ public class ProjectileLaunch : MonoBehaviour
     {
         Vector3 direction = IronChefUtils.RotateUpByDegree(forward, angle);
         GetComponent<Rigidbody>().AddForce(direction.normalized * power, ForceMode.Impulse);
+        if(ApplyRandomRotation)
+        {
+            rb.AddTorque(new Vector3(Random.Range(-180, 180), Random.Range(-180, 180), Random.Range(-180, 180)).normalized * 180, ForceMode.Impulse);
+        }
     }
 
 }

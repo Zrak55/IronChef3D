@@ -17,6 +17,7 @@ public class PlayerHitpoints : MonoBehaviour
     bool isDead = false;
     bool isGetHitSoundDelay = false;
     [SerializeField] private GameObject HealEffect;
+    bool internalParticleCooldown = false;
 
     public static int CombatCount = 0;
 
@@ -118,10 +119,19 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void RestoreHP(float amount)
     {
-        Destroy(Instantiate(HealEffect, transform.position, transform.rotation), 5f);
+        if(!internalParticleCooldown)
+        {
+            Destroy(Instantiate(HealEffect, transform.position, transform.rotation), 5f);
+            internalParticleCooldown = true;
+            Invoke("ResetParticleCooldown", 0.5f);
+        }
         playerStats.CurrentHP = Mathf.Clamp(playerStats.CurrentHP + amount, 0, playerStats.MaximumHP);
     }
 
+    void ResetParticleCooldown()
+    {
+        internalParticleCooldown = false;
+    }
 
     public bool isIframed()
     {
