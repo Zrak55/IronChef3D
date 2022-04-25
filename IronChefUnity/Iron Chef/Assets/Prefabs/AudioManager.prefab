@@ -471,6 +471,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d73c7e5f32748f343b96789aef927075, type: 3}
   - {fileID: 8300000, guid: 7ecd2607e03d7224397c7ee6490c3ffd, type: 3}
   - {fileID: 8300000, guid: 8707268928f66f64f95c94e6b101eff5, type: 3}
+  MeatleEffects: []
+  FudgeEffects:
+  - {fileID: 8300000, guid: dfbdecb03728db145ac39e5c04c6ae97, type: 3}
+  - {fileID: 8300000, guid: 9bea5e24c1b3ffd4fa61eda5f7712066, type: 3}
+  - {fileID: 8300000, guid: 0eb68f5aaa47eb04ba40cfc24c5c8745, type: 3}
 --- !u!114 &2852230320500946064
 MonoBehaviour:
   m_ObjectHideFlags: 0
