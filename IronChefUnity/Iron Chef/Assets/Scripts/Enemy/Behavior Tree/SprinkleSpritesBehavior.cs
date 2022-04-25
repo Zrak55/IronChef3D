@@ -33,7 +33,7 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
 
         //Setup sequence nodes and root
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckHurt, CheckSpawnRange, MoveTowards);
         sprinkleSpritesBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer);
     }
 

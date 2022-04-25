@@ -49,13 +49,17 @@ public class FondemonBehavior : EnemyBehaviorTree
             return MoveReset.status = Node.STATUS.RUNNING;
         }
 
-        //Music and sound effects
-        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        //Check if nearby enemies are aggrod
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount--;
-            aggrod = false;
+            if (enemyBehaviorTree.isAggrod())
+                becomeAggro();
         }
+
+        //Music and sound effects
+        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange)
+            becomeDeAggro();
+
         if (idleSound == null && idleSoundEffect != null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 

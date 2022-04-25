@@ -204,13 +204,6 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public Node.STATUS checkSpawnRange()
     {
-        //Check if nearby enemies are aggrod
-        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
-        {
-            if (enemyBehaviorTree.isAggrod())
-                return CheckSpawnRange.status = becomeAggro();
-        }
-
         //The distance from the player to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
         //The reason it is the player is so that an enemy won't path outside their leash range
         float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);

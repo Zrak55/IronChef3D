@@ -41,7 +41,7 @@ public class SnakonBehavior : EnemyBehaviorTree
 
         //Setup sequence nodes and root
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckHurt, CheckSpawnRange, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         CheckJump = new Sequence("Jump Sequence", CheckDoubleRange, AttackSecondary);
         CheckBack = new Sequence("Back Jump Sequence", CheckBehind, JumpBack);

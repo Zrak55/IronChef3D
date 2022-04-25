@@ -36,7 +36,7 @@ public class PotatogreBehavior : EnemyBehaviorTree
         //Setup sequence nodes and root
         CheckProjectile = new Sequence("Projectile Selector", CheckDoubleRange, AttackProjectile);
         CheckHurt = new Selector("Check Hurt Sequence", CheckEnemyHurt, CheckAggroRange);
-        CheckPlayer = new Sequence("Player Location Sequence", CheckSpawnRange, CheckHurt, MoveTowards);
+        CheckPlayer = new Sequence("Player Location Sequence", CheckHurt, CheckSpawnRange, MoveTowards);
         CheckAttack = new Sequence("Attack Sequence", CheckAngleRange, AttackBasic);
         potatogreBehaviorTree = new BehaviorTree(MoveReset, CheckPlayer, CheckProjectile, CheckAttack);
     }

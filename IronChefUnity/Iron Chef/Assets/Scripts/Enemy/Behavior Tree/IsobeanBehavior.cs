@@ -51,13 +51,16 @@ public class IsobeanBehavior : EnemyBehaviorTree
             return MoveTowards.status = Node.STATUS.RUNNING;
         }
 
-        //Music and sound effects
-        if(aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        //Check if nearby enemies are aggrod
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
-            enemyCanvas.SwapState();
-            aggrod = false;
-            PlayerHitpoints.CombatCount--;
+            if (enemyBehaviorTree.isAggrod())
+                becomeAggro();
         }
+
+        //Music and sound effects
+        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+            becomeDeAggro();
 
         //Movement
         Vector3 distance = transform.position - currentWaypoint;
