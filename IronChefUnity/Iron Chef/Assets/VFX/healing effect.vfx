@@ -130,7 +130,7 @@ MonoBehaviour:
     x: 726
     y: -282
     width: 4298
-    height: 2330
+    height: 2329
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3296,7 +3296,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":0.5,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Velocity
@@ -3534,7 +3534,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":1.0,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":0.5,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Velocity
@@ -4030,7 +4030,7 @@ MonoBehaviour:
   attribute: position
   Composition: 0
   Source: 0
-  Random: 2
+  Random: 1
   channels: 6
 --- !u!114 &8926484042661614806
 MonoBehaviour:
@@ -4058,7 +4058,7 @@ MonoBehaviour:
   attribute: position
   Composition: 0
   Source: 0
-  Random: 2
+  Random: 1
   channels: 6
 --- !u!114 &8926484042661614812
 MonoBehaviour:
@@ -4086,7 +4086,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-1.0,"y":0.0,"z":-1.0}}'
+      m_SerializableObject: '{"position":{"x":-2.0,"y":0.5,"z":-2.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -4256,7 +4256,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":1.0,"y":0.0,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":2.0,"y":0.5,"z":2.0}}'
     m_Space: 0
   m_Property:
     name: B
@@ -4426,7 +4426,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":-1.0,"y":0.0,"z":-1.0}}'
+      m_SerializableObject: '{"position":{"x":-2.0,"y":0.5,"z":-2.0}}'
     m_Space: 0
   m_Property:
     name: A
@@ -4596,7 +4596,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":1.0,"y":0.0,"z":1.0}}'
+      m_SerializableObject: '{"position":{"x":2.0,"y":0.5,"z":2.0}}'
     m_Space: 0
   m_Property:
     name: B
