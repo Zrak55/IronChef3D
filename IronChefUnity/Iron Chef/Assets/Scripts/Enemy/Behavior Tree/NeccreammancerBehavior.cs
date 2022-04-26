@@ -86,6 +86,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     public float PhylacteryTimer;
     public NeccreammancerPhylactery MyPhylactery;
 
+    bool firstWall = true;
     private void Start()
     {
 
@@ -317,6 +318,12 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
             }
             else
             {
+                if(firstWall)
+                {
+                    firstWall = false;
+                    Tip("Watch out for the Ice Wall!");
+                }
+
                 Invoke("IceWallCDEnd", IceWallCD + IceWallTime);
                 IceWallOnCD = true;
                 isAttacking = true;
