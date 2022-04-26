@@ -14892,7 +14892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: 56
+  soundName: 57
   CamShakeAmount: 0.75
 --- !u!114 &6067058761951689773
 MonoBehaviour:
@@ -14913,20 +14913,24 @@ MonoBehaviour:
     - particle: {fileID: 2125099266857076074}
     trails: []
     specialTrails: []
+    outlines: []
   - particles:
     - particle: {fileID: 8306589103251556222}
     - particle: {fileID: 4161951740530406519}
     - particle: {fileID: 2514216068819762706}
     trails: []
     specialTrails: []
+    outlines: []
   - particles: []
     trails:
     - trail: {fileID: 7483435165198091662}
     specialTrails: []
+    outlines: []
   - particles: []
     trails:
     - trail: {fileID: 4695477908331644633}
     specialTrails: []
+    outlines: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
@@ -30696,6 +30700,7 @@ MonoBehaviour:
   hpSlider: {fileID: 6481596984739766432}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &8665300036915358873
 GameObject:
   m_ObjectHideFlags: 0

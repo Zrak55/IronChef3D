@@ -4962,4 +4962,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathParticleSystem: {fileID: 6026488176995270460, guid: 0bdf789866f434442804e8ce06f2725c, type: 3}
-  deathParticle: {fileID: 169342410966150083, guid: c23f005938ad18343b490f6bec6bde28, type: 3}
+  deathParticle: {fileID: 169342410966150083, guid: ccd443b05b82c1e41aa2cebe5f968201, type: 3}

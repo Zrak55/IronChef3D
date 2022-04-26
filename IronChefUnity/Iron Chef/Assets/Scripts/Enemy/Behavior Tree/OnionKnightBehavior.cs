@@ -114,11 +114,18 @@ public class OnionKnightBehavior : EnemyBehaviorTree
 
     protected override Node.STATUS becomeAggro()
     {
-        if(!aggrod)
-        {
-            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.OnionKnightAggro);
-        }
+        StartCoroutine(checkToPlayAggroSound());
         return base.becomeAggro();
+    }
+
+    IEnumerator checkToPlayAggroSound()
+    {
+        if (!aggrod)
+        {
+            yield return new WaitForEndOfFrame();
+            if(aggrod)
+                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.OnionKnightAggro);
+        }
     }
 
     public void PlayCounterSound()
