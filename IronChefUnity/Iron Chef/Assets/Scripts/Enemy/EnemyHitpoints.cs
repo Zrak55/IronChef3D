@@ -73,7 +73,8 @@ public class EnemyHitpoints : MonoBehaviour
                 if (!damaged)
                 {
                     damaged = true;
-                    enemyBehaviorTree.spawnRange *= 2;
+                    if(enemyBehaviorTree != null)
+                        enemyBehaviorTree.spawnRange *= 2;
                 }
             }
 

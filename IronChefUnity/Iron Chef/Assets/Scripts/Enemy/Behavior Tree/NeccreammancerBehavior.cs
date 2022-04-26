@@ -87,6 +87,9 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
     public NeccreammancerPhylactery MyPhylactery;
 
     bool firstWall = true;
+
+    [Space]
+    [SerializeField] private GameObject ZombieSpawnEffect;
     private void Start()
     {
 
@@ -529,6 +532,7 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         foreach(var l in RiseMinionsLocations)
         {
             var z = Instantiate(ZombiePrefab, l.position, Quaternion.identity);
+            Destroy(Instantiate(ZombieSpawnEffect, l.position, Quaternion.identity), 3f);
             z.GetComponent<SpawnedGummyZombieBehavior>().ImBossZombie();
             ZombieCount++;
         }
