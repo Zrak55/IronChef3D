@@ -162,7 +162,7 @@ public class SoundEffectSpawner : MonoBehaviour
     {
         AudioClip clipToPlay = null;
 
-        float pitch = Random.Range(0.9333f, 1.0667f);
+        float pitch = 1.0f;
 
         bool isBossEffect = false;
 
