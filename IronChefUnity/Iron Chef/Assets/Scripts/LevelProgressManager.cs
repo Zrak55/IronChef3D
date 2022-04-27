@@ -292,7 +292,7 @@ public class LevelProgressManager : MonoBehaviour
 
             if (score >= 90)
             {
-                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(FindObjectOfType<PlayerAttackController>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom100);
+                SoundEffectSpawner.soundEffectSpawner.Make2DSoundEffect(FindObjectOfType<PlayerAttackController>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom100);
                 UnlocksManager.UnlockAppliance(level.perfectionApplianceUnlock.ToString());
                 UnlocksManager.UnlockPower(level.perfectionPowerUnlock.ToString());
                 hud.UnlockNotification(level.perfectionApplianceUnlock.ToString());
@@ -300,7 +300,7 @@ public class LevelProgressManager : MonoBehaviour
             }
             else
             {
-                SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom);
+                SoundEffectSpawner.soundEffectSpawner.Make2DSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom);
             }
         }
         

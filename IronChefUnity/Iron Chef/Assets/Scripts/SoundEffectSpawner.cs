@@ -157,7 +157,12 @@ public class SoundEffectSpawner : MonoBehaviour
 
     }
 
-
+    public AudioSource Make2DSoundEffect(Vector3 location, SoundEffect effect)
+    {
+        var audio = MakeSoundEffect(location, effect);
+        audio.spatialBlend = 0;
+        return audio;
+    }
     public AudioSource MakeSoundEffect(Vector3 location, float volume, SoundEffect effect, float overrideTimeAlive = -1)
     {
         AudioClip clipToPlay = null;
