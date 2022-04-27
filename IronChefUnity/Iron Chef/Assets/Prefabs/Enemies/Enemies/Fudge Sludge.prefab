@@ -1071,6 +1071,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6298704264468628298, guid: e8920787d2708c741baf84e64cfec175, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e65523ac6a0c47c4f9b7fb8a23c6b04a, type: 2}
     - target: {fileID: 919132149155446097, guid: e8920787d2708c741baf84e64cfec175, type: 3}
       propertyPath: m_Name
       value: FudgeSludgeRig
