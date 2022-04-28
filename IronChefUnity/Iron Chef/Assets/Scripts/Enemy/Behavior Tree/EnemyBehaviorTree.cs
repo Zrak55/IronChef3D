@@ -19,11 +19,12 @@ public class EnemyBehaviorTree : MonoBehaviour
     [SerializeField] protected float attackCD;
     [Tooltip("Float for the maximum angle the enemy can attack at.")]
     [SerializeField] protected float attackAngle;
+    [Tooltip("Float for how far away each nearby enemy is.")]
+    [SerializeField] protected float sphereCastRadius = 20f;
     [Tooltip("Enum representing the SoundEffect the enemy makes when idle.")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> idleSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> attackSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
-    protected const float sphereCastRadius = 30f;
     protected Transform player;
     protected GameObject boss;
     //The spawn location of the enemy is automatically set based on scene placement.
@@ -185,7 +186,7 @@ public class EnemyBehaviorTree : MonoBehaviour
     //Implementing that would be easy, simply remove CheckHurt sequence and all children, then add in a flag in enemyHitpoints that's enabled on MoveReset success and everything else false (Try running)
     public Node.STATUS checkEnemyHurt()
     {
-        return CheckEnemyHurt.status = enemyHitpoints.damaged ? becomeAggro() : Node.STATUS.FAILURE;
+        return CheckEnemyHurt.status = enemyHitpoints.damaged ? Node.STATUS.SUCCESS : Node.STATUS.FAILURE;
     }
 
     public Node.STATUS checkAggroRange()
@@ -199,15 +200,20 @@ public class EnemyBehaviorTree : MonoBehaviour
 
         //The distance from the enemy to the player
         float playerDistance = Vector3.Distance(player.transform.position, transform.position);
-        return CheckAggroRange.status = (playerDistance < aggroRange) ? becomeAggro() : becomeDeAggro();
+        return CheckAggroRange.status = (playerDistance < aggroRange) ? Node.STATUS.SUCCESS : becomeDeAggro();
     }
 
     public Node.STATUS checkSpawnRange()
     {
         //The distance from the player to the enemy's start location (in the waypoint model, this is the enemy's last waypoint)
         //The reason it is the player is so that an enemy won't path outside their leash range
-        float spawnDistance = Vector3.Distance(player.transform.position, currentWaypoint);
-        return CheckSpawnRange.status = (spawnDistance < spawnRange) ? Node.STATUS.SUCCESS : becomeDeAggro();
+        //Under the new group aggro system, spawnrange is a conglomerate area of all enemies nearby
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
+        {
+            if (enemyBehaviorTree.isSpawnRange())
+                return CheckSpawnRange.status = becomeAggro();
+        }
+        return CheckSpawnRange.status = becomeDeAggro();
     }
 
     public virtual Node.STATUS checkDoubleRange()
@@ -303,5 +309,37 @@ public class EnemyBehaviorTree : MonoBehaviour
     public bool isAggrod()
     {
         return aggrod;
+    }
+
+    public bool isSpawnRange()
+    {
+        bool inSpawnRange = Vector3.Distance(player.transform.position, currentWaypoint) < spawnRange;
+        List<EnemyBehaviorTree> passedOver = new List<EnemyBehaviorTree>();
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
+        {
+            if (!passedOver.Contains(enemyBehaviorTree))
+            {
+                passedOver.Add(enemyBehaviorTree);
+                if (!inSpawnRange)
+                    inSpawnRange = enemyBehaviorTree.isSpawnRange(passedOver);
+            }
+        }
+        return inSpawnRange;
+    }
+
+    public bool isSpawnRange(List<EnemyBehaviorTree> passedOver)
+    {
+        bool inSpawnRange = Vector3.Distance(player.transform.position, currentWaypoint) < spawnRange;
+        List<EnemyBehaviorTree> newPassedOver = passedOver;
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
+        {
+            if (!newPassedOver.Contains(enemyBehaviorTree))
+            {
+                newPassedOver.Add(enemyBehaviorTree);
+                if (!inSpawnRange)
+                    inSpawnRange = enemyBehaviorTree.isSpawnRange(newPassedOver);
+            }
+        }
+        return inSpawnRange;
     }
 }

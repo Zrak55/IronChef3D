@@ -41,40 +41,34 @@ public class FondemonBehavior : EnemyBehaviorTree
 
     public override Node.STATUS moveReset()
     {
-        //Before anything else, check if stunned
-        if (enemyStunHandler.IsStunned())
-        {
-            //There isn't really an animation state for this
-            animator.Play("Base Layer.Idle", 0, 0);
-            return MoveReset.status = Node.STATUS.RUNNING;
-        }
-
         //Check if nearby enemies are aggrod
         foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
             if (enemyBehaviorTree.isAggrod())
                 becomeAggro();
+            if (enemyBehaviorTree.isSpawnRange())
+                simpleFlag = false;
         }
-
-        //Music and sound effects
-        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange)
+        if (simpleFlag == true)
             becomeDeAggro();
+        simpleFlag = true;
 
+        //Sound effects
         if (idleSound == null && idleSoundEffect != null && Vector3.Distance(transform.position, player.position) <= 200)
             idleSound = soundEffectSpawner.MakeFollowingSoundEffect(transform, idleSoundEffect[0]);
 
         return MoveReset.status = Node.STATUS.SUCCESS;
     }
+    
+    public override Node.STATUS checkAngleRange()
+    {
+        if (aggrod)
+            return base.checkAngleRange();
+        return CheckAngleRange.status = Node.STATUS.FAILURE;
+    }
 
     public override Node.STATUS attackProjectile()
     {
-        if (!aggrod)
-        {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount++;
-            aggrod = true;
-        }
-
         body[1].LookAt(player);
         return base.attackProjectile();
     }

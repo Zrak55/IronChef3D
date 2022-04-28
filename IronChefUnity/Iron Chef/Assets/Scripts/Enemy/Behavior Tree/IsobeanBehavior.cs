@@ -41,26 +41,17 @@ public class IsobeanBehavior : EnemyBehaviorTree
 
     public override Node.STATUS moveTowards()
     {
-        //Before anything else, check if stunned
-        if (enemyStunHandler.IsStunned())
-        {
-            agent.destination = transform.position;
-            //Maybe there will be another animation state for stunning later
-            animator.SetBool("isMoving", false);
-            animator.Play("Base Layer.Idle", 0, 0);
-            return MoveTowards.status = Node.STATUS.RUNNING;
-        }
-
         //Check if nearby enemies are aggrod
         foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
             if (enemyBehaviorTree.isAggrod())
                 becomeAggro();
+            if (enemyBehaviorTree.isSpawnRange())
+                simpleFlag = false;
         }
-
-        //Music and sound effects
-        if (aggrod && Vector3.Distance(player.transform.position, transform.position) >= spawnRange && !enemyHitpoints.damaged)
+        if (simpleFlag == true)
             becomeDeAggro();
+        simpleFlag = true;
 
         //Movement
         Vector3 distance = transform.position - currentWaypoint;
@@ -75,15 +66,10 @@ public class IsobeanBehavior : EnemyBehaviorTree
         return MoveTowards.status = Node.STATUS.SUCCESS;
     }
 
-    public override Node.STATUS attackProjectile()
+    public override Node.STATUS checkAngleRange()
     {
-        //Music
-        if (!aggrod)
-        {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount++;
-            aggrod = true;
-        }
-        return base.attackProjectile();
+        if (aggrod)
+            return base.checkAngleRange();
+        return CheckAngleRange.status = Node.STATUS.FAILURE;
     }
 }
