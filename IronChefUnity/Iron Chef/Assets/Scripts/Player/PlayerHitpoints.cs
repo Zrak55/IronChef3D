@@ -119,12 +119,16 @@ public class PlayerHitpoints : MonoBehaviour
 
     public void RestoreHP(float amount)
     {
-        if(!internalParticleCooldown)
+        if(GetPercent() != 1)
         {
-            Destroy(Instantiate(HealEffect, transform.position, transform.rotation), 5f);
-            internalParticleCooldown = true;
-            Invoke("ResetParticleCooldown", 0.5f);
+            if (!internalParticleCooldown)
+            {
+                Destroy(Instantiate(HealEffect, transform), 5f);
+                internalParticleCooldown = true;
+                Invoke("ResetParticleCooldown", 0.5f);
+            }
         }
+        
         playerStats.CurrentHP = Mathf.Clamp(playerStats.CurrentHP + amount, 0, playerStats.MaximumHP);
     }
 
