@@ -454,11 +454,11 @@ MonoBehaviour:
   GummyZombieAttack: {fileID: 8300000, guid: 10e577d23c5adc64f83932e04e81a976, type: 3}
   Parry: {fileID: 8300000, guid: 0709a96290828144daa388b76c5f1d52, type: 3}
   HammerBuild: {fileID: 8300000, guid: 6e6f87f96419a664996a912acd590a12, type: 3}
-  CarbUp: {fileID: 0}
-  PlayerDeath: {fileID: 0}
+  CarbUp: {fileID: 8300000, guid: 9582cd47851bab643915dcabd5a7d9fe, type: 3}
+  PlayerDeath: {fileID: 8300000, guid: 176d55db0ca8cf1489feed730fe5af97, type: 3}
   MortaterEffects:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 49465cda1ff8b3244b029d79e9d856fb, type: 3}
+  - {fileID: 8300000, guid: dc26e4b82b468b0489de986b53fabc76, type: 3}
   M1BrownieEffects:
   - {fileID: 8300000, guid: 80d78ae9d68c6fd4ea65604d316d6d33, type: 3}
   - {fileID: 8300000, guid: a6ac8e7a80a870441807572e11a3d228, type: 3}
@@ -471,7 +471,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d73c7e5f32748f343b96789aef927075, type: 3}
   - {fileID: 8300000, guid: 7ecd2607e03d7224397c7ee6490c3ffd, type: 3}
   - {fileID: 8300000, guid: 8707268928f66f64f95c94e6b101eff5, type: 3}
-  MeatleEffects: []
+  MeatleEffects:
+  - {fileID: 0}
+  - {fileID: 8300000, guid: 80c7d8b26a430024a878fc6c07442d1f, type: 3}
+  - {fileID: 8300000, guid: 42556012c8dc5e74e9edb40ad9c45963, type: 3}
+  - {fileID: 8300000, guid: 8f553c43a4221934fbad2d09285aa896, type: 3}
   FudgeEffects:
   - {fileID: 8300000, guid: dfbdecb03728db145ac39e5c04c6ae97, type: 3}
   - {fileID: 8300000, guid: 9bea5e24c1b3ffd4fa61eda5f7712066, type: 3}
