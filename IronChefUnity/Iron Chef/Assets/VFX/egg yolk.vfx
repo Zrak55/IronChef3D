@@ -36,10 +36,10 @@ MonoBehaviour:
   - title: drip
     position:
       serializedVersion: 2
-      x: 1646
-      y: -259
-      width: 486
-      height: 1668
+      x: 1647
+      y: -261
+      width: 485
+      height: 2128
     contents:
     - model: {fileID: 8926484042661614648}
       id: 0
@@ -58,9 +58,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: 916
-    y: -260
+    y: -261
     width: 1750
-    height: 2639
+    height: 2620
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614793}
-  m_UIPosition: {x: 1674, y: 607}
+  m_UIPosition: {x: 1679, y: 720}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -3696,7 +3696,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":-1.0,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":-4.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: AxisY
@@ -4724,7 +4724,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.00536346435546875,"value":0.31573486328125,"inTangent":1.026649832725525,"outTangent":1.026649832725525,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.99639892578125,"value":1.00140380859375,"inTangent":0.7928258776664734,"outTangent":0.7928258776664734,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":-0.0006256103515625,"value":0.50677490234375,"inTangent":0.44045114517211916,"outTangent":0.44045114517211916,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.99639892578125,"value":1.00140380859375,"inTangent":0.6727912425994873,"outTangent":0.6727912425994873,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Scale_y
