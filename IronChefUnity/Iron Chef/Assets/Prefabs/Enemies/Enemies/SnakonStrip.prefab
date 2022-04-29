@@ -713,6 +713,7 @@ MonoBehaviour:
   attackRange: 6
   attackCD: 1
   attackAngle: 10
+  sphereCastRadius: 20
   idleSoundEffect: 16000000
   attackSoundEffect: 1500000015000000
   invincible: 0
