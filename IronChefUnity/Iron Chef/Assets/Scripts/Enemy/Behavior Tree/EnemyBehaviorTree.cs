@@ -19,8 +19,8 @@ public class EnemyBehaviorTree : MonoBehaviour
     [SerializeField] protected float attackCD;
     [Tooltip("Float for the maximum angle the enemy can attack at.")]
     [SerializeField] protected float attackAngle;
-    [Tooltip("Float for how far away each nearby enemy is.")]
-    [SerializeField] protected float sphereCastRadius = 20f;
+    [Tooltip("List of all enemies that are nearby for encounter aggro purposes.")]
+    [SerializeField] protected List<EnemyBehaviorTree> enemyBehaviorTrees = new List<EnemyBehaviorTree>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when idle.")]
     [SerializeField] protected List<SoundEffectSpawner.SoundEffect> idleSoundEffect = new List<SoundEffectSpawner.SoundEffect>();
     [Tooltip("Enum representing the SoundEffect the enemy makes when attacking (also include an animation event and script on actual model).")]
@@ -36,7 +36,6 @@ public class EnemyBehaviorTree : MonoBehaviour
     protected AudioSource idleSound;
     protected SoundEffectSpawner soundEffectSpawner;
     protected NavMeshAgent agent;
-    protected List<EnemyBehaviorTree> enemyBehaviorTrees = new List<EnemyBehaviorTree>();
     protected EnemyHitpoints enemyHitpoints;
     protected EnemyProjectile enemyProjectile;
     protected EnemyStunHandler enemyStunHandler;
@@ -61,12 +60,11 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     protected void setupEncounter()
     {
-        RaycastHit[] hit = Physics.SphereCastAll(transform.position, sphereCastRadius, transform.forward, LayerMask.GetMask("Enemy"));
-        foreach (RaycastHit raycastHit in hit)
+        enemyBehaviorTrees.Add(this);
+        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
-            EnemyBehaviorTree temp = raycastHit.transform.gameObject.GetComponent<EnemyBehaviorTree>();
-            if (temp != null)
-                enemyBehaviorTrees.Add(temp);
+            if(enemyBehaviorTree != this)
+                enemyBehaviorTree.addEnemy(this);
         }
     }
 
@@ -295,6 +293,11 @@ public class EnemyBehaviorTree : MonoBehaviour
         return Node.STATUS.FAILURE;
     }
 
+    public void addEnemy(EnemyBehaviorTree enemyBehaviorTree)
+    {
+        enemyBehaviorTrees.Add(enemyBehaviorTree);
+    }
+
     public void playSound(int value)
     {
         soundEffectSpawner.MakeSoundEffect(transform.position, attackSoundEffect[value]);
@@ -313,33 +316,6 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public bool isSpawnRange()
     {
-        bool inSpawnRange = Vector3.Distance(player.transform.position, currentWaypoint) < spawnRange;
-        List<EnemyBehaviorTree> passedOver = new List<EnemyBehaviorTree>();
-        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
-        {
-            if (!passedOver.Contains(enemyBehaviorTree))
-            {
-                passedOver.Add(enemyBehaviorTree);
-                if (!inSpawnRange)
-                    inSpawnRange = enemyBehaviorTree.isSpawnRange(passedOver);
-            }
-        }
-        return inSpawnRange;
-    }
-
-    public bool isSpawnRange(List<EnemyBehaviorTree> passedOver)
-    {
-        bool inSpawnRange = Vector3.Distance(player.transform.position, currentWaypoint) < spawnRange;
-        List<EnemyBehaviorTree> newPassedOver = passedOver;
-        foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
-        {
-            if (!newPassedOver.Contains(enemyBehaviorTree))
-            {
-                newPassedOver.Add(enemyBehaviorTree);
-                if (!inSpawnRange)
-                    inSpawnRange = enemyBehaviorTree.isSpawnRange(newPassedOver);
-            }
-        }
-        return inSpawnRange;
+        return Vector3.Distance(player.transform.position, currentWaypoint) < spawnRange;
     }
 }

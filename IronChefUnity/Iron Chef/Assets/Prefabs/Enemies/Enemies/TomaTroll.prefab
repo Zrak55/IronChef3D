@@ -20165,11 +20165,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 30
+  aggroRange: 40
   spawnRange: 70
   attackRange: 10
   attackCD: 3
   attackAngle: 30
+  enemyBehaviorTrees: []
   idleSoundEffect: 0c000000
   attackSoundEffect: 0c0000003e000000
   invincible: 0

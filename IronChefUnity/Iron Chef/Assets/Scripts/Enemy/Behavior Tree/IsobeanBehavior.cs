@@ -42,6 +42,8 @@ public class IsobeanBehavior : EnemyBehaviorTree
     public override Node.STATUS moveTowards()
     {
         //Check if nearby enemies are aggrod
+        if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
+            becomeAggro();
         foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
             if (enemyBehaviorTree.isAggrod())

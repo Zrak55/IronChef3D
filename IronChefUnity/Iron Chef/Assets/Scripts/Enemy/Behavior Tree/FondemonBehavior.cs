@@ -10,6 +10,7 @@ public class FondemonBehavior : EnemyBehaviorTree
 
     private void Start()
     {
+        setupWaypoints();
         setupEncounter();
 
         enemyProjectile = GetComponent<EnemyProjectile>();
@@ -42,6 +43,8 @@ public class FondemonBehavior : EnemyBehaviorTree
     public override Node.STATUS moveReset()
     {
         //Check if nearby enemies are aggrod
+        if (Vector3.Distance(player.transform.position, transform.position) < aggroRange)
+            becomeAggro();
         foreach (EnemyBehaviorTree enemyBehaviorTree in enemyBehaviorTrees)
         {
             if (enemyBehaviorTree.isAggrod())
