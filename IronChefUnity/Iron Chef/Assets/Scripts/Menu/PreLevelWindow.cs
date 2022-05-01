@@ -51,7 +51,7 @@ public class PreLevelWindow : MonoBehaviour
                     go.GetComponentInChildren<Text>().text = "Dinner";
                 }
             }
-            if (go.gameObject.name == "Desert")
+            if (go.gameObject.name == "Dessert")
             {
                 if (!UnlocksManager.HasLevel(chapterNum + "-3"))
                 {
@@ -59,7 +59,7 @@ public class PreLevelWindow : MonoBehaviour
                 }
                 else
                 {
-                    go.GetComponentInChildren<Text>().text = "Desert";
+                    go.GetComponentInChildren<Text>().text = "Dessert";
                 }
             }
         }
