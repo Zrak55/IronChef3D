@@ -389,6 +389,7 @@ MonoBehaviour:
   hpSlider: {fileID: 7120057665725351661}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 0
 --- !u!1 &3358648890654362482
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,6 +946,7 @@ MonoBehaviour:
   attackRange: 0
   attackCD: 0
   attackAngle: 0
+  enemyBehaviorTrees: []
   idleSoundEffect: 07000000
   attackSoundEffect: 07000000
   invincible: 0

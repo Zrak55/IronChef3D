@@ -113,8 +113,12 @@ MonoBehaviour:
   maxAllowedDistance: 75
   damage: 10
   multiHit: 1
-  HitSound: 37
-  FlightSound: 36
+  HitSound: 38
+  FlightSound: 37
+  isFryingPan: 0
+  bounces: 0
+  numBounces: 0
+  bounceRange: 0
 --- !u!95 &8174659304051913914
 Animator:
   serializedVersion: 3

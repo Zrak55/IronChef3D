@@ -58,9 +58,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 2692124141227828161}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 0
+  sound: 24
   damage: 10
   vfxHitNumber: -1
   swingingSound: 0
@@ -731,6 +732,7 @@ MonoBehaviour:
   hpSlider: {fileID: 9010058996005919706}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &1842850602027871956
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,12 +872,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 5794194897465758749}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 47
+  sound: 48
   damage: 10
   vfxHitNumber: -1
-  swingingSound: 46
+  swingingSound: 47
 --- !u!1 &2830593956655798752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,12 +1180,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 5327614175759905140}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
-  sound: 40
+  sound: 41
   damage: 10
   vfxHitNumber: -1
-  swingingSound: 0
+  swingingSound: 100
 --- !u!1 &3167350663545735608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1672,6 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackbox: {fileID: 3229794664707598883}
+  bonusAttackBoxes: []
   CanHit: 0
   playersHit: []
   sound: 0
@@ -3265,6 +3270,7 @@ MonoBehaviour:
   attackRange: 0
   attackCD: 0
   attackAngle: 90
+  enemyBehaviorTrees: []
   idleSoundEffect: 
   attackSoundEffect: 
   invincible: 0
@@ -3459,7 +3465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 616ed511f59f0e14a88ba9b21a540708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundName: 39
+  soundName: 40
   CamShakeAmount: 1.1
 --- !u!114 &3008334230473955229
 MonoBehaviour:
@@ -3519,6 +3525,7 @@ MonoBehaviour:
     - particle: {fileID: 3847973032914323541}
     trails: []
     specialTrails: []
+    outlines: []
   DynamicSpawnEffects:
   - {fileID: 4142975730387130031, guid: 1972dfdea6d13e948991c84b810d06c3, type: 3}
   OneTimeEffects: []
