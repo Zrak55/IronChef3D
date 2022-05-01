@@ -620,8 +620,9 @@ MonoBehaviour:
   attackRange: 0
   attackCD: 0
   attackAngle: 0
-  idleSoundEffect: 00000000
-  attackSoundEffect: 00000000
+  enemyBehaviorTrees: []
+  idleSoundEffect: 64000000
+  attackSoundEffect: 64000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0
