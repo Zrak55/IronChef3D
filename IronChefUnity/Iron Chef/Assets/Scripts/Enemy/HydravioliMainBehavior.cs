@@ -27,6 +27,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
         currentHeads = new List<GameObject>();
 
         setupWaypoints();
+        setupEncounter();
 
         agent = GetComponent<NavMeshAgent>();
         enemyHitpoints = GetComponent<EnemyHitpoints>();
@@ -95,9 +96,7 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
             didOriginatingThings = true;
         }
-        aggrod = true;
-        ImAggrod.status = Node.STATUS.SUCCESS;
-        return ImAggrod.status;
+        return becomeAggro();
     }
 
     public void OnHeadKilled()

@@ -309,15 +309,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointsTransforms: []
-  aggroRange: 115
-  spawnRange: 1000
-  attackRange: 1000
+  aggroRange: 50
+  spawnRange: 50
+  attackRange: 50
   attackCD: 0
   attackAngle: 360
+  enemyBehaviorTrees: []
   idleSoundEffect: 
   attackSoundEffect: 
   invincible: 0
   simpleFlag: 1
+  hideDamage: 0
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}
@@ -343,7 +345,14 @@ MonoBehaviour:
   BossWalls:
   - {fileID: 0}
   - {fileID: 0}
-  spawningBubbles: []
+  spawningBubbles:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!114 &2659772766382657544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -779,6 +788,7 @@ MonoBehaviour:
   hpSlider: {fileID: 2196582118255025243}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &7993786100646476417
 GameObject:
   m_ObjectHideFlags: 0

@@ -136,6 +136,7 @@ MonoBehaviour:
   hpSlider: {fileID: 7411456641464770114}
   dmgNumber: {fileID: 5630883759866968076, guid: e15532abefe5a4a478cc1c16e8e7731b, type: 3}
   animTime: 1
+  DeactivateOnStart: 1
 --- !u!1 &3291866397616461681
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,12 +574,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e272daa8c8e35694a89b03651a8b5568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointsTransforms: []
-  aggroRange: 0
-  spawnRange: 0
+  waypointsTransforms:
+  - {fileID: 0}
+  - {fileID: 0}
+  aggroRange: 50
+  spawnRange: 50
   attackRange: 50
   attackCD: 2
   attackAngle: 360
+  enemyBehaviorTrees: []
   idleSoundEffect: 30000000
   attackSoundEffect: 31000000
   invincible: 0
@@ -840,6 +844,7 @@ MonoBehaviour:
   ShouldShowWarning: 0
   PlayerWarningPrefab: {fileID: 0}
   sound: 0
+  projectileTravelSound: 0
 --- !u!114 &7606207797420932278
 MonoBehaviour:
   m_ObjectHideFlags: 0

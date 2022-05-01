@@ -54,13 +54,11 @@ public class HydravioliHeadBehavior : EnemyBehaviorTree
 
         currentCooldownDelay = SpawnInTime + Random.Range(0, 4f);
 
-
         GetComponent<EnemyHitpoints>().DeathEvents += OnDeath;
     }
 
     private void Update()
     {
-        
         hydravioliBehaviorTree.behavior();
     }
 
