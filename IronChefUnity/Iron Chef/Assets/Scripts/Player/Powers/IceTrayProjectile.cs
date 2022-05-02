@@ -8,6 +8,13 @@ public class IceTrayProjectile : MonoBehaviour
     public float damage;
     public GameObject onHitEffect;
 
+    static bool internalSoundCD = false;
+
+    private void FixedUpdate()
+    {
+        internalSoundCD = false;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (checkCollider(collision.collider))
@@ -27,6 +34,11 @@ public class IceTrayProjectile : MonoBehaviour
     private void DoCollideThings(EnemyHitpoints enemy)
     {
         enemy?.TakeDamage(damage, false);
+        if(!internalSoundCD)
+        {
+            internalSoundCD = true;
+            SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.FridgeSlow);
+        }
         Destroy(Instantiate(onHitEffect, transform.position, Quaternion.identity), 3f);
         Destroy(gameObject);
     }
@@ -36,4 +48,5 @@ public class IceTrayProjectile : MonoBehaviour
         return (other.GetComponentInParent<EnemyHitpoints>() != null || other.gameObject.layer == LayerMask.NameToLayer("Terrain"));
 
     }
+
 }

@@ -382,9 +382,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: cc1e5f6a593104b4dacc23fbdf86f763, type: 3}
   PortableLunch: {fileID: 8300000, guid: b83e92e6090377e40ac60de12180d348, type: 3}
   Glockamole:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: e0111414a8b0b7341a1fe725bd5176ae, type: 3}
   BreadTrap: {fileID: 8300000, guid: a6f710aaeebff6a45881991cf14043d2, type: 3}
   Hammer: {fileID: 8300000, guid: d94f0a5a09156dd429551e52f6ca72cd, type: 3}
   CatapastaFly: {fileID: 8300000, guid: 42cc58f027771674c8087398c7adceda, type: 3}

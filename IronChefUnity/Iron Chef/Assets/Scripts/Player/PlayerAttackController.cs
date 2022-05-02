@@ -321,6 +321,14 @@ public class PlayerAttackController : MonoBehaviour
                 savedRanedLineForward = Camera.main.transform.forward;
                 StartCoroutine(saveLineAiming());
             }
+            else
+            {
+                if(mover.IsRolling() && allowedToFryingPan)
+                {
+                    ToggleAiming(false);
+                    allowedToFryingPan = false;
+                }
+            }
             
         }
     }
