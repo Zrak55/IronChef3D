@@ -69,11 +69,11 @@ public class CharacterMover : MonoBehaviour
 
     public GameObject cameraAimingHolder;
 
-    
+    public static bool inWater;
 
     private void Awake()
     {
-
+        inWater = false;
 
         controller = GetComponent<CharacterController>();
         stats = GetComponent<PlayerStats>();
@@ -462,12 +462,16 @@ public class CharacterMover : MonoBehaviour
 
             if (SwampWalkEffect.isPlaying == false)
                 SwampWalkEffect.Play();
+
+            inWater = true;
         }
         else
         {
             //SwampWalkEffect.transform.position = transform.position + Vector3.up * 2;
             if (SwampWalkEffect.isPlaying == true)
                 SwampWalkEffect.Stop();
+
+            inWater = false;
         }
     }
 }
