@@ -127,8 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  sound: 58
+  sound: 59
   destroyOnFloor: 1
+  time: 0
   OnHitEffect: {fileID: 8197674773008887713, guid: a62d9b86ff97e5f4eb08517b2c7de144, type: 3}
 --- !u!95 &2024782544660551655
 Animator:

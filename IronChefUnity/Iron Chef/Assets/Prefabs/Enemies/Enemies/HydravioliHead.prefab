@@ -112,7 +112,8 @@ MonoBehaviour:
   time: 3
   ShouldShowWarning: 1
   PlayerWarningPrefab: {fileID: 6882707936818889616, guid: c38edcc31c8377b4ea5aef82e2d20951, type: 3}
-  sound: 57
+  sound: 58
+  projectileTravelSound: 100
 --- !u!114 &5506100305920112086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1006,7 @@ MonoBehaviour:
   attackRange: 1000
   attackCD: 0
   attackAngle: 360
+  enemyBehaviorTrees: []
   idleSoundEffect: 37000000
   attackSoundEffect: 3b000000
   invincible: 0

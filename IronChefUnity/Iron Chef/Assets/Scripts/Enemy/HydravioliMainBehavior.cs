@@ -39,8 +39,8 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
         //Setup leaf nodes
         CheckEnemyHurt = new Leaf("Enemy Hurt?", checkEnemyHurt);
-        CheckSpawnRange = new Leaf("Player in Spawn Range?", checkSpawnRange);
-        CheckAggroRange = new Leaf("Player in Aggro Range?", checkAggroRange);
+        CheckSpawnRange = new Leaf("Player in Spawn Range?", ALEX_OVERRIDE_SPAWN_RANGE);
+        CheckAggroRange = new Leaf("Player in Aggro Range?", ALEX_OVERRIDE_AGGRO);
         ImAggrod = new Leaf("Become Aggrod", aggro);
 
 
@@ -62,6 +62,31 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
     {
 
         return Node.STATUS.SUCCESS;
+    }
+
+    public Node.STATUS ALEX_OVERRIDE_AGGRO()
+    {
+        CheckAggroRange.status = Node.STATUS.FAILURE;
+        if(aggrod || Vector3.Distance(transform.position, player.transform.position) < aggroRange)
+        {
+            becomeAggro();
+            aggrod = true;
+            CheckAggroRange.status = Node.STATUS.SUCCESS;
+        }
+        return CheckAggroRange.status;
+    }
+    public Node.STATUS ALEX_OVERRIDE_SPAWN_RANGE()
+    {
+        CheckSpawnRange.status = Node.STATUS.FAILURE;
+        if (aggrod || Vector3.Distance(transform.position, player.transform.position) < spawnRange)
+        {
+            CheckSpawnRange.status = Node.STATUS.SUCCESS;
+        }
+        else
+        {
+            becomeDeAggro();
+        }
+        return CheckSpawnRange.status;
     }
 
     Node.STATUS aggro()
@@ -92,7 +117,6 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
             SoundEffectSpawner.soundEffectSpawner.MakeSoundEffect(spawnLocations[currentHeadPlace].position, SoundEffectSpawner.SoundEffect.HydraSpawnEffects);
 
 
-            PlayerHitpoints.CombatCount++;
 
             didOriginatingThings = true;
         }
