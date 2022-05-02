@@ -45,13 +45,6 @@ public class SprinkleSpritesBehavior : EnemyBehaviorTree
 
     public override Node.STATUS moveTowards()
     {
-        if (!aggrod)
-        {
-            enemyCanvas.SwapState();
-            PlayerHitpoints.CombatCount++;
-            aggrod = true;
-        }
-
         //Movement calculations
         agent.destination = player.position;
         if (!simpleFlag && (player.position - transform.position).magnitude < 5)

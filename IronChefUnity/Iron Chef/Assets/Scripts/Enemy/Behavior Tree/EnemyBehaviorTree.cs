@@ -240,7 +240,7 @@ public class EnemyBehaviorTree : MonoBehaviour
 
     public virtual Node.STATUS checkBehind()
     {
-        //Ensure we aren't already attacking/jumping7
+        //Ensure we aren't already attacking/jumping
         if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
             return CheckBehind.status = Node.STATUS.FAILURE;
 
