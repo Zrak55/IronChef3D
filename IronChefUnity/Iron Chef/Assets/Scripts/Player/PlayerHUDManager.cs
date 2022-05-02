@@ -144,6 +144,11 @@ public class PlayerHUDManager : MonoBehaviour
     [Header("Other Images")]
     [SerializeField] private Image sprintIcon;
 
+    [Space]
+    [Space]
+
+    [SerializeField] private GameObject HudHolder;
+
     private void Awake()
     {
         stats = FindObjectOfType<PlayerStats>();
@@ -188,6 +193,16 @@ public class PlayerHUDManager : MonoBehaviour
             }
 
         }
+    }
+
+    public void TurnOffHUD()
+    {
+        HudHolder.SetActive(false);
+
+    }
+    public void TurnOnHUD()
+    {
+        HudHolder.SetActive(true);
     }
 
     private void UpdateControlTexts()
