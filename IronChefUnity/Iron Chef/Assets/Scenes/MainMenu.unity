@@ -3091,10 +3091,6 @@ PrefabInstance:
       value: AudioManager
       objectReference: {fileID: 0}
     - target: {fileID: 5481649660214377181, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
-      propertyPath: HydraSpit
-      value: 
-      objectReference: {fileID: 8300000, guid: de14252ca07a22d4e981e1ed8a1fe3e8, type: 3}
-    - target: {fileID: 5481649660214377181, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
       propertyPath: SugarRush
       value: 
       objectReference: {fileID: 8300000, guid: fc3e56bd6dc3cfd4da61197609217dc0, type: 3}
@@ -3106,14 +3102,6 @@ PrefabInstance:
       propertyPath: TrexTailSwipeHit
       value: 
       objectReference: {fileID: 8300000, guid: 0d1dfdbe4bae6a7499351af06097e509, type: 3}
-    - target: {fileID: 5481649660214377181, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
-      propertyPath: HydraSpitLand.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5481649660214377181, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
-      propertyPath: HydraSpitLand.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: ca007564df37ff448a3a0d44ca0c5732, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72075886d84637b46ae099f880c14fe2, type: 3}
 --- !u!1 &818332166

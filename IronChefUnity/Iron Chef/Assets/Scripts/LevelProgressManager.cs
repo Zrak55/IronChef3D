@@ -279,7 +279,7 @@ public class LevelProgressManager : MonoBehaviour
 
         Debug.Log("Score: " + score + "/100");
 
-        if(!level.IsTutorial)
+        if (!level.IsTutorial)
         {
             var hud = FindObjectOfType<PlayerHUDManager>();
             if (score >= 50)
@@ -303,9 +303,22 @@ public class LevelProgressManager : MonoBehaviour
                 SoundEffectSpawner.soundEffectSpawner.Make2DSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom);
             }
         }
-        
-        
-        continueOn();
+        else
+        {
+
+
+            if (score >= 90)
+            {
+                SoundEffectSpawner.soundEffectSpawner.Make2DSoundEffect(FindObjectOfType<PlayerAttackController>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom100);
+            }
+            else
+            {
+                SoundEffectSpawner.soundEffectSpawner.Make2DSoundEffect(FindObjectOfType<CharacterMover>().transform.position, SoundEffectSpawner.SoundEffect.LevelCom);
+            }
+        }
+
+
+            continueOn();
         
     
     }

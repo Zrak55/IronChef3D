@@ -20172,7 +20172,7 @@ MonoBehaviour:
   attackAngle: 30
   enemyBehaviorTrees: []
   idleSoundEffect: 0c000000
-  attackSoundEffect: 0c0000003e000000
+  attackSoundEffect: 3f0000003f000000
   invincible: 0
   simpleFlag: 1
   hideDamage: 0
