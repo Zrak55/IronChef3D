@@ -124,7 +124,7 @@ public class MenuController : MonoBehaviour
 
     public void DEBUG_ClearAllUnlocks()
     {
-        PlayerPrefs.DeleteAll();
+        FBPP.DeleteAll();
 
         UnlocksManager.UnlockChapter("Tutorial");
         UnlocksManager.UnlockChapter("Chapter1");

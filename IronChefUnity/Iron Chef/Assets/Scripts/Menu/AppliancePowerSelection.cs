@@ -56,8 +56,8 @@ public class AppliancePowerSelection : MonoBehaviour
             //firstPowerButton.SelectPower();
             //firstApplianceButton.SelectAppliance();
 
-            string power = PlayerPrefs.GetString(PowerPref, "");
-            string appliance = PlayerPrefs.GetString(AppliancePref, "");
+            string power = FBPP.GetString(PowerPref, "");
+            string appliance = FBPP.GetString(AppliancePref, "");
 
             if (power == "")
                 power = "Molapeno";
@@ -108,7 +108,7 @@ public class AppliancePowerSelection : MonoBehaviour
         PlayerPower power = null;
 
         if(setPref)
-            PlayerPrefs.SetString(PowerPref, powerScriptable.powerName.ToString());
+            FBPP.SetString(PowerPref, powerScriptable.powerName.ToString());
 
         switch(powerScriptable.powerName)
         {
@@ -176,7 +176,7 @@ public class AppliancePowerSelection : MonoBehaviour
         Appliance appliance = null;
 
         if(setPref)
-            PlayerPrefs.SetString(AppliancePref, applianceScriptable.applianceName.ToString());
+            FBPP.SetString(AppliancePref, applianceScriptable.applianceName.ToString());
 
         switch (applianceScriptable.applianceName)
         {

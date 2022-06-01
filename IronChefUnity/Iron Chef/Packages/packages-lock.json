@@ -7,6 +7,12 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.richtools.filebasedplayerprefs": {
+      "version": "file:C:/Users/amaxe/Downloads/FileBasedPlayerPrefs-master/FileBasedPlayerPrefs-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.cinemachine": {
       "version": "2.6.10",
       "depth": 0,
