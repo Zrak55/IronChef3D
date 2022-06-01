@@ -28,3 +28,7 @@ MonoBehaviour:
   completionApplianceUnlock: 1
   perfectionApplianceUnlock: 2
   IsTutorial: 0
+  CompletedAchievementName: Sunrise Dining
+  PerfectedAchievementName: Most Important Meal of the Day
+  ChapterFinishedAchievementName: The Start of a Long Journey
+  ChapterPerfectedAchievementName: Chapter 1 Champion

@@ -28,3 +28,7 @@ MonoBehaviour:
   completionApplianceUnlock: 6
   perfectionApplianceUnlock: 7
   IsTutorial: 0
+  CompletedAchievementName: Sweet Tooth
+  PerfectedAchievementName: Sugary Delight
+  ChapterFinishedAchievementName: The Start of a Long Journey
+  ChapterPerfectedAchievementName: Chapter 1 Champion

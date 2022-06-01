@@ -235,7 +235,7 @@ public class LevelProgressManager : MonoBehaviour
         Debug.Log("Level Over!");
         score = 0;
         int numIngredients = 0;
-        if(ingredientOneRequired > 0)
+        if (ingredientOneRequired > 0)
         {
             score += 1 - Mathf.Abs(1f - ((float)ingredientOneCurrent / ingredientOneRequired));
             numIngredients++;
@@ -261,23 +261,40 @@ public class LevelProgressManager : MonoBehaviour
             numIngredients++;
         }
 
-        if(badIngredientsMaximum > 0)
+        if (badIngredientsMaximum > 0)
         {
             //score = score * (1-(0.5f * (float)badIngredientsCurrent / badIngredientsMaximum));
 
         }
 
-        if(score > 0 && numIngredients > 0)
+        if (score > 0 && numIngredients > 0)
         {
             score /= numIngredients;
             score *= 100;
-            for(int i = 0; i < ChapterManager.deathsThisLevel; i++)
+            for (int i = 0; i < ChapterManager.deathsThisLevel; i++)
             {
                 score *= 0.9f;
             }
         }
 
         Debug.Log("Score: " + score + "/100");
+
+        string saveScore = level.name + "Score";
+        float bestScore = FBPP.GetFloat(saveScore, 0);
+        if (score > bestScore)
+        {
+            FBPP.SetFloat(saveScore, score);
+            FBPP.Save();
+        }
+
+
+        AchievementManager.UnlockAchievement(level.CompletedAchievementName);
+        if (score == 100f)
+        {
+            AchievementManager.UnlockAchievement(level.PerfectedAchievementName);
+        }
+
+
 
         if (!level.IsTutorial)
         {
@@ -305,7 +322,6 @@ public class LevelProgressManager : MonoBehaviour
         }
         else
         {
-
 
             if (score >= 90)
             {

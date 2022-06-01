@@ -28,3 +28,7 @@ MonoBehaviour:
   completionApplianceUnlock: 3
   perfectionApplianceUnlock: 4
   IsTutorial: 0
+  CompletedAchievementName: Midday Mayhem
+  PerfectedAchievementName: Sacked Lunch
+  ChapterFinishedAchievementName: The Start of a Long Journey
+  ChapterPerfectedAchievementName: Chapter 1 Champion

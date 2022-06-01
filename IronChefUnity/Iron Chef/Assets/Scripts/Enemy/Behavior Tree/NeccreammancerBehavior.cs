@@ -403,6 +403,8 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
+                FindObjectOfType<PlayerHitpoints>().StartBossCombat();
+
                 animator.SetBool("Aggrod", true);
 
                 PlayerHitpoints.CombatCount++;
@@ -483,6 +485,12 @@ public class NeccreammancerBehavior : EnemyBehaviorTree
         bossWallEnter.SetActive(true);
         //bossWallFog.SetActive(false);
         FindObjectOfType<PlayerHUDManager>().BossOver();
+
+        bool IDealtDamage = FindObjectOfType<PlayerHitpoints>().EndBossCombat();
+        if (!IDealtDamage)
+        {
+            AchievementManager.UnlockAchievement("Let it Spoil Dinner");
+        }
     }
 
 

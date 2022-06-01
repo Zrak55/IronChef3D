@@ -27,5 +27,10 @@ public class LevelScriptable : ScriptableObject
     public PlayerApplianceScriptable.ApplianceName perfectionApplianceUnlock;
     [Space]
     public bool IsTutorial = false;
+    [Space]
+    public string CompletedAchievementName;
+    public string PerfectedAchievementName;
+    public string ChapterFinishedAchievementName;
+    public string ChapterPerfectedAchievementName;
 
 }

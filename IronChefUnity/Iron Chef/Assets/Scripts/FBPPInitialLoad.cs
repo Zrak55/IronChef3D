@@ -5,13 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class FBPPInitialLoad : MonoBehaviour
 {
+    public bool allInitialized = false;
+    bool fbppInit = false;
+
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+        StartCoroutine(loadWait());
+    }
+
+    IEnumerator loadWait()
+    {
+
         // build your config
         var config = new FBPPConfig()
         {
-            SaveFileName = "my-save-file.txt",
+            SaveFileName = "KOTKT_Save.txt",
             AutoSaveData = false,
             ScrambleSaveData = true,
             EncryptionSecret = "GrilledGames"
@@ -19,7 +29,9 @@ public class FBPPInitialLoad : MonoBehaviour
         // pass it to FBPP
         FBPP.Start(config);
 
+        yield return new WaitUntil(() => allInitialized);
+
         SceneManager.LoadScene(1);
     }
-
 }
+

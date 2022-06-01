@@ -503,6 +503,8 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
+                FindObjectOfType<PlayerHitpoints>().StartBossCombat();
+
                 PlayerHitpoints.CombatCount++;
 
                 if (bossWallEnter.activeSelf == false)
@@ -576,7 +578,11 @@ public class MeatosaurusBehavior : EnemyBehaviorTree
     {
         bossWallEnter.SetActive(false);
         bossWallExit.SetActive(false);
-        FindObjectOfType<PlayerHUDManager>().BossOver();
+        bool IDealtDamage = FindObjectOfType<PlayerHitpoints>().EndBossCombat();
+        if (!IDealtDamage)
+        {
+            AchievementManager.UnlockAchievement("Burger Well-Done");
+        }
     }
 
 }

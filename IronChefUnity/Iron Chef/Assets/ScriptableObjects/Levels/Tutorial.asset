@@ -28,3 +28,7 @@ MonoBehaviour:
   completionApplianceUnlock: 0
   perfectionApplianceUnlock: 0
   IsTutorial: 1
+  CompletedAchievementName: Ready for Adventure!
+  PerfectedAchievementName: 
+  ChapterFinishedAchievementName: 
+  ChapterPerfectedAchievementName: 

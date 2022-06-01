@@ -76,6 +76,11 @@ public class EnemyHitpoints : MonoBehaviour
                     if(enemyBehaviorTree != null)
                         enemyBehaviorTree.spawnRange *= 2;
                 }
+
+                if(amount >= 300)
+                {
+                    AchievementManager.UnlockAchievement("Brutal Eggs and Ham");
+                }
             }
 
             if (dmgNumAmount >= 1)

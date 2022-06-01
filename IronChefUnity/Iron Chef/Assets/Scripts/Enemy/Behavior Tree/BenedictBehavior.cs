@@ -357,6 +357,8 @@ public class BenedictBehavior : EnemyBehaviorTree
                 PlayerAggroRange.status = Node.STATUS.SUCCESS;
                 aggrod = true;
 
+                FindObjectOfType<PlayerHitpoints>().StartBossCombat();
+
                 PlayerHitpoints.CombatCount++;
 
                 if (bossWall.activeSelf == false)
@@ -504,6 +506,11 @@ public class BenedictBehavior : EnemyBehaviorTree
         bossWall.SetActive(false);
         postBossPortal.SetActive(true);
         FindObjectOfType<PlayerHUDManager>().BossOver();
+        bool IDealtDamage = FindObjectOfType<PlayerHitpoints>().EndBossCombat();
+        if(!IDealtDamage)
+        {
+            AchievementManager.UnlockAchievement("Over Easy");
+        }
     }
 
     public void StopEscaping()

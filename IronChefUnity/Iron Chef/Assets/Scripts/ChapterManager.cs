@@ -120,10 +120,22 @@ public class ChapterManager : MonoBehaviour
 
         if(currentLevel >= levels.Length) 
         {
-            totalScore /= (levels.Length - LevelToStartAt);
+            totalScore /= (levels.Length - LevelToStartAt + 1);
             UnlocksManager.UnlockChapter("Chapter" + (ChapterNumber + 1).ToString());
             UnlocksManager.UnlockLevel((ChapterNumber+1).ToString() + "-0");
             ShowWinScreen(score);
+
+            AchievementManager.UnlockAchievement(levels[0].ChapterFinishedAchievementName);
+            float bestScore = 0;
+            foreach (var lvl in levels)
+            {
+                string saveScore = lvl.name + "Score";
+                bestScore += FBPP.GetFloat(saveScore, 0);
+            }
+            if(bestScore == 400)
+            {
+                AchievementManager.UnlockAchievement(levels[0].ChapterPerfectedAchievementName);
+            }
         }
         else
         {

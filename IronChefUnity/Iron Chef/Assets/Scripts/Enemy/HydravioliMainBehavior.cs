@@ -67,11 +67,16 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
     public Node.STATUS ALEX_OVERRIDE_AGGRO()
     {
         CheckAggroRange.status = Node.STATUS.FAILURE;
+        if (!aggrod)
+        {
+            FindObjectOfType<PlayerHitpoints>().StartBossCombat();
+        }
         if(aggrod || Vector3.Distance(transform.position, player.transform.position) < aggroRange)
         {
             becomeAggro();
             aggrod = true;
             CheckAggroRange.status = Node.STATUS.SUCCESS;
+
         }
         return CheckAggroRange.status;
     }
@@ -177,5 +182,11 @@ public class HydravioliMainBehavior : EnemyBehaviorTree
 
         foreach (var b in spawningBubbles)
             Destroy(b);
+
+        bool IDealtDamage = FindObjectOfType<PlayerHitpoints>().EndBossCombat();
+        if (!IDealtDamage)
+        {
+            AchievementManager.UnlockAchievement("Give Me the Formuoli");
+        }
     }
 }

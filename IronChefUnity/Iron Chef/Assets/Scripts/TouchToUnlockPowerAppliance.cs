@@ -30,6 +30,7 @@ public class TouchToUnlockPowerAppliance : MonoBehaviour
     {
         if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
+            AchievementManager.UnlockAchievement("Little Friend");
 
             FindObjectOfType<PlayerHUDManager>().UnlockNotification(thingName);
 

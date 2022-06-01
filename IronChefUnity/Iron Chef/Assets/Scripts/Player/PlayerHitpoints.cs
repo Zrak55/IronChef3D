@@ -21,6 +21,8 @@ public class PlayerHitpoints : MonoBehaviour
 
     public static int CombatCount = 0;
 
+    bool tookDamageDuringBoss = true;
+    bool fightingBoss = false;
 
     private void Awake()
     {
@@ -36,7 +38,7 @@ public class PlayerHitpoints : MonoBehaviour
     private void combatReset()
     {
         CombatCount = 0;
-        foreach(var e in FindObjectsOfType<EnemyBehaviorTree>())
+        foreach (var e in FindObjectsOfType<EnemyBehaviorTree>())
         {
             if (e.isAggrod())
                 CombatCount++;
@@ -47,6 +49,19 @@ public class PlayerHitpoints : MonoBehaviour
     {
         return CombatCount > 0;
     }
+
+    public void StartBossCombat()
+    {
+        tookDamageDuringBoss = false;
+        fightingBoss = true;
+    }
+
+    public bool EndBossCombat()
+    {
+        fightingBoss = false;
+        return tookDamageDuringBoss;
+    }    
+
 
     public void TakeDamage(float amount, SoundEffectSpawner.SoundEffect sound = SoundEffectSpawner.SoundEffect.Cleaver, bool IgnoresIframes = false)
     {
