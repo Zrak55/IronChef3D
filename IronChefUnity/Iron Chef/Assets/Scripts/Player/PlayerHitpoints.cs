@@ -83,6 +83,11 @@ public class PlayerHitpoints : MonoBehaviour
 
                 pcam.ShakeCam(Mathf.Max(amount, 30) / 12.5f, 0.5f);
 
+                if(fightingBoss)
+                {
+                    tookDamageDuringBoss = true;
+                }
+
                 if (!isGetHitSoundDelay)
                 {
                     sounds.MakeSoundEffect(transform.position, SoundEffectSpawner.SoundEffect.Grunt);
