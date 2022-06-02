@@ -135,7 +135,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: e57ba720f160bc04ba29a4d48b2985a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -234,7 +234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d4a6b91290211554eb7f107845eb69c3, type: 2}
+  - {fileID: -2505642851634945670, guid: 7c13cc63f20da31449c7cb733f97b086, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -287,6 +287,10 @@ MonoBehaviour:
   multiHit: 0
   HitSound: 13
   FlightSound: 17
+  isFryingPan: 0
+  bounces: 0
+  numBounces: 0
+  bounceRange: 0
 --- !u!1 &5141683041971075954
 GameObject:
   m_ObjectHideFlags: 0
